@@ -1,0 +1,24 @@
+@mixin text_bg_gradient($deg, $color1, $color2) {
+  background-image: linear-gradient(45deg, $color1, $color2);
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
+
+@mixin error_text_style {
+  em.error {
+    font-style: normal;
+    font-size: 1.6rem;
+    color: rgba(230, 34, 34, 0.808);
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,64 @@
+.needs-tab-container {
+  position: relative;
+  text-align: center;
+  padding: 1.6rem;
+  .top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-bottom: 2rem;
+    svg {
+      font-size: 1.6rem;
+      position: absolute;
+      left: 5px;
+    }
+    .separator {
+      height: 1px;
+      width: 80%;
+      background-color: #e7aa07;
+    }
+  }
+  p {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    color: #2d334a;
+    margin-bottom: 2rem;
+  }
+  button {
+    background: #e7aa07;
+    border-radius: 47px;
+    border: none;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 37px;
+    color: #ffffff;
+    width: 200px;
+    padding: 1.6rem 0;
+    svg {
+      display: inline-block;
+      margin-left: 1rem;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .needs-tab-container {
+    .top {
+      .separator {
+        width: 90%;
+      }
+      svg {
+        font-size: 2rem;
+      }
+    }
+    p {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

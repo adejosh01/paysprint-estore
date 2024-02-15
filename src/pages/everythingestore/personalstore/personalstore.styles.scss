@@ -1,0 +1,260 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+
+    section.getpersonalStore {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      background-image: url('../../../assets/images/estore/products/product1.png');
+      // height: 74vh; This is the reason why when the browser is in 75%, the div block won't follow suit
+      .describeProds {
+        text-align: center;
+        padding: 4rem 4rem;
+        height: 100%;
+        background-color: #2D334A;
+        opacity: 0.9;
+        .b4Everything { 
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          gap: 2rem;
+          .titleOnly {
+            h2 {
+                color: #fff;
+                font: 500 15px 'Plus Jakarta Sans';
+              } 
+          }
+          .headerStuffs {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            img {
+                border-radius: 8rem;
+                width: 15rem;
+                height: 15rem;
+            }
+           p {
+              font: 500 48px 'Plus jakarta Sans';
+              line-height: 60.48px;
+              color: #fff;
+            }
+            
+          }
+          .btnandtext {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            p {
+                font: 600 22px 'Plus jakarta Sans';
+                color: #fff;
+                line-height: 32px;
+            } button {
+                padding: 8px;
+                border-radius: 8px;
+                background: #E7AA07;
+                width: 24rem;
+                height: 5.5rem;
+                font: 600 16px 'Plus jakarta Sans';
+            }
+          }
+
+        }
+      }
+    }
+
+    section.ourproducts {
+        padding: 5rem 5.6rem;
+        .items {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          column-gap: 2rem;
+          row-gap: 2rem;
+          .eachItem {
+            .imgdescription {
+              margin: 4% auto;
+              .nameofitem {
+                font-weight: 500;
+                font-size: 23px;
+                line-height: 25.2px;
+              }
+              .priceofitem {
+                font-weight: 600;
+                font-size: 20px;
+              }
+              .initialprice {
+                font-weight: 500;
+                font-size: 14.5px;
+                color: #C6C6C6;
+              }
+              div {
+                display: flex;
+                margin: 1rem auto;
+                span {
+                  display: grid;
+                  grid-template-columns: repeat(5, 1fr);
+                  column-gap: 0.5rem;
+                }
+                p {
+                  margin-left: 1rem;
+                }
+              }
+            }
+          }
+        }
+        .producttitle {
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+  
+          .realtitle { 
+          font-family: 'Plus Jakarta Sans';
+          font-weight: 600;
+          font-size: 40px;
+          color: #2D334A;
+          }
+          .secondtitle {
+            color: #E7AA07;
+            font-size: 23px;
+            font-weight: 600;
+          }
+  
+        }
+    }
+
+    section.ourservice {
+        padding: 5rem 5.6rem;
+        .items {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          column-gap: 2rem;
+          row-gap: 2rem;
+          .eachItem {
+            .imgdescription {
+              margin: 4% auto;
+              .nameofitem {
+                font-weight: 500;
+                font-size: 23px;
+                line-height: 25.2px;
+              }
+            }
+          }
+        }
+        .producttitle {
+          margin-bottom: 10px;
+          display: flex;
+          justify-content: space-between;
+  
+          .realtitle { 
+          font-family: 'Plus Jakarta Sans';
+          font-weight: 600;
+          font-size: 40px;
+          color: #2D334A;
+          }
+          .secondtitle {
+            color: #E7AA07;
+            font-size: 23px;
+            font-weight: 600;
+          }
+  
+        }
+    }
+
+  
+}
+  
+// @media screen and (min-width: 1200px) {
+//     .estore-container {
+//     //   max-width: 1200px;
+//     }
+// }
+
+@media screen and (max-width: 1010px) { 
+  .estore-container {
+      section.getpersonalStore {
+        height: 71vh;
+        .describeProds {
+          padding: 3.5rem 3rem;
+        }
+      }
+  }  
+}
+
+
+@media screen and (max-width: 900px) {
+    .estore-container {
+      section.getpersonalStore {
+        height: 75vh;
+        .describeProds {
+          padding: 3.5rem 3rem;
+        }
+      }
+
+      section.ourproducts, section.ourservice {
+        margin-left: auto;
+        margin-right: auto;
+        
+        .items {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .estore-container {
+      section.ourproducts, section.ourservice {
+        margin-left: auto;
+        margin-right: auto;
+  
+        .items {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .estore-container {
+      section.getpersonalStore {
+        height: 85vh;
+        .describeProds {
+          padding: 3.5rem 3rem;
+        }
+      }
+      section.ourproducts, section.ourservice {
+        margin-left: auto;
+        margin-right: auto;
+  
+        .items {
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 1rem;
+        }
+      }
+
+
+    }
+}
+

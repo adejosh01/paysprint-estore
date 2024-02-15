@@ -1,0 +1,239 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+
+    section.oneproduct {
+        padding: 5rem 5.6rem;
+        display: flex;
+        .imagessection {
+            gap: 2rem;
+            display: flex;
+            flex-direction: column;
+            .otherimages {
+                display: grid;
+                gap: 1rem;  
+                grid-template-columns: repeat(4, 1fr);  
+                img{ 
+                    width: 13rem;
+                    height: 9rem;
+                    border-radius: 10px;
+                }
+            }
+        }
+        .describingtheimages {
+            flex: 0 0 50%;
+            padding: 0rem 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            h2 {
+                font: 600 40px 'Plus Jakarta Sans';
+                line-height: 50.4px;
+                color: #2d334a;
+            }
+            .longpiece {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                h4 {
+                    font: 600 20px 'Plus Jakarta Sans';
+                    line-height: 25.2px;
+                    color: #000000;
+                } p {
+                    color: #2d334a;
+                    font: 500 16px 'Plus Jakarta Sans';
+                    line-height: 22.4px;
+                }
+                .ratings {
+                    display: flex;
+                    gap: 1rem;
+                    span {
+                        display: flex;
+                        gap: 0.2rem;
+                        img {
+                            width: 2rem;
+                            height: 2rem;
+                        }
+                    }
+                }
+            }
+            .storedealer {
+                font: 600 20px 'Plus Jakarta Sans';
+                line-height: 25.2px;
+                color: #A0A2A7;
+            }
+            .amount {
+                font: 600 40px 'Plus Jakarta Sans';
+                line-height: 50.4px;
+                color: #2d334a;
+            }
+            .justbuttons {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                button {
+                    height: 60px;
+                    padding: 2rem;
+                    margin: 0rem 1rem;
+                    border-radius: 10px;
+                    p {
+                        font: 500 16px 'Plus Jakarta Sans';
+                        color: #2D334A;
+                    }
+                    &:first-child {
+                        background-color: #E7AA07;
+                    }
+                    &:last-child {
+                        background-color: #fff;
+                        border: 1px solid #E7AA07;
+                    }
+                }
+                button:hover {
+                    &:first-child {
+                        background-color: #fff;
+                        border: 1px solid #E7AA07;
+                    }
+                    &:last-child {
+                        background-color: #E7AA07;
+                    }
+                }
+            }
+        }
+    }
+
+    section.similarproducts {
+        padding: 5rem 5.6rem;
+        margin-bottom: 3rem;
+        .producttitle {
+            margin-bottom: 10px;
+            p {
+              text-align: center;
+              text-transform: uppercase;
+              font: 600 24px 'Plus Jakarta Sans';
+              line-height: 30.24px;
+              color: #5B5D64;
+            }
+          }
+        .items {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 2rem;
+          .eachItem {
+            .fortheimages {
+                width: 306px;
+                height: 240px;
+            }
+            .imgdescription {
+              margin: 4% auto;
+              .nameofitem {
+                font-weight: 500;
+                font-size: 23px;
+                line-height: 25.2px;
+              }
+              .priceofitem {
+                font-weight: 600;
+                font-size: 20px;
+              }
+              .initialprice {
+                font-weight: 500;
+                font-size: 14.5px;
+                color: #C6C6C6;
+              }
+              div {
+                display: flex;
+                margin: 1rem auto;
+                span {
+                  display: grid;
+                  grid-template-columns: repeat(5, 1fr);
+                  column-gap: 0.5rem;
+                }
+                p {
+                  margin-left: 1rem;
+                }
+              }
+            }
+          }
+        }
+        
+    }
+
+  
+}
+
+
+
+
+@media screen and (max-width: 1200px) {
+    .estore-container {
+        section.oneproduct { 
+            max-width: 1200px;
+            justify-content: center;
+        }
+
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .estore-container {
+        section.oneproduct { 
+            flex-direction: column;
+            gap: 3rem;
+            align-items: center;
+        }
+        section.similarproducts {
+            .items {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .estore-container {
+        section.similarproducts {
+            .items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .estore-container {
+        section.oneproduct { 
+            .imagessection {
+                .otherimages {
+                    img {
+                        width: 9rem;
+                        height: 7rem;
+                    }
+                }
+            }
+        }
+
+        section.similarproducts {
+            .items {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    }
+}
+

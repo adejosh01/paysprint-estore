@@ -1,0 +1,147 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+    span {
+        color: #A0A2A7;
+    }
+
+    section.navs {
+        padding: 1rem 5.6rem;
+        display: flex;
+        gap: 1rem;
+        p {
+            font: 500 20px 'Plus jakarta Sans';
+            line-height: 25.2px;
+            color: #A0A2A7;
+        } .secondp {
+            color: #2D334A;
+        }
+    }
+
+    section.checkoutsec {
+        padding: 3rem 5.6rem;
+        display: flex;
+        gap: 2rem;
+        .shouldbeeditable {
+            flex: 0 0 60%;
+            h3 {
+                font: 500 32px 'Plus jakarta Sans';
+                line-height: 40.32px;
+                color: #2D334A;
+                margin-bottom: 1.5rem;
+            }
+            .thedetails {
+                display: flex;
+                gap: 1.5rem;
+                flex-direction: column;
+                padding: 2.5rem 1.5rem;
+                border: 2px solid #EAEAEA;
+                border-radius: 1.2rem;
+                margin-bottom: 1rem;
+                h4 {
+                    text-transform: uppercase;
+                    font-size: 14px;
+                    color: #A0A2A7;
+                }
+                .descrip {
+                    p {
+                        font: 500 16px 'Plus jakarta Sans';
+                        line-height: 20.16px;
+                        color: #5B5D64;
+                        margin-bottom: 1rem;
+                    }
+                    input, select {
+                        width: 100%;
+                        border-radius: 1rem;
+                        height: 5rem;
+                        background: #f5f5f5;
+                        padding: 0 1.5rem;
+                        font: 500 16px 'Plus jakarta Sans';
+                        color: #2D334A;
+                    }
+                }
+            }
+        }
+        .sideconts {
+            background-color: #f5f5f5;
+            height: 100%;
+            width: 100%;
+            gap: 2rem;
+            padding: 2.5rem;
+            border-radius: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            > p:first-child {
+                color: #A0A2A7;
+                font: 600 15px 'Plus Jakarta Sans';
+                line-height: 18px;
+                text-transform: uppercase;
+            }
+            .grped {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                > div { 
+                    display: flex; 
+                    justify-content: space-between;
+                    > p:first-child {
+                        font: 500 20px 'Plus Jakarta Sans';
+                        line-height: 25.2px;
+                        color: #A0A2A7;
+                    }
+                    > p:last-child {
+                        font: 600 20px 'Plus Jakarta Sans';
+                        line-height: 25.2px;
+                        color: #2D334A;
+                    }
+                }
+            }
+            button {
+                background-color: #E7AA07;
+                border-radius: 1rem;
+                padding: 2rem;
+                margin-bottom: 2rem;
+                p {
+                    font: 500 20px 'Lato';
+                    color: #2D334A;
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 900px) {
+    .estore-container {
+        section.checkoutsec {
+            flex-direction: column;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .estore-container {
+        section.checkoutsec {
+            flex-direction: column;
+        }
+    }
+}
+

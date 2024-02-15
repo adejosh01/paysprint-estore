@@ -1,0 +1,76 @@
+.rates-marquee {
+    background-color: #000;
+    box-sizing: border-box;
+    font-family: Verdana;
+    font-size: 10px;
+    padding: 5px;
+  }
+  .rates-marquee div.marquee-listing {
+    display: inline;
+    margin: 0 15px;
+  }
+  .rates-marquee div.marquee-listing em,
+  .rates-marquee div.marquee-listing h3,
+  .rates-marquee div.marquee-listing span {
+    display: inline;
+    font-size: 12px;
+  }
+  .rates-marquee div.marquee-listing h3 {
+    color: #fff;
+  }
+  .rates-marquee div.marquee-listing span {
+    color: #fe9a00;
+    display: inline-block;
+    margin: 0 5px;
+  }
+  div.overlay {
+    display: none;
+  }
+  .rates-marquee div.marquee-listing em {
+    font-style: normal;
+    font-weight: 700;
+  }
+  .rates-marquee div.marquee-listing em.up {
+    color: #32c432;
+  }
+  .rates-marquee div.marquee-listing em.down {
+    color: #e74747;
+  }
+
+div#exchangeRateMarquee{
+    position: fixed;
+    top: 80px;
+    z-index: 2;
+}
+
+@media screen and (min-width: 993px) {
+    div#exchangeRateMarquee{
+        top: 154px;
+    }
+}
+
+@media screen and (min-width: 1040px) {
+    div#exchangeRateMarquee{
+        top: 142px;
+    }
+}
+
+@media screen and (min-width: 1066px) {
+    div#exchangeRateMarquee{
+        top: 129px;
+    }
+}
+
+@media screen and (min-width: 1118px) {
+    div#exchangeRateMarquee{
+        top: 103px;
+    }
+}
+
+@media screen and (min-width: 1399px) {
+    div#exchangeRateMarquee{
+        top: 80px;
+    }
+}
+
+

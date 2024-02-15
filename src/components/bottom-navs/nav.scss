@@ -1,0 +1,39 @@
+.navigations {
+    padding: 5rem 15rem;
+    div {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      justify-content: center;
+      button {
+        &:first-child, &:last-child { 
+        display: flex;
+        align-items: center;
+        gap: 0.3rem;
+        }
+        &:not(:first-child), &:not(:last-child) {
+          font: 400 20px 'Santoshi';
+        }
+      }
+      div {
+        gap: 0rem;
+        button {
+          padding: 1rem 2rem;
+          border-radius: 20px;
+        }
+      }
+    }
+  }
+
+  .justforstore {
+    display: flex;
+    flex-direction: row;
+    gap: 0rem;
+    span { 
+      // color: #000;
+      font: 600 16px 'Plus Jakarta';
+      margin-top: 1rem;
+    } img {
+      margin-top: 7px;
+    }
+}

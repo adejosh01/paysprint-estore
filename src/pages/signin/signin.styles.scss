@@ -1,0 +1,258 @@
+@import "./../../utils/scss/mixins.scss";
+
+.signin-container {
+  text-align: center;
+  padding: 4rem 1.6rem;
+  @include error_text_style;
+  aside {
+    display: none;
+  }
+  main > button {
+    width: 100%;
+    padding: 1.5rem;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 20px;
+    color: #fffffe;
+    background: #e7aa07;
+    border-radius: 10px;
+    border: none;
+    margin: 3rem 0;
+  }
+  main > em {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    text-align: center;
+    color: #8b8b8b;
+    a {
+      color: rgba(45, 51, 74, 1);
+      text-decoration: none;
+      font-family: "Lato";
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 26px;
+    }
+  }
+  .signin {
+    h1 {
+      font-weight: 600;
+      font-size: 40px;
+      line-height: 51px;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 1rem;
+    }
+    em {
+      font-style: normal;
+      font-weight: 500;
+      font-size: 18px;
+      line-height: 27px;
+      color: #2d334a;
+      display: block;
+      margin-bottom: 4.4rem;
+    }
+
+    & > button {
+      width: 100%;
+      border: 2px solid #d2d2d2;
+      border-radius: 8px;
+      background-color: #fff;
+      padding: 1.5rem;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+      img {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+        margin-right: 0.8rem;
+        position: relative;
+        top: 2px;
+      }
+    }
+
+    form {
+      text-align: left;
+      & > a {
+        color: #2d334a;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        text-decoration: none;
+      }
+      label {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 17px;
+        color: #2d334a;
+        margin-bottom: 1.6rem;
+        display: block;
+
+        a {
+          color: #2d334a;
+        }
+
+        span {
+          color: rgba(255, 81, 65, 1);
+        }
+
+        textarea,
+        input,
+        select {
+          resize: none;
+          display: block;
+          padding: 1rem;
+          border: 2px solid #d2d2d2;
+          border-radius: 8px;
+          margin-top: 0.8rem;
+          width: 100%;
+          &::placeholder {
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 19px;
+            color: #d2d2d2;
+          }
+        }
+
+        input[type="checkbox"] {
+          display: inline-block;
+          margin: 0;
+          margin-left: 1rem;
+          width: unset;
+          position: relative;
+          top: 2px;
+        }
+
+        .input-container {
+          display: flex;
+          align-items: center;
+          border: 2px solid #d2d2d2;
+          border-radius: 8px;
+          margin-top: 0.8rem;
+          padding: 1rem;
+          width: 100%;
+          select {
+            border: none;
+            border-radius: 8px;
+          }
+          input {
+            padding: 0;
+            border: none;
+            margin: 0;
+            outline: none;
+            margin-left: 0.5rem;
+            border-radius: 0;
+          }
+        }
+      }
+      button {
+        width: 100%;
+        padding: 1.5rem;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 20px;
+        color: #fffffe;
+        background: #e7aa07;
+        border-radius: 10px;
+        border: none;
+        margin-top: 3rem;
+      }
+    }
+
+    .verification {
+      margin-top: 4rem;
+      & > img {
+        width: 262px;
+        margin-bottom: 3.2rem;
+        display: block;
+      }
+      em {
+        img {
+          width: 24px;
+          height: 24px;
+          margin-right: 0.8rem;
+        }
+        display: flex;
+        align-items: center;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        text-transform: capitalize;
+        color: #8b8b8b;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 650px) {
+  .signin-container {
+    main > button {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+  }
+  .signin {
+    & > button {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+    form {
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      display: block;
+    }
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .signin-container {
+    padding: 0;
+    display: flex;
+    aside {
+      display: block;
+      margin-bottom: 4rem;
+      width: 512px;
+      img {
+        width: 100%;
+      }
+    }
+
+    main {
+      width: 45%;
+      max-width: 600px;
+      padding: 8rem 0;
+      margin-left: auto;
+      margin-right: auto;
+
+      .signin {
+        form {
+          max-width: 600px;
+          .passwords,
+          .country,
+          .codes,
+          .names {
+            display: flex;
+            justify-content: space-between;
+            label {
+              width: 48%;
+              input {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.rates-marquee {
+  background-color: black;
+  padding: 5px;
+  font-family: Verdana;
+  font-size: 10px;
+  box-sizing: border-box;
+}
+
+.rates-marquee div.marquee-listing {
+  margin: 0 15px;
+  display: inline;
+}
+
+.rates-marquee div.marquee-listing h3,
+.rates-marquee div.marquee-listing span,
+.rates-marquee div.marquee-listing em {
+  display: inline;
+  font-size: 12px;
+}
+
+.rates-marquee div.marquee-listing h3 {
+  color: white;
+}
+
+.rates-marquee div.marquee-listing span {
+  color: #fe9a00;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+div.overlay {
+  display: none;
+}
+
+.rates-marquee div.marquee-listing em {
+  font-style: normal;
+  font-weight: bold;
+}
+
+.rates-marquee div.marquee-listing em.up {
+  color: #32c432;
+}
+
+.rates-marquee div.marquee-listing em.down {
+  color: #e74747;
+}

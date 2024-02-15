@@ -1,0 +1,209 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+    span {
+        color: #A0A2A7;
+    }
+
+    section.maincontent {
+        padding: 5rem 5.6rem;
+        display: flex;
+        gap: 2rem;
+        .relevantstuffs {
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 70%;
+            .titlesandall {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 2rem;
+            }
+            .details {
+                display: flex;
+                flex-direction: column;
+                padding: 2rem 2rem;
+                border: 1px solid #EAEAEA;
+                border-radius: 15px;
+                width: 100%;
+                gap: 1.5rem;
+                .detailstitle {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: 0rem 1rem;
+                    p {
+                        &:first-child {
+                            flex: 0 0 35%;
+                        }
+                        font: 600 15px 'Plus Jakarta Sans';
+                        line-height: 18px;
+                        color: #A0A2A7;
+                        text-transform: uppercase;
+                    }
+                }
+                .realdeals {
+                    div {
+                        display: flex;
+                        justify-content: space-between;
+                        > div:first-child {
+                            flex: 0 0 45%;
+                            p {
+                                font: 600 20px 'Plus Jakarta Sans';
+                                color: #2D334A;
+                                margin-top: 2rem;
+                            }
+                            img {
+                                width: 150px;
+                                height: 123px;
+                                border-radius: 10px;
+                            }
+                        }
+                        > div:not(:last-child) {
+                            div {
+                                p {
+                                  &:first-child, &:last-child {
+                                    border: 1px solid #E7AA07;
+                                    height: 3rem;
+                                    width: 3rem;
+                                    text-align: center;
+                                    border-radius: 5px;
+                                    cursor: pointer;
+                                  }
+                                }
+                            }
+                        }
+                        .price {
+                            font: 600 25px 'Plus Jakarta Sans';
+                            line-height: 30.24px;
+                            color: #2D334A;
+                            margin-top: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+        .sideconts {
+            background-color: #f5f5f5;
+            height: 100%;
+            width: 100%;
+            gap: 2rem;
+            padding: 2.5rem;
+            border-radius: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+            > p:first-child {
+                color: #A0A2A7;
+                font: 600 15px 'Plus Jakarta Sans';
+                line-height: 18px;
+                text-transform: uppercase;
+            }
+            .grped {
+                display: flex;
+                flex-direction: column;
+                gap: 2rem;
+                > div { 
+                    display: flex; 
+                    justify-content: space-between;
+                    > p:first-child {
+                        font: 500 20px 'Plus Jakarta Sans';
+                        line-height: 25.2px;
+                        color: #A0A2A7;
+                    }
+                    > p:last-child {
+                        font: 600 20px 'Plus Jakarta Sans';
+                        line-height: 25.2px;
+                        color: #2D334A;
+                    }
+                }
+            }
+            button {
+                background-color: #E7AA07;
+                border-radius: 1rem;
+                padding: 2rem;
+                margin-bottom: 2rem;
+                p {
+                    font: 500 20px 'Lato';
+                    color: #2D334A;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .estore-container {
+        section.maincontent {
+            flex-direction: column;
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .estore-container {
+        section.maincontent {
+            .relevantstuffs {
+                .details {
+                    .realdeals {
+                        div {
+                            display: flex;
+                            justify-content: space-between;
+                            > div:first-child {
+                                flex-direction: column;
+                                flex: 0 0 45%;
+                                p {
+                                    font: 600 20px 'Plus Jakarta Sans';
+                                    color: #2D334A;
+                                    margin-top: 2rem;
+                                }
+                                img {
+                                    width: 150px;
+                                    height: 123px;
+                                    border-radius: 10px;
+                                }
+                            }
+                            > div:not(:last-child) {
+                                div {
+                                    p {
+                                      &:first-child, &:last-child {
+                                        border: 1px solid #E7AA07;
+                                        height: 3rem;
+                                        width: 3rem;
+                                        text-align: center;
+                                        border-radius: 5px;
+                                        cursor: pointer;
+                                      }
+                                    }
+                                }
+                            }
+                            .price {
+                                font: 600 25px 'Plus Jakarta Sans';
+                                line-height: 30.24px;
+                                color: #2D334A;
+                                margin-top: 2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
