@@ -3,7 +3,6 @@ import { SignupFormContextProvider } from "context/signup-form.context";
 import { AboutPage } from "pages/about/about.page";
 import { ContactPage } from "pages/contact/contact.page";
 import { Dashboard } from "pages/dashboard/dashboard.component";
-import { HomePage } from "pages/home/home.page";
 import { PricePage } from "pages/price/price.page";
 import { SigninPage } from "pages/signin/siginin.page";
 import { SignupPage } from "pages/signup/signup.component";
@@ -23,6 +22,7 @@ import { MyCarts } from "pages/everythingestore/mycart/mycart.page";
 import { Checkout } from "pages/everythingestore/checkout/checkout.page";
 import { Payment } from "pages/everythingestore/topayment/payments.page";
 import { SuccessfulOrder } from "pages/everythingestore/succcessfulOrder/success.page";
+import { EstoreFooter } from "components/estore/footer/footer.component";
 
 function App() {
 
@@ -34,30 +34,15 @@ const pathname = location.pathname;
 
 // console.log(pathname);
 
- if (pathname === '/estore-dashboard') {
-    return (
-      <div className="app-container">
-        <EstoreHeader />
-          <Routes>
-              <Route
-                path="/estore-dashboard"
-                exact
-                element={<EstoreDashboard title="PaySprint | Estore Dashboard" />}
-              />
-            
-          </Routes>
-          <Footer />
-      </div>
-    )
-  } else if (pathname === '/e-store') {
+ if (pathname === '/estore') {
     return (
       <div className="app-container">
         <EstoreHeader />
           <Routes>
           <Route
-                path="/e-store"
+                path="/estore"
                 exact
-                element={<EStore title="PaySprint | E-store" />}
+                element={<EStore title="PaySprint | Estore" />}
               />
             
           </Routes>
@@ -180,7 +165,7 @@ const pathname = location.pathname;
             <Route
               path="/"
               exact
-              element={<HomePage title="PaySprint | Homepage" />}
+              element={<EstoreDashboard title="PaySprint | Homepage" />}
             />
             <Route
               path="/about"
@@ -235,7 +220,7 @@ const pathname = location.pathname;
             />
 
           </Routes>
-        <Footer />
+        <EstoreFooter />
       </div>
     ); 
   }

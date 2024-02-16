@@ -128,7 +128,7 @@ export const EstoreHeader = () => {
           </a>
           <ul>
             <li>
-              <NavLink to="/estore-dashboard"> Home </NavLink>
+              <NavLink to="/"> Home </NavLink>
             </li>
             <li>
               <a>
@@ -188,7 +188,7 @@ export const EstoreHeader = () => {
               </ul>
             </li>
             <li>
-              <NavLink to="/e-store">E-store</NavLink>
+              <NavLink to="/estore">Estore</NavLink>
             </li>
           </ul>
 

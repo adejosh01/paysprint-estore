@@ -29,6 +29,7 @@ import consultation from "assets/images/estore/rectangle-29.png";
 import businesstalk from "assets/images/estore/rectangle-210.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 export const EstoreDashboard = ({ title }) => {
   useEffect(() => {
@@ -288,9 +289,11 @@ export const EstoreDashboard = ({ title }) => {
           </div>
 
           <div className="thebutton">
+          <Link to="/allcategories">
             <button type="button">
-              See all categories 
+               See all categories
             </button>
+            </Link>
           </div>
         </section>
 
