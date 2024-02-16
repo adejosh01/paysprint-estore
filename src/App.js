@@ -1,5 +1,4 @@
 import { Footer } from "components/footer/footer.component";
-import { Header } from "components/header/header.component";
 import { SignupFormContextProvider } from "context/signup-form.context";
 import { AboutPage } from "pages/about/about.page";
 import { ContactPage } from "pages/contact/contact.page";
@@ -11,14 +10,8 @@ import { SignupPage } from "pages/signup/signup.component";
 import { VerifyPage } from "pages/verify/verify.component";
 import { Route, Routes } from "react-router-dom"; 
 import "./App.scss";
-import Home from "pages/dashboard2/page";
 import { useLocation } from 'react-router-dom';
 import WalletPage from "pages/dashboard2/wallet/wallet.page";
-import TransactionPage from "pages/dashboard2/transactions/transaction.page";
-import ServicesPage from "pages/dashboard2/services/services.page";
-import PromotionsPage from "pages/dashboard2/promotions/promotions.page";
-import SettingsPage from "pages/dashboard2/settings/settings.page";
-import ProfilePage from "pages/dashboard2/profile/profile.page";
 import { MerchantHomePage } from "./pages/everythingmerchant/merchant/home.page";
 import { EstoreDashboard } from "pages/everythingestore/estoreDashboard/estore.homepage";
 import { EstoreHeader } from "components/estore/header/estoreHeader.component";
@@ -41,93 +34,7 @@ const pathname = location.pathname;
 
 // console.log(pathname);
 
-  if (pathname === '/dashboard') {
-    return ( 
-      <div className="app-container"> 
-          <Routes>
-            {/* <DashboardHeader /> */}
-
-            <Route
-                path="/dashboard"
-                exact
-                element={<Home title="PaySprint | Dashboard" />}
-              />
-          </Routes>
-      </div>
-    );
-  } else if (pathname === '/dashboard/wallet') {
-      return (
-        <div className="app-container">
-          <Routes>
-            <Route
-              path="/dashboard/wallet"
-              exact
-              element={<WalletPage title="PaySprint | Wallet" />}
-            />
-          </Routes>
-        </div>
-      )
-  } else if (pathname === '/dashboard/transactions') {
-    return (
-      <div className="app-container">
-        <Routes>
-            <Route
-              path="/dashboard/transactions"
-              exact
-              element={<TransactionPage title="PaySprint | Transactions" />}
-            />
-        </Routes>
-      </div>
-    )
-  } else if (pathname === '/dashboard/services') {
-    return (
-      <div className="app-container">
-        <Routes>
-          <Route
-              path="/dashboard/services"
-              exact
-              element={<ServicesPage title="PaySprint | Services" />}
-            />
-        </Routes>
-      </div>
-    )
-  } else if (pathname === '/dashboard/promotions') {
-    return (
-      <div className="app-container">
-        <Routes>
-            <Route
-              path="/dashboard/promotions"
-              exact
-              element={<PromotionsPage title="PaySprint | Promotions" />}
-            />
-        </Routes>
-      </div>
-    )
-  }  else if (pathname === '/dashboard/settings') {
-    return (
-      <div className="app-container">
-          <Routes>
-              <Route
-                path="/dashboard/settings"
-                exact
-                element={<SettingsPage title="PaySprint | Settings" />}
-              />
-          </Routes>
-      </div>
-    )
-  } else if (pathname === '/dashboard/profile') {
-    return (
-      <div className="app-container">
-          <Routes>
-              <Route
-                path="/dashboard/profile"
-                exact
-                element={<ProfilePage title="PaySprint | Profile" />}
-              />
-          </Routes>
-      </div>
-    )
-  } else if (pathname === '/estore-dashboard') {
+ if (pathname === '/estore-dashboard') {
     return (
       <div className="app-container">
         <EstoreHeader />
@@ -262,11 +169,13 @@ const pathname = location.pathname;
           <Footer />
       </div>
     )
-  } else { 
+  } 
+  
+  else { 
 
     return (
       <div className="app-container"> 
-        <Header />
+        <EstoreHeader />
           <Routes>
             <Route
               path="/"
