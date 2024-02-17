@@ -1,12 +1,7 @@
 import { Footer } from "components/footer/footer.component";
-import { SignupFormContextProvider } from "context/signup-form.context";
 import { AboutPage } from "pages/about/about.page";
 import { ContactPage } from "pages/contact/contact.page";
 import { Dashboard } from "pages/dashboard/dashboard.component";
-import { PricePage } from "pages/price/price.page";
-import { SigninPage } from "pages/signin/siginin.page";
-import { SignupPage } from "pages/signup/signup.component";
-import { VerifyPage } from "pages/verify/verify.component";
 import { Route, Routes } from "react-router-dom"; 
 import "./App.scss";
 import { useLocation } from 'react-router-dom';
@@ -176,33 +171,7 @@ const pathname = location.pathname;
               path="/contact"
               exact
               element={<ContactPage title="PaySprint | Contact Us" />}
-            />
-
-            <Route
-              path="/signup"
-              exact
-              element={
-                <SignupFormContextProvider>
-                  <SignupPage title="PaySprint | Sign Up" />
-                </SignupFormContextProvider>
-              }
-            />
-
-            <Route
-              path="/signin"
-              exact
-              element={<SigninPage title="PaySprint | Sign In" />}
-            />
-            <Route
-              path="/pricing"
-              exact
-              element={<PricePage title="PaySprint | Pricing" />}
-            />
-            <Route
-              path="/verify"
-              exact
-              element={<VerifyPage title="PaySprint | Verify OTP" />}
-            />
+            /> 
             <Route
               path="/dashboard"
               exact
