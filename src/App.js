@@ -1,6 +1,4 @@
 import { Footer } from "components/footer/footer.component";
-import { AboutPage } from "pages/about/about.page";
-import { ContactPage } from "pages/contact/contact.page";
 import { Dashboard } from "pages/dashboard/dashboard.component";
 import { Route, Routes } from "react-router-dom"; 
 import "./App.scss";
@@ -162,16 +160,6 @@ const pathname = location.pathname;
               exact
               element={<EstoreDashboard title="PaySprint | Homepage" />}
             />
-            <Route
-              path="/about"
-              exact
-              element={<AboutPage title="PaySprint | About Us" />}
-            />
-            <Route
-              path="/contact"
-              exact
-              element={<ContactPage title="PaySprint | Contact Us" />}
-            /> 
             <Route
               path="/dashboard"
               exact
