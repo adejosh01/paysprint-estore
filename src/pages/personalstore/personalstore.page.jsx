@@ -1,20 +1,18 @@
 import "./personalstore.styles.scss";
 import { useEffect } from "react";
-// import userProductIcon from 'assets/images/estore/products/product1.png';
 import userProductIcon from 'assets/images/estore/products/product1.png';
-import product1 from "../../../assets/images/estore/personalStore/prod.png";
-// import product1 from "../../assets/images/estore/personalStore/prod.png";
-import product2 from "../../../assets/images/estore/personalStore/prod2.png";
-import product3 from "../../../assets/images/estore/personalStore/prod3.png";
-import product4 from "../../../assets/images/estore/personalStore/prod4.png";
-import product5 from "../../../assets/images/estore/personalStore/prod5.png";
-import product6 from "../../../assets/images/estore/personalStore/prod6.png";
-import product7 from "../../../assets/images/estore/personalStore/prod7.png";
-import product8 from "../../../assets/images/estore/personalStore/prod8.png";
+import product1 from "../../assets/images/estore/personalStore/prod.png";
+import product2 from "../../assets/images/estore/personalStore/prod2.png";
+import product3 from "../../assets/images/estore/personalStore/prod3.png";
+import product4 from "../../assets/images/estore/personalStore/prod4.png";
+import product5 from "../../assets/images/estore/personalStore/prod5.png";
+import product6 from "../../assets/images/estore/personalStore/prod6.png";
+import product7 from "../../assets/images/estore/personalStore/prod7.png";
+import product8 from "../../assets/images/estore/personalStore/prod8.png";
 import starimage from "assets/images/star.png";
-import tailoring from "../../../assets/images/estore/personalStore/image1.png";
-import fashion from "../../../assets/images/estore/personalStore/image2.png";
-import style from "../../../assets/images/estore/personalStore/image3.png";
+import tailoring from "../../assets/images/estore/personalStore/image1.png";
+import fashion from "../../assets/images/estore/personalStore/image2.png";
+import style from "../../assets/images/estore/personalStore/image3.png";
 
 
 

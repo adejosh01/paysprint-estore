@@ -10,13 +10,6 @@ export function performOperation(number, operation) {
         return number;
     }
 
-    // Example usage:
-// let currentNumber = 5;
-// let operation = '+'; // or '-'
-
-// let result = performOperation(currentNumber, operation);
-// console.log("Result:", result);
-// return result;
 }
 
 

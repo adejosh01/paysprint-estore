@@ -1,16 +1,16 @@
 import { Route, Routes } from "react-router-dom"; 
 import "./App.scss";
 import "./utils/styles/globals.css"
-import { EstoreDashboard } from "pages/everythingestore/estoreDashboard/estore.homepage";
+import { EstoreDashboard } from "pages/estoreDashboard/estore.homepage";
 import { EstoreHeader } from "components/header/estoreHeader.component";
-import { EStore } from "pages/everythingestore/e-store/e-store";
-import { Personalstore } from "pages/everythingestore/personalstore/personalstore.page";
-import { AllCategories } from "pages/everythingestore/allcategories/allcategories.page";
-import { ProductDetails } from "pages/everythingestore/productdetails/product.page";
-import { MyCarts } from "pages/everythingestore/mycart/mycart.page";
-import { Checkout } from "pages/everythingestore/checkout/checkout.page";
-import { Payment } from "pages/everythingestore/topayment/payments.page";
-import { SuccessfulOrder } from "pages/everythingestore/succcessfulOrder/success.page";
+import { EStore } from "pages/e-store/e-store";
+import { Personalstore } from "pages/personalstore/personalstore.page";
+import { AllCategories } from "pages/allcategories/allcategories.page";
+import { ProductDetails } from "pages/productdetails/product.page";
+import { MyCarts } from "pages/mycart/mycart.page";
+import { Checkout } from "pages/checkout/checkout.page";
+import { Payment } from "pages/topayment/payments.page";
+import { SuccessfulOrder } from "pages/succcessfulOrder/success.page";
 import { EstoreFooter } from "components/footer/footer.component";
 
 function App() {

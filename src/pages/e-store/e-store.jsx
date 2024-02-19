@@ -1,10 +1,9 @@
 import "./e-store.scss";
 import { useEffect } from "react";
-import product1 from "../../../assets/images/estore/products/product1.png";
-// import product1 from "../../../assets/images/estore/products/product1.png";
-import product2 from "../../../assets/images/estore/products/product2.png";
-import product3 from "../../../assets/images/estore/products/product3.png";
-import product4 from "../../../assets/images/estore/products/product4.png";
+import product1 from "../../assets/images/estore/products/product1.png";
+import product2 from "../../assets/images/estore/products/product2.png";
+import product3 from "../../assets/images/estore/products/product3.png";
+import product4 from "../../assets/images/estore/products/product4.png";
 import arrowupright from "assets/icons/arrow-up-right.png";
 import { BottomNav } from "components/bottom-navs";
 
