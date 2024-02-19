@@ -99,7 +99,7 @@ export const Payment = ({title}) => {
                                     <p> Kindly note that you will be charged ₦50 on this transaction </p>
                                 </div>
                                 <button type='button' name='submit'> 
-                                    <Link to={'/topayment'}>
+                                    <Link to={'/success'}>
                                         <p> Make Payment </p>
                                     </Link> 
                                 </button>

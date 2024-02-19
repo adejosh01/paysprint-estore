@@ -82,7 +82,7 @@ export const SuccessfulOrder = ({title}) => {
                                     </div>
                                 </div>
                                 <button type='button'> 
-                                    <Link to={'/e-store'}>
+                                    <Link to={'/estore'}>
                                         <p> Continue Shopping </p>
                                     </Link> 
                                 </button>

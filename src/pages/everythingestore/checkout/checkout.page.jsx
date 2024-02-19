@@ -78,7 +78,7 @@ export const Checkout = ({title}) => {
                                 </div>
                             </div>
                             <button type='button' name='submit'> 
-                                <Link to={'/topayment'}>
+                                <Link to={'/payment'}>
                                     <p> Proceed to Payment </p>
                                 </Link> 
                             </button>

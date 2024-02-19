@@ -203,9 +203,11 @@ export const EstoreHeader = () => {
               </div>
             </form>
 
-            <div> 
-                <img src={cart} alt="thecartlogo" />
-            </div>
+            <Link to="/mycart">
+              <div> 
+                  <img src={cart} alt="thecartlogo" />
+              </div>
+            </Link>
 
             <div> 
                 <img src={msglogo} alt="themsglogo" />
