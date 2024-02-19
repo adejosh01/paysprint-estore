@@ -99,14 +99,16 @@ export const EstoreDashboard = ({ title }) => {
           <p className="dealtitle"> Hottest Deals </p>
 
           <div className="items">
-            <div className="eachItem">
-              <img src={cocacola} alt="eachImage" />
-              <div className="imgdescription">
-                <p className="nameofitem"> Coca cola 60cl * 12 </p>
-                <p className="priceofitem"> ₦1200.00 </p>
-                <p className="initialprice"> ₦1400.00 </p>
+            <Link to="/productdetails">
+              <div className="eachItem">
+                <img src={cocacola} alt="eachImage" />
+                <div className="imgdescription">
+                  <p className="nameofitem"> Coca cola 60cl * 12 </p>
+                  <p className="priceofitem"> ₦1200.00 </p>
+                  <p className="initialprice"> ₦1400.00 </p>
+                </div>
               </div>
-            </div>
+            </Link>
             <div className="eachItem">
               <img src={tv} alt="eachImage" />
               <div className="imgdescription">

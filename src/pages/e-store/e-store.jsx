@@ -6,6 +6,7 @@ import product3 from "../../assets/images/estore/products/product3.png";
 import product4 from "../../assets/images/estore/products/product4.png";
 import arrowupright from "assets/icons/arrow-up-right.png";
 import { BottomNav } from "components/bottom-navs";
+import { Link } from "react-router-dom";
 
 export const EStore = ({ title }) => {
   useEffect(() => {
@@ -94,7 +95,9 @@ export const EStore = ({ title }) => {
                 <div className="singlarity">
                   <img src={product1} alt="firstproductImage" />
                   <div>
-                    <h2> Adebambo Store </h2>
+                    <Link to="/personalstore">
+                      <h2> Adebambo Store </h2>
+                    </Link>
                     <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
                     
                     <div>
@@ -103,17 +106,21 @@ export const EStore = ({ title }) => {
                       <p> Clothing </p>
                     </div>
 
-                    <button type="button" className="justforstore">
-                      <span> Go to store  </span>
-                      <img src={arrowupright} alt="arrowupright" />
-                    </button>
+                    <Link to="/personalstore">
+                      <button type="button" className="justforstore">
+                        <span> Go to store  </span>
+                        <img src={arrowupright} alt="arrowupright" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
 
                 <div className="singlarity">
                   <img src={product2} alt="secondproductImage" />
                   <div>
-                    <h2> Adebambo Store </h2>
+                    <Link to="/personalstore">
+                      <h2> Adebambo Store </h2>
+                    </Link>
                     <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
                     
                     <div>
@@ -122,17 +129,21 @@ export const EStore = ({ title }) => {
                       <p> Clothing </p>
                     </div>
 
-                    <button type="button" className="justforstore">
-                      <span> Go to store  </span>
-                      <img src={arrowupright} alt="arrowupright" />
-                    </button>
+                    <Link to="/personalstore">
+                      <button type="button" className="justforstore">
+                        <span> Go to store  </span>
+                        <img src={arrowupright} alt="arrowupright" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
 
                 <div className="singlarity">
                   <img src={product3} alt="thirdproductImage" />
                   <div>
-                    <h2> Adebambo Store </h2>
+                    <Link to="/personalstore">
+                      <h2> Adebambo Store </h2>
+                    </Link>
                     <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
                     
                     <div>
@@ -141,17 +152,21 @@ export const EStore = ({ title }) => {
                       <p> Clothing </p>
                     </div>
 
-                    <button type="button" className="justforstore">
-                      <span> Go to store  </span>
-                      <img src={arrowupright} alt="arrowupright" />
-                    </button>
+                    <Link to="/personalstore">
+                      <button type="button" className="justforstore">
+                        <span> Go to store  </span>
+                        <img src={arrowupright} alt="arrowupright" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
 
                 <div className="singlarity">
                   <img src={product4} alt="fourthproductImage" />
                   <div>
-                    <h2> Adebambo Store </h2>
+                    <Link to="/personalstore">
+                      <h2> Adebambo Store </h2>
+                    </Link>
                     <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
                     
                     <div>
@@ -160,10 +175,12 @@ export const EStore = ({ title }) => {
                       <p> Clothing </p>
                     </div>
 
-                    <button type="button" className="justforstore">
-                      <span> Go to store  </span>
-                      <img src={arrowupright} alt="arrowupright" />
-                    </button>
+                    <Link to="/personalstore">
+                      <button type="button" className="justforstore">
+                        <span> Go to store  </span>
+                        <img src={arrowupright} alt="arrowupright" />
+                      </button>
+                    </Link>
                   </div>
                 </div>
               </div>
