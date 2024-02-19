@@ -15,6 +15,7 @@ import cart from 'assets/images/cart.png';
 import msglogo from 'assets/images/message-circle.png';
 import user from 'assets/images/userIcon.png';
 import search from 'assets/images/searchIcon.png';
+import { useLocation } from "react-router-dom";
 
 export const EstoreHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -24,6 +25,11 @@ export const EstoreHeader = () => {
   const toggleIsSubmenuOpen = () => {
     setIsSubMenuOpen(!isSubMenuOpen);
   };
+
+  const location = useLocation();
+  const pathname = location.pathname;
+
+  console.log(pathname);
 
   return (
     <>
@@ -204,9 +210,15 @@ export const EstoreHeader = () => {
             </form>
 
             <Link to="/mycart">
-              <div> 
-                  <img src={cart} alt="thecartlogo" />
-              </div>
+              {! (pathname === "/mycart") ? (
+                <div> 
+                    <img src={cart} alt="thecartlogo" />
+                </div>
+              ) : (
+                <div style={{ background: '#e7aa07' }}> 
+                    <img src={cart} alt="thecartlogo" />
+                </div>
+              )}
             </Link>
 
             <div> 
