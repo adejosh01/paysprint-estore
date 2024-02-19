@@ -1,10 +1,11 @@
 import './mycart.styles.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import deleteIcon from 'assets/icons/trashcan.png';
 import itemimage from 'assets/images/estore/productDetails/cokesecond.png';
 import washingMachine from 'assets/images/estore/rectangle-22.png';
 import sneakers from 'assets/images/estore/rectangle-23.png';
 import { Link } from 'react-router-dom';
+import { performOperation } from 'components/randomFunctions/counter';
 
 
 export const MyCarts = ({title}) => {
@@ -12,7 +13,23 @@ export const MyCarts = ({title}) => {
         document.title = title;
         window.scrollTo(0, 0);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);
+      }, []);    
+    
+    let currentNumber = 1;
+
+    const [number, setNumber] = useState(currentNumber);
+
+    // Function to handle the click event and perform the subtraction operation
+    const handleSubtraction = () => {
+        const newNumber = performOperation(number, '-');
+        setNumber(newNumber);
+    };
+
+    // Function to handle the click event and perform the addition operation
+    const handleAddition = () => {
+        const newNumber = performOperation(number, '+');
+        setNumber(newNumber);
+    };
 
       return (
             <div className="estore-container">
@@ -40,9 +57,9 @@ export const MyCarts = ({title}) => {
                                     </div>
                                     <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
                                         <div>
-                                            <p> - </p>
-                                            <p style={{ margin: '2rem 1rem' }}> 1 </p>
-                                            <p> + </p>
+                                            <p onClick={ handleSubtraction }> - </p>
+                                            <p style={{ margin: '2rem 1rem' }}> { number} </p>
+                                            <p onClick={handleAddition}> + </p>
                                         </div>
                                         <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
                                             <img src={deleteIcon} alt="the trash bin" /> Remove    
@@ -58,9 +75,9 @@ export const MyCarts = ({title}) => {
                                     </div>
                                     <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
                                         <div>
-                                            <p> - </p>
-                                            <p style={{ margin: '2rem 1rem' }}> 1 </p>
-                                            <p> + </p>
+                                            <p onClick={handleSubtraction}> - </p>
+                                            <p style={{ margin: '2rem 1rem' }}> {number} </p>
+                                            <p onClick={handleAddition}> + </p>
                                         </div>
                                         <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
                                             <img src={deleteIcon} alt="the trash bin" /> Remove    
