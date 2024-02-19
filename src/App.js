@@ -1,12 +1,8 @@
-import { Footer } from "components/footer/footer.component";
-import { Dashboard } from "pages/dashboard/dashboard.component";
 import { Route, Routes } from "react-router-dom"; 
 import "./App.scss";
-import { useLocation } from 'react-router-dom';
-import WalletPage from "pages/dashboard2/wallet/wallet.page";
-import { MerchantHomePage } from "./pages/everythingmerchant/merchant/home.page";
+import "./utils/styles/globals.css"
 import { EstoreDashboard } from "pages/everythingestore/estoreDashboard/estore.homepage";
-import { EstoreHeader } from "components/estore/header/estoreHeader.component";
+import { EstoreHeader } from "components/header/estoreHeader.component";
 import { EStore } from "pages/everythingestore/e-store/e-store";
 import { Personalstore } from "pages/everythingestore/personalstore/personalstore.page";
 import { AllCategories } from "pages/everythingestore/allcategories/allcategories.page";
@@ -15,175 +11,37 @@ import { MyCarts } from "pages/everythingestore/mycart/mycart.page";
 import { Checkout } from "pages/everythingestore/checkout/checkout.page";
 import { Payment } from "pages/everythingestore/topayment/payments.page";
 import { SuccessfulOrder } from "pages/everythingestore/succcessfulOrder/success.page";
-import { EstoreFooter } from "components/estore/footer/footer.component";
+import { EstoreFooter } from "components/footer/footer.component";
 
 function App() {
 
 
-const location = useLocation();
-const pathname = location.pathname;
+// const location = useLocation();
+// const pathname = location.pathname;
 
 // let page = pathname.replace('/dashboard/','') || 'Overview';  
 
 // console.log(pathname);
 
- if (pathname === '/estore') {
-    return (
-      <div className="app-container">
-        <EstoreHeader />
-          <Routes>
-          <Route
-                path="/estore"
-                exact
-                element={<EStore title="PaySprint | Estore" />}
-              />
-            
-          </Routes>
-          <Footer />
-      </div>
-    )
-  } else if (pathname === '/personalstore') {
-    return (
-      <div className="app-container">
-        <EstoreHeader />
-          <Routes>
-          <Route
-                path="/personalstore"
-                exact
-                element={<Personalstore title="PaySprint | Personal Store" />}
-              />
-            
-          </Routes>
-          <Footer />
-      </div>
-    )
-  } else if (pathname === '/allcategories') {
-    return (
-      <div className="app-container">
-        <EstoreHeader />
-          <Routes>
-          <Route
-                path="/allcategories"
-                exact
-                element={<AllCategories title="PaySprint | All Categories" />}
-              />
-            
-          </Routes>
-          <Footer />
-      </div>
-    )
-  } else if (pathname === '/productdetails') {
-    return (
-      <div className="app-container">
-        <EstoreHeader />
-          <Routes>
-          <Route
-                path="/productdetails"
-                exact
-                element={<ProductDetails title="PaySprint | Product Details" />}
-              />
-            
-          </Routes>
-          <Footer />
-      </div>
-    )
-  } else if (pathname === '/mycart') {
-    return (
-      <div className="app-container">
-        <EstoreHeader />
-          <Routes>
-          <Route
-                path="/mycart"
-                exact
-                element={<MyCarts title="PaySprint | My Carts" />}
-              />
-            
-          </Routes>
-          <Footer />
-      </div>
-    )
-  } else if (pathname === '/checkout') {
-    return (
-      <div className="app-container">
-        <EstoreHeader />
-          <Routes>
-          <Route
-                path="/checkout"
-                exact
-                element={<Checkout title="PaySprint | Checkout" />}
-              />
-            
-          </Routes>
-          <Footer />
-      </div>
-    )
-  } else if (pathname === '/topayment') {
-    return (
-      <div className="app-container">
-        <EstoreHeader />
-          <Routes>
-          <Route
-                path="/topayment"
-                exact
-                element={<Payment title="PaySprint | Payments" />}
-              />
-            
-          </Routes>
-          <Footer />
-      </div>
-    )
-  } else if (pathname === '/success') {
-    return (
-      <div className="app-container">
-        <EstoreHeader />
-          <Routes>
-          <Route
-                path="/success"
-                exact
-                element={<SuccessfulOrder title="PaySprint | Successful Order" />}
-              />
-            
-          </Routes>
-          <Footer />
-      </div>
-    )
-  } 
-  
-  else { 
 
     return (
       <div className="app-container"> 
         <EstoreHeader />
           <Routes>
-            <Route
-              path="/"
-              exact
-              element={<EstoreDashboard title="PaySprint | Homepage" />}
-            />
-            <Route
-              path="/dashboard"
-              exact
-              element={<Dashboard title="PaySprint | Dashboard" />}
-            />
-            <Route
-              path="/dashboard/wallet"
-              exact
-              element={<WalletPage title="PaySprint | Wallet" />}
-            />
-            <Route
-              path="/merchant"
-              exact
-              element={<MerchantHomePage title="PaySprint | Merchant HomePage" />}
-            />
-
+            <Route path="/" exact element={<EstoreDashboard title="PaySprint | Homepage" />} />
+            <Route path="/estore" exact element={<EStore title="PaySprint | Estore" />} />
+            <Route path="/allcategories" exact element={<AllCategories title="PaySprint | All Categories" />} />
+            <Route path="/personalstore" exact element={<Personalstore title="PaySprint | Personal Store" />} />
+            <Route path="/productdetails" exact element={<ProductDetails title="PaySprint | Product Details" />} />
+            <Route path="/mycart" exact element={<MyCarts title="PaySprint | My Carts" />} />
+            <Route path="/checkout" exact element={<Checkout title="PaySprint | Checkout" />} />
+            <Route path="/payment" exact element={<Payment title="PaySprint | Payments" />} />
+            <Route path="/success" exact element={<SuccessfulOrder title="PaySprint | Successfully Ordered" />} />
           </Routes>
         <EstoreFooter />
       </div>
     ); 
-  }
-
-
-
+  
 }
 
 export default App;
