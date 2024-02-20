@@ -221,9 +221,11 @@ export const EstoreHeader = () => {
               )}
             </Link>
 
-            <div> 
-                <img src={msglogo} alt="themsglogo" />
-            </div>
+            <Link to="/messages">
+              <div> 
+                  <img src={msglogo} alt="themsglogo" />
+              </div>
+            </Link>
 
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}> 
             <img src={user} alt="theuserlogo" />

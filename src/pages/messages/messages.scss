@@ -1,0 +1,102 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+    span {
+        color: #A0A2A7;
+    }
+
+    section.messages {
+        padding: 5rem 6.5rem;
+        display: flex;
+        .firstside {
+            flex: 0 0 30%;
+            display: flex;
+            gap: 2rem;
+            h3 {
+                font: 600 25px 'Plus jakarta Sans';
+                line-height: 31px;
+                color: #E7AA07;
+                margin-left: 2rem;
+                padding: 0.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .estore-container {
+        section.messages {
+            flex-direction: column;
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .estore-container {
+        section.maincontent {
+            .relevantstuffs {
+                .details {
+                    .realdeals {
+                        div {
+                            display: flex;
+                            justify-content: space-between;
+                            > div:first-child {
+                                flex-direction: column;
+                                flex: 0 0 45%;
+                                p {
+                                    font: 600 20px 'Plus Jakarta Sans';
+                                    color: #2D334A;
+                                    margin-top: 2rem;
+                                }
+                                img {
+                                    width: 150px;
+                                    height: 123px;
+                                    border-radius: 10px;
+                                }
+                            }
+                            > div:not(:last-child) {
+                                div {
+                                    p {
+                                      &:first-child, &:last-child {
+                                        border: 1px solid #E7AA07;
+                                        height: 3rem;
+                                        width: 3rem;
+                                        text-align: center;
+                                        border-radius: 5px;
+                                        cursor: pointer;
+                                      }
+                                    }
+                                }
+                            }
+                            .price {
+                                font: 600 25px 'Plus Jakarta Sans';
+                                line-height: 30.24px;
+                                color: #2D334A;
+                                margin-top: 2rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
