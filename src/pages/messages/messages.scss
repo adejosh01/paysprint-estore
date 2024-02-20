@@ -28,7 +28,8 @@
         .firstside {
             flex: 0 0 30%;
             display: flex;
-            gap: 2rem;
+            gap: 1rem;
+            flex-direction: column;
             h3 {
                 font: 600 25px 'Plus jakarta Sans';
                 line-height: 31px;
@@ -36,6 +37,43 @@
                 margin-left: 2rem;
                 padding: 0.5rem;
             }
+            .asidetitle {
+                display: flex;
+                gap: 0.5rem;
+                padding: 1rem;
+                img {
+                    flex: 0 0 30%;
+                    width: 2rem;
+                    height: 10rem;
+                    border-radius: 50%;
+                }
+                .inner {
+                    display: flex;
+                    gap: 1rem;
+                    flex-direction: column;
+                    width: 100%;
+                    .title {
+                        display: flex;
+                        justify-content: space-between;
+                        font: 500 16px 'Plus Jakarta Sans';
+                        line-height: 20px;
+                        color: #5B5D64;
+                    }
+                    p:not(:last-child) {
+                        font: 600 16px "Plus Jarkata Sans";
+                        line-height: 20px;
+                        color: #2D334A;
+                    } p:last-child {
+                        font: 500 15px 'Plus jakarta sans';
+                        line-height: 17px;
+                        color: #5B5D64;
+                    }
+                }
+            }
+        }
+        .secondside {
+            width: 100%;
+            background-color: #f5f5f5;
         }
     }
 }

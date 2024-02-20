@@ -194,7 +194,7 @@ export const EstoreHeader = () => {
               </ul>
             </li>
             <li>
-              <NavLink to="/estore">Estore</NavLink>
+              <NavLink to="/estore">Online Store</NavLink>
             </li>
           </ul>
 
