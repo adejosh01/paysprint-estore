@@ -107,7 +107,7 @@ export const MyCarts = ({title}) => {
                         </div>
                     </div>
 
-                    <div className="sideconts" st>
+                    <div className="sideconts">
                         <p> Cart Summary</p>
                         <div className='grped'>
                             <div>

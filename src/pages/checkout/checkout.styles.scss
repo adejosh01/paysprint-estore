@@ -95,6 +95,15 @@
                 line-height: 18px;
                 text-transform: uppercase;
             }
+            .desc {
+                display: flex;
+                justify-content: space-between;
+                p {
+                    font: 600 20px 'Plus Jakarta Sans';
+                    line-height: 25.2px;
+                    color: #2D334A;
+                }
+            }
             .grped {
                 display: flex;
                 flex-direction: column;
@@ -102,6 +111,7 @@
                 > div { 
                     display: flex; 
                     justify-content: space-between;
+                    align-items: center;
                     > p:first-child {
                         font: 500 20px 'Plus Jakarta Sans';
                         line-height: 25.2px;
@@ -112,6 +122,20 @@
                         line-height: 25.2px;
                         color: #2D334A;
                     }
+                }
+                .items {
+                    justify-content: space-between;
+                    p {
+                        font: 600 20px 'Plus Jakarta Sans';
+                        line-height: 25.2px;
+                        color: #2D334A;
+                    } 
+                    > p:not(:first-child :last-child) {
+                        margin-left: 1rem;
+                    }
+                }
+                hr {
+                    border: 1px solid #2D334A;
                 }
             }
             button {

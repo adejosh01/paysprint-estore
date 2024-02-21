@@ -59,24 +59,65 @@ export const Checkout = ({title}) => {
 
                         <div className="sideconts">
                             <p> Order Summary</p>
+                            <div className='desc'>
+                                <p> Description </p>
+                                <p> Quantity </p>
+                                <p> Price </p>
+                                <p> Amount </p>
+                            </div>
                             <div className='grped'>
-                                <div>
-                                    <p> Items </p>
-                                    <p> 3 </p>
+                                <div className='items'>
+                                    <p> Coke </p>
+                                    <p> 2 </p>
+                                    <p> 20 </p>
+                                    <p> 40 </p>
                                 </div>
-                                <div>
-                                    <p> Subtotal </p>
-                                    <p> #12,000.00 </p>
+                                {/* <table>
+                                    <thead> huseh </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table> */}
+                                <div className='items'>
+                                    <p> Shoe </p>
+                                    <p> 1 </p>
+                                    <p> 50 </p>
+                                    <p> 50 </p>
                                 </div>
+                                <div className='items'>
+                                    <p> Cooler </p>
+                                    <p> 5 </p>
+                                    <p> 15 </p>
+                                    <p> 75 </p>
+                                </div> <hr />
+                                <div className='items'>
+                                    <p> Sub Total </p>
+                                    <p> 168 </p>
+                                </div> <hr style={{ marginBottom: '2rem' }} />
+
                                 <div>
                                     <p> Delivery </p>
-                                    <p> #12,000.00 </p>
+                                    <p> 0 </p>
                                 </div>
                                 <div>
-                                    <p> Total </p>
+                                    <p> Service Charge </p>
+                                    <p> 0 </p>
+                                </div>
+                                <div>
+                                    <p> Taxes </p>
+                                    <p> 13% </p>
+                                    <p> 21.45 </p>
+                                </div>
+                                <div>
+                                    <p> Other Charges </p>
+                                    <p> 21.45 </p>
+                                </div>
+                                <div>
+                                    <p> Total Amount </p>
                                     <p> #12,000.00 </p>
                                 </div>
                             </div>
+                            
                             <button type='button' name='submit'> 
                                 <Link to={'/payment'}>
                                     <p> Proceed to Payment </p>

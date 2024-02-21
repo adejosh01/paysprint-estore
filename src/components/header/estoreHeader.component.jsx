@@ -16,14 +16,22 @@ import msglogo from 'assets/images/message-circle.png';
 import user from 'assets/images/userIcon.png';
 import search from 'assets/images/searchIcon.png';
 import { useLocation } from "react-router-dom";
+import passwordIcon from 'assets/icons/profile/passwordIcon.png';
+
+
 
 export const EstoreHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
+  const [isAccountMenuOpen, setIsAcctMenuOpen] = useState(false);
 
   const toggleIsSubmenuOpen = () => {
     setIsSubMenuOpen(!isSubMenuOpen);
+  };
+
+  const toggleAccountMenu = () => {
+    setIsAcctMenuOpen(!isAccountMenuOpen);
   };
 
   const location = useLocation();
@@ -198,8 +206,6 @@ export const EstoreHeader = () => {
             </li>
           </ul>
 
-          
-
           <div className="lastside">
 
             <form action="/" method="POST">
@@ -233,14 +239,28 @@ export const EstoreHeader = () => {
               )}
             </Link>
 
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}> 
-            <img src={user} alt="theuserlogo" />
-                <p style={{ fontSize: '1.5rem', color: '#272343' }}> Account </p>
-                <span style={{  marginLeft: '0.2rem' }}> <button>
-                  <FontAwesomeIcon
-                    icon={isSubMenuOpen ? faAngleUp : faAngleDown}
-                  />
-                </button></span>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}> 
+              <img src={user} alt="theuserlogo" />
+                <p style={{ fontSize: '1.5rem', color: '#272343' }} onClick={toggleAccountMenu}> Account {" "} </p>
+                <span style={{  marginLeft: '0.2rem' }} onClick={toggleAccountMenu}> 
+                  <button> <FontAwesomeIcon icon={isAccountMenuOpen ? faAngleUp : faAngleDown} /> </button>
+                </span>
+                <ul className={getConditionalClassName( isAccountMenuOpen, "account", "active" )}>
+                  <li>
+                    <img src={passwordIcon} alt="User Icon" />
+                    <p> PS Account No: 20983 </p>
+                    <a> Accounting(18) </a>
+                  </li>
+                  <li>
+                    <a> Accounting(18) </a>
+                  </li>
+                  <li>
+                    <a> Accounting(18) </a>
+                  </li>
+                  <li>
+                    <a> Others(18) </a>
+                  </li>
+                </ul>
             </div>
           </div>
         </header>
