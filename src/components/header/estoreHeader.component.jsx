@@ -210,21 +210,27 @@ export const EstoreHeader = () => {
             </form>
 
             <Link to="/mycart">
-              {! (pathname === "/mycart") ? (
-                <div> 
+              { (pathname === "/mycart") ? (
+                <div style={{ background: '#e7aa07' }}> 
                     <img src={cart} alt="thecartlogo" />
                 </div>
               ) : (
-                <div style={{ background: '#e7aa07' }}> 
+                <div> 
                     <img src={cart} alt="thecartlogo" />
                 </div>
               )}
             </Link>
 
             <Link to="/messages">
-              <div> 
+              { (pathname === "/messages") ? (
+                <div style={{ background: '#e7aa07' }}> 
+                    <img src={msglogo} alt="themsglogo" />
+                </div>
+              ) : (
+                <div> 
                   <img src={msglogo} alt="themsglogo" />
-              </div>
+                </div>
+              )}
             </Link>
 
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}> 

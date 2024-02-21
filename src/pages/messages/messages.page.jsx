@@ -1,5 +1,6 @@
 import './messages.scss';
 import profileIcon from 'assets/images/messagesIcon.png';
+import random from 'assets/images/convo.png';
 
 
 export const Messages = ({title}) => {
@@ -10,6 +11,7 @@ export const Messages = ({title}) => {
 
                     <div className="firstside">
                         <h3> My Messages </h3>
+                        <hr />
                         <div className='asidetitle'>
                             <img src={profileIcon} alt="profile icon" />
                             <div className='inner'>
@@ -20,7 +22,7 @@ export const Messages = ({title}) => {
                                 <p> Office Chair and workspace </p>
                                 <p> You can reach us via .... </p>
                             </div>
-                        </div>
+                        </div> <hr />
                         <div className='asidetitle'>
                             <img src={profileIcon} alt="profile icon" />
                             <div className='inner'>
@@ -31,11 +33,13 @@ export const Messages = ({title}) => {
                                 <p> Office Chair and workspace </p>
                                 <p> You can reach us via .... </p>
                             </div>
-                        </div>
+                        </div> <hr />
                     </div>
 
                     <div className="secondside">
-                        <p> Start a Convo</p>
+                        <div>
+                            <img src={random} alt="justrandom" />
+                        </div>
                     </div>
 
                 </section>

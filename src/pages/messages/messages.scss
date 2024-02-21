@@ -37,11 +37,14 @@
                 color: #E7AA07;
                 margin-left: 2rem;
                 padding: 0.5rem;
+            } hr {
+                border: 1px solid #f5f5f5;
             }
             .asidetitle {
                 display: flex;
                 gap: 0.5rem;
                 padding: 1rem;
+                cursor: pointer;
                 img {
                     flex: 0 0 30%;
                     width: 2rem;
@@ -75,9 +78,17 @@
         .secondside {
             width: 100%;
             background-color: #f5f5f5;
+            border-radius: 10px;
+            div {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin: 19rem auto;
+                cursor: pointer;
+            }
         }
     }
-    
+
 }
 
 @media screen and (max-width: 900px) {
