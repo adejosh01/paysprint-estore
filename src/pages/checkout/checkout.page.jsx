@@ -72,12 +72,23 @@ export const Checkout = ({title}) => {
                                     <p> 20 </p>
                                     <p> 40 </p>
                                 </div>
+
                                 {/* <table>
-                                    <thead> huseh </thead>
+                                    <thead> 
+                                        <tr>
+                                            <th>check</th>
+                                            <th>check</th>
+                                            <th>check</th>
+                                        </tr> 
+                                    </thead>
                                     <tbody>
-                                        
+                                        <tr>
+                                            <td> check one</td>
+                                            <td> check one</td>
+                                        </tr>
                                     </tbody>
                                 </table> */}
+
                                 <div className='items'>
                                     <p> Shoe </p>
                                     <p> 1 </p>

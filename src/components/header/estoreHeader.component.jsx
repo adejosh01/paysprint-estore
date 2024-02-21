@@ -17,6 +17,7 @@ import user from 'assets/images/userIcon.png';
 import search from 'assets/images/searchIcon.png';
 import { useLocation } from "react-router-dom";
 import passwordIcon from 'assets/icons/profile/passwordIcon.png';
+import clip from 'assets/icons/profile/clipboard.png';
 
 
 
@@ -249,7 +250,7 @@ export const EstoreHeader = () => {
                   <li>
                     <img src={passwordIcon} alt="User Icon" />
                     <p> PS Account No: 20983 </p>
-                    <a> Accounting(18) </a>
+                    <img src={clip} alt="Clipboard Icon" />
                   </li>
                   <li>
                     <a> Accounting(18) </a>
