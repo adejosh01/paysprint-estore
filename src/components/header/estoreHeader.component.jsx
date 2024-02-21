@@ -129,9 +129,9 @@ export const EstoreHeader = () => {
       
       <nav className="desktop-nav" style={{ background: '#fff' }}>
         <header className="mainEstore-header">
-          <a>
-            <img src={paysprintLogo} alt="" />
-          </a>
+          <Link to="/">
+            <img src={paysprintLogo} alt="Company's Icon" />
+          </Link>
           <ul>
             <li>
               <NavLink to="/"> Home </NavLink>
