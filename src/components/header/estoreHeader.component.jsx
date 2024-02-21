@@ -18,6 +18,10 @@ import search from 'assets/images/searchIcon.png';
 import { useLocation } from "react-router-dom";
 import passwordIcon from 'assets/icons/profile/passwordIcon.png';
 import clip from 'assets/icons/profile/clipboard.png';
+import share from 'assets/icons/profile/share.png';
+import tag from 'assets/icons/profile/tag.png';
+import logout from 'assets/icons/profile/logout.png';
+import profileIcon from 'assets/icons/profile/profileIcon.png';
 
 
 
@@ -253,13 +257,20 @@ export const EstoreHeader = () => {
                     <img src={clip} alt="Clipboard Icon" />
                   </li>
                   <li>
-                    <a> Accounting(18) </a>
+                    <img src={profileIcon} alt="User Icon" />
+                    <p> Profile </p>
                   </li>
                   <li>
-                    <a> Accounting(18) </a>
+                    <img src={share} alt="User Icon" />
+                    <p> Share profile link </p>
                   </li>
                   <li>
-                    <a> Others(18) </a>
+                    <img src={tag} alt="User Icon" />
+                    <p> Check out Special Promo </p>
+                  </li>
+                  <li>
+                    <img src={logout} alt="User Icon" />
+                    <p> Log Out </p>
                   </li>
                 </ul>
             </div>

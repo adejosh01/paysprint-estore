@@ -400,6 +400,11 @@
         }
       }
 
+      section.topcategories {
+        .imageitems {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
     }
   }
 
@@ -448,6 +453,11 @@
         }
       }
 
+      section.topcategories {
+        .imageitems {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
 
     }
   }

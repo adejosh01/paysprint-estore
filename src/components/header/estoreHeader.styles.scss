@@ -121,13 +121,19 @@
         background-color: #fff;
         gap: 2rem;
         padding: 3rem;
-        li {
+        > li:first-child {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          p {
-            font: 600 16px 'plus jakarta sans';
-          }
+        }
+        > li:not(:first-child) {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 9rem;
+        }
+        p {
+          font: 600 16px 'plus jakarta sans';
         }
       }
     }
