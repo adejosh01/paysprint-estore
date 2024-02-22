@@ -253,24 +253,24 @@ export const EstoreHeader = () => {
                 <ul className={getConditionalClassName( isAccountMenuOpen, "account", "active" )}>
                   <li>
                     <img src={passwordIcon} alt="User Icon" />
-                    <Link> PS Account No: 20983 </Link>
+                    <Link to="#" > PS Account No: 20983 </Link>
                     <img src={clip} alt="Clipboard Icon" />
                   </li>
                   <li>
                     <img src={profileIcon} alt="User Icon" />
-                    <Link> Profile </Link>
+                    <Link to="#"> Profile </Link>
                   </li>
                   <li style={{ width: '70%' }}>
                     <img src={share} alt="User Icon" />
-                    <Link> Share profile link </Link>
+                    <Link to="#"> Share profile link </Link>
                   </li>
                   <li style={{ width: '22.9rem' }}>
                     <img src={tag} alt="User Icon" />
-                    <Link> Check out Special Promo </Link>
+                    <Link to="#"> Check out Special Promo </Link>
                   </li>
                   <li>
                     <img src={logout} alt="User Icon" />
-                    <Link> Log Out </Link>
+                    <Link to="#"> Log Out </Link>
                   </li>
                 </ul>
             </div>
