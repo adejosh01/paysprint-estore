@@ -125,14 +125,19 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
+          width: unset;
         }
-        > li:not(:first-child) {
+        > li:not(:first-child, :last-child) {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 9rem;
+          width: 8.5rem;
         }
-        p {
+        > li:last-child {
+          width: 40%;
+        }
+        
+        link {
           font: 600 16px 'plus jakarta sans';
         }
       }
