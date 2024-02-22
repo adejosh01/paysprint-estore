@@ -5,14 +5,19 @@ import random from 'assets/images/convo.png';
 
 export const Messages = ({title}) => {
 
-      return (
+    const handleTheDisplay = () => {
+        document.getElementById('defaultmsg').style.display = 'none';
+        document.getElementById('mainmsg').style.display = 'flex';
+    };
+
+    return (
             <div className="estore-container">
                 <section className="messages">
 
                     <div className="firstside">
                         <h3> My Messages </h3>
                         <hr />
-                        <div className='asidetitle'>
+                        <div className='asidetitle' onClick={handleTheDisplay}>
                             <img src={profileIcon} alt="profile icon" />
                             <div className='inner'>
                                 <div className="title"> 
@@ -23,7 +28,7 @@ export const Messages = ({title}) => {
                                 <p> You can reach us via .... </p>
                             </div>
                         </div> <hr />
-                        <div className='asidetitle'>
+                        <div className='asidetitle' onClick={handleTheDisplay}>
                             <img src={profileIcon} alt="profile icon" />
                             <div className='inner'>
                                 <div className="title"> 
@@ -36,9 +41,29 @@ export const Messages = ({title}) => {
                         </div> <hr />
                     </div>
 
-                    <div className="secondside">
+                    <div id='defaultmsg' className="secondside">
                         <div>
                             <img src={random} alt="justrandom" />
+                        </div>
+                    </div>
+
+                    <div id='mainmsg' className="realmsgs" hidden>
+                        <div className="title"> 
+                            <div>
+                                <img src={profileIcon} alt="profile icon" />
+                                <h4> Adebambo's Store </h4>
+                            </div>
+                            <p> 05 Aug </p>
+                        </div>
+                        <div>
+                            <p>
+                                I would love to order for a fashion service
+                            </p>
+                        </div>
+                        <div>
+                            <p>
+                                Ok, Thank you for reaching out to us. We can  please kindly ....
+                            </p>
                         </div>
                     </div>
 
