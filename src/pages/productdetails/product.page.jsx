@@ -54,10 +54,10 @@ export const ProductDetails = ({ title }) => {
                     <p className='amount'> #1200.00</p>
                     <div className='justbuttons'>
                         <button type='button'> 
-                            <p> Add to cart </p>
+                            <a href='/mycart'> Add to cart </a>
                         </button>
                         <button type='button'> 
-                            <p> Buy now </p>
+                            <a href='#'> Buy now </a>
                         </button>
                     </div>
                 </div>
