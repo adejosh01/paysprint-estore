@@ -264,7 +264,7 @@ export const EstoreHeader = () => {
                     <img src={share} alt="User Icon" />
                     <Link to="#"> Share profile link </Link>
                   </li>
-                  <li style={{ width: '22.9rem' }}>
+                  <li style={{ width: '24.4rem' }}>
                     <img src={tag} alt="User Icon" />
                     <Link to="#"> Check out Special Promo </Link>
                   </li>
