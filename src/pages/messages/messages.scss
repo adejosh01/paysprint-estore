@@ -98,6 +98,7 @@
                 justify-content: space-between;
                 align-items: center;
                 padding: 2rem;
+                background-color: #fff;
                 div h4 {
                     font: 500 20px 'plus jakarta sans';
                     line-height: 25px;
@@ -109,9 +110,41 @@
                     height: 6rem;
                     border-radius: 50%;
                 }
+                p {
+                  font: 500 16px 'plus jakarta sans';
+                  line-height: 22px;
+                  color: #5B5D64;
+                }
             }
-            div {
+            .thedate {
+                font: 500 16px "Plus Jakarta Sans";
+                text-align: center;
+                margin-top: 1rem;
+            }
+            div:not(.title):nth-last-child(2)  {
                 display: flex;
+                justify-content: flex-end;
+                padding: 0 3rem;
+                p {
+                    width: 30%;
+                    font: 500 15px 'plus jakarta sans';
+                    color: #2D334A;
+                    background: #FFDA00;
+                    padding: 1.5rem;
+                    border-radius: 2rem;
+                }
+            }
+            div:not(.title):last-child {
+                display: flex;
+                padding: 0 3rem;
+                p {
+                    width: 30%;
+                    font: 500 15px 'plus jakarta sans';
+                    color: #2D334A;
+                    background: #fff;
+                    padding: 1.5rem;
+                    border-radius: 2rem;
+                }
             }
         }
     }

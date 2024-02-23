@@ -53,8 +53,9 @@ export const Messages = ({title}) => {
                                 <img src={profileIcon} alt="profile icon" />
                                 <h4> Adebambo's Store </h4>
                             </div>
-                            <p> 05 Aug </p>
+                            <p> Last seen today at 11:29 </p>
                         </div>
+                        <p className='thedate'> July 27th, 2023 </p>
                         <div>
                             <p>
                                 I would love to order for a fashion service
@@ -65,7 +66,9 @@ export const Messages = ({title}) => {
                                 Ok, Thank you for reaching out to us. We can  please kindly ....
                             </p>
                         </div>
+                        
                     </div>
+                    
 
                 </section>
             </div>
