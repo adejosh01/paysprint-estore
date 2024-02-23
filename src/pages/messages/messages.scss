@@ -92,7 +92,7 @@
             background-color: #f5f5f5;
             border-radius: 10px;
             flex-direction: column;
-            gap: 2rem;
+            gap: 3rem;
             .title {
                 display: flex;
                 justify-content: space-between;
@@ -121,7 +121,7 @@
                 text-align: center;
                 margin-top: 1rem;
             }
-            div:not(.title):nth-last-child(2)  {
+            div:not(.title):nth-last-child(3)  {
                 display: flex;
                 justify-content: flex-end;
                 padding: 0 3rem;
@@ -134,7 +134,7 @@
                     border-radius: 2rem;
                 }
             }
-            div:not(.title):last-child {
+            div:not(.title):nth-last-child(2) {
                 display: flex;
                 padding: 0 3rem;
                 p {
@@ -144,6 +144,31 @@
                     background: #fff;
                     padding: 1.5rem;
                     border-radius: 2rem;
+                }
+            }
+            section {
+                // margin-top: 5rem;
+                .compose {
+                    input {
+                        width: 100%;
+                        height: 100%;
+                        font: 500 20px 'Satoshi';
+                        color: #828282;
+                        flex: 0 0 50%;
+                    }
+                    padding: 1rem 2rem;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin: 0 0.5rem;
+                    border: 1px solid #f5f5f5;
+                    background: #fff;
+                    height: 82px;
+                    div {
+                        display: flex;
+                        gap: 3rem;
+                        margin-right: 2rem;
+                    }
                 }
             }
         }

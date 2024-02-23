@@ -1,6 +1,9 @@
 import './messages.scss';
 import profileIcon from 'assets/images/messagesIcon.png';
 import random from 'assets/images/convo.png';
+import attachment from 'assets/icons/profile/attach.png';
+import mic from 'assets/icons/profile/microphoneIcon.png';
+import sendmsg from 'assets/icons/profile/sendIcon.png';
 
 
 export const Messages = ({title}) => {
@@ -66,7 +69,23 @@ export const Messages = ({title}) => {
                                 Ok, Thank you for reaching out to us. We can  please kindly ....
                             </p>
                         </div>
-                        
+
+                        <section>
+                            <div className='compose'>
+                                <input type="text" placeholder='Write your comment' />
+                                <div>
+                                    <button type='button'>
+                                        <img src={attachment} alt="attachment icon" />
+                                    </button>
+                                    <button type='button'>
+                                        <img src={mic} alt="microphone icon" />
+                                    </button>
+                                    <button type='button'>
+                                        <img src={sendmsg} alt="send the message icon" />
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
                     </div>
                     
 
