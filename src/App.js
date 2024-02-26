@@ -13,6 +13,7 @@ import { Payment } from "pages/topayment/payments.page";
 import { SuccessfulOrder } from "pages/succcessfulOrder/success.page";
 import { EstoreFooter } from "components/footer/footer.component";
 import { Messages } from "pages/messages/messages.page";
+import { ServiceDetails } from "pages/servicesdetails/service.page";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
             <Route path="/payment" exact element={<Payment title="PaySprint | Payments" />} />
             <Route path="/success" exact element={<SuccessfulOrder title="PaySprint | Successfully Ordered" />} />
             <Route path="/messages" exact element={<Messages title="PaySprint | Messages" />} />
+            <Route path="/services" exact element={<ServiceDetails title="PaySprint | Service Details" />} />
           </Routes>
         <EstoreFooter />
       </div>

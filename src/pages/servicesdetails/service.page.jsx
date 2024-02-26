@@ -1,18 +1,13 @@
-import './product.styles.scss';
+import './services.styles.scss';
 import { useEffect } from 'react';
 import starimage from "assets/images/star.png";
-import product1 from 'assets/images/estore/productDetails/firstprod.png';
-import cokesecond from 'assets/images/estore/productDetails/cokesecond.png';
-import cokethird from 'assets/images/estore/productDetails/cokethird.png';
-import cokefourth from 'assets/images/estore/productDetails/cokefourth.png';
-import normalpepsi from 'assets/images/estore/productDetails/pepsi.png';
-import sevenUp from 'assets/images/estore/productDetails/7up.png';
-import cokeandfanta from 'assets/images/estore/productDetails/fantaandcoke.png';
-import cannedpepsi from 'assets/images/estore/productDetails/cannedpepsi.png';
-import { Link } from 'react-router-dom';
+import firstservice from 'assets/images/estore/rectangle-28.png';
+import secondservice from 'assets/images/estore/rectangle-29.png';
+import thirdservice from 'assets/images/estore/rectangle-210.png';
+import fourthservice from 'assets/images/estore/rectangle-211.png';
 
 
-export const ProductDetails = ({ title }) => {
+export const ServiceDetails = ({ title }) => {
     useEffect(() => {
       document.title = title;
       window.scrollTo(0, 0);
@@ -22,23 +17,25 @@ export const ProductDetails = ({ title }) => {
     return (
         <div className="estore-container">
 
-            <section className='oneproduct'>
+            <section className='oneservice'>
                 <div className='imagessection'>
                     <div className='themainimage'>
-                        <img src={product1} alt="eachproductImage" />
+                        <img src={secondservice} alt="eachServiceImage" />
                     </div>
                     <div className="otherimages">
-                        <img src={cokesecond} alt="relateditems in the same store" />
-                        <img src={cokethird} alt="relateditems in the same store" />
-                        <img src={cokefourth} alt="relateditems in the same store" />
+                        <img src={firstservice} alt="relateditems in the same services" />
+                        <img src={thirdservice} alt="relateditems in the same services" />
+                        <img src={fourthservice} alt="relateditems in the same services" />
                     </div>
                 </div>
 
                 <div className="describingtheimages">
-                    <h2> Coca cola 60cl * 12</h2>
+                    <h2> Consultation Services </h2>
                     <div className='longpiece'>
                         <h4> Description</h4>
-                        <p> Coca cola is an international fashion clothing and accessory store. Focusing on the very latest in affordable Jumia fashion styles, both attire and stunning accessories, we feature many newest product lines, providing maximum choice and convenience to our discerning clientele. We also aim to provide an extensive range of high quality, trendy fashion clothing together to our valued customers. Our goal is always to provide our customers with stunning, high quality fashion products at down to earth prices. Yoo To offers trending fashion-forward styles, edgy and innovative designs all delivered with a truly class-leading professional service. </p>
+                        <p> A consulting firm or simply consultancy is a professional service firm that provides expertise and specialised labour for a fee, through the use of consultants. Consulting firms may have one employee or thousands; they may consult in a broad range of domains, for example, management, engineering e.t.c
+                        <br /> This firm has alot of reviews as you can see below    
+                        </p>
                         <div className='ratings'>
                             <span>
                                 <img src={starimage} alt="justtheIconOfAStar" />
@@ -51,30 +48,30 @@ export const ProductDetails = ({ title }) => {
                         </div>
                     </div>
                     
-                    <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> Zee Cola's store</span> </p>
-                    <p className='amount'> #1200.00</p>
+                    <p className='storedealer'>Service Name: <span style={{ color: '#2D334A' }}> Waponi Consultant </span> </p>
+                    <p className='amount'> $12,000.00 <span>per closed deal</span></p> 
                     <div className='justbuttons'>
-                        <button type='button'> 
-                            <a href='/mycart'> Add to cart </a>
+                        <button type='button'>  
+                            <a href='/messages'> Get in-touch </a>
                         </button>
                         <button type='button'> 
-                            <Link href='#'> Buy now </Link>
+                            <a href='https://maps.google.com' target='_blank' rel='noreferrer'> See our Locations </a>
                         </button>
                     </div>
                 </div>
             </section>
 
-            <section className='similarproducts'>
+            <section className='similarservices'>
                 <div className="producttitle">
-                    <p> Similar Products </p>
+                    <p> Similar Services </p>
                 </div>
 
                 <div className="items">
                     <div className="eachItem">
-                        <img className='fortheimages' src={ normalpepsi } alt="eachImage" />
+                        <img className='fortheimages' src={ firstservice } alt="eachImage" />
                         <div className="imgdescription">
-                            <p className="nameofitem"> Coca cola 60cl - 1 crate </p>
-                            <p className="priceofitem"> ₦1200.00 </p>
+                            <p className="nameofitem"> Report Writing </p>
+                            <p className="priceofitem"> ₦1200.00 <span> per closed deal</span> </p>
                             <div>
                                 <span>
                                 <img src={starimage} alt="justtheIconOfAStar" />
@@ -89,10 +86,10 @@ export const ProductDetails = ({ title }) => {
                     </div>
 
                     <div className="eachItem">
-                        <img className='fortheimages' src={sevenUp} alt="eachImage" />
+                        <img className='fortheimages' src={secondservice} alt="eachImage" />
                         <div className="imgdescription">
-                            <p className="nameofitem"> Coca cola 60cl - 1 crate </p>
-                            <p className="priceofitem"> ₦1200.00 </p>
+                            <p className="nameofitem"> Waponi Consultant </p>
+                            <p className="priceofitem"> ₦1200.00 <span> per closed deal</span> </p>
                             <div>
                                 <span>
                                 <img src={starimage} alt="justtheIconOfAStar" />
@@ -107,10 +104,10 @@ export const ProductDetails = ({ title }) => {
                     </div>
 
                     <div className="eachItem">
-                        <img className='fortheimages' src={cokeandfanta} alt="eachImage" />
+                        <img className='fortheimages' src={thirdservice} alt="eachImage" />
                         <div className="imgdescription">
-                            <p className="nameofitem"> Coca cola 60cl - 1 crate </p>
-                            <p className="priceofitem"> ₦1200.00 </p>
+                            <p className="nameofitem"> Business Talks </p>
+                            <p className="priceofitem"> ₦1200.00 <span> per closed deal</span> </p>
                             <div>
                                 <span>
                                 <img src={starimage} alt="justtheIconOfAStar" />
@@ -125,10 +122,10 @@ export const ProductDetails = ({ title }) => {
                     </div>
 
                     <div className="eachItem">
-                        <img className='fortheimages' src={cannedpepsi} alt="eachImage" />
+                        <img className='fortheimages' src={fourthservice} alt="eachImage" />
                         <div className="imgdescription">
-                            <p className="nameofitem"> Coca cola 60cl - 1 crate </p>
-                            <p className="priceofitem"> ₦1200.00 </p>
+                            <p className="nameofitem"> Electrical Services </p>
+                            <p className="priceofitem"> ₦1200.00 <span> per closed deal</span> </p>
                             <div>
                                 <span>
                                 <img src={starimage} alt="justtheIconOfAStar" />
@@ -146,5 +143,6 @@ export const ProductDetails = ({ title }) => {
 
         </div>
     );
+
 };
 

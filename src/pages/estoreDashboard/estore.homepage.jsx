@@ -309,12 +309,14 @@ export const EstoreDashboard = ({ title }) => {
                 <p className="nameofitem"> Report writing </p>
               </div>
             </div>
-            <div className="eachItem">
-              <img src={consultation} alt="eachImage" />
-              <div className="imgdescription">
-                <p className="nameofitem"> Consultation </p>
+            <Link to="/services">
+              <div className="eachItem">
+                <img src={consultation} alt="eachImage" />
+                <div className="imgdescription">
+                  <p className="nameofitem"> Consultation </p>
+                </div>
               </div>
-            </div>
+            </Link>
             <div className="eachItem">
               <img src={businesstalk} alt="eachImage" />
               <div className="imgdescription">
