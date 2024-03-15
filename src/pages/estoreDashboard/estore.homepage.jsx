@@ -22,7 +22,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export const EstoreDashboard = ({ title }) => {
-  const apiUrl = process.env.REACT_APP_API_URL || 'http://192.168.100.108:8000/api/v1';
+  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
   const [error, setError] = useState(null);
   const [hotDeals, setData] = useState([]);
   const [topProducts, setData2] = useState([]);
