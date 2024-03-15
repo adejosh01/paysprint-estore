@@ -30,19 +30,42 @@ import businesstalk from "assets/images/estore/rectangle-210.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export const EstoreDashboard = ({ title }) => {
+  const [data, setData] = useState([]);
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://192.168.100.108:8000';
+
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+
+    axios.get(`${apiUrl}/api/v1/ashopree/product/category`) 
+    .then(response => {
+      setData(response.data.data);
+      // console.log(response.data);
+    })
+
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+
+  console.log(data);
+
+}, [apiUrl]);
 
 
   const [isSubMenuOpen] = useState(false);
 
   return (
     <div className="estore-container">
+
+        <div>
+            {/* Render fetched data */}
+            {data.map((item, index) => (
+              <div key={index}>{item.category}</div>
+            ))}
+          </div>
         
         <section className="getallprods">
             <div className="allprodsImage">
