@@ -1,13 +1,7 @@
 import "./estore.homepage.scss";
 import { useEffect, useState } from "react";
-import cocacola from "assets/images/estore/rectangle-20.png";
-import tv from "assets/images/estore/rectangle-21.png";
-import washingmachine from "assets/images/estore/rectangle-22.png";
-import shoes from "assets/images/estore/rectangle-23.png";
-import femaleshoes from "assets/images/estore/rectangle-24.png";
 import tshirt from "assets/images/estore/rectangle-25.png";
 import clippers from "assets/images/estore/rectangle-26.png";
-import eyeglases from "assets/images/estore/rectangle-27.png";
 import starimage from "assets/images/star.png";
 import bamboStore from "assets/images/estore/frame-4080.png";
 import humtpaint from "assets/images/estore/frame-4090.png";
@@ -33,24 +27,30 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export const EstoreDashboard = ({ title }) => {
-  const [data, setData] = useState([]);
   const apiUrl = process.env.REACT_APP_API_URL || 'http://192.168.100.108:8000';
+  const [error, setError] = useState(null);
+  const [data, setData] = useState([]);
+  const [data2, setData2] = useState([]);
 
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
 
-    axios.get(`${apiUrl}/api/v1/ashopree/product/category`) 
+    axios.get(`${apiUrl}/api/v1/ashopree/product/hot-deals`) 
     .then(response => {
       setData(response.data.data);
-      // console.log(response.data);
+    }).catch(error => {
+      setError('Error fetching Hot-deals product data: ' + error.message);
+    });
+
+    axios.get(`${apiUrl}/api/v1/ashopree/product/top`) 
+    .then(response => {
+      setData2(response.data.data);
     })
 
     .catch(error => {
-      console.error('Error fetching data:', error);
+      setError('Error fetching Top Products data: ' + error.message);
     });
-
-  console.log(data);
 
 }, [apiUrl]);
 
@@ -59,13 +59,6 @@ export const EstoreDashboard = ({ title }) => {
 
   return (
     <div className="estore-container">
-
-        <div>
-            {/* Render fetched data */}
-            {data.map((item, index) => (
-              <div key={index}>{item.category}</div>
-            ))}
-          </div>
         
         <section className="getallprods">
             <div className="allprodsImage">
@@ -122,40 +115,22 @@ export const EstoreDashboard = ({ title }) => {
           <p className="dealtitle"> Hottest Deals </p>
 
           <div className="items">
-            <Link to="/productdetails">
-              <div className="eachItem">
-                <img src={cocacola} alt="eachImage" />
-                <div className="imgdescription">
-                  <p className="nameofitem"> Coca cola 60cl * 12 </p>
-                  <p className="priceofitem"> ₦1200.00 </p>
-                  <p className="initialprice"> ₦1400.00 </p>
-                </div>
-              </div>
-            </Link>
-            <div className="eachItem">
-              <img src={tv} alt="eachImage" />
-              <div className="imgdescription">
-                <p className="nameofitem"> Television sets </p>
-                <p className="priceofitem"> ₦1200.00 </p>
-                <p className="initialprice"> ₦1400.00 </p>
-              </div>
-            </div>
-            <div className="eachItem">
-              <img src={washingmachine} alt="eachImage" />
-              <div className="imgdescription">
-                <p className="nameofitem"> Washing Machine </p>
-                <p className="priceofitem"> ₦1200.00 </p>
-                <p className="initialprice"> ₦1400.00 </p>
-              </div>
-            </div>
-            <div className="eachItem">
-              <img src={shoes} alt="eachImage" />
-              <div className="imgdescription">
-                <p className="nameofitem"> Eye glasses </p>
-                <p className="priceofitem"> ₦1200.00 </p>
-                <p className="initialprice"> ₦1400.00 </p>
-              </div>
-            </div>
+              {Array.isArray(data) ? (
+                data.map((item, index) => (
+                <Link to="/productdetails">
+                  <div className="eachItem" key={index}>
+                    <img src={item.image} alt="eachImage" />
+                    <div className="imgdescription">
+                      <p className="nameofitem">{item.productName}</p>
+                      <p className="priceofitem">#{item.amount}</p>
+                      <p className="initialprice">#{item.previousAmount}</p>
+                    </div>
+                  </div>
+                  </Link>
+                ))
+              ) : (
+                <div>Error: Sorry, Please check your network connection and try again</div>
+              )}
           </div>
         </section>
 
@@ -166,23 +141,30 @@ export const EstoreDashboard = ({ title }) => {
           </div>
 
           <div className="items">
-            <div className="eachItem">
-              <img src={femaleshoes} alt="eachImage" />
-              <div className="imgdescription">
-                <p className="nameofitem"> Female shoes </p>
-                <p className="priceofitem"> ₦1200.00 </p>
-                  <div>
-                    <span>
-                      <img src={starimage} alt="justtheIconOfAStar" />
-                      <img src={starimage} alt="justtheIconOfAStar" />
-                      <img src={starimage} alt="justtheIconOfAStar" />
-                      <img src={starimage} alt="justtheIconOfAStar" />
-                      <img src={starimage} alt="justtheIconOfAStar" />
-                    </span>
-                    <p className="initialprice"> 4.56 (132 reviews) </p>
-                  </div>
-              </div>
-            </div>
+              {Array.isArray(data2) ? (
+                  data2.map((item, index) => (
+                    <div className="eachItem" key={index}>
+                      <img className="prodImage" src={item.image} alt="eachImage" />
+                      <div className="imgdescription">
+                        <p className="nameofitem">{item.productName}</p>
+                        <p className="priceofitem">#{item.amount}</p>
+                        <div>
+                          <span>
+                            <img src={starimage} alt="justtheIconOfAStar" />
+                            <img src={starimage} alt="justtheIconOfAStar" />
+                            <img src={starimage} alt="justtheIconOfAStar" />
+                            <img src={starimage} alt="justtheIconOfAStar" />
+                            <img src={starimage} alt="justtheIconOfAStar" />
+                          </span>
+                          <p className="initialprice"> 4.56 (132 reviews) </p>
+                        </div>  
+                      </div>
+                    </div>
+                  ))
+                ) : (
+                  <div>Error: Sorry, Please check your network connection and try again</div>
+                )}
+
             <div className="eachItem">
               <img src={tshirt} alt="eachImage" />
               <div className="imgdescription">
@@ -200,6 +182,7 @@ export const EstoreDashboard = ({ title }) => {
                   </div>              
                </div>
             </div>
+
             <div className="eachItem">
               <img src={clippers} alt="eachImage" />
               <div className="imgdescription">
@@ -217,23 +200,7 @@ export const EstoreDashboard = ({ title }) => {
                   </div>              
                </div>
             </div>
-            <div className="eachItem">
-              <img src={eyeglases} alt="eachImage" />
-              <div className="imgdescription">
-                <p className="nameofitem"> Eye glasses </p>
-                <p className="priceofitem"> ₦1200.00 </p>
-                  <div>
-                    <span>
-                      <img src={starimage} alt="justtheIconOfAStar" />
-                      <img src={starimage} alt="justtheIconOfAStar" />
-                      <img src={starimage} alt="justtheIconOfAStar" />
-                      <img src={starimage} alt="justtheIconOfAStar" />
-                      <img src={starimage} alt="justtheIconOfAStar" />
-                    </span>
-                    <p className="initialprice"> 4.56 (132 reviews) </p>
-                  </div>              
-               </div>
-            </div>
+
           </div>
 
         </section>

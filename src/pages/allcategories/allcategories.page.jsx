@@ -1,6 +1,6 @@
 import { BottomNav } from "components/bottom-navs";
 import "./allcategories.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import starimage from "assets/images/star.png";
 import chair from "assets/images/estore/allcategories/category1.png";
 import secondchair from "assets/images/estore/allcategories/category2.png";
@@ -8,46 +8,44 @@ import thirdchair from "assets/images/estore/allcategories/category3.png";
 import gadget from "assets/images/estore/allcategories/category4.png";
 import secondgadget from "assets/images/estore/allcategories/category5.png";
 import thirdgadget from "assets/images/estore/allcategories/category6.png";
+import axios from "axios";
 
 export const AllCategories = ({ title }) => {
+  const [data, setData] = useState([]);
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://192.168.100.108:8000';
+
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    axios.get(`${apiUrl}/api/v1/ashopree/product/category`) 
+    .then(response => {
+      setData(response.data.data);
+    })
+
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+
+  // console.log(data);
+
   }, []);
 
 
   return (
     <div className="estore-container">
-        
+  
         <section className="allcats">
           <div className="sidebar">
             <h4> Category</h4>
-            <div style={{  display: 'flex', flexDirection: 'column' , padding: '2rem 2rem', gap: '4rem' }}>
-              <div style={{  padding: '1.5rem 0' }}>
-                <p> Home & Office </p>
-              </div>
-              <div>
-                <p> Art & Craft (10) </p>
-              </div>
-              <div>
-                <p> Automotive (23) </p>
-              </div>
-              <div>
-                <p> Aviation/ Aerospace (5) </p>
-              </div>
-              <div>
-                <p> Chemicals (5)  </p>
-              </div>
-              <div>
-                <p> Chemicals (5)  </p>
-              </div>
-              <div>
-                <p> Chemicals (5)  </p>
-              </div>
-              <div style={{  paddingBottom: '3rem' }}>
-                <p> Chemicals (5)  </p>
-              </div>
+            <div>
+                {Array.isArray(data) && data.map((item, index) => (
+                  <div>
+                    <p key={index}>{item.category}</p>
+                  </div>
+                ))} 
+                    
+                {!Array.isArray(data) && <div>Error: Sorry, Please check your network connection and try again</div>}
             </div>
           </div>
 

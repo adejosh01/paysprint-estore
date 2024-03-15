@@ -17,15 +17,6 @@ import { ServiceDetails } from "pages/servicesdetails/service.page";
 
 function App() {
 
-
-// const location = useLocation();
-// const pathname = location.pathname;
-
-// let page = pathname.replace('/dashboard/','') || 'Overview';  
-
-// console.log(pathname);
-
-
     return (
       <div className="app-container"> 
         <EstoreHeader />

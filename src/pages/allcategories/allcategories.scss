@@ -36,12 +36,17 @@
             margin-left: 1rem;
           } 
           div {
+            display: flex;
+            flex-direction: column; 
+            padding: 1rem 2rem;
+            gap: 1rem;
             div {
               p {
                 font-weight: 400;
-                font-size: 17px;
+                font-size: 20px;
                 color: #2D334A;
                 font-family: Plus Jakarta sans-serif;
+                text-transform: capitalize;
               }
             }
           }
