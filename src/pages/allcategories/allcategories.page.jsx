@@ -12,13 +12,13 @@ import axios from "axios";
 
 export const AllCategories = ({ title }) => {
   const [data, setData] = useState([]);
-  const apiUrl = process.env.REACT_APP_API_URL || 'http://192.168.100.108:8000';
+  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
 
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
 
-    axios.get(`${apiUrl}/api/v1/ashopree/product/category`) 
+    axios.get(`${apiUrl}/ashopree/product/category`) 
     .then(response => {
       setData(response.data.data);
     })
