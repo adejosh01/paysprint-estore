@@ -21,7 +21,6 @@ function App() {
       <div className="app-container"> 
         <EstoreHeader />
           <Routes>
-          {/* path="/user/:id" component={UserDetails} */}
             <Route path="/" exact element={<EstoreDashboard title="PaySprint | Homepage" />} />
             <Route path="/estore" exact element={<EStore title="PaySprint | Estore" />} />
             <Route path="/allcategories" exact element={<AllCategories title="PaySprint | All Categories" />} />
