@@ -54,9 +54,9 @@ export const EstoreDashboard = ({ title }) => {
       setError('Error fetching Trending Services data: ' + error.message);
     });
 
-    console.log(registeredStores);
+    console.log(hotDeals);
 
-}, [apiUrl]);
+}, []);
 
 
   const [isSubMenuOpen] = useState(false);
@@ -79,7 +79,7 @@ export const EstoreDashboard = ({ title }) => {
                       <p> Buy products and order for services from our registered vendors at cheap prices </p>
                     </div>
                     
-                    <form action="" method="post">
+                    <form action={`/productdetails/:id`} method="post">
                       <div className="searchIt">
                           <div>
                             <p> Category </p>
@@ -122,7 +122,7 @@ export const EstoreDashboard = ({ title }) => {
           <div className="items">
               {Array.isArray(hotDeals) ? (
                 hotDeals.map((item, index) => (
-                <Link to="/productdetails">
+                <Link to={`/productdetails/${item.id}`} key={index}>
                   <div className="eachItem" key={index}>
                     <img src={item.image} alt="eachImage" />
                     <div className="imgdescription">
@@ -131,7 +131,7 @@ export const EstoreDashboard = ({ title }) => {
                       <p className="initialprice">#{item.previousAmount}</p>
                     </div>
                   </div>
-                  </Link>
+                </Link>
                 ))
               ) : (
                 <div>Error: Sorry, Please check your network connection and try again</div>

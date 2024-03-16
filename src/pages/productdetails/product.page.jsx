@@ -1,5 +1,5 @@
 import './product.styles.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import starimage from "assets/images/star.png";
 import product1 from 'assets/images/estore/productDetails/firstprod.png';
 import cokesecond from 'assets/images/estore/productDetails/cokesecond.png';
@@ -9,24 +9,53 @@ import normalpepsi from 'assets/images/estore/productDetails/pepsi.png';
 import sevenUp from 'assets/images/estore/productDetails/7up.png';
 import cokeandfanta from 'assets/images/estore/productDetails/fantaandcoke.png';
 import cannedpepsi from 'assets/images/estore/productDetails/cannedpepsi.png';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 
 export const ProductDetails = ({ title }) => {
+    const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
+    const { id } = useParams();
+    const [specificProduct, setData] = useState([]);
+    const [setError] = useState(null);
+
     useEffect(() => {
       document.title = title;
       window.scrollTo(0, 0);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+
+    axios.get(`${apiUrl}/ashopree/product/specific/STPR_DBF10E1A/${id}`) 
+    .then(response => {
+      setData(response.data.data);
+    }).catch(error => {
+      setError('Error fetching product using a specific id: ' + error.message);
+    });
+
+    if (!specificProduct) {
+        return <div>Loading...</div>;
+    }
+        console.log(specificProduct);
+
+    }, [apiUrl]);
 
     return (
         <div className="estore-container">
 
             <section className='oneproduct'>
                 <div className='imagessection'>
-                    <div className='themainimage'>
-                        <img src={product1} alt="eachproductImage" />
-                    </div>
+                    {/* {Array.isArray(specificProduct) ? (
+                        specificProduct.map((item, index) => (
+                        <div className="themainimage" key={index}>
+                            <img src={item.image} alt="eachImage" />
+                        </div>
+                        ))
+                    ) : (
+                        <div>Error: Sorry, Please check your network connection and try again</div>
+                    )} */}
+
+                        <div className="themainimage">
+                            <img src={product1} alt="eachImage" />
+                        </div>
+
                     <div className="otherimages">
                         <img src={cokesecond} alt="relateditems in the same store" />
                         <img src={cokethird} alt="relateditems in the same store" />
