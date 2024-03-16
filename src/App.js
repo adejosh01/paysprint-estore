@@ -21,11 +21,12 @@ function App() {
       <div className="app-container"> 
         <EstoreHeader />
           <Routes>
+          {/* path="/user/:id" component={UserDetails} */}
             <Route path="/" exact element={<EstoreDashboard title="PaySprint | Homepage" />} />
             <Route path="/estore" exact element={<EStore title="PaySprint | Estore" />} />
             <Route path="/allcategories" exact element={<AllCategories title="PaySprint | All Categories" />} />
             <Route path="/personalstore" exact element={<Personalstore title="PaySprint | Personal Store" />} />
-            <Route path="/productdetails" exact element={<ProductDetails title="PaySprint | Product Details" />} />
+            <Route path="/productdetails/:id" exact element={<ProductDetails title="PaySprint | Product Details" />} />
             <Route path="/mycart" exact element={<MyCarts title="PaySprint | My Carts" />} />
             <Route path="/checkout" exact element={<Checkout title="PaySprint | Checkout" />} />
             <Route path="/payment" exact element={<Payment title="PaySprint | Payments" />} />
