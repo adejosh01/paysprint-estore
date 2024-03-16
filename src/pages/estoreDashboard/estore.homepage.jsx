@@ -1,13 +1,6 @@
 import "./estore.homepage.scss";
 import { useEffect, useState } from "react";
 import starimage from "assets/images/star.png";
-import bamboStore from "assets/images/estore/frame-4080.png";
-import humtpaint from "assets/images/estore/frame-4090.png";
-import xycee from "assets/images/estore/frame-410.png";
-import woconsult from "assets/images/estore/frame-411.png";
-import mofeGadgets from "assets/images/estore/frame-408.png";
-import myconsul from "assets/images/estore/frame-4091.png";
-import electrify from "assets/images/estore/frame-4112.png";
 import office from "assets/images/estore/topCategories/Office.png";
 import electronic from "assets/images/estore/topCategories/Electronics.png";
 import desktops from "assets/images/estore/topCategories/desktop.png";
