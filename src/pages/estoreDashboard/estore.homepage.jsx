@@ -63,7 +63,7 @@ export const EstoreDashboard = ({ title }) => {
 
   return (
     <div className="estore-container">
-        
+         
         <section className="getallprods">
             <div className="allprodsImage">
               <img src={"assets/images/estore/rectangle-480.png"} alt="allprods" />
