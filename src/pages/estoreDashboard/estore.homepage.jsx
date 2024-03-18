@@ -35,7 +35,13 @@ export const EstoreDashboard = ({ title }) => {
 
     axios.get(`${apiUrl}/ashopree/product/top`) 
     .then(response => {
-      setData2(response.data.data);
+      if (response.data && response.data.data) {
+        setData2(response.data.data);
+        setError(null); 
+      } else {
+        setError('No data returned for the Top Products');
+      }
+
     }).catch(error => {
       setError('Error fetching Top Products data: ' + error.message);
     });
@@ -167,7 +173,7 @@ export const EstoreDashboard = ({ title }) => {
                     </div>
                   ))
                 ) : (
-                  <div>Error: Sorry, Please check your network connection and try again</div>
+                  <div>Error: {error} </div>
                 )}
           </div>
 

@@ -42,3 +42,8 @@ export const getMaxDOBForAdult = () => {
 };
 
 export const to2DecimalPlaces = (num) => Number(num).toFixed(2);
+
+export function stripHtmlTags(html) {
+  
+  return html.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
+}
