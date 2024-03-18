@@ -176,7 +176,6 @@ export const EstoreDashboard = ({ title }) => {
                   <div>Error: {error} </div>
                 )}
           </div>
-
         </section>
 
         <section className="registered">

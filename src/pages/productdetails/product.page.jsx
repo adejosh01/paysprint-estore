@@ -29,7 +29,6 @@ export const ProductDetails = ({ title }) => {
 
     }, [apiUrl, productCode]);
 
-    console.log(productCode);
     console.log(specificProduct);
 
     return (
@@ -95,7 +94,7 @@ export const ProductDetails = ({ title }) => {
                                         <img className='fortheimages' src={singleProduct.image} alt="eachImage" />
                                         <div className="imgdescription">
                                             <p className="nameofitem">{singleProduct.productName}</p>
-                                            <p className="priceofitem">₦{singleProduct.amount}</p>
+                                            <p className="priceofitem">{singleProduct.currencySymbol + singleProduct.amount}</p>
                                             <div>
                                                 <span>
                                                     <img src={starimage} alt="justtheIconOfAStar" />
