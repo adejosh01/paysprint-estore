@@ -54,7 +54,7 @@ export const EstoreDashboard = ({ title }) => {
       setError('Error fetching Trending Services data: ' + error.message);
     });
 
-    console.log(hotDeals);
+    console.log(topProducts);
 
 }, []);
 
@@ -122,13 +122,13 @@ export const EstoreDashboard = ({ title }) => {
           <div className="items">
               {Array.isArray(hotDeals) ? (
                 hotDeals.map((item, index) => (
-                <Link to={`/productdetails/${item.id}`} key={index}>
+                <Link to={`/productdetails/${item.productCode}`} key={index}>
                   <div className="eachItem" key={index}>
                     <img src={item.image} alt="eachImage" />
                     <div className="imgdescription">
                       <p className="nameofitem">{item.productName}</p>
-                      <p className="priceofitem">#{item.amount}</p>
-                      <p className="initialprice">#{item.previousAmount}</p>
+                      <p className="priceofitem">{item.currencySymbol + item.amount}</p>
+                      <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
                     </div>
                   </div>
                 </Link>
