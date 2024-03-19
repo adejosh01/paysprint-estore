@@ -1,5 +1,5 @@
 import './product.styles.scss';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';  
 import starimage from "assets/images/star.png";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios'; 
