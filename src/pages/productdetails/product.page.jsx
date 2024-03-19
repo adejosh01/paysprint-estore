@@ -88,7 +88,7 @@ export const ProductDetails = ({ title }) => {
 
                     <div className="items">
                         {specificProduct.map((item, index) => (
-                            <React.Fragment key={index}>
+                            <React.Fragment key={index}> 
                                 {Array.isArray(item.similarProduct) && item.similarProduct.map((singleProduct, subIndex) => (
                                     <div className="eachItem" key={subIndex}>
                                         <img className='fortheimages' src={singleProduct.image} alt="eachImage" />
