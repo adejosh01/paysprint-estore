@@ -24,7 +24,7 @@ export const ProductDetails = ({ title }) => {
     });
 
     if(!specificProduct) {
-        <div> Loading......</div>
+        <div> Loading, please wait.......</div>
     }
 
     }, [apiUrl, productCode]);
