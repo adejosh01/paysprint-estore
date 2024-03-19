@@ -90,23 +90,25 @@ export const ProductDetails = ({ title }) => {
                         {specificProduct.map((item, index) => (
                             <React.Fragment key={index}> 
                                 {Array.isArray(item.similarProduct) && item.similarProduct.map((singleProduct, subIndex) => (
-                                    <div className="eachItem" key={subIndex}>
-                                        <img className='fortheimages' src={singleProduct.image} alt="eachImage" />
-                                        <div className="imgdescription">
-                                            <p className="nameofitem">{singleProduct.productName}</p>
-                                            <p className="priceofitem">{singleProduct.currencySymbol + singleProduct.amount}</p>
-                                            <div>
-                                                <span>
-                                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                                </span>
-                                                <p className="initialprice">4.56 132(reviews)</p>
+                                    <Link to={`/productdetails/${singleProduct.productCode}`} key={index}>
+                                        <div className="eachItem" key={subIndex}>
+                                            <img className='fortheimages' src={singleProduct.image} alt="eachImage" />
+                                            <div className="imgdescription">
+                                                <p className="nameofitem">{singleProduct.productName}</p>
+                                                <p className="priceofitem">{singleProduct.currencySymbol + singleProduct.amount}</p>
+                                                <div>
+                                                    <span>
+                                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                                    </span>
+                                                    <p className="initialprice">4.56 132(reviews)</p>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </Link>
                                 ))}
                             </React.Fragment>
                         ))}
