@@ -60,10 +60,9 @@ export const EstoreDashboard = ({ title }) => {
       setError('Error fetching Trending Services data: ' + error.message);
     });
 
-    console.log(topProducts);
+}, [apiUrl]);
 
-}, []);
-
+console.log(topProducts);
 
   const [isSubMenuOpen] = useState(false);
 
@@ -85,7 +84,7 @@ export const EstoreDashboard = ({ title }) => {
                       <p> Buy products and order for services from our registered vendors at cheap prices </p>
                     </div>
                     
-                    <form action={`/productdetails/:id`} method="post">
+                    <form action={`/productdetails/${topProducts.productCode}`} method="post">
                       <div className="searchIt">
                           <div>
                             <p> Category </p>
@@ -145,38 +144,40 @@ export const EstoreDashboard = ({ title }) => {
           </div>
         </section>
 
-        <section className="topproducts">
-          <div className="producttitle">
-            <p className="realtitle"> Top Products </p>
-            <p className="secondtitle"> See all Products </p>
-          </div>
+        {topProducts.length !== 0 && (
+          <section className="topproducts">
+            <div className="producttitle">
+              <p className="realtitle"> Top Products </p>
+              <p className="secondtitle"> See all Products </p>
+            </div>
 
-          <div className="items">
-              {Array.isArray(topProducts) ? (
-                  topProducts.map((item, index) => (
-                    <div className="eachItem" key={index}>
-                      <img className="prodImage" src={item.image} alt="eachImage" />
-                      <div className="imgdescription">
-                        <p className="nameofitem">{item.productName}</p>
-                        <p className="priceofitem">#{item.amount}</p>
-                        <div>
-                          <span>
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                          </span>
-                          <p className="initialprice"> 4.56 (132 reviews) </p>
-                        </div>  
+            <div className="items">
+                {Array.isArray(topProducts) ? (
+                    topProducts.map((item, index) => (
+                      <div className="eachItem" key={index}>
+                        <img className="prodImage" src={item.image} alt="eachImage" />
+                        <div className="imgdescription">
+                          <p className="nameofitem">{item.productName}</p>
+                          <p className="priceofitem">#{item.amount}</p>
+                          <div>
+                            <span>
+                              <img src={starimage} alt="justtheIconOfAStar" />
+                              <img src={starimage} alt="justtheIconOfAStar" />
+                              <img src={starimage} alt="justtheIconOfAStar" />
+                              <img src={starimage} alt="justtheIconOfAStar" />
+                              <img src={starimage} alt="justtheIconOfAStar" />
+                            </span>
+                            <p className="initialprice"> 4.56 (132 reviews) </p>
+                          </div>  
+                        </div>
                       </div>
-                    </div>
-                  ))
-                ) : (
-                  <div>Error: {error} </div>
-                )}
-          </div>
-        </section>
+                    ))
+                  ) : (
+                    <div>Error: {error} </div>
+                  )}
+            </div>
+          </section>
+        )}
 
         <section className="registered">
           <h3> Registered Stores </h3>
@@ -242,26 +243,28 @@ export const EstoreDashboard = ({ title }) => {
           </div>
         </section>
 
-        <section className="topdeals">
-          <p className="dealtitle"> Trending Services </p>
+        {trendingServices.length !== 0 && (
+          <section className="topdeals">
+            <p className="dealtitle"> Trending Services </p>
 
-          <div className="items">
-            {Array.isArray(trendingServices) ? (
-                trendingServices.map((item, index) => (
-                <Link to="/services">
-                  <div className="eachItem" key={index}>
-                    <img src={item.businessLogo} alt="eachImage" />
-                    <div className="imgdescription">
-                      <p className="nameofitem">{item.businessName}</p>
+            <div className="items">
+              {Array.isArray(trendingServices) ? (
+                  trendingServices.map((item, index) => (
+                  <Link to="/services">
+                    <div className="eachItem" key={index}>
+                      <img src={item.businessLogo} alt="eachImage" />
+                      <div className="imgdescription">
+                        <p className="nameofitem">{item.businessName}</p>
+                      </div>
                     </div>
-                  </div>
-                  </Link>
-                ))
-              ) : (
-                <div>Error: Sorry, Please check your network connection and try again</div>
-              )}
-          </div>
-        </section>
+                    </Link>
+                  ))
+                ) : (
+                  <div>Error: Sorry, Please check your network connection and try again</div>
+                )}
+            </div>
+          </section>
+        )}
 
     </div>
 
