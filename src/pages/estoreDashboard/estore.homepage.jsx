@@ -62,7 +62,7 @@ export const EstoreDashboard = ({ title }) => {
 
 }, [apiUrl]);
 
-console.log(topProducts);
+// console.log(topProducts);
 
   const [isSubMenuOpen] = useState(false);
 

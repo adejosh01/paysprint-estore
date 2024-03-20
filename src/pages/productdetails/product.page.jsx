@@ -24,12 +24,12 @@ export const ProductDetails = ({ title }) => {
     });
 
     if(!specificProduct) {
-        <div> Loading, please wait.......</div>
+        <div> Loading, please hold on.......</div>
     }
 
     }, [apiUrl, productCode]);
 
-    console.log(specificProduct);
+    // console.log(specificProduct);
 
     return (
         <div className="estore-container">
