@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import paysprintLogo from "assets/svg/paysprint_logo.svg";
+import paysprintLogo from "assets/svg/new_logo.svg";
 import hamburgerIcon from "assets/svg/hamburger.svg";
 import "./estoreHeader.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -143,7 +143,7 @@ export const EstoreHeader = () => {
       <nav className="desktop-nav" style={{ background: '#fff' }}>
         <header className="mainEstore-header">
           <Link to="/">
-            <img src={paysprintLogo} alt="Company's Icon" />
+            <img src={paysprintLogo} alt="Company's Icon" style={{ width: '130px' }} />
           </Link>
           <ul>
             <li>
