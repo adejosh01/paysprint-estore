@@ -122,8 +122,13 @@ export const EstoreHeader = () => {
                 </li>
             </ul>
             <li>
+              <NavLink to="/estore" onClick={() => setIsMenuOpen(false)}>
+                Online E-store
+              </NavLink>
+            </li>
+            <li>
               <NavLink to="/pricing" onClick={() => setIsMenuOpen(false)}>
-                E-store
+                Plan & Pricing
               </NavLink>
             </li>
             <li>
@@ -205,6 +210,9 @@ export const EstoreHeader = () => {
                   <a> Others(18) </a>
                 </li>
               </ul>
+            </li>
+            <li>
+              <NavLink to="/here"> Plan & Pricing </NavLink>
             </li>
             <li>
               <NavLink to="/estore">Online Store</NavLink>

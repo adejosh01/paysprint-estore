@@ -102,7 +102,7 @@ export const EstoreDashboard = ({ title }) => {
 
                   <div class="buttons">
                     <button type="button">
-                      <p>Aparrels</p>
+                      <p>Apparels</p>
                     </button>
                     <button type="button">
                       <p>Consultancy</p>
@@ -111,7 +111,7 @@ export const EstoreDashboard = ({ title }) => {
                       <p>Professional Service</p>
                     </button>
                     <button type="button">
-                      <p>Electronic devices</p>
+                      <p>Electronic Devices</p>
                     </button>
                     <button type="button">
                       <p>Professional Service</p>

@@ -12,6 +12,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      flex: 0 0 35%;
       li {
         display: inline-block;
         position: relative;
@@ -83,7 +84,7 @@
     }
     div.lastside {
       list-style-type: none;
-      width: 48%;
+      width: 45%;
       display: flex;
       justify-content: space-between;
       align-items: center;
