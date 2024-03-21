@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import paysprintLogo from "assets/svg/new_logo.svg";
+import paysprintNewLogo from "assets/ashopree/ashopree_logo_with_icon.png";
 import hamburgerIcon from "assets/svg/hamburger.svg";
 import "./estoreHeader.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -47,7 +48,7 @@ export const EstoreHeader = () => {
   return (
     <>
       <nav className="mobile-nav">
-        <img src={paysprintLogo} alt="" />
+        <img src={paysprintNewLogo} alt="" />
         <div className="buttons">
           <Link to="/"> Home </Link>
           <button onClick={() => setIsMenuOpen(true)}>
@@ -148,7 +149,7 @@ export const EstoreHeader = () => {
       <nav className="desktop-nav" style={{ background: '#fff' }}>
         <header className="mainEstore-header">
           <Link to="/">
-            <img src={paysprintLogo} alt="Company's Icon" style={{ width: '130px' }} />
+            <img src={paysprintNewLogo} alt="Company's Icon" style={{ width: '130px' }} />
           </Link>
           <ul>
             <li>
