@@ -121,28 +121,30 @@ export const EstoreDashboard = ({ title }) => {
 
         </section>
 
-        <section className="topdeals">
-          <p className="dealtitle"> Hottest Deals </p>
+        {hotDeals.length !== 0 && (
+          <section className="topdeals">
+            <p className="dealtitle"> Hottest Deals </p>
 
-          <div className="items">
-              {Array.isArray(hotDeals) ? (
-                hotDeals.map((item, index) => (
-                <Link to={`/productdetails/${item.productCode}`} key={index}>
-                  <div className="eachItem" key={index}>
-                    <img src={item.image} alt="eachImage" />
-                    <div className="imgdescription">
-                      <p className="nameofitem">{item.productName}</p>
-                      <p className="priceofitem">{item.currencySymbol + item.amount}</p>
-                      <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
+            <div className="items">
+                {Array.isArray(hotDeals) ? (
+                  hotDeals.map((item, index) => (
+                  <Link to={`/productdetails/${item.productCode}`} key={index}>
+                    <div className="eachItem" key={index}>
+                      <img src={item.image} alt="eachImage" />
+                      <div className="imgdescription">
+                        <p className="nameofitem">{item.productName}</p>
+                        <p className="priceofitem">{item.currencySymbol + item.amount}</p>
+                        <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-                ))
-              ) : (
-                <div>Error: Sorry, Please check your network connection and try again</div>
-              )}
-          </div>
-        </section>
+                  </Link>
+                  ))
+                ) : (
+                  <div>Error: Sorry, Please check your network connection and try again</div>
+                )}
+            </div>
+          </section>
+        )}
 
         {topProducts.length !== 0 && (
           <section className="topproducts">
