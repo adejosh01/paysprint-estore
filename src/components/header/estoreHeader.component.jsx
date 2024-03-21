@@ -213,7 +213,7 @@ export const EstoreHeader = () => {
               </ul>
             </li>
             <li>
-              <NavLink to="/here"> Plan & Pricing </NavLink>
+              <NavLink to="/pricing"> Pricing </NavLink>
             </li>
             <li>
               <NavLink to="/estore">Online Store</NavLink>
