@@ -38,15 +38,20 @@ export const AllCategories = ({ title }) => {
         <section className="allcats">
           <div className="sidebar">
             <h4> Category</h4>
-            <div>
-                {Array.isArray(data) && data.map((item, index) => (
-                  <div>
-                    <p key={index}>{item.category}</p>
-                  </div>
-                ))} 
-                    
-                {!Array.isArray(data) && <div>Error: Sorry, Please check your network connection and try again</div>}
-            </div>
+            {data.length !== 0 ? (
+              <div>
+                  {Array.isArray(data) && data.map((item, index) => (
+                    <div>
+                      <p key={index}>{item.category}</p>
+                    </div>
+                  ))} 
+                      
+                  {!Array.isArray(data) && <div>Error: Sorry, Please check your network connection and try again</div>}
+              </div>
+            ) : (
+
+              <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading... </p>
+            )}
           </div>
 
           <div className="maincontent">

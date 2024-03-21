@@ -231,7 +231,7 @@ export const EstoreHeader = () => {
 
             <Link to="/mycart">
               { (pathname === "/mycart") ? (
-                <div style={{ background: '#e7aa07' }}> 
+                <div style={{ background: '#E7AA07' }}> 
                     <img src={cart} alt="thecartlogo" />
                 </div>
               ) : (
@@ -243,7 +243,7 @@ export const EstoreHeader = () => {
 
             <Link to="/messages">
               { (pathname === "/messages") ? (
-                <div style={{ background: '#e7aa07' }}> 
+                <div style={{ background: '#E7AA07' }}> 
                     <img src={msglogo} alt="themsglogo" />
                 </div>
               ) : (

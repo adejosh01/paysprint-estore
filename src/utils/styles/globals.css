@@ -934,14 +934,14 @@ body{
   overflow: visible;
 }
 .alert {
-  color: #e7aa07;
+  color: #E7AA07;
   text-align: left;
   font: 600 14px "Lato", sans-serif;
   position: relative;
 }
 
 .alert2 {
-  color: #e7aa07;
+  color: #E7AA07;
   text-align: left;
   font: 600 12px/20px "Lato", sans-serif;
   position: relative;
@@ -1431,7 +1431,7 @@ body{
 }
 
 .frame-top {
-  background: #e7aa07;
+  background: #E7AA07;
   border-radius: 8px;
   padding: 12px 26px 12px 26px;
   display: flex;
@@ -2069,7 +2069,7 @@ body{
 }
 
 .frame-report2 {
-  background: #e7aa07;
+  background: #E7AA07;
   border-radius: 6px;
   padding: 10px 8px 10px 12px;
   display: flex;
@@ -2693,7 +2693,7 @@ body{
 }
 
 .frame-proceedx {
-  background: #e7aa07;
+  background: #E7AA07;
   border-radius: 6px;
   padding: 10px 8px 10px 12px;
   display: flex;
@@ -2709,7 +2709,7 @@ body{
 }
 
 .frame-proceedx1 {
-  background: #e7aa07;
+  background: #E7AA07;
   border-radius: 6px;
   padding: 10px 8px 10px 12px;
   display: flex;
@@ -2725,7 +2725,7 @@ body{
 }
 
 .frame-proceedx2 {
-  background: #e7aa07;
+  background: #E7AA07;
   border-radius: 6px;
   padding: 10px 8px 10px 12px;
   display: flex;
@@ -2965,7 +2965,7 @@ body{
 }
 
 .frame-578 {
-  background: #e7aa07;
+  background: #E7AA07;
   border-radius: 8px;
   padding: 12px 28px 12px 28px;
   display: flex;
@@ -3539,7 +3539,7 @@ body{
   background: #ffffff;
   border-radius: 6px;
   border-style: solid;
-  border-color: #e7aa07;
+  border-color: #E7AA07;
   border-width: 1px;
   align-self: stretch;
   flex: 1;
@@ -3832,7 +3832,7 @@ body{
 }
 
 .back-view, .front-view, .upgrade-plan {
-  color: #e7aa07;
+  color: #E7AA07;
   text-align: left;
   font: 600 10px/20px "Plus Jakarta Sans", sans-serif;
   position: relative;
@@ -4145,7 +4145,7 @@ body{
 }
 
 .frame-345 {
-  background: #e7aa07;
+  background: #E7AA07;
   border-radius: 6px;
   padding: 10px 8px 10px 12px;
   display: flex;
@@ -4370,7 +4370,7 @@ body{
   transform: translate(-0.5px, -0.5px);
   overflow: visible;
   width: 2%;
-  background: #e7aa07;
+  background: #E7AA07;
 }
 .on-this-page {
   color: #272343;
@@ -4379,7 +4379,7 @@ body{
   position: relative;
 }
 .airtime-data {
-  color: #e7aa07;
+  color: #E7AA07;
   text-align: left;
   font: 600 12px "Plus Jakarta Sans", sans-serif;
   position: relative;
@@ -4502,7 +4502,7 @@ body{
 }
 
 .frame-451 {
-  background: #e7aa07;
+  background: #E7AA07;
   border-radius: 9px;
   padding: 10px 12px 15px 7px;
   display: flex;
@@ -4722,7 +4722,7 @@ body{
 }
 
 .send-money2 {
-  color: #e7aa07;
+  color: #E7AA07;
   text-align: left;
   font: 600 12px "Plus Jakarta Sans", sans-serif;
   position: relative;

@@ -1,5 +1,5 @@
 import "./e-store.scss";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import product1 from "../../assets/images/estore/products/product1.png";
 import product2 from "../../assets/images/estore/products/product2.png";
 import product3 from "../../assets/images/estore/products/product3.png";
@@ -7,12 +7,25 @@ import product4 from "../../assets/images/estore/products/product4.png";
 import arrowupright from "assets/icons/arrow-up-right.png";
 import { BottomNav } from "components/bottom-navs";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 export const EStore = ({ title }) => {
+  const [categories, setData] = useState([]);
+  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
+
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    axios.get(`${apiUrl}/ashopree/product/category`) 
+    .then(response => {
+      setData(response.data.data);
+    })
+
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+
   }, []);
 
 
@@ -50,33 +63,21 @@ export const EStore = ({ title }) => {
        <section className="nextup">
           <div className="sidebar">
             <h4> Store Category</h4>
-            <div style={{  display: 'flex', flexDirection: 'column' , padding: '2rem 2rem', gap: '4rem' }}>
-              <div style={{  padding: '1.5rem 0' }}>
-                <p> Accounting (18) </p>
+
+            {categories.length !== 0 ? (
+              <div style={{  display: 'flex', flexDirection: 'column' , padding: '2rem 2rem', gap: '4rem' }}>
+                  {Array.isArray(categories) && categories.map((item, index) => (
+                    <div>
+                      <p key={index}>{item.category}</p>
+                    </div>
+                  ))} 
+                      
+                  {!Array.isArray(categories) && <div>Error: Sorry, Please check your network connection and try again</div>}
               </div>
-              <div>
-                <p> Art & Craft (10) </p>
-              </div>
-              <div>
-                <p> Automotive (23) </p>
-              </div>
-              <div>
-                <p> Aviation/ Aerospace (5) </p>
-              </div>
-              <div>
-                <p> Chemicals (5)  </p>
-              </div>
-              <div>
-                <p> Chemicals (5)  </p>
-              </div>
-              <div>
-                <p> Chemicals (5)  </p>
-              </div>
-              <div style={{  paddingBottom: '3rem' }}>
-                <p> Chemicals (5)  </p>
-              </div>
+            ) : (
+              <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading...... </p>
+            )}
             </div>
-          </div>
 
           <div className="maincontent">
             <div className="titleandsearch">

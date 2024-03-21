@@ -23,9 +23,6 @@ export const ProductDetails = ({ title }) => {
       setError('Error fetching product using a specific product code: ' + error.message);
     });
 
-    if(!specificProduct) {
-        <div> Loading, please hold on.......</div>
-    }
 
     }, [apiUrl, productCode]);
 
@@ -34,51 +31,103 @@ export const ProductDetails = ({ title }) => {
     return (
         <div className="estore-container">
 
-            {Array.isArray(specificProduct) ? (specificProduct.map((item, index) => (
-                <section className='oneproduct'>
-                    <div className='imagessection'>
-                        <div className="themainimage" key={index}>
-                            <img src={item.product.image} alt="myStoreImage" />
-                        </div>
+                {/* {Array.isArray(specificProduct) ? (specificProduct.map((item, index) => (
+                    <section className='oneproduct'>
+                        <div className='imagessection'>
+                            <div className="themainimage" key={index}>
+                                <img src={item.product.image} alt="myStoreImage" />
+                            </div>
 
-                        <div className="otherimages">
-                            <img src={item.product.image} alt="myStoreImage" />
-                        </div>
-                    </div>
-
-                    <div className="describingtheimages">
-                        <h2> {item.product.productName}</h2>
-                        <div className='longpiece'>
-                            <h4> Description</h4>
-                            <p> {typeof item.product.description === 'string' ? stripHtmlTags(item.product.description) : item.product.description} </p> 
-                            <div className='ratings'>
-                                <span>
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                </span>
-                                <p className="initialprice"> 4.56 (132 reviews) </p>
+                            <div className="otherimages">
+                                <img src={item.product.image} alt="myStoreImage" />
                             </div>
                         </div>
-                        
-                        <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {item.product.businessname} </span> </p>
-                        <p className='amount'> {item.product.currencySymbol + item.product.amount} </p>
-                        <div className='justbuttons'>
-                            <button type='button' id={`${item.product.productCode}`}> 
-                                <a href='/mycart'> Add to cart </a>
-                            </button>
-                            <button type='button'> 
-                                <Link href='#'> Buy now </Link>
-                            </button>
+
+                        <div className="describingtheimages">
+                            <h2> {item.product.productName}</h2>
+                            <div className='longpiece'>
+                                <h4> Description</h4>
+                                <p> {typeof item.product.description === 'string' ? stripHtmlTags(item.product.description) : item.product.description} </p> 
+                                <div className='ratings'>
+                                    <span>
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                    </span>
+                                    <p className="initialprice"> 4.56 (132 reviews) </p>
+                                </div>
+                            </div>
+                            
+                            <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {item.product.businessname} </span> </p>
+                            <p className='amount'> {item.product.currencySymbol + item.product.amount} </p>
+                            <div className='justbuttons'>
+                                <button type='button' id={`${item.product.productCode}`}> 
+                                    <a href='/mycart'> Add to cart </a>
+                                </button>
+                                <button type='button'> 
+                                    <Link href='#'> Buy now </Link>
+                                </button>
+                            </div>
                         </div>
-                    </div>
-                </section>
-            ))
+                    </section>
+                ))
+                ) : (
+                    <div>Error: {error}</div>
+                )} */}
+
+            {specificProduct.length !== 0 ? (
+                Array.isArray(specificProduct) ? (
+                    specificProduct.map((item, index) => (
+                        <section className='oneproduct' key={index}>
+                            <div className='imagessection'>
+                                <div className="themainimage">
+                                    <img src={item.product.image} alt="myStoreImage" />
+                                </div>
+
+                                <div className="otherimages">
+                                    <img src={item.product.image} alt="myStoreImage" />
+                                </div>
+                            </div>
+
+                            <div className="describingtheimages">
+                                <h2> {item.product.productName}</h2>
+                                <div className='longpiece'>
+                                    <h4> Description</h4>
+                                    <p> {typeof item.product.description === 'string' ? stripHtmlTags(item.product.description) : item.product.description} </p> 
+                                    <div className='ratings'>
+                                        <span>
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                        </span>
+                                        <p className="initialprice"> 4.56 (132 reviews) </p>
+                                    </div>
+                                </div>
+                                
+                                <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {item.product.businessname} </span> </p>
+                                <p className='amount'> {item.product.currencySymbol + item.product.amount} </p>
+                                <div className='justbuttons'>
+                                    <button type='button' id={`${item.product.productCode}`}> 
+                                        <a href='/mycart'> Add to cart </a>
+                                    </button>
+                                    <button type='button'> 
+                                        <Link href='#'> Buy now </Link>
+                                    </button>
+                                </div>
+                            </div>
+                        </section>
+                    ))
+                ) : (
+                    <div>Error: {error}</div>
+                )
             ) : (
-                <div>Error: {error}</div>
+                <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading.... </p>
             )}
+
 
             {Array.isArray(specificProduct) ? (
                 <section className='similarproducts'>
