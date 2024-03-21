@@ -6,11 +6,7 @@ import linkedinIconWhite from "assets/svg/linkedin_icon_white.svg";
 import twitterIconWhite from "assets/svg/twitter_icon_white.svg";
 import "./footer.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faLocationDot,
-  faEnvelope,
-  faThumbTack,
-} from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faEnvelope, faThumbTack } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 export const EstoreFooter = () => {
