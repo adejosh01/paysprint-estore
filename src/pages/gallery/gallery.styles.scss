@@ -27,16 +27,81 @@
             padding: 50px;
             background-color: #fff;
             border-radius: 15px;
+            display: flex;
+            gap: 50px;
+            flex-direction: column;
             h2 {
                 font: 600 45px 'Plus jakarta sans';
                 text-align: center;
                 line-height: 28px;
-                padding-left: 33px;
                 // text-transform: uppercase;
+            }
+            div.gridItems {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 48px;
+                .galleryitems {
+                    padding: 25px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    border: 1px solid;
+                    border-radius: 15px;
+                    img {
+                        width: 334px;
+                        height: 167px;
+                        border-radius: 8px;
+                    }
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2px;
+                        h5 {
+                            font: 600 18px 'lato';
+                            height: 28px;
+                            letter-spacing: 5px;
+                        }
+                        p {
+                            font: 600 16px 'lato';
+                            height: 28px;
+                            letter-spacing: 5px;
+                            img {
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+                        & > p:last-child {
+                            display: flex;
+                            align-items: center;
+                            gap: 1rem;
+                        }
+                    }
+                    a {
+                        font: 400 16px 'lato';
+                        line-height: 28px;
+                        letter-spacing: 5px;
+                    }
+                }
             }
         }
     }
   
+}
+
+@media screen and (max-width: 1300px) {
+    .estore-container { 
+        section.gallery {
+            div.contents div.gridItems {
+                .galleryitems {
+                    div {
+                        h5 {
+                            margin-bottom: 10px;
+                        }
+                    }
+                }
+            }
+        }    
+    }
 }
 
 // @media screen and (max-width: 1300px) {
