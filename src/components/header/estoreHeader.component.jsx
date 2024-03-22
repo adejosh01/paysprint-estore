@@ -48,7 +48,7 @@ export const EstoreHeader = () => {
   return (
     <>
       <nav className="mobile-nav">
-        <img src={paysprintNewLogo} alt="" />
+        <img src={paysprintNewLogo} alt="" style={{ width: '25%' }} />  {/* Instead  of width: 150px*/}
         <div className="buttons">
           <Link to="/"> Home </Link>
           <button onClick={() => setIsMenuOpen(true)}>
@@ -149,7 +149,7 @@ export const EstoreHeader = () => {
       <nav className="desktop-nav" style={{ background: '#fff' }}>
         <header className="mainEstore-header">
           <Link to="/">
-            <img src={paysprintNewLogo} alt="Company's Icon" style={{ width: '130px' }} />
+            <img src={paysprintNewLogo} alt="Company's Icon" style={{ width: '150px' }} />
           </Link>
           <ul>
             <li>

@@ -98,40 +98,41 @@
             }
         }
     }
-
   
 }
 
+@media screen and (max-width: 1300px) {
+    .estore-container { 
+        section.pricing {
+            div.plans {
+                // display: grid;
+                // grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+        }    
+    }
+}
 
+@media screen and (max-width: 1023px) {
+    .estore-container { 
+        section.pricing {
+            div.plans {
+                // display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }    
+    }
+}
 
-
-// @media screen and (max-width: 1200px) {
-//     .estore-container {
-        
-//     }
-// }
-
-// @media screen and (max-width: 900px) {
-//     .estore-container {
-        
-//     }
-// }
-
-// @media screen and (max-width: 600px) {
-//     .estore-container {
-        
-//     }
-// }
-
-// @media screen and (max-width: 500px) {
-//     .estore-container {
-        
-//     }
-// }
-
-// @media screen and (max-width: 450px) {
-//     .estore-container {
-
-//     }
-// }
-
+@media screen and (max-width: 800px) {
+    .estore-container { 
+        section.pricing {
+            div.plans {
+                // display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 60px;
+            }
+        }    
+    }
+}
