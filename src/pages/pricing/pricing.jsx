@@ -14,7 +14,7 @@ export const Pricing = ({ title }) => {
         <div className="estore-container">
 
             <section className="pricing">
-                <h2> Plans & Pricing </h2>
+                <h2> Plan & Pricing </h2>
                 
                 <div className='plans'>
                     <div className='singleItems'>
