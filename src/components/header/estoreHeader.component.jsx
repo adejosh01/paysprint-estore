@@ -1,21 +1,17 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import paysprintLogo from "assets/svg/new_logo.svg";
-import paysprintNewLogo from "assets/ashopree/ashopree_logo_with_icon.png";
+import paysprintNewLogo from "assets/ashopree/edited_ashopree_logo1.jpg";
 import hamburgerIcon from "assets/svg/hamburger.svg";
 import "./estoreHeader.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleDown,
-  faAngleUp,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleDown, faAngleUp, faCartShopping, faMessage, faSearch, faUser, faXmark, } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import { getConditionalClassName } from "utils/utils";
 import { Link, NavLink } from "react-router-dom";
-import cart from 'assets/images/cart.png';
-import msglogo from 'assets/images/message-circle.png';
-import user from 'assets/images/userIcon.png';
-import search from 'assets/images/searchIcon.png';
+// import cart from 'assets/images/cart.png';
+// import msglogo from 'assets/images/message-circle.png';
+// import user from 'assets/images/userIcon.png';
+// import search from 'assets/images/searchIcon.png';
 import { useLocation } from "react-router-dom";
 import passwordIcon from 'assets/icons/profile/passwordIcon.png';
 import clip from 'assets/icons/profile/clipboard.png';
@@ -146,7 +142,7 @@ export const EstoreHeader = () => {
         </div>
       </nav>
       
-      <nav className="desktop-nav" style={{ background: '#fff' }}>
+      <nav className="desktop-nav" style={{ background: '#4F0B92' }}>
         <header className="mainEstore-header">
           <Link to="/">
             <img src={paysprintNewLogo} alt="Company's Icon" style={{ width: '150px' }} />
@@ -224,40 +220,44 @@ export const EstoreHeader = () => {
 
             <form action="/" method="POST">
               <div className="searching">
-                <img src={search} alt="thesearch" />
+                {/* <img src={search} alt="thesearch" /> */}
+                <FontAwesomeIcon icon={faSearch} />
                 <input type="" placeholder="Search for a product" />
               </div>
             </form>
 
             <Link to="/mycart">
               { (pathname === "/mycart") ? (
-                <div style={{ background: '#E7AA07' }}> 
-                    <img src={cart} alt="thecartlogo" />
+                <div style={{ background: '#fff' }}> 
+                    <FontAwesomeIcon icon={faCartShopping}  style={{ color: '#4F0B92' }}/>
                 </div>
               ) : (
                 <div> 
-                    <img src={cart} alt="thecartlogo" />
+                    {/* <img src={cart} alt="thecartlogo" /> */}
+                    <FontAwesomeIcon icon={faCartShopping}  style={{ color: 'white' }}/>
                 </div>
               )}
             </Link>
 
             <Link to="/messages">
               { (pathname === "/messages") ? (
-                <div style={{ background: '#E7AA07' }}> 
-                    <img src={msglogo} alt="themsglogo" />
+                <div style={{ background: '#fff' }}> 
+                    <FontAwesomeIcon icon={faMessage}  style={{ color: '#4F0B92' }}/>
                 </div>
               ) : (
                 <div> 
-                  <img src={msglogo} alt="themsglogo" />
+                  {/* <img src={msglogo} alt="themsglogo" /> */}
+                  <FontAwesomeIcon icon={faMessage}  style={{ color: 'white' }}/>
                 </div>
               )}
             </Link>
 
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', cursor: 'pointer' }}> 
-              <img src={user} alt="theuserlogo" />
-                <p style={{ fontSize: '1.5rem', color: '#272343' }} onClick={toggleAccountMenu}> Account {" "} </p>
+            <div className="acctstuffs" > 
+              {/* <img src={user} alt="theuserlogo" /> */}
+                <FontAwesomeIcon icon={faUser} style={{ color: '#fff' }} />
+                <p style={{ fontSize: '1.5rem', color: '#fff' }} onClick={toggleAccountMenu}> Account {" "} </p>
                 <span style={{  marginLeft: '0.2rem' }} onClick={toggleAccountMenu}> 
-                  <button> <FontAwesomeIcon icon={isAccountMenuOpen ? faAngleUp : faAngleDown} /> </button>
+                  <button> <FontAwesomeIcon icon={isAccountMenuOpen ? faAngleUp : faAngleDown} style={{ color: '#fff' }} /> </button>
                 </span>
                 <ul className={getConditionalClassName( isAccountMenuOpen, "account", "active" )}>
                   <li>

@@ -3,7 +3,7 @@
     // max-width: 1440px;
     margin: 0 auto;
     display: flex;
-    background-color: white;
+    background-color: #4F0B92;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
@@ -33,7 +33,7 @@
             border-radius: 10px;
             overflow: hidden;
             transition: max-height ease-in-out 0.5s;
-            background-color: #272343;
+            background-color: #4F0B92;
             gap: 2rem;
             padding: 3rem;
           }
@@ -53,7 +53,7 @@
             }
             :hover {
               text-decoration: underline;
-              text-decoration-color: #4F0B92;
+              text-decoration-color: #fff;
             }
           }
         }
@@ -61,7 +61,7 @@
           font-weight: 600;
           font-size: 18px;
           line-height: 23px;
-          color: #272343;
+          color: #fff;
           position: relative;
           text-decoration: none;
           top: -5px;
@@ -74,7 +74,7 @@
               position: absolute;
               height: 3px;
               width: 120%;
-              background-color: #4F0B92;
+              background-color: #fff;
               bottom: -15px;
               left: 50%;
               transform: translateX(-50%);
@@ -93,7 +93,7 @@
         font-weight: 600;
         font-size: 18px;
         line-height: 23px;
-        color: #272343;
+        color: #fff;
         border-radius: 10px;
         
       }
@@ -120,7 +120,7 @@
         border-radius: 10px;
         overflow: hidden;
         transition: max-height ease-in-out 0.5s;
-        background-color: #fff;
+        background-color: #4F0B92;
         gap: 2rem;
         padding: 3rem;
         > li:first-child {
@@ -143,6 +143,13 @@
           font: 600 16px 'plus jakarta sans';
         }
       }
+      .acctstuffs {
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        cursor: pointer;
+        
+      }
     }
     
     div.searching {
@@ -151,8 +158,14 @@
       justify-content: center;
       align-items: center;
       padding: 1rem 3rem !important;
-      img {
+      svg {
         padding-right: 1rem;
+        color: #fff;
+      }
+      input {
+        background: #4F0B92;
+        color: #fff;
+
       }
     }
   }
