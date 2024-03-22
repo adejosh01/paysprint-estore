@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import paysprintLogo from "assets/svg/footer_logo.svg";
+// import paysprintLogo from "assets/svg/footer_logo.svg";
 import paysprintNewLogo from "assets/ashopree/ashopree_logo_with_icon.png";
 import fbIconWhite from "assets/svg/fb_icon_white.svg";
 import igIconWhite from "assets/svg/ig_icon_white.svg";
 import linkedinIconWhite from "assets/svg/linkedin_icon_white.svg";
 import twitterIconWhite from "assets/svg/twitter_icon_white.svg";
 import "./footer.styles.scss";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLocationDot, faEnvelope, faThumbTack } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faLocationDot, faEnvelope, faThumbTack } from "@fortawesome/free-solid-svg-icons";
+// import { Link } from "react-router-dom";
 
 export const EstoreFooter = () => {
   return (
@@ -26,7 +26,7 @@ export const EstoreFooter = () => {
               <li> <a href="#"> Referral Partner </a> </li>
               <li> <a href="#"> Affiliate Program </a> </li>
               <li> <a href="#"> Blog and Newsletter </a> </li>
-              <li> <a href="#"> Gallery and Media </a> </li>
+              <li> <a href="/gallery"> Gallery and Media </a> </li>
             </ul>
           </div>
           

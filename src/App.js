@@ -15,6 +15,7 @@ import { EstoreFooter } from "components/footer/footer.component";
 import { Messages } from "pages/messages/messages.page";
 import { ServiceDetails } from "pages/servicesdetails/service.page";
 import { Pricing } from "pages/pricing/pricing";
+import { Gallery } from "pages/gallery/gallery";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
             <Route path="/messages" exact element={<Messages title="PaySprint | Messages" />} />
             <Route path="/services" exact element={<ServiceDetails title="PaySprint | Service Details" />} />
             <Route path="/pricing" exact element={<Pricing title="PaySprint | Plans & Pricing" />} />
+            <Route path="/gallery" exact element={<Gallery title="PaySprint | Gallery & Media" />} />
           </Routes>
         <EstoreFooter />
       </div>
