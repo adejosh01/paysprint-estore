@@ -14,12 +14,16 @@
       margin-bottom: 0.8rem;
     }
     & > p {
-      font-weight: 500;
-      font-size: 16px;
+      font-weight: 500 16px 'plus Jakarta sans';
+      // font-size: 16px;
       line-height: 24px;
       text-align: center;
       color: #2d334a;
       margin-bottom: 3.2rem;
+    }
+
+    p {
+      font-family: plus jakarta sans;
     }
 
     section.getallprods {
@@ -349,7 +353,12 @@
   
   }
   
-  
+  @media screen and (min-width: 1400px) {
+    .estore-container {
+      margin-top: unset !important;
+    }
+  }
+
   @media screen and (min-width: 1200px) {
     .estore-container {
       // max-width: 1200px;

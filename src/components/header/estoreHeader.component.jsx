@@ -1,17 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import paysprintLogo from "assets/svg/new_logo.svg";
+// import paysprintLogo from "assets/svg/new_logo.svg";
 import paysprintNewLogo from "assets/ashopree/edited_ashopree_logo1.jpg";
 import hamburgerIcon from "assets/svg/hamburger.svg";
 import "./estoreHeader.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp, faCartShopping, faMessage, faSearch, faUser, faXmark, } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getConditionalClassName } from "utils/utils";
 import { Link, NavLink } from "react-router-dom";
-// import cart from 'assets/images/cart.png';
-// import msglogo from 'assets/images/message-circle.png';
-// import user from 'assets/images/userIcon.png';
-// import search from 'assets/images/searchIcon.png';
 import { useLocation } from "react-router-dom";
 import passwordIcon from 'assets/icons/profile/passwordIcon.png';
 import clip from 'assets/icons/profile/clipboard.png';
@@ -19,10 +15,11 @@ import share from 'assets/icons/profile/share.png';
 import tag from 'assets/icons/profile/tag.png';
 import logout from 'assets/icons/profile/logout.png';
 import profileIcon from 'assets/icons/profile/profileIcon.png';
+import axios from "axios";
 
 
 
-export const EstoreHeader = () => {
+export const EstoreHeader = ({title}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
@@ -38,6 +35,24 @@ export const EstoreHeader = () => {
 
   const location = useLocation();
   const pathname = location.pathname;
+
+  const [categories, setData] = useState([]);
+  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
+
+  useEffect(() => {
+    document.title = title;
+    window.scrollTo(0, 0);
+
+    axios.get(`${apiUrl}/ashopree/product/category`) 
+    .then(response => {
+      setData(response.data.data);
+    })
+
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+
+  }, [apiUrl]);
 
   // console.log(pathname);
 
@@ -161,51 +176,19 @@ export const EstoreHeader = () => {
                 </button>
               </a>
               <ul className={getConditionalClassName( isSubMenuOpen, "submenu", "active" )}>
-                <li>
-                  <a>Accounting(18)</a>
-                </li>
-                <li>
-                  <a>Art & Craft(10)</a>
-                </li>
-                <li>
-                  <a>Automotive(23)</a>
-                </li>
-                <li>
-                  <a> Chemicals(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Others(18) </a>
-                </li>
+                {categories.length !== 0 ? (
+                    Array.isArray(categories) && categories.map((item, index) => (
+                        <li key={index}>
+                            <a href="" key={index}> {item.category} </a>
+                        </li>
+                    ))
+                ) : (
+                    !Array.isArray(categories) && <a href="#"> Sorry, an error occurred</a>
+                )}
+
+                {categories.length === 0 && !Array.isArray(categories) && (
+                    <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading... </p>
+                )}
               </ul>
             </li>
             <li>
