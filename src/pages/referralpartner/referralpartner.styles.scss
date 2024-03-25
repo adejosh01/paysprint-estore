@@ -60,6 +60,11 @@
   
     section.proceed {
         padding: 5rem;
+        display: flex;
+        h4 {
+            font: 600 30px 'lato';
+            line-height: 53px;
+        }
     }
 }
 

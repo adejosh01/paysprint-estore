@@ -51,6 +51,23 @@ export function stripHtmlTags(html) {
   return html.replace(/<[^>]*>?/gm, '').replace(/&nbsp;/g, ' ');
 }
 
+export function immediatePage() {
+  const referralPartners = document.getElementsByClassName("referralpartner");
+  const proceedToNextItem = document.getElementsByClassName("proceed");
+  let index = 0;
+  let index2 = 0;
+
+  for (index; index < referralPartners.length; index++) {
+
+    referralPartners[index].style.display = "none";
+  }
+
+  for (index2; index2 < proceedToNextItem.length; index2++) {
+
+    proceedToNextItem[index].style.display = "block";
+  }
+}
+
 // export function API_RESPONSES_FROM_BACKEND (title) { 
 //   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
 //   const [error, setError] = useState(null);

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import "@styles/landing.css";
 
 const TotalCountries = () => {
   const [countries, setCountries] = useState([]);
