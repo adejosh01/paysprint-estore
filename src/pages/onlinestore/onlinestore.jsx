@@ -1,4 +1,4 @@
-import "./e-store.scss";
+import "./onlinestore.scss";
 import { useEffect, useState } from "react";
 import product1 from "../../assets/images/estore/products/product1.png";
 import product2 from "../../assets/images/estore/products/product2.png";
@@ -9,7 +9,7 @@ import { BottomNav } from "components/bottom-navs";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-export const EStore = ({ title }) => {
+export const OnlineStore = ({ title }) => {
   const [categories, setData] = useState([]);
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
 
@@ -43,7 +43,7 @@ export const EStore = ({ title }) => {
               <div className="describeProds">
                   <div className="b4Title">
                     <div className="title">
-                      <h2> E-store </h2>
+                      <h2> Online Store </h2>
                       <p> Check out products or services from our registered stores </p>
                     </div>
                     
@@ -191,7 +191,7 @@ export const EStore = ({ title }) => {
               <div className="alertmsg">
                 <div>
                   <p> Are you a store owner?, or do you want to list your products / services on Paysprint market place? </p>
-                  <p> Let’s get you started. Create a merchant account today and own your E-store </p>
+                  <p> Let’s get you started. Create a merchant account today and own your Online Store </p>
                 </div>
 
                 <button type="button">

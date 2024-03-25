@@ -20,8 +20,12 @@ export const ReferralPartner = ({ title }) => {
                 <div>
                     <h2> Be a Referral Partner </h2>
                     <p> By referring businesses in your network to ashopree, you are not only helping them to boost their businesses and streamlining their payments, but you are also earning rewards for yourself. <br /> Its a win-win opportunity for all! </p>
-                    <button> Join our Referral Program today </button>
+                    <button type='button'> Join our Referral Program today </button>
                 </div>
+            </section>
+
+            <section className="proceed">
+                
             </section>
 
         </div>
