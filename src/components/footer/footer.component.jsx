@@ -58,7 +58,7 @@ export const EstoreFooter = () => {
           <div className="singleFooterItems">
             <h5> Legal </h5>
             <ul>
-              <li> <a href="#"> Terms </a> </li>
+              <li> <a href="/terms-of-use"> Terms </a> </li>
               <li> <a href="#"> Privacy Policy </a> </li>
             </ul>
           </div>

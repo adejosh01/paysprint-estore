@@ -17,6 +17,7 @@ import { ServiceDetails } from "pages/servicesdetails/service.page";
 import { Pricing } from "pages/pricing/pricing";
 import { Gallery } from "pages/gallery/gallery";
 import { ReferralPartner } from "pages/referralpartner/referralpartner";
+import { TermsAndPrivacy } from "pages/termsAndPrivacy/terms";
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
             <Route path="/pricing" exact element={<Pricing title="PaySprint | Plans & Pricing" />} />
             <Route path="/gallery" exact element={<Gallery title="PaySprint | Gallery & Media" />} />
             <Route path="/referral-partner" exact element={<ReferralPartner title="PaySprint | Referral Partner" />} />
+            <Route path="/terms-of-use" exact element={<TermsAndPrivacy title="PaySprint | Terms Of Use" />} />
           </Routes>
         <EstoreFooter />
       </div>

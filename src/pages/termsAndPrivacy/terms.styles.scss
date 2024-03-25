@@ -1,0 +1,90 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    font: 500 20px 'Plus Jakarta Sans';
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+
+    section.termsandprivacy {
+        padding: 87px 82px;
+        background-color: #f3f3f3;
+        div.contents {
+            padding: 50px;
+            background-color: #fff;
+            border-radius: 15px;
+            display: flex;
+            gap: 50px;
+            flex-direction: column;
+            h2 {
+                font: 600 45px 'Plus jakarta sans';
+                text-align: center;
+                line-height: 28px;
+                // text-transform: uppercase;
+            }
+            div.gridItems {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 48px;
+                .galleryitems {
+                    padding: 25px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    border: 1px solid;
+                    border-radius: 15px;
+                    img {
+                        width: 334px;
+                        height: 167px;
+                        border-radius: 8px;
+                    }
+                    div {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2px;
+                        h5 {
+                            font: 600 18px 'lato';
+                            height: 28px;
+                            letter-spacing: 5px;
+                        }
+                        p {
+                            font: 600 16px 'lato';
+                            height: 28px;
+                            letter-spacing: 5px;
+                            img {
+                                width: 24px;
+                                height: 24px;
+                            }
+                        }
+                        & > p:last-child {
+                            display: flex;
+                            align-items: center;
+                            gap: 1rem;
+                        }
+                    }
+                    a {
+                        font: 400 16px 'lato';
+                        line-height: 28px;
+                        letter-spacing: 5px;
+                    }
+                }
+            }
+        }
+    }
+  
+}
+
