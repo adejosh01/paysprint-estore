@@ -25,21 +25,21 @@ function App() {
       <div className="app-container"> 
         <EstoreHeader />
           <Routes>
-            <Route path="/" exact element={<EstoreDashboard title="PaySprint | Homepage" />} />
-            <Route path="/onlinestore" exact element={<OnlineStore title="PaySprint | Estore" />} />
-            <Route path="/allcategories" exact element={<AllCategories title="PaySprint | All Categories" />} />
-            <Route path="/personalstore" exact element={<Personalstore title="PaySprint | Personal Store" />} />
-            <Route path="/productdetails/:productCode" exact element={<ProductDetails title="PaySprint | Product Details" />} />
-            <Route path="/mycart" exact element={<MyCarts title="PaySprint | My Carts" />} />
-            <Route path="/checkout" exact element={<Checkout title="PaySprint | Checkout" />} />
-            <Route path="/payment" exact element={<Payment title="PaySprint | Payments" />} />
-            <Route path="/success" exact element={<SuccessfulOrder title="PaySprint | Successfully Ordered" />} />
-            <Route path="/messages" exact element={<Messages title="PaySprint | Messages" />} />
-            <Route path="/services" exact element={<ServiceDetails title="PaySprint | Service Details" />} />
-            <Route path="/pricing" exact element={<Pricing title="PaySprint | Plans & Pricing" />} />
-            <Route path="/gallery" exact element={<Gallery title="PaySprint | Gallery & Media" />} />
-            <Route path="/referral-partner" exact element={<ReferralPartner title="PaySprint | Referral Partner" />} />
-            <Route path="/terms-of-use" exact element={<TermsAndPrivacy title="PaySprint | Terms Of Use" />} />
+            <Route path="/" exact element={<EstoreDashboard title="Ashopree | Homepage" />} />
+            <Route path="/onlinestore" exact element={<OnlineStore title="Ashopree | Estore" />} />
+            <Route path="/allcategories" exact element={<AllCategories title="Ashopree | All Categories" />} />
+            <Route path="/personalstore" exact element={<Personalstore title="Ashopree | Personal Store" />} />
+            <Route path="/productdetails/:productCode" exact element={<ProductDetails title="Ashopree | Product Details" />} />
+            <Route path="/mycart" exact element={<MyCarts title="Ashopree | My Carts" />} />
+            <Route path="/checkout" exact element={<Checkout title="Ashopree | Checkout" />} />
+            <Route path="/payment" exact element={<Payment title="Ashopree | Payments" />} />
+            <Route path="/success" exact element={<SuccessfulOrder title="Ashopree | Successfully Ordered" />} />
+            <Route path="/messages" exact element={<Messages title="Ashopree | Messages" />} />
+            <Route path="/services" exact element={<ServiceDetails title="Ashopree | Service Details" />} />
+            <Route path="/pricing" exact element={<Pricing title="Ashopree | Plans & Pricing" />} />
+            <Route path="/gallery" exact element={<Gallery title="Ashopree | Gallery & Media" />} />
+            <Route path="/referral-partner" exact element={<ReferralPartner title="Ashopree | Referral Partner" />} />
+            <Route path="/terms-of-use" exact element={<TermsAndPrivacy title="Ashopree | Terms Of Use" />} />
           </Routes>
         <EstoreFooter />
       </div>
