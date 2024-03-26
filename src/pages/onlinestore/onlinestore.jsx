@@ -26,7 +26,7 @@ export const OnlineStore = ({ title }) => {
       console.error('Error fetching data:', error);
     });
 
-  }, []);
+  }, [apiUrl, title]);
 
 
   return (
