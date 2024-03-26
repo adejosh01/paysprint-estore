@@ -12,6 +12,8 @@ import others from "assets/images/estore/topCategories/others.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { getConditionalClassName } from "utils/utils";
+import { Card } from "antd";
+
 
 export const EstoreDashboard = ({ title }) => {
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
@@ -87,7 +89,7 @@ export const EstoreDashboard = ({ title }) => {
               <div className="describeProds">
                   <div className="b4Title">
                     <div className="title">
-                      <h2> Get all products and services you need </h2>
+                      <h2> Get all products and services you need </h2> 
                       <p> Buy products and order for services from our registered vendors at cheap prices </p>
                     </div>
                     
@@ -105,7 +107,7 @@ export const EstoreDashboard = ({ title }) => {
                                       <p>Sorry, an error occurred</p>
                                   )
                               ) : (
-                                  <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading Categories </p>
+                                  <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading Categories </p> 
                               )}
                           </div>
 
@@ -143,7 +145,7 @@ export const EstoreDashboard = ({ title }) => {
           <section className="topdeals">
             <p className="dealtitle"> Hottest Deals </p>
 
-            <div className="items">
+            {/* <div className="items">
                 {Array.isArray(hotDeals) ? (
                   hotDeals.map((item, index) => (
                   <Link to={`/productdetails/${item.productCode}`} key={index}>
@@ -160,7 +162,29 @@ export const EstoreDashboard = ({ title }) => {
                 ) : (
                   <div>Error: Sorry, Please check your network connection and try again</div>
                 )}
+            </div> */}
+
+            <div className="items">
+                {Array.isArray(hotDeals) ? (
+                  hotDeals.map((item, index) => (
+                  <Link to={`/productdetails/${item.productCode}`} key={index}>
+                    {/* <div className="eachItem" key={index}> */}
+                      <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt="itemImage" src={item.image} />} >
+                        <div className="imgdescription">
+                          <p className="nameofitem">{item.productName}</p>
+                          <p className="priceofitem">{item.currencySymbol + item.amount}</p>
+                          <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
+                        </div>
+                      </Card>
+                    {/* </div> */}
+                  </Link>
+                  ))
+                ) : (
+                  <div>Error: Sorry, Please check your network connection and try again</div>
+                )}
             </div>
+
+            
           </section>
         )}
 
@@ -202,68 +226,109 @@ export const EstoreDashboard = ({ title }) => {
         {registeredStores.length !== 0 && (
           <section className="registered">
             <h3> Registered Stores </h3>
-            <div className="otherImages">
+
+            {/* <div className="otherImages">
               <div className="firstSection">
                   {Array.isArray(registeredStores) > 0 ? (
                     registeredStores.map((item, index) => (
                       <div key={index}>
                         <img src={item.businessLogo} alt="eachImage" />
-                        {/* <p> {item.shopName} </p> */}
                       </div>
                     ))
                   ) : (
                     <div>Error: Sorry, Please check your network connection and try again</div>
                   )}
               </div>
+            </div> */}
+
+            <div className="otherImages">
+              <div className="firstSection">
+                  {Array.isArray(registeredStores) > 0 ? (
+                    registeredStores.map((item, index) => (
+                      <Card className="eachItem" hoverable style={{ width: 240 }} key={index}>
+                        <img src={item.businessLogo} alt="eachImage" />
+                      </Card>
+                    ))
+                  ) : (
+                    <div>Error: Sorry, Please check your network connection and try again</div>
+                  )}
+              </div>
             </div>
+
           </section>
         )}
 
-        <section className="topcategories">
-          <h3> Top Categories</h3>
-          <div className="imageitems">
-            <div className="imgdescribtion">
-              <img src={office} alt="thetextdescription" />
-              <p> Home & Office</p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={electronic} alt="thetextdescription" />
-              <p> Electronis gadgets </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={desktops} alt="thetextdescription" />
-              <p> Computers</p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={groceries} alt="thetextdescription" />
-              <p> Groceries </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={health} alt="thetextdescription" />
-              <p> Health & Wellbeing</p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={travels} alt="thetextdescription" />
-              <p> Travel & Hotel </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={fashion} alt="thetextdescription" />
-              <p> Fashion </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={others} alt="thetextdescription" />
-              <p> Others </p>
-            </div>
-          </div>
+        {categories.length !== 0 && (
+          <section className="topcategories">
+            <h3> Top Categories</h3>
 
-          <div className="thebutton">
-          <Link to="/allcategories">
-            <button type="button">
-               See all categories
-            </button>
-            </Link>
-          </div>
-        </section>
+            <div className="imageitems">
+              {Array.isArray(categories) > 0 ? (
+                categories.map((item, index) => (
+                  <div className="imgdescribtion" key={index}>
+                    {/* <img src={office} alt="thetextdescription" /> */}
+                    {index % 7 === 0 && <img src={office} alt="thetextdescription" />}
+                    {index % 7 === 1 && <img src={electronic} alt="thetextdescription" />}
+                    {index % 7 === 2 && <img src={desktops} alt="thetextdescription" />}
+                    {index % 7 === 3 && <img src={groceries} alt="thetextdescription" />}
+                    {index % 7 === 4 && <img src={health} alt="thetextdescription" />}
+                    {index % 7 === 5 && <img src={travels} alt="thetextdescription" />}
+                    {index % 7 === 6 && <img src={fashion} alt="thetextdescription" />}
+                      <p> {item.category} </p>
+                  </div>
+                ))
+              ) : (
+                <div className="imgdescribtion">
+                  <img src={others} alt="thetextdescription" />
+                    <p> Home & Office</p>
+                </div>
+              )}
+            </div>
+
+            {/* <div className="imageitems">
+              <div className="imgdescribtion">
+                <img src={office} alt="thetextdescription" />
+                <p> Home & Office</p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={electronic} alt="thetextdescription" />
+                <p> Electronis gadgets </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={desktops} alt="thetextdescription" />
+                <p> Computers</p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={groceries} alt="thetextdescription" />
+                <p> Groceries </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={health} alt="thetextdescription" />
+                <p> Health & Wellbeing</p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={travels} alt="thetextdescription" />
+                <p> Travel & Hotel </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={fashion} alt="thetextdescription" />
+                <p> Fashion </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={others} alt="thetextdescription" />
+                <p> Others </p>
+              </div>
+            </div> */}
+
+            <div className="thebutton">
+              <Link to="/allcategories">
+                <button type="button">
+                  See all categories
+                </button>
+              </Link>
+            </div>
+          </section>
+        )}
 
         {trendingServices.length !== 0 && (
           <section className="topdeals">
