@@ -12,6 +12,8 @@ import others from "assets/images/estore/topCategories/others.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { getConditionalClassName } from "utils/utils";
+import { Card } from "antd";
+
 
 export const EstoreDashboard = ({ title }) => {
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
@@ -143,7 +145,7 @@ export const EstoreDashboard = ({ title }) => {
           <section className="topdeals">
             <p className="dealtitle"> Hottest Deals </p>
 
-            <div className="items">
+            {/* <div className="items">
                 {Array.isArray(hotDeals) ? (
                   hotDeals.map((item, index) => (
                   <Link to={`/productdetails/${item.productCode}`} key={index}>
@@ -160,7 +162,29 @@ export const EstoreDashboard = ({ title }) => {
                 ) : (
                   <div>Error: Sorry, Please check your network connection and try again</div>
                 )}
+            </div> */}
+
+            <div className="items">
+                {Array.isArray(hotDeals) ? (
+                  hotDeals.map((item, index) => (
+                  <Link to={`/productdetails/${item.productCode}`} key={index}>
+                    {/* <div className="eachItem" key={index}> */}
+                      <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt="itemImage" src={item.image} />} >
+                        <div className="imgdescription">
+                          <p className="nameofitem">{item.productName}</p>
+                          <p className="priceofitem">{item.currencySymbol + item.amount}</p>
+                          <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
+                        </div>
+                      </Card>
+                    {/* </div> */}
+                  </Link>
+                  ))
+                ) : (
+                  <div>Error: Sorry, Please check your network connection and try again</div>
+                )}
             </div>
+
+            
           </section>
         )}
 
@@ -202,20 +226,35 @@ export const EstoreDashboard = ({ title }) => {
         {registeredStores.length !== 0 && (
           <section className="registered">
             <h3> Registered Stores </h3>
-            <div className="otherImages">
+
+            {/* <div className="otherImages">
               <div className="firstSection">
                   {Array.isArray(registeredStores) > 0 ? (
                     registeredStores.map((item, index) => (
                       <div key={index}>
                         <img src={item.businessLogo} alt="eachImage" />
-                        {/* <p> {item.shopName} </p> */}
                       </div>
                     ))
                   ) : (
                     <div>Error: Sorry, Please check your network connection and try again</div>
                   )}
               </div>
+            </div> */}
+
+            <div className="otherImages">
+              <div className="firstSection">
+                  {Array.isArray(registeredStores) > 0 ? (
+                    registeredStores.map((item, index) => (
+                      <Card className="eachItem" hoverable style={{ width: 240 }} key={index}>
+                        <img src={item.businessLogo} alt="eachImage" />
+                      </Card>
+                    ))
+                  ) : (
+                    <div>Error: Sorry, Please check your network connection and try again</div>
+                  )}
+              </div>
             </div>
+
           </section>
         )}
 
@@ -227,14 +266,14 @@ export const EstoreDashboard = ({ title }) => {
               {Array.isArray(categories) > 0 ? (
                 categories.map((item, index) => (
                   <div className="imgdescribtion" key={index}>
-                    <img src={others} alt="thetextdescription" />
-                    {/* {index % 7 === 0 && <img src={office} alt="thetextdescription" />}
+                    {/* <img src={office} alt="thetextdescription" /> */}
+                    {index % 7 === 0 && <img src={office} alt="thetextdescription" />}
                     {index % 7 === 1 && <img src={electronic} alt="thetextdescription" />}
                     {index % 7 === 2 && <img src={desktops} alt="thetextdescription" />}
                     {index % 7 === 3 && <img src={groceries} alt="thetextdescription" />}
                     {index % 7 === 4 && <img src={health} alt="thetextdescription" />}
                     {index % 7 === 5 && <img src={travels} alt="thetextdescription" />}
-                    {index % 7 === 6 && <img src={fashion} alt="thetextdescription" />} */}
+                    {index % 7 === 6 && <img src={fashion} alt="thetextdescription" />}
                       <p> {item.category} </p>
                   </div>
                 ))
