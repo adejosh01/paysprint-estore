@@ -85,12 +85,26 @@ export const EstoreDashboard = ({ title }) => {
                     </div>
                     
                       <div className="searchIt">
-                          <div>
+                          {/* <div>
                             <p> Category </p>
                             <span style={{  marginLeft: '0.2rem' }}> 
                               <button> <FontAwesomeIcon icon={isSubMenuOpen ? faAngleUp : faAngleDown} /> </button>
+                              <option value="hsut">
+
+                              </option>
                             </span>
-                          </div>
+                          </div> */}
+                          <form action="/action_page.php">
+                            <label for="cars">Choose a car here :</label>
+                            <select name="cars" id="cars">
+                              <option value="volvo">Volvo</option>
+                              <option value="saab">Saab</option>
+                              <option value="opel">Opel</option>
+                              <option value="audi">Audi</option>
+                            </select>
+                            <br><br>
+                            <input type="submit" value="Submit">
+                          </form>
                           <div style={{  color: '#fff' }}>
                                 jd
                           </div>
