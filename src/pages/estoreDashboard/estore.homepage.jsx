@@ -95,15 +95,15 @@ export const EstoreDashboard = ({ title }) => {
                             </span>
                           </div> */}
                           <form action="/action_page.php">
-                            <label for="cars">Choose a car here :</label>
+                            <label for="cars"> Category</label>
                             <select name="cars" id="cars">
                               <option value="volvo">Volvo</option>
                               <option value="saab">Saab</option>
                               <option value="opel">Opel</option>
                               <option value="audi">Audi</option>
                             </select>
-                            <br><br>
-                            <input type="submit" value="Submit">
+                            <br /><br />
+                            {/* <input type="submit" value="Submit" /> */}
                           </form>
                           <div style={{  color: '#fff' }}>
                                 jd
