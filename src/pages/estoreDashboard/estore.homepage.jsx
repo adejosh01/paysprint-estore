@@ -87,7 +87,7 @@ export const EstoreDashboard = ({ title }) => {
               <div className="describeProds">
                   <div className="b4Title">
                     <div className="title">
-                      <h2> Get all products and services you need </h2>
+                      <h2> Get all products and services you need </h2> 
                       <p> Buy products and order for services from our registered vendors at cheap prices </p>
                     </div>
                     
@@ -105,7 +105,7 @@ export const EstoreDashboard = ({ title }) => {
                                       <p>Sorry, an error occurred</p>
                                   )
                               ) : (
-                                  <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading Categories </p>
+                                  <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading Categories </p> 
                               )}
                           </div>
 
@@ -219,51 +219,77 @@ export const EstoreDashboard = ({ title }) => {
           </section>
         )}
 
-        <section className="topcategories">
-          <h3> Top Categories</h3>
-          <div className="imageitems">
-            <div className="imgdescribtion">
-              <img src={office} alt="thetextdescription" />
-              <p> Home & Office</p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={electronic} alt="thetextdescription" />
-              <p> Electronis gadgets </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={desktops} alt="thetextdescription" />
-              <p> Computers</p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={groceries} alt="thetextdescription" />
-              <p> Groceries </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={health} alt="thetextdescription" />
-              <p> Health & Wellbeing</p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={travels} alt="thetextdescription" />
-              <p> Travel & Hotel </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={fashion} alt="thetextdescription" />
-              <p> Fashion </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={others} alt="thetextdescription" />
-              <p> Others </p>
-            </div>
-          </div>
+        {categories.length !== 0 && (
+          <section className="topcategories">
+            <h3> Top Categories</h3>
 
-          <div className="thebutton">
-          <Link to="/allcategories">
-            <button type="button">
-               See all categories
-            </button>
-            </Link>
-          </div>
-        </section>
+            <div className="imageitems">
+              {Array.isArray(categories) > 0 ? (
+                categories.map((item, index) => (
+                  <div className="imgdescribtion" key={index}>
+                    <img src={others} alt="thetextdescription" />
+                    {/* {index % 7 === 0 && <img src={office} alt="thetextdescription" />}
+                    {index % 7 === 1 && <img src={electronic} alt="thetextdescription" />}
+                    {index % 7 === 2 && <img src={desktops} alt="thetextdescription" />}
+                    {index % 7 === 3 && <img src={groceries} alt="thetextdescription" />}
+                    {index % 7 === 4 && <img src={health} alt="thetextdescription" />}
+                    {index % 7 === 5 && <img src={travels} alt="thetextdescription" />}
+                    {index % 7 === 6 && <img src={fashion} alt="thetextdescription" />} */}
+                      <p> {item.category} </p>
+                  </div>
+                ))
+              ) : (
+                <div className="imgdescribtion">
+                  <img src={others} alt="thetextdescription" />
+                    <p> Home & Office</p>
+                </div>
+              )}
+            </div>
+
+            {/* <div className="imageitems">
+              <div className="imgdescribtion">
+                <img src={office} alt="thetextdescription" />
+                <p> Home & Office</p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={electronic} alt="thetextdescription" />
+                <p> Electronis gadgets </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={desktops} alt="thetextdescription" />
+                <p> Computers</p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={groceries} alt="thetextdescription" />
+                <p> Groceries </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={health} alt="thetextdescription" />
+                <p> Health & Wellbeing</p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={travels} alt="thetextdescription" />
+                <p> Travel & Hotel </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={fashion} alt="thetextdescription" />
+                <p> Fashion </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={others} alt="thetextdescription" />
+                <p> Others </p>
+              </div>
+            </div> */}
+
+            <div className="thebutton">
+              <Link to="/allcategories">
+                <button type="button">
+                  See all categories
+                </button>
+              </Link>
+            </div>
+          </section>
+        )}
 
         {trendingServices.length !== 0 && (
           <section className="topdeals">

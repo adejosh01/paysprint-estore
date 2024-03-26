@@ -17,7 +17,7 @@ import { ServiceDetails } from "pages/servicesdetails/service.page";
 import { Pricing } from "pages/pricing/pricing";
 import { Gallery } from "pages/gallery/gallery";
 import { ReferralPartner } from "pages/referralpartner/referralpartner";
-import { TermsAndPrivacy } from "pages/termsAndPrivacy/terms";
+import { TermsAndPrivacy } from "pages/termsAndPrivacy/terms"; 
 
 function App() {
 
