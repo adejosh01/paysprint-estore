@@ -68,55 +68,55 @@ export function immediatePage() {
   }
 }
 
-// export function API_RESPONSES_FROM_BACKEND (title) { 
-//   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
-//   const [error, setError] = useState(null);
-//   const [hotDeals, setData] = useState([]);
-//   const [topProducts, setData2] = useState([]);
-//   const [trendingServices, setData3] = useState([]);
-//   const [registeredStores, setData4] = useState([]);
+export function API_RESPONSES_FROM_BACKEND (title) { 
+  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
+  const [error, setError] = useState(null);
+  const [hotDeals, setData] = useState([]);
+  const [topProducts, setData2] = useState([]);
+  const [trendingServices, setData3] = useState([]);
+  const [registeredStores, setData4] = useState([]);
 
-//   useEffect(() => {
-//     document.title = title;
-//     window.scrollTo(0, 0);
+  useEffect(() => {
+    document.title = title;
+    window.scrollTo(0, 0);
 
-//     axios.get(`${apiUrl}/ashopree/product/hot-deals`) 
-//     .then(response => {
-//       setData(response.data.data);
-//     }).catch(error => {
-//       setError('Error fetching Hot-deals product data: ' + error.message);
-//     });
+    axios.get(`${apiUrl}/ashopree/product/hot-deals`) 
+    .then(response => {
+      setData(response.data.data);
+    }).catch(error => {
+      setError('Error fetching Hot-deals product data: ' + error.message);
+    });
 
-//     axios.get(`${apiUrl}/ashopree/product/top`) 
-//     .then(response => {
-//       if (response.data && response.data.data) {
-//         setData2(response.data.data);
-//         setError(null); 
-//       } else {
-//         setError('No data returned for the Top Products');
-//       }
+    axios.get(`${apiUrl}/ashopree/product/top`) 
+    .then(response => {
+      if (response.data && response.data.data) {
+        setData2(response.data.data);
+        setError(null); 
+      } else {
+        setError('No data returned for the Top Products');
+      }
 
-//     }).catch(error => {
-//       setError('Error fetching Top Products data: ' + error.message);
-//     });
+    }).catch(error => {
+      setError('Error fetching Top Products data: ' + error.message);
+    });
 
-//     axios.get(`${apiUrl}/ashopree/services/trending`) 
-//     .then(response => {
-//       setData3(response.data.data);
-//     }).catch(error => {
-//       setError('Error fetching Trending Services data: ' + error.message);
-//     });
+    axios.get(`${apiUrl}/ashopree/services/trending`) 
+    .then(response => {
+      setData3(response.data.data);
+    }).catch(error => {
+      setError('Error fetching Trending Services data: ' + error.message);
+    });
 
-//     axios.get(`${apiUrl}/ashopree/stores/registered`) 
-//     .then(response => {
-//       setData4(response.data.data);
-//     }).catch(error => {
-//       setError('Error fetching Trending Services data: ' + error.message);
-//     });
+    axios.get(`${apiUrl}/ashopree/stores/registered`) 
+    .then(response => {
+      setData4(response.data.data);
+    }).catch(error => {
+      setError('Error fetching Trending Services data: ' + error.message);
+    });
 
-// }, [apiUrl]);
+}, [apiUrl, title]);
 
-//   return { hotDeals, topProducts, trendingServices, registeredStores, error };
+  return { hotDeals, topProducts, trendingServices, registeredStores, error };
 
-// }
+}
 
