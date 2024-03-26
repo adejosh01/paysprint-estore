@@ -9,10 +9,9 @@ import health from "assets/images/estore/topCategories/healthcare.png";
 import travels from "assets/images/estore/topCategories/travels.png";
 import fashion from "assets/images/estore/topCategories/fashion.png";
 import others from "assets/images/estore/topCategories/others.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { getConditionalClassName } from "utils/utils";
 
 export const EstoreDashboard = ({ title }) => {
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
@@ -21,10 +20,18 @@ export const EstoreDashboard = ({ title }) => {
   const [topProducts, setData2] = useState([]);
   const [trendingServices, setData3] = useState([]);
   const [registeredStores, setData4] = useState([]);
+  const [categories, setData5] = useState([]);
 
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
+
+    axios.get(`${apiUrl}/ashopree/product/category`) 
+    .then(response => {
+      setData5(response.data.data);
+    }).catch(error => {
+      setError('Error fetching Hot-deals product data: ' + error.message);
+    });
 
     axios.get(`${apiUrl}/ashopree/product/hot-deals`) 
     .then(response => {
@@ -60,9 +67,9 @@ export const EstoreDashboard = ({ title }) => {
       setError('Error fetching Trending Services data: ' + error.message);
     });
 
-}, [apiUrl]);
+}, [apiUrl, title]);
 
-// console.log(topProducts);
+// console.log(categories);
 
   const [isSubMenuOpen] = useState(false);
 
@@ -85,30 +92,24 @@ export const EstoreDashboard = ({ title }) => {
                     </div>
                     
                       <div className="searchIt">
-                          {/* <div>
-                            <p> Category </p>
-                            <span style={{  marginLeft: '0.2rem' }}> 
-                              <button> <FontAwesomeIcon icon={isSubMenuOpen ? faAngleUp : faAngleDown} /> </button>
-                              <option value="hsut">
-
-                              </option>
-                            </span>
-                          </div> */}
-                          <form action="/action_page.php">
-                            <label for="cars"> Category</label>
-                            <select name="cars" id="cars">
-                              <option value="volvo">Volvo</option>
-                              <option value="saab">Saab</option>
-                              <option value="opel">Opel</option>
-                              <option value="audi">Audi</option>
-                            </select>
-                            <br /><br />
-                            {/* <input type="submit" value="Submit" /> */}
-                          </form>
-                          <div style={{  color: '#fff' }}>
-                                jd
+                          <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")}>
+                              {categories.length !== 0 ? (
+                                  Array.isArray(categories) ? (
+                                      <select defaultValue={'default'} style={{ width: '100%', color: '#A0A2A7' }}>
+                                          <option value="default" disabled> Categories </option>
+                                          {categories.map((item, index) => (
+                                              <option key={index} value={item.category}>{item.category}</option>
+                                          ))}
+                                      </select>
+                                  ) : (
+                                      <p>Sorry, an error occurred</p>
+                                  )
+                              ) : (
+                                  <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading Categories </p>
+                              )}
                           </div>
-                          <form action={`/productdetails/${topProducts.productCode}`} method="post" style={{ flex: '0 0 75%' }}>
+
+                          <form action={`/productdetails/${topProducts.productCode}`} method="post" style={{ flex: '0 0 65%' }}>
                             <input class="home" placeholder="search for a product services or online store" />
                             <button type="button" className="searchbtn" name="submit">
                               <svg style={{ marginLeft: '1.5rem' }} class="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>

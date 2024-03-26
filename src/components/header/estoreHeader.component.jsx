@@ -52,7 +52,7 @@ export const EstoreHeader = ({title}) => {
       console.error('Error fetching data:', error);
     });
 
-  }, [apiUrl]);
+  }, [apiUrl, title]);
 
   // console.log(pathname);
 
