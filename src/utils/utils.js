@@ -53,7 +53,7 @@ export function stripHtmlTags(html) {
 
 export function immediatePage() {
   const referralPartners = document.getElementsByClassName("referralpartner");
-  const proceedToNextItem = document.getElementsByClassName("proceed");
+  const proceedToNextItem = document.getElementsByClassName("theNextToSee");
   let index = 0;
   let index2 = 0;
 
@@ -64,7 +64,7 @@ export function immediatePage() {
 
   for (index2; index2 < proceedToNextItem.length; index2++) {
 
-    proceedToNextItem[index].style.display = "block";
+    proceedToNextItem[index2].classList.add("active");
   }
 }
 
