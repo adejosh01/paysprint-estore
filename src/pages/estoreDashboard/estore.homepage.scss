@@ -2,7 +2,7 @@
     margin: 0 auto;
     background-color: white;
     // padding: 1rem;
-    margin-top: 5% !important;
+    margin-top: unset !important;
     
     h1 {
       font-weight: 700;
@@ -354,12 +354,13 @@
     }
   
   }
+
   
-  @media screen and (min-width: 1400px) {
-    .estore-container {
-      margin-top: unset !important;
-    }
-  }
+  // @media screen and (max-width: 1500px) {
+  //   .estore-container {
+  //     margin-top: 5% !important;
+  //   }
+  // }
 
   @media screen and (min-width: 1200px) {
     .estore-container {
