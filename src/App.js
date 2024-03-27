@@ -40,6 +40,7 @@ function App() {
             <Route path="/gallery" exact element={<Gallery title="PaySprint | Gallery & Media" />} />
             <Route path="/referral-partner" exact element={<ReferralPartner title="PaySprint | Referral Partner" />} />
             <Route path="/terms-of-use" exact element={<TermsAndPrivacy title="PaySprint | Terms Of Use" />} />
+            {/* <Route path='*' exact={true} component={} /> */}
           </Routes>
         <EstoreFooter />
       </div>

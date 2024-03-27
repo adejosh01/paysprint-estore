@@ -168,15 +168,13 @@ export const EstoreDashboard = ({ title }) => {
                 {Array.isArray(hotDeals) ? (
                   hotDeals.map((item, index) => (
                   <Link to={`/productdetails/${item.productCode}`} key={index}>
-                    {/* <div className="eachItem" key={index}> */}
-                      <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt="itemImage" src={item.image} />} >
-                        <div className="imgdescription">
-                          <p className="nameofitem">{item.productName}</p>
-                          <p className="priceofitem">{item.currencySymbol + item.amount}</p>
-                          <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
-                        </div>
-                      </Card>
-                    {/* </div> */}
+                    <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt="itemImage" src={item.image} />} >
+                      <div className="imgdescription">
+                        <p className="nameofitem">{item.productName}</p>
+                        <p className="priceofitem">{item.currencySymbol + item.amount}</p>
+                        <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
+                      </div>
+                    </Card>
                   </Link>
                   ))
                 ) : (
