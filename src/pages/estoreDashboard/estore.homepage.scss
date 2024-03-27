@@ -263,7 +263,6 @@
         margin-bottom: 2rem;
       }
       .otherImages {
-        overflow: scroll;
         .firstSection {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
@@ -408,6 +407,7 @@
 
       section.registered {
         .otherImages {
+          overflow: scroll;
           .firstSection {
             grid-template-columns: repeat(3, 1fr);
           }
