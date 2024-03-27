@@ -58,13 +58,40 @@
         }
     }
   
-    section.proceed {
+    section.theNextToSee {
+        display: none;
+    } .active {
         padding: 5rem;
-        display: flex;
+        display: flex !important;
+        flex-direction: column;
+        gap: 3rem;
+        align-items: center;
         h4 {
             font: 600 30px 'lato';
             line-height: 53px;
         }
+        ol {
+            list-style: auto;
+            padding: 0 2rem;
+            li {
+                font: 400 30px 'lato';
+                line-height: 55px;
+            }
+        }
+        p {
+            font: 800 25px 'lato';
+            line-height: 53px;
+            text-align: center;
+        }
+        button {
+            font: 400 25px 'lato';
+            background-color: #4F0B92;
+            border-radius: 15px;
+            color: #fff;
+            width: 425px;
+            height: 90px;
+        }
+
     }
 }
 
@@ -145,6 +172,11 @@
     .estore-container { 
         section.referralpartner  {
             flex-direction: column;
+        }
+        .active {
+            button {
+                width: 100%;
+            }
         }
     }
 }

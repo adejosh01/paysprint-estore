@@ -25,9 +25,21 @@ export const ReferralPartner = ({ title }) => {
                 </div>
             </section>
 
-            <section className="proceed">
+            <section className="theNextToSee">
                 <h4> To become a referral partner for ashopree and start earning rewards while helping others boost their businesses and streamline their payments, follow these steps: </h4>
-                
+                <ol type="1">
+                    <li> Visit the ashopree website or contact their customer support to inquire about their referral program. </li>
+                    <li> Sign up for the referral program by providing your relevant details and agreeing to the terms and conditions. </li>
+                    <li> Receive your unique referral link or code that you can share with your friends, family, and business contacts. </li>
+                    <li> Spread the word about ashopree and the benefits it offers for businesses to your network through various channels such as social media, email, word of mouth, etc. </li>
+                    <li> Encourage businesses to sign up for ashopree using your referral link or code. </li>
+                    <li> Earn rewards for each successful referral that signs up and starts using ashopree's services. </li>
+                    <li> Monitor your referrals and rewards through the referral program dashboard or communications from ashopree. </li>
+                    <li> Continue to promote ashopree and maximize your earnings through ongoing referrals. </li>
+                </ol>
+                <p> Remember, the more businesses you refer, the more rewards you can earn.  </p>
+                <p> Join the ashopree referral program today and start benefiting from this win-win opportunity for all parties involved!  </p>
+                <button> Get Started </button>
             </section>
 
         </div>
