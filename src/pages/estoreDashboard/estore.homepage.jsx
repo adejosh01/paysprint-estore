@@ -24,6 +24,34 @@ export const EstoreDashboard = ({ title }) => {
   const [registeredStores, setData4] = useState([]);
   const [categories, setData5] = useState([]);
 
+  const [input, setInput] = useState("");
+
+  const fetchData = (value) => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((json) => {
+        const results = json.filter((user) => {
+          return (
+            value &&
+            user &&
+            user.name &&
+            user.name.toLowerCase().includes(value)
+          );
+        });
+        setResults(results);
+      });
+  };
+
+  const handleChange = (value) => {
+    setInput(value);
+    fetchData(value);
+  };
+  <input
+  placeholder="Type to search..."
+  value={input}
+  onChange={(e) => handleChange(e.target.value)}
+/>
+
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
@@ -68,6 +96,7 @@ export const EstoreDashboard = ({ title }) => {
     }).catch(error => {
       setError('Error fetching Trending Services data: ' + error.message);
     });
+    
 
 }, [apiUrl, title]);
 
@@ -97,7 +126,7 @@ export const EstoreDashboard = ({ title }) => {
                     </div>
                     
                     <div className="searchIt">   
-                        <form action={`${apiUrl}/ashopree/product/search/?search=Men%20Shoes&pageNumber=10`} method="post">
+                        {/* <form action={`${apiUrl}/ashopree/product/search/?search=Men%20Shoes&pageNumber=10`} method="post"> */}
                             <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")} >
                                 {categories.length !== 0 ? (
                                     Array.isArray(categories) ? (  
@@ -118,7 +147,7 @@ export const EstoreDashboard = ({ title }) => {
                             <button type="submit" className="searchbtn" name="submit" onClick={ () => onsubmit}>
                                 <svg style={{ marginLeft: '1.5rem' }} className="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                             </button>
-                        </form>
+                        {/* </form> */}
                     </div>
 
                   </div>
