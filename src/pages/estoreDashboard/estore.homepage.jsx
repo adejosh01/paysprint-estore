@@ -100,7 +100,7 @@ export const EstoreDashboard = ({ title }) => {
                         <form action={`${apiUrl}/ashopree/product/search/?search=Men%20Shoes&pageNumber=10`} method="post">
                             <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")} >
                                 {categories.length !== 0 ? (
-                                    Array.isArray(categories) ? (
+                                    Array.isArray(categories) ? (  
                                         <select name="category" defaultValue={'default'}>
                                             <option value="default" disabled> Categories </option>
                                             {categories.map((item, index) => (
