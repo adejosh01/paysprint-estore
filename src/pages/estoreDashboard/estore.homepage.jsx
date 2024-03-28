@@ -95,8 +95,8 @@ export const EstoreDashboard = ({ title }) => {
                       <h2> Get all products and services you need </h2> 
                       <p> Buy products and order for services from our registered vendors at cheap prices </p>
                     </div>
-                  
-                    <div className="searchIt">
+                    
+                    <div className="searchIt">   
                         <form action={`${apiUrl}/ashopree/product/search/?search=Men%20Shoes&pageNumber=10`} method="post">
                             <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")} >
                                 {categories.length !== 0 ? (
