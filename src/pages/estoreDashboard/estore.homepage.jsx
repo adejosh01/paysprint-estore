@@ -24,6 +24,51 @@ export const EstoreDashboard = ({ title }) => {
   const [registeredStores, setData4] = useState([]);
   const [categories, setData5] = useState([]);
 
+  // const [input, setInput] = useState("");
+
+  // const fetchData = (value) => {
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       const results = json.filter((user) => {
+  //         return (
+  //           value &&
+  //           user &&
+  //           user.name &&
+  //           user.name.toLowerCase().includes(value)
+  //         );
+  //       });
+  //       setResults(results);
+  //     });
+  // };
+
+  // const handleChange = (value) => {
+  //   setInput(value);
+  //   fetchData(value);
+  // };
+  // <input placeholder="Type to search..." value={input} onChange={(e) => handleChange(e.target.value)} />
+
+  const [searchResults, setSearchResults] = useState([]);
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const response = await fetch(`https://paysprint.ca/api/v1/ashopree/product/search?search=${encodeURIComponent(searchQuery)}`);
+            if (!response.ok) {
+                throw new Error('Failed to fetch search results');
+            }
+            const data = await response.json();
+            setSearchResults(data.data);
+        } catch (error) {
+            console.error('Error fetching search results:', error);
+        }
+    };
+
+    const handleInputChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
+
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
@@ -68,10 +113,14 @@ export const EstoreDashboard = ({ title }) => {
     }).catch(error => {
       setError('Error fetching Trending Services data: ' + error.message);
     });
+    
 
 }, [apiUrl, title]);
 
-// console.log(categories);
+  hotDeals.map((item, index) => (
+    console.log(item.productCode)
+  ))
+// console.log(hotDeals.productCode);  210720
 
   const [isSubMenuOpen] = useState(false);
 
@@ -93,31 +142,44 @@ export const EstoreDashboard = ({ title }) => {
                       <p> Buy products and order for services from our registered vendors at cheap prices </p>
                     </div>
                     
-                      <div className="searchIt">
-                          <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")}>
-                              {categories.length !== 0 ? (
-                                  Array.isArray(categories) ? (
-                                      <select defaultValue={'default'} style={{ width: '100%', color: '#A0A2A7' }}>
-                                          <option value="default" disabled> Categories </option>
-                                          {categories.map((item, index) => (
-                                              <option key={index} value={item.category}>{item.category}</option>
-                                          ))}
-                                      </select>
-                                  ) : (
-                                      <p>Sorry, an error occurred</p>
-                                  )
-                              ) : (
-                                  <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading Categories </p> 
-                              )}
-                          </div>
+                    <div className="searchIt">   
+                        <form onSubmit={handleFormSubmit}>
+                        {/* <input placeholder="Type to search..." value={input} onChange={(e) => handleChange(e.target.value)} /> */}
+                        
+                            <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")} >
+                                {categories.length !== 0 ? (
+                                    Array.isArray(categories) ? (  
+                                        <select name="category" defaultValue={'default'}>
+                                            <option value="default" disabled> Categories </option>
+                                            {categories.map((item, index) => (
+                                                <option key={index} value={item.category} name="category">{item.category}</option>
+                                            ))}
+                                        </select>
+                                    ) : (
+                                        <p>Sorry, an error occurred</p>
+                                    )
+                                ) : (
+                                    <p> Loading Categories </p> 
+                                )}
+                            </div>
+                            {/* <input className="home" name="searchQuery" type="text" placeholder="Search for a product, service, or online store" /> */}
+                            <input className="home" type="text" placeholder="Search for a product, service, or online store" value={searchQuery} onChange={handleInputChange} />
 
-                          <form action={`/productdetails/${topProducts.productCode}`} method="post" style={{ flex: '0 0 65%' }}>
-                            <input class="home" placeholder="search for a product services or online store" />
-                            <button type="button" className="searchbtn" name="submit">
-                              <svg style={{ marginLeft: '1.5rem' }} class="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                            <button type="submit" className="searchbtn" name="submit" onClick={ () => onsubmit}>
+                                <svg style={{ marginLeft: '1.5rem' }} className="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                             </button>
-                          </form>
-                      </div>
+                        </form>
+                    </div>
+
+                    {searchResults.map((product, index) => (
+                    <div key={index}>
+                        <h3>{product.productName}</h3>
+                        <img src={product.image} alt={product.productName} />
+                        <p>{product.description}</p>
+                        <p>Category: {product.category}</p>
+                    </div>
+                ))}
+
                   </div>
 
                   <div class="buttons">
@@ -168,15 +230,13 @@ export const EstoreDashboard = ({ title }) => {
                 {Array.isArray(hotDeals) ? (
                   hotDeals.map((item, index) => (
                   <Link to={`/productdetails/${item.productCode}`} key={index}>
-                    {/* <div className="eachItem" key={index}> */}
-                      <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt="itemImage" src={item.image} />} >
-                        <div className="imgdescription">
-                          <p className="nameofitem">{item.productName}</p>
-                          <p className="priceofitem">{item.currencySymbol + item.amount}</p>
-                          <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
-                        </div>
-                      </Card>
-                    {/* </div> */}
+                    <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt="itemImage" src={item.image} />} >
+                      <div className="imgdescription">
+                        <p className="nameofitem">{item.productName}</p>
+                        <p className="priceofitem">{item.currencySymbol + item.amount}</p>
+                        <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
+                      </div>
+                    </Card>
                   </Link>
                   ))
                 ) : (
