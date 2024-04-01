@@ -19,6 +19,7 @@ import { Gallery } from "pages/gallery/gallery";
 import { ReferralPartner } from "pages/referralpartner/referralpartner";
 import { TermsAndPrivacy } from "pages/termsAndPrivacy/terms"; 
 import { NotFound404 } from "pages/404/notFound";
+// import ParentComponent from "pages/allAboutSearch/searchResult";
 
 function App() {
 
@@ -41,7 +42,7 @@ function App() {
             <Route path="/gallery" exact element={<Gallery title="PaySprint | Gallery & Media" />} />
             <Route path="/referral-partner" exact element={<ReferralPartner title="PaySprint | Referral Partner" />} />
             <Route path="/terms-of-use" exact element={<TermsAndPrivacy title="PaySprint | Terms Of Use" />} />
-            <Route path='try' exact={true} element={<NotFound404 title={"Checking The Search"} />} />
+            {/* <Route path='try' exact={true} element={<ParentComponent title={"Checking The Search"} />} /> */}
             <Route path='*' exact={true} element={<NotFound404 title={"PaySprint | 404 Not Found"} />} />
           </Routes>
         <EstoreFooter />

@@ -1,35 +1,39 @@
-import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import React, { useState, useEffect } from "react";
+import "./searchBar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearchMinus } from "@fortawesome/free-solid-svg-icons";
 
-import "./SearchBar.css";
-
-export const SearchBar = ({ setResults }) => {
+export const SearchBar = ({ setFilteredResults }) => {
   const [input, setInput] = useState("");
+
+  useEffect(() => {
+    fetchData(input);
+  }, [input]);
 
   const fetchData = (value) => {
     fetch("https://jsonplaceholder.typicode.com/users")
       .then((response) => response.json())
       .then((json) => {
-        const results = json.filter((user) => {
+        const filteredResults = json.filter((user) => {
           return (
             value &&
             user &&
             user.name &&
-            user.name.toLowerCase().includes(value)
+            user.name.toLowerCase().includes(value.toLowerCase())
           );
         });
-        setResults(results);
+
+        setFilteredResults(filteredResults);
       });
   };
 
   const handleChange = (value) => {
     setInput(value);
-    fetchData(value);
   };
 
   return (
     <div className="input-wrapper">
-      <FaSearch id="search-icon" />
+      <FontAwesomeIcon id="search-icon" icon={faSearchMinus} />
       <input
         placeholder="Type to search..."
         value={input}

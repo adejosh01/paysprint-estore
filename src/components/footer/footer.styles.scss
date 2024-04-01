@@ -20,6 +20,9 @@ footer {
         flex-direction: column;
         li a {
           font: 500 16px 'Lato';
+          img {
+            width: 21px;
+          }
         }
       }
       h5 {
