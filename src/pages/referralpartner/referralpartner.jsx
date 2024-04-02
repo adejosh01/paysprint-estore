@@ -1,7 +1,7 @@
 import './referralpartner.styles.scss';
 import { useEffect } from 'react';
 import ecommerceImg from 'assets/ashopree/eCommerce.png';
-import { immediatePage } from 'utils/utils';
+import { immediatePage, showTheForm } from 'utils/utils';
 
 
 export const ReferralPartner = ({ title }) => {
@@ -39,13 +39,27 @@ export const ReferralPartner = ({ title }) => {
                 </ol>
                 <p> Remember, the more businesses you refer, the more rewards you can earn.  </p>
                 <p> Join the ashopree referral program today and start benefiting from this win-win opportunity for all parties involved!  </p>
-                <button> Get Started </button>
+                <button type='button' onClick={ () => showTheForm() }> Get Started </button>
             </section>
 
             <section className='theForm'>
                 <h4> Please fill out this form to get yourself sorted </h4>
 
-                
+                <form action="">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">@</span>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username" />
+                            <label for="floatingInputGroup1">Username</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="text" class="form-control" id="floatingInputGroup1" placeholder="Username" />
+                            <label for="floatingInputGroup1">Username</label>
+                        </div>
+
+                        <button type='submit'> Submit </button>
+                    </div>
+                </form>
             </section>
 
         </div>
