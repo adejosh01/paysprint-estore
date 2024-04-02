@@ -68,6 +68,24 @@ export function immediatePage() {
   }
 }
 
+export function showTheForm() {
+  const nextToSee = document.getElementsByClassName("theNextToSee");
+  const proceedToForm = document.getElementsByClassName("theForm");
+  let index = 0;
+  let index2 = 0;
+
+  for (index; index < nextToSee.length; index++) {
+
+    // nextToSee[index].style.display = "none";
+    nextToSee[index].classList.remove("active");
+  }
+
+  for (index2; index2 < proceedToForm.length; index2++) {
+
+    proceedToForm[index2].classList.add("activeForm");
+  }
+}
+
 export function API_RESPONSES_FROM_BACKEND (title) { 
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
   const [error, setError] = useState(null);

@@ -1,7 +1,9 @@
 import './referralpartner.styles.scss';
 import { useEffect } from 'react';
 import ecommerceImg from 'assets/ashopree/eCommerce.png';
-import { immediatePage } from 'utils/utils';
+import { immediatePage, showTheForm } from 'utils/utils';
+import profileIcon from 'assets/icons/profile/profileIcon.png';
+
 
 
 export const ReferralPartner = ({ title }) => {
@@ -21,7 +23,10 @@ export const ReferralPartner = ({ title }) => {
                 <div>
                     <h2> Be a Referral Partner </h2>
                     <p> By referring businesses in your network to ashopree, you are not only helping them to boost their businesses and streamlining their payments, but you are also earning rewards for yourself. <br /> Its a win-win opportunity for all! </p>
-                    <button type='button' onClick={ () => immediatePage() } > Join our Referral Program today </button>
+                    <div className='navBtns'>
+                        <button type='button' onClick={ () => immediatePage() } > Join our Referral Program today </button>
+                        <button type='button' > Visit Ashopree Community </button>
+                    </div>
                 </div>
             </section>
 
@@ -39,7 +44,61 @@ export const ReferralPartner = ({ title }) => {
                 </ol>
                 <p> Remember, the more businesses you refer, the more rewards you can earn.  </p>
                 <p> Join the ashopree referral program today and start benefiting from this win-win opportunity for all parties involved!  </p>
-                <button> Get Started </button>
+                <button type='button' onClick={ () => showTheForm() }> Get Started </button>
+            </section>
+
+            <section className='theForm'>
+                <h4> Please fill out this form to get yourself sorted </h4>
+
+                <form action="">
+
+                    <div className="allForm">
+                        <div className='largeDiv'>
+                            <p> Organization Name (or business name) </p>
+                            <div className='bigDiv'>
+                                <span class="imgspan"> @ </span>
+                                <input type="text" name="organisationName" placeholder='Organisation Name' required />
+                            </div>
+                        </div>
+                        <div className='largeDiv'>
+                            <p> Contact Name (Same as first and lastname) </p>
+                            <div className='bigDiv'>
+                                <img src={profileIcon} alt="" />
+                                <input type="text" name="contactName" placeholder='Contact Name' required />
+                            </div>
+                        </div>
+                        <div className='largeDiv'>
+                            <p> Official Email (Same as email address) </p>
+                            <div className='bigDiv'>
+                                <span class="imgspan"> @ </span>
+                                <input type="text" name="email" placeholder='Email Address' required />
+                            </div>
+                        </div>
+                        <div className='largeDiv'>
+                            <p> Telephone </p>
+                            <div className='bigDiv'>
+                                <span class="imgspan"> @ </span>
+                                <input type="text" name="phone" placeholder='Telephone Number' required />
+                            </div>
+                        </div>
+                        <div className='largeDiv'>
+                            <p> Website (Optional Field) </p>
+                            <div className='bigDiv'>
+                                <span class="imgspan"> @ </span>
+                                <input type="text" name="website" placeholder='Website Address' required />
+                            </div>
+                        </div>
+                        <div className='largeDiv'>
+                            <p> Business or Organisation Logo </p>
+                            <div className='bigDiv'>
+                                <span class="imgspan"> @ </span>
+                                <input type="file" name="logo" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type='submit'> Submit </button>
+                </form>
             </section>
 
         </div>
