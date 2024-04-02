@@ -42,6 +42,12 @@ export const ReferralPartner = ({ title }) => {
                 <button> Get Started </button>
             </section>
 
+            <section className='theForm'>
+                <h4> Please fill out this form to get yourself sorted </h4>
+
+                
+            </section>
+
         </div>
     );
 
