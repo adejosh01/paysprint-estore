@@ -160,7 +160,7 @@ export const EstoreHeader = ({title}) => {
       <nav className="desktop-nav" style={{ background: '#4F0B92' }}>
         <header className="mainEstore-header">
           <Link to="/">
-            <img src={paysprintNewLogo} alt="Company's Icon" style={{ width: '150px' }} />
+            <img src={paysprintNewLogo} alt="Company's Icon" style={{ width: '300px' }} />
           </Link>
           <ul>
             <li>
