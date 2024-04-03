@@ -61,7 +61,7 @@ export const Pricing = ({ title }) => {
                         </div>
                     </div>
                     <div className='singleItems'>
-                        <h4> Go 360 Plan </h4>
+                        <h4> Go 360 </h4>
                         <div className='describePlan'>
                             <p className='title'> For businesses that need tool to compete and scale the business </p>
                             <div className='detailedplans'>
