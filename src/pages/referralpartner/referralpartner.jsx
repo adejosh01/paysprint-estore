@@ -1,17 +1,51 @@
 import './referralpartner.styles.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import ecommerceImg from 'assets/ashopree/eCommerce.png';
 import { immediatePage, showTheForm } from 'utils/utils';
 import profileIcon from 'assets/icons/profile/profileIcon.png';
+import axios from 'axios';
+import countries from '../../utils/dummyCountriesDatas/countries.js';
+import { country_arr } from '../../utils/dummyCountriesDatas/countries.js';
 
 
+const apiUrl = 'https://restcountries.com/v3.1/all';
 
 export const ReferralPartner = ({ title }) => {
+    const [allCountriesNames, setData5] = useState([]);
+    const [setError] = useState(null);
+  
     useEffect(() => {
       document.title = title;
       window.scrollTo(0, 0);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+      
+      axios.get(`${apiUrl}`) 
+        .then(response => {
+            const countryNames = response.data.map(country => country);
+
+            setData5(countryNames);
+            // console.log(setData5(response))
+        }).catch(error => {
+            setError('Error fetching Hot-deals product data: ' + error.message);
+          }
+      );
+
+    }, [title, setError]);
+
+  const [selectedCountry, setSelectedCountry] = useState('');
+  const [states, setStates] = useState([]); // Empty array for states
+
+  const handleCountryChange = (event) => {
+    const selected = event.target.value;
+    setSelectedCountry(selected);
+
+    // Update states based on selected country (logic needed here)
+    const countryData = countries.find((c) => c.name === selected);
+    setStates(countryData ? countryData.states : []); // Update states based on country
+
+  };
+
+    // console.log(allCountriesNames);
+    // console.log(countries);
 
     return (
         <div className="estore-container">
@@ -21,7 +55,7 @@ export const ReferralPartner = ({ title }) => {
                     <img src={ecommerceImg} alt="" />
                 </div>
                 <div>
-                    <h2> Be a Referral Partner </h2>
+                    <h2> Be a Referral Partner </h2> 
                     <p> By referring businesses in your network to ashopree, you are not only helping them to boost their businesses and streamlining their payments, but you are also earning rewards for yourself. <br /> Its a win-win opportunity for all! </p>
                     <div className='navBtns'>
                         <button type='button' onClick={ () => immediatePage() } > Join our Referral Program today </button>
@@ -48,13 +82,12 @@ export const ReferralPartner = ({ title }) => {
             </section>
 
             <section className='theForm'>
-                <h4> Please fill out this form to get yourself sorted </h4>
+                <h4> Please fill out this form to get started </h4>
 
                 <form action="">
-
                     <div className="allForm">
                         <div className='largeDiv'>
-                            <p> Organization Name (or business name) </p>
+                            <p> Organization Name (or business name) <span> * </span> </p>
                             <div className='bigDiv'>
                                 <span class="imgspan"> @ </span>
                                 <input type="text" name="organisationName" placeholder='Organisation Name' required />
@@ -74,6 +107,34 @@ export const ReferralPartner = ({ title }) => {
                                 <input type="text" name="email" placeholder='Email Address' required />
                             </div>
                         </div>
+                        {/* <div className='largeDiv'>
+                            <p> Country </p>
+                            <div className='bigDiv'>
+                                <select value={selectedCountry} onChange={handleCountryChange}>
+                                    <option value="">Select Country</option>
+                                    {countries.map((country) => (
+                                    <option key={country.name} value={country.name}>
+                                        {country.name}
+                                    </option>
+                                    ))}
+                                </select>
+                            </div>
+                        </div>
+                        {selectedCountry && (
+                            <div className='largeDiv'>
+                                <p> Country </p>
+                                <div className='bigDiv'>
+                                    <select>
+                                        <option value="">Select State</option>
+                                        {states.map((state) => (
+                                            <option key={state} value={state}>
+                                            {state}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+                            </div>
+                        )} */}
                         <div className='largeDiv'>
                             <p> Telephone </p>
                             <div className='bigDiv'>

@@ -54,7 +54,7 @@
             //     text-align: center;
             //     width: 425px;
             //     height: 90px;
-            // }
+            // } 
             div.navBtns {
                 display: flex;
                 flex-direction: row;
@@ -124,7 +124,7 @@
             flex-direction: column;
             width: 100%;
             align-items: center;
-            gap: 3rem;
+            gap: 5rem;
             .allForm {
                 display: grid;
                 grid-template-columns: repeat(2, 1fr);
@@ -142,6 +142,9 @@
                         font: 400 20px 'lato';
                         line-height: 20px;
                         text-align: center;
+                        span {
+                            color: red;
+                        }
                     }
                     .bigDiv {
                         display: flex;
@@ -168,8 +171,8 @@
                 background-color: #4F0B92;
                 border-radius: 15px;
                 color: #fff;
-                width: 425px;
-                height: 90px;
+                width: 50%;
+                height: 70px;
             } 
         }
     }

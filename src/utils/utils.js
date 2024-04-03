@@ -76,7 +76,7 @@ export function showTheForm() {
 
   for (index; index < nextToSee.length; index++) {
 
-    // nextToSee[index].style.display = "none";
+    // nextToSee[index].style.display = "none"; 
     nextToSee[index].classList.remove("active");
   }
 
