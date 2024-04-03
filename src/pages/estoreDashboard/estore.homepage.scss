@@ -123,7 +123,7 @@
                 color: var(--text-3, #a0a2a7);
                 width: 375px;
               } .searchbtn {
-                margin-right: unset !important;
+                margin-right: 1rem !important; //or use unset
                 background: var(--primary, #4F0B92);
                 border-radius: 8px;
                 flex-shrink: 0;
