@@ -2,10 +2,8 @@ import './referralpartner.styles.scss';
 import { useEffect, useState } from 'react';
 import ecommerceImg from 'assets/ashopree/eCommerce.png';
 import { immediatePage, showTheForm } from 'utils/utils';
-import profileIcon from 'assets/icons/profile/profileIcon.png';
 import axios from 'axios';
 import countries from '../../utils/dummyCountriesDatas/countries.js';
-import { country_arr } from '../../utils/dummyCountriesDatas/countries.js';
 
 
 const apiUrl = 'https://restcountries.com/v3.1/all';
@@ -32,20 +30,23 @@ export const ReferralPartner = ({ title }) => {
     }, [title, setError]);
 
   const [selectedCountry, setSelectedCountry] = useState('');
+  const [selectedState, setSelectedState] = useState('');
   const [states, setStates] = useState([]); // Empty array for states
 
   const handleCountryChange = (event) => {
     const selected = event.target.value;
     setSelectedCountry(selected);
+    setSelectedState(selected);
 
     // Update states based on selected country (logic needed here)
-    const countryData = countries.find((c) => c.name === selected);
+    const countryData = countries.find((s_a) => s_a.name === selected);
     setStates(countryData ? countryData.states : []); // Update states based on country
 
   };
 
     // console.log(allCountriesNames);
-    // console.log(countries);
+    // console.log(states);
+    
 
     return (
         <div className="estore-container">
@@ -89,32 +90,35 @@ export const ReferralPartner = ({ title }) => {
                         <div className='largeDiv'>
                             <p> Organization Name (or business name) <span> * </span> </p>
                             <div className='bigDiv'>
-                                <span class="imgspan"> @ </span>
+                                {/* <span class="imgspan"> @ </span> */}
+                                <img src="https://img.icons8.com/stickers/25/briefcase--v1.png" alt="" />
                                 <input type="text" name="organisationName" placeholder='Organisation Name' required />
                             </div>
                         </div>
                         <div className='largeDiv'>
-                            <p> Contact Name (Same as first and lastname) </p>
+                            <p> Contact Name (Same as first and lastname)<span> * </span> </p>
                             <div className='bigDiv'>
-                                <img src={profileIcon} alt="" />
+                                <img src="https://img.icons8.com/glyph-neue/25/name.png" alt="" />
                                 <input type="text" name="contactName" placeholder='Contact Name' required />
                             </div>
                         </div>
                         <div className='largeDiv'>
-                            <p> Official Email (Same as email address) </p>
+                            <p> Official Email (Same as email address)<span> * </span> </p>
                             <div className='bigDiv'>
-                                <span class="imgspan"> @ </span>
+                                {/* <span class="imgspan"> @ </span> */}
+                                <img src="https://img.icons8.com/cotton/25/new-post.png" alt="" />
                                 <input type="text" name="email" placeholder='Email Address' required />
                             </div>
                         </div>
-                        {/* <div className='largeDiv'>
-                            <p> Country </p>
+                        <div className='largeDiv'>
+                            <p> Country <span> * </span> </p>
                             <div className='bigDiv'>
+                                <img src="https://img.icons8.com/matisse/25/country.png" alt="" />
                                 <select value={selectedCountry} onChange={handleCountryChange}>
                                     <option value="">Select Country</option>
                                     {countries.map((country) => (
-                                    <option key={country.name} value={country.name}>
-                                        {country.name}
+                                    <option key={country} value={country}>
+                                        {country}
                                     </option>
                                     ))}
                                 </select>
@@ -122,35 +126,47 @@ export const ReferralPartner = ({ title }) => {
                         </div>
                         {selectedCountry && (
                             <div className='largeDiv'>
-                                <p> Country </p>
+                                <p> State / Province <span> * </span> </p>
                                 <div className='bigDiv'>
-                                    <select>
-                                        <option value="">Select State</option>
+                                    <img src="https://img.icons8.com/matisse/25/country.png" alt="" />
+                                    {/* <select>
+                                        <option value=""> Select State</option>
                                         {states.map((state) => (
                                             <option key={state} value={state}>
                                             {state}
                                             </option>
                                         ))}
-                                    </select>
+                                    </select> */}
+                                    <input type="text" name='state' placeholder='Add Province / State' required />
                                 </div>
                             </div>
-                        )} */}
+                        )}
+                        {selectedState && (
+                            <div className='largeDiv'>
+                                <p> Street Name & House Unit <span> * </span> </p>
+                                <div className='bigDiv'>
+                                    <img src="https://img.icons8.com/matisse/25/country.png" alt="" />
+                                    <input type="text" name='houseNumber' placeholder='house number and street name' required />
+                                </div>
+                            </div>
+                        )}
                         <div className='largeDiv'>
-                            <p> Telephone </p>
+                            <p> Telephone <span> * </span> </p>
                             <div className='bigDiv'>
-                                <span class="imgspan"> @ </span>
+                                {/* <span class="imgspan"> @ </span> */}
+                                <img src="https://img.icons8.com/bubbles/25/phone--v2.png" alt="" />
                                 <input type="text" name="phone" placeholder='Telephone Number' required />
                             </div>
                         </div>
                         <div className='largeDiv'>
-                            <p> Website (Optional Field) </p>
+                            <p> Website (Optional Field) <span> * </span> </p>
                             <div className='bigDiv'>
                                 <span class="imgspan"> @ </span>
                                 <input type="text" name="website" placeholder='Website Address' required />
                             </div>
                         </div>
                         <div className='largeDiv'>
-                            <p> Business or Organisation Logo </p>
+                            <p> Business or Organisation Logo <span> * </span> </p>
                             <div className='bigDiv'>
                                 <span class="imgspan"> @ </span>
                                 <input type="file" name="logo" required />
