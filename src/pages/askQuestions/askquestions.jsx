@@ -27,6 +27,10 @@ export const AskQuestions = ({ title }) => {
                         <button> <FontAwesomeIcon icon={faHome} /> Goto Community </button>
                     </div>
                    
+                    <div className="real-section">
+                        <p className="welcome"> Good day! Welcome to PaySprint developers community.👏 </p>
+                    </div>
+
                 </div>
             </div>
         </section>

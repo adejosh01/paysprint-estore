@@ -106,7 +106,7 @@ export const EstoreDashboard = ({ title }) => {
   return (
     <div className="estore-container">
          
-        <section className="getallprods">
+        <section className="getallprods" style={{ padding: 'unset' }}>
             <div className="allprodsImage">
               <img src={"assets/images/estore/rectangle-480.png"} alt="allprods" />
               <img src={"assets/images/estore/rectangle-490.png"} alt="allprods" />
