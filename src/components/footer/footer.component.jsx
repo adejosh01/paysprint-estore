@@ -33,7 +33,7 @@ export const EstoreFooter = () => {
             <h5> Products </h5>
             <div>
               <ul>
-                <li> <a href="/estore"> My Online Store </a> </li>
+                <li> <a href="/onlinestore"> My Online Store </a> </li>
                 <li> <a href="#"> My Store Front </a> </li>
                 <li> <a href="#"> My Social Setting </a> </li>
                 <li> <a href="#"> My Payment Hub </a> </li>
@@ -51,8 +51,8 @@ export const EstoreFooter = () => {
             <h5> Support </h5>
             <ul>
               <li> <a href="#"> Global Support </a> </li>
-              <li> <a href="#"> Merchant Support </a> </li>
-              <li> <a href="#"> Ashopree Community </a> </li>
+              <li> <a href="/askquestions"> Merchant Support </a> </li>
+              <li> <a href="/community"> Ashopree Community </a> </li>
             </ul>
           </div>
 
