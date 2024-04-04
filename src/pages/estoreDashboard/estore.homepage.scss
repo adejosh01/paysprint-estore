@@ -27,6 +27,10 @@
       font-family: plus jakarta sans;
     }
 
+    section :first {
+      padding: unset;
+    }
+    
     section.getallprods {
       display: flex;
       justify-content: center;
