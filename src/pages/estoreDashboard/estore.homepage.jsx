@@ -127,10 +127,10 @@ export const EstoreDashboard = ({ title }) => {
                             <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")} >
                                 {categories.length !== 0 ? (
                                     Array.isArray(categories) ? (  
-                                        <select name="category" defaultValue={'default'}>
-                                            <option value="default" disabled> Categories </option>
+                                        <select name="category" defaultValue={'default'} required>
+                                            <option value="default"> Categories </option>
                                             {categories.map((item, index) => (
-                                                <option key={index} value={item.category} name="category">{item.category}</option>
+                                                <option key={index} value={item.category} name="category"> {item.category} </option>
                                             ))}
                                         </select>
                                     ) : (
