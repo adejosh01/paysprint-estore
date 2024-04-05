@@ -56,6 +56,24 @@ export const Community = ({ title }) => {
                                     </div>
                                 </div>
                                 <div className="each-content">
+                                    <a href="/"> Payment Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Payment Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
                                     <a href="/"> Since the PS fx is not available in Nigeria, when sending money to another country try through mobile wallet will curency exchanges occur automatically? </a>
                                     <hr />
                                     <div>

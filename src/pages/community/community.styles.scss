@@ -1,6 +1,6 @@
 .estore-container {
     // padding: 4rem 1.6rem;
-    font: 400 20px 'Plus Jakarta Sans';
+    font: 400 18px 'Plus Jakarta Sans';
     
     h2 {
       font-weight: 700;
@@ -91,8 +91,8 @@
                                 display: flex;
                                 flex-direction: column;
                                 gap: 1rem;
-                                flex: 1 1 auto;
-                                min-height: 1px;
+                                // flex: 1 1 auto;
+                                // min-height: 1px;
                                 padding: 1.25rem;
                                 background-color: #fff;
                                 border: 1px solid rgba(0, 0, 0, .125);
