@@ -1,6 +1,6 @@
 .estore-container {
     // padding: 4rem 1.6rem;
-    font: 400 20px 'Plus Jakarta Sans';
+    font: 400 18px 'Plus Jakarta Sans';
     
     h2 {
       font-weight: 700;
@@ -61,11 +61,98 @@
                     .welcome {
                         margin-top: 3rem;
                     }
+                    .form-starts {
+                        width: 100%;
+                        form { 
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1.5rem;
+                            div {
+                                display: flex;
+                                flex-direction: column;
+                                gap: 0.5rem;
+                                p {
+                                    font-size: 1.5rem;
+                                    span {
+                                        color: red;
+                                    }
+                                }
+                            }
+                            .name-and-email {
+                                display: flex;
+                                justify-content: space-between;
+                                flex-direction: row;
+                                div {
+                                    flex: 0 0 50%;
+                                    p {
+                                        font-size: 1.5rem;
+                                        span {
+                                            color: red;
+                                        }
+                                    }
+                                }
+                            }
+                            button {
+                                background-color: #007bff;
+                                color: #e4e2e2;
+                                padding: 1.3rem;
+                                width: 100%;
+                                border-radius: .25rem;
+                            }
+                        }
+                    }
                 }
                 
             }
         }
+
+        input, select, textarea {
+            padding: .375rem .75rem;
+            font-size: 1.3rem;
+            font-weight: 400;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        }
+        input:focus, select:focus, textarea:focus {
+            border: 1px solid #007bff;
+            box-shadow: 0 0 0 .3rem rgba(0,123,255,.25);
+        }
     }
 }
 
+
+@media screen and (max-width: 700px) {
+    .estore-container { 
+        section.askquestions {
+            padding: 5rem;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .estore-container { 
+        section.askquestions {
+            padding: 2rem;
+            .before-the-row .row {
+                .home {
+                    padding: .5rem;
+                }
+                .real-section {
+                    gap: 2rem;
+                    .form-starts form {
+                        .name-and-email {
+                            flex-direction: column;
+                            gap: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
 

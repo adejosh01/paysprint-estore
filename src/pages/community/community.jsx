@@ -4,9 +4,12 @@ import { useEffect } from "react";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { BottomNav } from "components/bottom-navs";
 import CategoriesData from "utils/allcategories/categories";
+import { handleClick } from "utils/utils";
+import { useNavigate } from "react-router-dom";
 
 
 export const Community = ({ title }) => {
+    const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title;
@@ -25,7 +28,7 @@ export const Community = ({ title }) => {
             <div className="before-the-row">
                 <div className="row">
                     <div className="home">
-                        <button> <FontAwesomeIcon icon={faHome} /> Goto Homepage </button>
+                        <button type="button" onClick={() => handleClick('/', navigate)}> <FontAwesomeIcon icon={faHome} /> Goto Homepage </button>
                     </div>
 
                     <div className="real-section">
@@ -35,7 +38,7 @@ export const Community = ({ title }) => {
                             <div className="posted-questions">
                                 <div className="nav">
                                     <p> All Post</p>
-                                    <button> Ask a Question </button>
+                                    <button type="button" onClick={() => handleClick('/askquestions', navigate)}> Ask a Question </button>
                                 </div>
                                 <div className="each-content">
                                     <a href="/"> Payment Issues </a>
