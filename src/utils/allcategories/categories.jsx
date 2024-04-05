@@ -24,7 +24,7 @@ const CategoriesData = ({ title }) => {
   }, [apiUrl, title]);
 
   if (loading) {
-    return <p style={{ textAlign: 'center', fontSize: '2rem' }}>Loading......</p>;
+    return <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading Categories....</p>;
   }
 
   if (error) {
