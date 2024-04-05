@@ -3,6 +3,7 @@ import "./community.styles.scss";
 import { useEffect } from "react";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { BottomNav } from "components/bottom-navs";
+import CategoriesData from "utils/allcategories/categories";
 
 
 export const Community = ({ title }) => {
@@ -55,7 +56,7 @@ export const Community = ({ title }) => {
                                     </div>
                                 </div>
                                 <div className="each-content">
-                                    <a href="#"> Since the PS fx is not available in Nigeria, when sending money to another country try through mobile wallet will curency exchanges occur automatically? </a>
+                                    <a href="/"> Since the PS fx is not available in Nigeria, when sending money to another country try through mobile wallet will curency exchanges occur automatically? </a>
                                     <hr />
                                     <div>
                                         <p> Payment </p>
@@ -82,12 +83,13 @@ export const Community = ({ title }) => {
                             <div className="all-categories">
                                 <a href="/askquestions"> Ask a Question </a>
                                 <h4> Categories </h4>
-                                <p> App Review </p>
+                                {/* <p> App Review </p>
                                 <p> PaySprint Login </p>
                                 <p> Developer Tools </p>
                                 <p> API Integration </p>
                                 <p> Platform Policy </p>
-                                <p> Others </p>
+                                <p> Others </p> */}
+                                <CategoriesData />
                             </div>
                         </div>
 
