@@ -6,7 +6,7 @@ const CategoriesData = ({ title }) => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysp.ca/api/v1';
+  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
 
   useEffect(() => {
     document.title = title;
