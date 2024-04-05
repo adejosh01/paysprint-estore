@@ -3,9 +3,13 @@ import "./community.styles.scss";
 import { useEffect } from "react";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { BottomNav } from "components/bottom-navs";
+import CategoriesData from "utils/allcategories/categories";
+import { handleClick } from "utils/utils";
+import { useNavigate } from "react-router-dom";
 
 
 export const Community = ({ title }) => {
+    const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title;
@@ -24,7 +28,7 @@ export const Community = ({ title }) => {
             <div className="before-the-row">
                 <div className="row">
                     <div className="home">
-                        <button> <FontAwesomeIcon icon={faHome} /> Goto Homepage </button>
+                        <button type="button" onClick={() => handleClick('/', navigate)}> <FontAwesomeIcon icon={faHome} /> Goto Homepage </button>
                     </div>
 
                     <div className="real-section">
@@ -34,7 +38,7 @@ export const Community = ({ title }) => {
                             <div className="posted-questions">
                                 <div className="nav">
                                     <p> All Post</p>
-                                    <button> Ask a Question </button>
+                                    <button type="button" onClick={() => handleClick('/askquestions', navigate)}> Ask a Question </button>
                                 </div>
                                 <div className="each-content">
                                     <a href="/"> Payment Issues </a>
@@ -55,7 +59,25 @@ export const Community = ({ title }) => {
                                     </div>
                                 </div>
                                 <div className="each-content">
-                                    <a href="#"> Since the PS fx is not available in Nigeria, when sending money to another country try through mobile wallet will curency exchanges occur automatically? </a>
+                                    <a href="/"> Payment Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Payment Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Since the PS fx is not available in Nigeria, when sending money to another country try through mobile wallet will curency exchanges occur automatically? </a>
                                     <hr />
                                     <div>
                                         <p> Payment </p>
@@ -82,12 +104,13 @@ export const Community = ({ title }) => {
                             <div className="all-categories">
                                 <a href="/askquestions"> Ask a Question </a>
                                 <h4> Categories </h4>
-                                <p> App Review </p>
+                                {/* <p> App Review </p>
                                 <p> PaySprint Login </p>
                                 <p> Developer Tools </p>
                                 <p> API Integration </p>
                                 <p> Platform Policy </p>
-                                <p> Others </p>
+                                <p> Others </p> */}
+                                <CategoriesData />
                             </div>
                         </div>
 

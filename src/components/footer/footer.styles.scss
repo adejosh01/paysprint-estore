@@ -65,17 +65,31 @@ footer {
   footer {
     div.allFooterDetails {
         grid-template-columns: repeat(3, 1fr);
-        gap: 2rem;
+        gap: 3rem;
     }
   }
 }
 
 @media screen and (max-width: 700px) {
   footer {
+    padding: 35px;
     div.allFooterDetails {
         grid-template-columns: repeat(2, 1fr);
         .singleFooterItemsForProducts {
           grid-column: 1;
+          h5 {
+            text-align: left;
+          }
+          div {
+            ul {
+              gap: 15px;
+            }
+          }
+        }
+        .singleFooterItems {
+          ul {
+            gap: 15px;
+          }
         }
     }
   }
