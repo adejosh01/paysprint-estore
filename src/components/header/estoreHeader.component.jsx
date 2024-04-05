@@ -39,6 +39,24 @@ export const EstoreHeader = ({title}) => {
   const [categories, setData] = useState([]);
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
 
+  const [query, setQuery] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // console.log("Searching for:", query);
+  
+  };
+
+  const handleChange = (event) => {
+    setQuery(event.target.value);
+  };
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSubmit(event);
+    }
+  };
+
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
@@ -201,11 +219,11 @@ export const EstoreHeader = ({title}) => {
 
           <div className="lastside">
 
-            <form action="/" method="POST">
+            <form action="/search" onSubmit={handleSubmit}>
               <div className="searching">
                 {/* <img src={search} alt="thesearch" /> */}
                 <FontAwesomeIcon icon={faSearch} />
-                <input type="" placeholder="Search for a product" />
+                <input type="text" onChange={handleChange} onKeyDown={handleKeyPress} tabIndex={0} placeholder="Search for a product" />
               </div>
             </form>
 
