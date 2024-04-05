@@ -9,24 +9,57 @@ import health from "assets/images/estore/topCategories/healthcare.png";
 import travels from "assets/images/estore/topCategories/travels.png";
 import fashion from "assets/images/estore/topCategories/fashion.png";
 import others from "assets/images/estore/topCategories/others.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { getConditionalClassName } from "utils/utils";
+import { Card } from "antd";
+
 
 export const EstoreDashboard = ({ title }) => {
-  const apiUrl = process.env.NODE_ENV === "dev" ? "http://localhost:9090/api/v1" : process.env.REACT_APP_API_URL;
+  const apiUrl = process.env.NODE_ENV === "developments" ? "http://localhost:9090/api/v1" : process.env.REACT_APP_API_URL;
   const [error, setError] = useState(null);
   const [hotDeals, setData] = useState([]);
   const [topProducts, setData2] = useState([]);
   const [trendingServices, setData3] = useState([]);
   const [registeredStores, setData4] = useState([]);
+  const [categories, setData5] = useState([]);
+
+  // const [input, setInput] = useState("");
+
+  // const fetchData = (value) => {
+  //   fetch("https://jsonplaceholder.typicode.com/users")
+  //     .then((response) => response.json())
+  //     .then((json) => {
+  //       const results = json.filter((user) => {
+  //         return (
+  //           value &&
+  //           user &&
+  //           user.name &&
+  //           user.name.toLowerCase().includes(value)
+  //         );
+  //       });
+  //       setResults(results);
+  //     });
+  // };
+
+  // const handleChange = (value) => {
+  //   setInput(value);
+  //   fetchData(value);
+  // };
+  // <input placeholder="Type to search..." value={input} onChange={(e) => handleChange(e.target.value)} />
 
 
   useEffect(() => {
 
     document.title = title;
     window.scrollTo(0, 0);
+
+    axios.get(`${apiUrl}/ashopree/product/category`) 
+    .then(response => {
+      setData5(response.data.data);
+    }).catch(error => {
+      setError('Error fetching Hot-deals product data: ' + error.message);
+    });
 
     axios.get(`${apiUrl}/ashopree/product/hot-deals`) 
     .then(response => {
@@ -61,17 +94,21 @@ export const EstoreDashboard = ({ title }) => {
     }).catch(error => {
       setError('Error fetching Trending Services data: ' + error.message);
     });
+    
 
-}, [apiUrl]);
+}, [apiUrl, title]);
 
-// console.log(topProducts);
+  // hotDeals.map((item, index) => (
+  //   console.log(item.productCode)
+  // ))
+// console.log(hotDeals.productCode);  210720
 
   const [isSubMenuOpen] = useState(false);
 
   return (
     <div className="estore-container">
          
-        <section className="getallprods">
+        <section className="getallprods" style={{ padding: 'unset' }}>
             <div className="allprodsImage">
               <img src={"assets/images/estore/rectangle-480.png"} alt="allprods" />
               <img src={"assets/images/estore/rectangle-490.png"} alt="allprods" />
@@ -82,30 +119,56 @@ export const EstoreDashboard = ({ title }) => {
               <div className="describeProds">
                   <div className="b4Title">
                     <div className="title">
-                      <h2> Get all products and services you need </h2>
+                      <h2> Get all products and services you need </h2> 
                       <p> Buy products and order for services from our registered vendors at cheap prices </p>
                     </div>
                     
-                      <div className="searchIt">
-                          <div>
-                            <p> Category </p>
-                            <span style={{  marginLeft: '0.2rem' }}> 
-                              <button> <FontAwesomeIcon icon={isSubMenuOpen ? faAngleUp : faAngleDown} /> </button>
-                            </span>
-                          </div>
-                          <div style={{  color: '#fff' }}>
-                                jd
-                          </div>
-                          <form action={`/productdetails/${topProducts.productCode}`} method="post" style={{ flex: '0 0 75%' }}>
-                            <input class="home" placeholder="search for a product services or online store" />
-                            <button type="button" className="searchbtn" name="submit">
-                              <svg style={{ marginLeft: '1.5rem' }} class="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                    <div className="searchIt">   
+                        {/* <form action={`${apiUrl}/ashopree/product/search/?search=Men%20Shoes&pageNumber=10`} method="post"> */}
+                        {/* <input placeholder="Type to search..." value={input} onChange={(e) => handleChange(e.target.value)} /> */}
+                        
+                            <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")} >
+                                {categories.length !== 0 ? (
+                                    Array.isArray(categories) ? (  
+                                        <select name="category" defaultValue={'default'}>
+                                            <option value="default" disabled> Categories </option>
+                                            {categories.map((item, index) => (
+                                                <option key={index} value={item.category} name="category">{item.category}</option>
+                                            ))}
+                                        </select>
+                                    ) : (
+                                        <p>Sorry, an error occurred</p>
+                                    )
+                                ) : (
+                                    <p> Loading Categories </p> 
+                                )}
+                            </div>
+                            <input className="home" name="searchQuery" type="text" placeholder="Search for a product, service, or online store" />
+                            <button type="submit" className="searchbtn" name="submit" onClick={ () => onsubmit}>
+                                <svg style={{ marginLeft: '1.5rem' }} className="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                             </button>
-                          </form>
-                      </div>
+                        {/* </form> */}
+                    </div>
+
                   </div>
 
                   <div class="buttons">
+
+                                  {/* Take 5 categories at random */}
+
+            {categories.length !== 0 ? (
+              Array.isArray(categories) ? (
+                <p style={{ display: 'contents' }}>
+                  {categories.slice(Math.floor(Math.random() * 5) + 0, 6).map((item, index) => (
+                    <button type="button">
+                      <p>{item.category}</p>
+                    </button>
+                    
+                  ))}
+                </p>
+
+              ) : (
+                <p>
                     <button type="button">
                       <p>Apparels</p>
                     </button>
@@ -121,6 +184,16 @@ export const EstoreDashboard = ({ title }) => {
                     <button type="button">
                       <p>Professional Service</p>
                     </button>
+                </p>
+              )
+            ) : (
+                <button type="button">
+                  <p>Please wait...</p>
+                </button>
+            )}
+
+
+                    
                   </div>
               </div>
 
@@ -130,7 +203,7 @@ export const EstoreDashboard = ({ title }) => {
           <section className="topdeals">
             <p className="dealtitle"> Hottest Deals </p>
 
-            <div className="items">
+            {/* <div className="items">
                 {Array.isArray(hotDeals) ? (
                   hotDeals.map((item, index) => (
                   <Link to={`/productdetails/${item.productCode}`} key={index}>
@@ -147,7 +220,27 @@ export const EstoreDashboard = ({ title }) => {
                 ) : (
                   <div>Error: Sorry, Please check your network connection and try again</div>
                 )}
+            </div> */}
+
+            <div className="items">
+                {Array.isArray(hotDeals) ? (
+                  hotDeals.map((item, index) => (
+                  <Link to={`/productdetails/${item.productCode}`} key={index}>
+                    <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt="itemImage" src={item.image} />} >
+                      <div className="imgdescription">
+                        <p className="nameofitem">{item.productName}</p>
+                          <p className="priceofitem">{item.currencySymbol + Number(item.amount).toFixed(2)}</p>
+                          <p className="initialprice">{item.currencySymbol + Number(item.previousAmount).toFixed(2)}</p>
+                      </div>
+                    </Card>
+                  </Link>
+                  ))
+                ) : (
+                  <div>Error: Sorry, Please check your network connection and try again</div>
+                )}
             </div>
+
+            
           </section>
         )}
 
@@ -158,9 +251,11 @@ export const EstoreDashboard = ({ title }) => {
               <p className="secondtitle"> See all Products </p>
             </div>
 
+
             <div className="items">
                 {Array.isArray(topProducts) ? (
                     topProducts.map((item, index) => (
+                      <Link to={`/productdetails/${item.productCode}`} key={index}>
                       <div className="eachItem" key={index}>
                         <img className="prodImage" src={item.image} alt="eachImage" />
                         <div className="imgdescription">
@@ -178,6 +273,7 @@ export const EstoreDashboard = ({ title }) => {
                           </div>  
                         </div>
                       </div>
+                      </Link>
                     ))
                   ) : (
                     <div>Error: {error} </div>
@@ -189,68 +285,109 @@ export const EstoreDashboard = ({ title }) => {
         {registeredStores.length !== 0 && (
           <section className="registered">
             <h3> Registered Stores </h3>
-            <div className="otherImages">
+
+            {/* <div className="otherImages">
               <div className="firstSection">
                   {Array.isArray(registeredStores) > 0 ? (
                     registeredStores.map((item, index) => (
                       <div key={index}>
                         <img src={item.businessLogo} alt="eachImage" />
-                        {/* <p> {item.shopName} </p> */}
                       </div>
                     ))
                   ) : (
                     <div>Error: Sorry, Please check your network connection and try again</div>
                   )}
               </div>
+            </div> */}
+
+            <div className="otherImages">
+              <div className="firstSection">
+                  {Array.isArray(registeredStores) > 0 ? (
+                    registeredStores.map((item, index) => (
+                      <Card className="eachItem" hoverable style={{ width: 240 }} key={index}>
+                        <img src={item.businessLogo} alt="eachImage" />
+                      </Card>
+                    ))
+                  ) : (
+                    <div>Error: Sorry, Please check your network connection and try again</div>
+                  )}
+              </div>
             </div>
+
           </section>
         )}
 
-        <section className="topcategories">
-          <h3> Top Categories</h3>
-          <div className="imageitems">
-            <div className="imgdescribtion">
-              <img src={office} alt="thetextdescription" />
-              <p> Home & Office</p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={electronic} alt="thetextdescription" />
-              <p> Electronis gadgets </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={desktops} alt="thetextdescription" />
-              <p> Computers</p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={groceries} alt="thetextdescription" />
-              <p> Groceries </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={health} alt="thetextdescription" />
-              <p> Health & Wellbeing</p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={travels} alt="thetextdescription" />
-              <p> Travel & Hotel </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={fashion} alt="thetextdescription" />
-              <p> Fashion </p>
-            </div>
-            <div className="imgdescribtion">
-              <img src={others} alt="thetextdescription" />
-              <p> Others </p>
-            </div>
-          </div>
+        {categories.length !== 0 && (
+          <section className="topcategories">
+            <h3> Top Categories</h3>
 
-          <div className="thebutton">
-          <Link to="/allcategories">
-            <button type="button">
-               See all categories
-            </button>
-            </Link>
-          </div>
-        </section>
+            <div className="imageitems">
+              {Array.isArray(categories) > 0 ? (
+                categories.map((item, index) => (
+                  <div className="imgdescribtion" key={index}>
+                    {/* <img src={office} alt="thetextdescription" /> */}
+                    {index % 7 === 0 && <img src={office} alt="thetextdescription" />}
+                    {index % 7 === 1 && <img src={electronic} alt="thetextdescription" />}
+                    {index % 7 === 2 && <img src={desktops} alt="thetextdescription" />}
+                    {index % 7 === 3 && <img src={groceries} alt="thetextdescription" />}
+                    {index % 7 === 4 && <img src={health} alt="thetextdescription" />}
+                    {index % 7 === 5 && <img src={travels} alt="thetextdescription" />}
+                    {index % 7 === 6 && <img src={fashion} alt="thetextdescription" />}
+                      <p> {item.category} </p>
+                  </div>
+                ))
+              ) : (
+                <div className="imgdescribtion">
+                  <img src={others} alt="thetextdescription" />
+                    <p> Home & Office</p>
+                </div>
+              )}
+            </div>
+
+            {/* <div className="imageitems">
+              <div className="imgdescribtion">
+                <img src={office} alt="thetextdescription" />
+                <p> Home & Office</p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={electronic} alt="thetextdescription" />
+                <p> Electronis gadgets </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={desktops} alt="thetextdescription" />
+                <p> Computers</p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={groceries} alt="thetextdescription" />
+                <p> Groceries </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={health} alt="thetextdescription" />
+                <p> Health & Wellbeing</p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={travels} alt="thetextdescription" />
+                <p> Travel & Hotel </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={fashion} alt="thetextdescription" />
+                <p> Fashion </p>
+              </div>
+              <div className="imgdescribtion">
+                <img src={others} alt="thetextdescription" />
+                <p> Others </p>
+              </div>
+            </div> */}
+
+            <div className="thebutton">
+              <Link to="/allcategories">
+                <button type="button">
+                  See all categories
+                </button>
+              </Link>
+            </div>
+          </section>
+        )}
 
         {trendingServices.length !== 0 && (
           <section className="topdeals">

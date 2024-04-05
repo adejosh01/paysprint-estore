@@ -109,7 +109,7 @@ export const ProductDetails = ({ title }) => {
                                 </div>
                                 
                                 <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {item.product.businessname} </span> </p>
-                                <p className='amount'> {item.product.currencySymbol + item.product.amount} </p>
+                                <p className='amount'> {item.product.currencySymbol + Number(item.product.amount).toFixed(2)} </p>
                                 <div className='justbuttons'>
                                     <button type='button' id={`${item.product.productCode}`}> 
                                         <a href='/mycart'> Add to cart </a>
@@ -144,7 +144,7 @@ export const ProductDetails = ({ title }) => {
                                             <img className='fortheimages' src={singleProduct.image} alt="eachImage" />
                                             <div className="imgdescription">
                                                 <p className="nameofitem">{singleProduct.productName}</p>
-                                                <p className="priceofitem">{singleProduct.currencySymbol + singleProduct.amount}</p>
+                                                <p className="priceofitem">{singleProduct.currencySymbol + Number(singleProduct.amount).toFixed(2)}</p>
                                                 <div>
                                                     <span>
                                                         <img src={starimage} alt="justtheIconOfAStar" />

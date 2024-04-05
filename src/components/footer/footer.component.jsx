@@ -5,7 +5,8 @@ import paysprintNewLogo from "assets/ashopree/ashopree_logo_with_icon.png";
 import fbIconWhite from "assets/svg/fb_icon_white.svg";
 import igIconWhite from "assets/svg/ig_icon_white.svg";
 import linkedinIconWhite from "assets/svg/linkedin_icon_white.svg";
-import twitterIconWhite from "assets/svg/twitter_icon_white.svg";
+import twitterIconWhite from "assets/icons/twitterNewIcon.png";
+// import twitterIconWhite from "assets/svg/twitter_icon_white.svg";
 import "./footer.styles.scss";
 
 export const EstoreFooter = () => {
@@ -32,7 +33,7 @@ export const EstoreFooter = () => {
             <h5> Products </h5>
             <div>
               <ul>
-                <li> <a href="/estore"> My Online Store </a> </li>
+                <li> <a href="/onlinestore"> My Online Store </a> </li>
                 <li> <a href="#"> My Store Front </a> </li>
                 <li> <a href="#"> My Social Setting </a> </li>
                 <li> <a href="#"> My Payment Hub </a> </li>
@@ -50,8 +51,8 @@ export const EstoreFooter = () => {
             <h5> Support </h5>
             <ul>
               <li> <a href="#"> Global Support </a> </li>
-              <li> <a href="#"> Merchant Support </a> </li>
-              <li> <a href="#"> Ashopree Community </a> </li>
+              <li> <a href="/askquestions"> Merchant Support </a> </li>
+              <li> <a href="/community"> Ashopree Community </a> </li>
             </ul>
           </div>
 
@@ -68,8 +69,8 @@ export const EstoreFooter = () => {
             <ul>
               <li> <a href="/contact"> Contact Us </a> </li>
               <li style={{ display: 'flex', justifyContent: 'space-between' }}> 
-                <a href="#"> <img src={twitterIconWhite} alt="Twitte'sr Icon" /> </a> 
-                <a href="#"> <img src={igIconWhite} alt="Instagram's Icon" /> </a> 
+                <a href="https://twitter.com/ashopree"> <img src={twitterIconWhite} alt="Twitte'sr Icon" /> </a> 
+                <a href="https://www.instagram.com/ashopree"> <img src={igIconWhite} alt="Instagram's Icon" /> </a> 
                 <a href="#"> <img src={fbIconWhite} alt="Facebook's Icon" /> </a> 
                 <a href="#"> <img src={linkedinIconWhite} alt="LinkedIn's Icon" /> </a> 
               </li>

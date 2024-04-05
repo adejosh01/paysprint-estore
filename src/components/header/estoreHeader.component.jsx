@@ -24,6 +24,7 @@ export const EstoreHeader = ({title}) => {
 
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const [isAccountMenuOpen, setIsAcctMenuOpen] = useState(false);
+  const [value, setValue] = useState("");
 
   const toggleIsSubmenuOpen = () => {
     setIsSubMenuOpen(!isSubMenuOpen);
@@ -52,7 +53,7 @@ export const EstoreHeader = ({title}) => {
       console.error('Error fetching data:', error);
     });
 
-  }, [apiUrl]);
+  }, [apiUrl, title]);
 
   // console.log(pathname);
 
@@ -160,7 +161,7 @@ export const EstoreHeader = ({title}) => {
       <nav className="desktop-nav" style={{ background: '#4F0B92' }}>
         <header className="mainEstore-header">
           <Link to="/">
-            <img src={paysprintNewLogo} alt="Company's Icon" style={{ width: '150px' }} />
+            <img src={paysprintNewLogo} alt="Company's Icon" style={{ width: '300px' }} />
           </Link>
           <ul>
             <li>
@@ -201,11 +202,11 @@ export const EstoreHeader = ({title}) => {
 
           <div className="lastside">
 
-            <form action="/" method="POST">
+            <form action="/" method="GET">
               <div className="searching">
                 {/* <img src={search} alt="thesearch" /> */}
                 <FontAwesomeIcon icon={faSearch} />
-                <input type="" placeholder="Search for a product" />
+                <input type="text" placeholder="Search for a product" name="q" value={value} onChange={e => setValue(e.target.value)} />
               </div>
             </form>
 

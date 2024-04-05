@@ -1,0 +1,44 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    font: 500 20px 'Plus Jakarta Sans';
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+
+    section._404 {
+        padding: 5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        h2 {
+            font: 600 45px 'Plus jakarta sans';
+            text-align: center;
+            line-height: 28px;
+            padding-left: 33px;
+            // text-transform: uppercase;
+        }
+        p {
+          a {
+            text-decoration: underline;
+            color: #4F0B92;
+          }
+        }
+    }
+  
+}
