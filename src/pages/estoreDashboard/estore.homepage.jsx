@@ -15,14 +15,16 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 export const EstoreDashboard = ({ title }) => {
-  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
+  const apiUrl = process.env.NODE_ENV === "dev" ? "http://localhost:9090/api/v1" : process.env.REACT_APP_API_URL;
   const [error, setError] = useState(null);
   const [hotDeals, setData] = useState([]);
   const [topProducts, setData2] = useState([]);
   const [trendingServices, setData3] = useState([]);
   const [registeredStores, setData4] = useState([]);
 
+
   useEffect(() => {
+
     document.title = title;
     window.scrollTo(0, 0);
 
@@ -136,8 +138,8 @@ export const EstoreDashboard = ({ title }) => {
                       <img src={item.image} alt="eachImage" />
                       <div className="imgdescription">
                         <p className="nameofitem">{item.productName}</p>
-                        <p className="priceofitem">{item.currencySymbol + item.amount}</p>
-                        <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
+                          <p className="priceofitem">{item.currencySymbol + Number(item.amount).toFixed(2)}</p>
+                          <p className="initialprice">{item.currencySymbol + Number(item.previousAmount).toFixed(2)}</p>
                       </div>
                     </div>
                   </Link>
@@ -163,7 +165,7 @@ export const EstoreDashboard = ({ title }) => {
                         <img className="prodImage" src={item.image} alt="eachImage" />
                         <div className="imgdescription">
                           <p className="nameofitem">{item.productName}</p>
-                          <p className="priceofitem">#{item.amount}</p>
+                          <p className="priceofitem">{item.currencySymbol + Number(item.amount).toFixed(2)}</p>
                           <div>
                             <span>
                               <img src={starimage} alt="justtheIconOfAStar" />
