@@ -42,7 +42,7 @@ export const Community = ({ title }) => {
                                 <button type="button" className="buttons"> Listed Partners </button>
                             </div>
                             <div className="settings">
-                                <button> Set Notifications </button>
+                                <button> Set Notifications </button>  
                             </div>
                         </div>
 
