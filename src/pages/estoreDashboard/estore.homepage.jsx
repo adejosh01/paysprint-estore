@@ -16,7 +16,7 @@ import { Card } from "antd";
 
 
 export const EstoreDashboard = ({ title }) => {
-  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
+  const apiUrl = process.env.NODE_ENV === "developments" ? "http://localhost:9090/api/v1" : process.env.REACT_APP_API_URL;
   const [error, setError] = useState(null);
   const [hotDeals, setData] = useState([]);
   const [topProducts, setData2] = useState([]);
@@ -48,7 +48,9 @@ export const EstoreDashboard = ({ title }) => {
   // };
   // <input placeholder="Type to search..." value={input} onChange={(e) => handleChange(e.target.value)} />
 
+
   useEffect(() => {
+
     document.title = title;
     window.scrollTo(0, 0);
 
@@ -150,6 +152,22 @@ export const EstoreDashboard = ({ title }) => {
                   </div>
 
                   <div class="buttons">
+
+                                  {/* Take 5 categories at random */}
+
+            {categories.length !== 0 ? (
+              Array.isArray(categories) ? (
+                <p style={{ display: 'contents' }}>
+                  {categories.slice(Math.floor(Math.random() * 5) + 0, 6).map((item, index) => (
+                    <button type="button">
+                      <p>{item.category}</p>
+                    </button>
+                    
+                  ))}
+                </p>
+
+              ) : (
+                <p>
                     <button type="button">
                       <p>Apparels</p>
                     </button>
@@ -165,6 +183,16 @@ export const EstoreDashboard = ({ title }) => {
                     <button type="button">
                       <p>Professional Service</p>
                     </button>
+                </p>
+              )
+            ) : (
+                <button type="button">
+                  <p>Please wait...</p>
+                </button>
+            )}
+
+
+                    
                   </div>
               </div>
 
@@ -182,8 +210,8 @@ export const EstoreDashboard = ({ title }) => {
                       <img src={item.image} alt="eachImage" />
                       <div className="imgdescription">
                         <p className="nameofitem">{item.productName}</p>
-                        <p className="priceofitem">{item.currencySymbol + item.amount}</p>
-                        <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
+                          <p className="priceofitem">{item.currencySymbol + Number(item.amount).toFixed(2)}</p>
+                          <p className="initialprice">{item.currencySymbol + Number(item.previousAmount).toFixed(2)}</p>
                       </div>
                     </div>
                   </Link>
@@ -200,8 +228,8 @@ export const EstoreDashboard = ({ title }) => {
                     <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt="itemImage" src={item.image} />} >
                       <div className="imgdescription">
                         <p className="nameofitem">{item.productName}</p>
-                        <p className="priceofitem">{item.currencySymbol + item.amount}</p>
-                        <p className="initialprice">{item.currencySymbol + item.previousAmount}</p>
+                          <p className="priceofitem">{item.currencySymbol + Number(item.amount).toFixed(2)}</p>
+                          <p className="initialprice">{item.currencySymbol + Number(item.previousAmount).toFixed(2)}</p>
                       </div>
                     </Card>
                   </Link>
@@ -222,14 +250,16 @@ export const EstoreDashboard = ({ title }) => {
               <p className="secondtitle"> See all Products </p>
             </div>
 
+
             <div className="items">
                 {Array.isArray(topProducts) ? (
                     topProducts.map((item, index) => (
+                      <Link to={`/productdetails/${item.productCode}`} key={index}>
                       <div className="eachItem" key={index}>
                         <img className="prodImage" src={item.image} alt="eachImage" />
                         <div className="imgdescription">
                           <p className="nameofitem">{item.productName}</p>
-                          <p className="priceofitem">#{item.amount}</p>
+                          <p className="priceofitem">{item.currencySymbol + Number(item.amount).toFixed(2)}</p>
                           <div>
                             <span>
                               <img src={starimage} alt="justtheIconOfAStar" />
@@ -242,6 +272,7 @@ export const EstoreDashboard = ({ title }) => {
                           </div>  
                         </div>
                       </div>
+                      </Link>
                     ))
                   ) : (
                     <div>Error: {error} </div>
@@ -312,40 +343,6 @@ export const EstoreDashboard = ({ title }) => {
               )}
             </div>
 
-            {/* <div className="imageitems">
-              <div className="imgdescribtion">
-                <img src={office} alt="thetextdescription" />
-                <p> Home & Office</p>
-              </div>
-              <div className="imgdescribtion">
-                <img src={electronic} alt="thetextdescription" />
-                <p> Electronis gadgets </p>
-              </div>
-              <div className="imgdescribtion">
-                <img src={desktops} alt="thetextdescription" />
-                <p> Computers</p>
-              </div>
-              <div className="imgdescribtion">
-                <img src={groceries} alt="thetextdescription" />
-                <p> Groceries </p>
-              </div>
-              <div className="imgdescribtion">
-                <img src={health} alt="thetextdescription" />
-                <p> Health & Wellbeing</p>
-              </div>
-              <div className="imgdescribtion">
-                <img src={travels} alt="thetextdescription" />
-                <p> Travel & Hotel </p>
-              </div>
-              <div className="imgdescribtion">
-                <img src={fashion} alt="thetextdescription" />
-                <p> Fashion </p>
-              </div>
-              <div className="imgdescribtion">
-                <img src={others} alt="thetextdescription" />
-                <p> Others </p>
-              </div>
-            </div> */}
 
             <div className="thebutton">
               <Link to="/allcategories">
