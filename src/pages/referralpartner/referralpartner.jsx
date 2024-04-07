@@ -159,10 +159,10 @@ export const ReferralPartner = ({ title }) => {
                             </div>
                         </div>
                         <div className='largeDiv'>
-                            <p> Website (Optional Field) <span> * </span> </p>
+                            <p> Website (Optional Field) </p>
                             <div className='bigDiv'>
                                 <span class="imgspan"> @ </span>
-                                <input type="text" name="website" placeholder='Website Address' required />
+                                <input type="text" name="website" placeholder='Website Address' />
                             </div>
                         </div>
                         <div className='largeDiv'>

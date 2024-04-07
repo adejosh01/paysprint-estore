@@ -60,7 +60,7 @@ export const AskQuestions = ({ title }) => {
                                             <p>Sorry, an error occurred</p>
                                         )
                                     ) : (
-                                        <p> Loading Categories </p> 
+                                        <p> Loading Categories.... </p> 
                                     )}
                                 </div>
                                 <div>

@@ -3,7 +3,7 @@ import "./community.styles.scss";
 import { useEffect } from "react";
 import { faHome } from "@fortawesome/free-solid-svg-icons";
 import { BottomNav } from "components/bottom-navs";
-import CategoriesData from "utils/allcategories/categories";
+// import CategoriesData from "utils/allcategories/categories";
 import { handleClick } from "utils/utils";
 import { useNavigate } from "react-router-dom";
 
@@ -23,7 +23,7 @@ export const Community = ({ title }) => {
          
         <section className="community">
             <div className="big-title">
-                <h2> Community Questions </h2>
+                <h2> Community </h2>
             </div>
             <div className="before-the-row">
                 <div className="row">
@@ -32,7 +32,19 @@ export const Community = ({ title }) => {
                     </div>
 
                     <div className="real-section">
-                        <p className="welcome"> Good day! Welcome to PaySprint developers community.👏 </p>
+                        <p className="welcome"> Good day! Welcome to Ashopree's Community.👏 </p>
+
+                        <div className="tags">
+                            <div className="mini-navs">
+                                <button type="button" className="buttons active-button"> Members Category </button>
+                                <button type="button" className="buttons"> Listed Shops </button>
+                                <button type="button" className="buttons"> Listed Products </button>
+                                <button type="button" className="buttons"> Listed Partners </button>
+                            </div>
+                            <div className="settings">  
+                                <button> Set Notifications </button>  
+                            </div>
+                        </div>
 
                         <div className="split-to-two">
                             <div className="posted-questions">
@@ -103,14 +115,14 @@ export const Community = ({ title }) => {
 
                             <div className="all-categories">
                                 <a href="/askquestions"> Ask a Question </a>
-                                <h4> Categories </h4>
-                                {/* <p> App Review </p>
-                                <p> PaySprint Login </p>
-                                <p> Developer Tools </p>
-                                <p> API Integration </p>
-                                <p> Platform Policy </p>
-                                <p> Others </p> */}
-                                <CategoriesData />
+                                <h4> Members Categories </h4>
+                                <p> Community Associates </p>
+                                <p> Potential Store Owners </p>
+                                <p> Inactive Store Owners </p>
+                                <p> Store Under Construction </p>
+                                <p> Upcoming Stores </p>
+                                <p> Stores Available </p>
+                                {/* <CategoriesData /> */}
                             </div>
                         </div>
 
