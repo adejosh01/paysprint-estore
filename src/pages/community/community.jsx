@@ -41,7 +41,7 @@ export const Community = ({ title }) => {
                                 <button type="button" className="buttons"> Listed Products </button>
                                 <button type="button" className="buttons"> Listed Partners </button>
                             </div>
-                            <div className="settings">
+                            <div className="settings">  
                                 <button> Set Notifications </button>  
                             </div>
                         </div>
