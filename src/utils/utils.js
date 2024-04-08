@@ -14,6 +14,7 @@ export const getConditionalClassNames = (
 ) => {
   let result = defaultClass;
   if (conditions.length !== conditionalClasses.length) return defaultClass;
+
   for (let i = 0; i < conditions.length; i++) {
     if (conditions[i]) result += ` ${conditionalClasses[i]}`;
   }
@@ -90,6 +91,42 @@ export function showTheForm() {
 
     proceedToForm[index2].classList.add("activeForm");
   }
+}
+
+export function communityTogglePages(event) {
+  event.preventDefault();  //To prevent default callings
+
+  if (!event || !event.target) {
+    console.error("Event or event target is missing.");
+    return;
+  }
+  const previouslyActiveButton = document.querySelector('.active-button');
+  if (previouslyActiveButton) {
+    previouslyActiveButton.classList.remove('active-button');
+  }
+
+
+  const divs = document.querySelectorAll('.split-to-two');
+  divs.forEach(div => div.style.display = 'none');
+
+  const buttonId = event.target.getAttribute('data-target');
+  if (!buttonId) {
+    console.error("Button doesn't have data-target attribute.");
+    return;
+  }
+
+  const targetDiv = document.getElementById(buttonId);
+  if (!targetDiv) {
+    console.error("Corresponding content div not found.");
+    return;
+  }
+
+  targetDiv.style.display = 'flex';
+
+  event.target.classList.add('active-button');
+
+  // console.log(event);
+
 }
 
 export function API_RESPONSES_FROM_BACKEND (title) { 
