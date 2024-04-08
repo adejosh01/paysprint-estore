@@ -24,7 +24,6 @@ export const EstoreHeader = ({title}) => {
 
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
   const [isAccountMenuOpen, setIsAcctMenuOpen] = useState(false);
-  const [value, setValue] = useState("");
 
   const toggleIsSubmenuOpen = () => {
     setIsSubMenuOpen(!isSubMenuOpen);
@@ -40,23 +39,9 @@ export const EstoreHeader = ({title}) => {
   const [categories, setData] = useState([]);
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
 
-  // const [query, setQuery] = useState('');
+  const [value, setValue] = useState(''); // State variable to hold the search query
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // console.log("Searching for:", query);
-  
-  };
-
-  // const handleChange = (event) => {
-  //   setQuery(event.target.value);
-  // };
-
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      handleSubmit(event);
-    }
-  };
+  // console.log(value);
 
   useEffect(() => {
     document.title = title;
@@ -220,11 +205,11 @@ export const EstoreHeader = ({title}) => {
 
           <div className="lastside">
 
-            <form action="/search" onSubmit={handleSubmit}>
+            <form action={`/search?${value}`}>
               <div className="searching">
                 {/* <img src={search} alt="thesearch" /> */}
                 <FontAwesomeIcon icon={faSearch} />
-                <input type="text" onKeyDown={handleKeyPress} tabIndex={0} placeholder="Search for a product" name="q" value={value} onChange={e => setValue(e.target.value)} />
+                <input type="text" name="query" placeholder="Search for a product" value={value} onChange={e => setValue(e.target.value)} />
               </div>
             </form>
 
