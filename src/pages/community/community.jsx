@@ -1,15 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./community.styles.scss";
-import { useEffect } from "react";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { useEffect, useState } from "react";
+import { faClose, faGear, faHome } from "@fortawesome/free-solid-svg-icons";
 import { BottomNav } from "components/bottom-navs";
-// import CategoriesData from "utils/allcategories/categories";
-import { handleClick } from "utils/utils";
+import CategoriesData from "utils/allcategories/categories";
+import { communityTogglePages, handleClick } from "utils/utils";
 import { useNavigate } from "react-router-dom";
 
 
 export const Community = ({ title }) => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const [isOpen, setIsOpen] = useState(false); // State to track open/closed state
+
+  const toggleNotification = () => {
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     document.title = title;
@@ -36,17 +42,35 @@ export const Community = ({ title }) => {
 
                         <div className="tags">
                             <div className="mini-navs">
-                                <button type="button" className="buttons active-button"> Members Category </button>
-                                <button type="button" className="buttons"> Listed Shops </button>
-                                <button type="button" className="buttons"> Listed Products </button>
-                                <button type="button" className="buttons"> Listed Partners </button>
+                                <button type="button" className="buttons active-button" data-target="membersCategory" onClick={ (event) => communityTogglePages(event) }> Members Category </button>
+                                <button type="button" className="buttons" data-target="listedShops" onClick={ (event) => communityTogglePages(event) }> Listed Shops </button>
+                                <button type="button" className="buttons" data-target="listedProducts" onClick={ (event) => communityTogglePages(event) }> Listed Products </button>
+                                <button type="button" className="buttons" data-target="listedPartners" onClick={ (event) => communityTogglePages(event) }> Listed Partners </button>
                             </div>
                             <div className="settings">  
-                                <button> Set Notifications </button>  
+                                <button type="button" onClick={ toggleNotification }> Set Notifications </button>  
+                                <button type="button" onClick={ toggleNotification }> <FontAwesomeIcon icon={isOpen ? faClose : faGear} /> </button>
                             </div>
                         </div>
 
-                        <div className="split-to-two">
+                        {isOpen && (
+                            <div className="settingsDetails">
+                                <div className="all-categories">
+                                    <p> Email Notifications </p>
+                                    <p> New Products Listed </p>
+                                    <p> New Store available </p>
+                                    <p> New Question submitted </p>
+                                    <p> New Answer submitted </p>
+                                    <p> New Product price </p>
+                                    <p> Price Reduction </p>
+                                    <p> New Partner </p>
+                                    <p> New Tags </p>
+                                    <p> All </p>
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="split-to-two" id="membersCategory" style={{display: 'flex'}}>
                             <div className="posted-questions">
                                 <div className="nav">
                                     <p> All Post</p>
@@ -72,6 +96,243 @@ export const Community = ({ title }) => {
                                 </div>
                                 <div className="each-content">
                                     <a href="/"> Payment Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Payment Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Since the PS fx is not available in Nigeria, when sending money to another country try through mobile wallet will curency exchanges occur automatically? </a>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Azeez Alade | <small> 1 year ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <hr />
+                                    <div>
+                                        <p> Choose a category </p>
+                                        <p> Saad Alkhalaf | <small> 1 year ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Money was sent to my account, notification received but money wasn't credited to the account. Why is that, and can something be done about it? </a>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Agyapong Edward Boakye | <small> 1 year ago </small> </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="all-categories">
+                                <a href="/askquestions"> Ask a Question </a>
+                                <h4> Members Categories </h4>
+                                <p> Community Associates </p>
+                                <p> Potential Store Owners </p>
+                                <p> Inactive Store Owners </p>
+                                <p> Store Under Construction </p>
+                                <p> Upcoming Stores </p>
+                                <p> Stores Available </p>
+                                {/* <CategoriesData /> */}
+                            </div>
+                        </div>
+                        <div className="split-to-two" id="listedShops" style={{display: 'none'}}>
+                            <div className="posted-questions">
+                                <div className="nav">
+                                    <p> All Post</p>
+                                    <button type="button" onClick={() => handleClick('/askquestions', navigate)}> Ask a Question </button>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Accounting Services Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Accounting Services Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Potential Store Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Payment Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Since the PS fx is not available in Nigeria, when sending money to another country try through mobile wallet will curency exchanges occur automatically? </a>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Azeez Alade | <small> 1 year ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <hr />
+                                    <div>
+                                        <p> Choose a category </p>
+                                        <p> Saad Alkhalaf | <small> 1 year ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Money was sent to my account, notification received but money wasn't credited to the account. Why is that, and can something be done about it? </a>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Agyapong Edward Boakye | <small> 1 year ago </small> </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="all-categories">
+                                <a href="/askquestions"> Ask a Question </a>
+                                <h4> Members Categories </h4>
+                                <p> Community Associates </p>
+                                <p> Potential Store Owners </p>
+                                <p> Inactive Store Owners </p>
+                                <p> Store Under Construction </p>
+                                <p> Upcoming Stores </p>
+                                <p> Stores Available </p>
+                                <CategoriesData />
+                            </div>
+                        </div>
+                        <div className="split-to-two" id="listedProducts" style={{display: 'none'}}>
+                            <div className="posted-questions">
+                                <div className="nav">
+                                    <p> All Post</p>
+                                    <button type="button" onClick={() => handleClick('/askquestions', navigate)}> Ask a Question </button>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Art Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Antiques Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Payment Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Business Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Since the PS fx is not available in Nigeria, when sending money to another country try through mobile wallet will curency exchanges occur automatically? </a>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Azeez Alade | <small> 1 year ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <hr />
+                                    <div>
+                                        <p> Choose a category </p>
+                                        <p> Saad Alkhalaf | <small> 1 year ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Money was sent to my account, notification received but money wasn't credited to the account. Why is that, and can something be done about it? </a>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Agyapong Edward Boakye | <small> 1 year ago </small> </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div className="all-categories">
+                                <a href="/askquestions"> Ask a Question </a>
+                                <h4> Members Categories </h4>
+                                {/* <p> Community Associates </p>
+                                <p> Potential Store Owners </p>
+                                <p> Inactive Store Owners </p>
+                                <p> Store Under Construction </p>
+                                <p> Upcoming Stores </p>
+                                <p> Stores Available </p> */}
+                                <CategoriesData />
+                            </div>
+                        </div>
+                        <div className="split-to-two" id="listedPartners" style={{display: 'none'}}>
+                            <div className="posted-questions">
+                                <div className="nav">
+                                    <p> All Post</p>
+                                    <button type="button" onClick={() => handleClick('/askquestions', navigate)}> Ask a Question </button>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> All Stores Issues </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Inactiveness of Stores </a>
+                                    <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
+                                    <hr />
+                                    <div>
+                                        <p> Payment </p>
+                                        <p> Akomolafe Rukayatfarms | <small> 7 months ago </small> </p>
+                                    </div>
+                                </div>
+                                <div className="each-content">
+                                    <a href="/"> Community bill Issues </a>
                                     <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
                                     <hr />
                                     <div>

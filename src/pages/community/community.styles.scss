@@ -78,15 +78,41 @@
                                 border-radius: .25rem;
                                 transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
                             }
-                            .buttons .active-button {
+                            .active-button {
                                 background-color: #4F0B92;
                                 color: #fff;
                             }
                         }
                         .settings {
                             width: 100%;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                            // font-size: 18px;
+                            padding: 1.5rem;
+                            background-color: #fff;
+                            color: #4F0B92;
                         }
                     }
+                    
+                    .settingsDetails {
+                        .all-categories {
+                            width: 100%;
+                            display: grid;
+                            grid-template-columns: repeat(4, 1fr);
+                            p {
+                                font-size: 17px;
+                                padding: 1.5rem;
+                                background-color: #fff;
+                                border: 1px solid rgba(0, 0, 0, .125);
+                            }
+                            p:hover {
+                                background-color: #4F0B92;
+                                color: #fff;
+                            }
+                        }
+                    }
+
                     .split-to-two {
                         display: flex;
                         gap: 2rem;
