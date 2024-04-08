@@ -46,7 +46,7 @@ function App() {
             <Route path="/terms-of-use" exact element={<TermsAndPrivacy title="PaySprint | Terms Of Use" />} />
             <Route path="/community" exact element={<Community title="PaySprint | Community " />} />
             <Route path="/askquestions" exact element={<AskQuestions title="PaySprint | Ask Questions " />} />
-            {/* <Route path='/search' exact element={<Search title={"PaySprint | Searched Items"} />} /> */}
+            <Route path='/search' exact element={<Search title={"PaySprint | Searched Items"} />} />
             <Route path='*' exact={true} element={<NotFound404 title={"PaySprint | 404 Not Found"} />} />
           </Routes>
         <EstoreFooter />
