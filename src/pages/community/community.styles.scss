@@ -236,13 +236,31 @@
                 .row {
                     .real-section {
                         .tags {
+                            flex-direction: column;
                             .mini-navs {
+                                width: 100%;
+                                grid-template-columns: repeat(2, 1fr);
+                                .buttons {
+                                    padding: 1.375rem .75rem;
+                                }
+                            }
+                        }
+                        .settingsDetails {
+                            .all-categories {
                                 grid-template-columns: repeat(2, 1fr);
                             }
                         }
                     }
                 }
             }
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .estore-container {
+        section.community {
+            padding: 1rem;
         }
     }
 }
