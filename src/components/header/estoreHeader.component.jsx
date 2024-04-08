@@ -202,7 +202,7 @@ export const EstoreHeader = ({title}) => {
 
           <div className="lastside">
 
-            <form action="/" method="GET">
+            <form action="/search" method="GET">
               <div className="searching">
                 {/* <img src={search} alt="thesearch" /> */}
                 <FontAwesomeIcon icon={faSearch} />
