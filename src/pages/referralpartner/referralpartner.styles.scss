@@ -60,12 +60,13 @@
                     text-align: center;
                     width: 100%;
                     height: 70px;
+                    padding: 1rem;
                 }
             }
         }
     }
   
-    section.theNextToSee, section.theForm {
+    section.theNextToSee, section.theForm, .loginScreen {
         display: none;
     } .active {
         padding: 5rem;
@@ -73,6 +74,19 @@
         flex-direction: column;
         gap: 3rem;
         align-items: center;
+        .login-choice {
+            width: 100%;
+            h4 {
+                font: 600 25px 'lato';
+                line-height: 53px;
+                text-align: left;
+            }
+            a {
+                font: 600 25px 'lato';
+                line-height: 53px;
+                color: #007bff;
+            }
+        }
         h4 {
             font: 600 30px 'lato';
             line-height: 53px;
