@@ -1,9 +1,10 @@
 import './referralpartner.styles.scss';
 import { useEffect, useState } from 'react';
 import ecommerceImg from 'assets/ashopree/eCommerce.png';
-import { immediatePage, showTheForm } from 'utils/utils';
+import { handleClick, immediatePage, showTheForm } from 'utils/utils';
 import axios from 'axios';
 import countries from '../../utils/dummyCountriesDatas/countries.js';
+import { useNavigate } from "react-router-dom";
 
 
 const apiUrl = 'https://restcountries.com/v3.1/all';
@@ -11,6 +12,7 @@ const apiUrl = 'https://restcountries.com/v3.1/all';
 export const ReferralPartner = ({ title }) => {
     const [allCountriesNames, setData5] = useState([]);
     const [setError] = useState(null);
+    const navigate = useNavigate();
   
     useEffect(() => {
       document.title = title;
@@ -59,13 +61,16 @@ export const ReferralPartner = ({ title }) => {
                     <h2> Be a Referral Partner </h2> 
                     <p> By referring businesses in your network to ashopree, you are not only helping them to boost their businesses and streamlining their payments, but you are also earning rewards for yourself. <br /> Its a win-win opportunity for all! </p>
                     <div className='navBtns'>
-                        <button type='button' onClick={ () => immediatePage() } > Join our Referral Program today </button>
-                        <button type='button' > Visit Ashopree Community </button>
+                        <button type='button' onClick={ () => immediatePage() } > Get Started </button>
+                        <button type='button' onClick={ () => handleClick( '/community', navigate) } > Visit Ashopree Community </button>
                     </div>
                 </div>
             </section>
 
             <section className="theNextToSee">
+                <div>
+                    <h4> Hi there, have you been here before? </h4>
+                </div>
                 <h4> To become a referral partner for ashopree and start earning rewards while helping others boost their businesses and streamline their payments, follow these steps: </h4>
                 <ol type="1">
                     <li> Visit the ashopree website or contact their customer support to inquire about their referral program. </li>
@@ -79,7 +84,7 @@ export const ReferralPartner = ({ title }) => {
                 </ol>
                 <p> Remember, the more businesses you refer, the more rewards you can earn.  </p>
                 <p> Join the ashopree referral program today and start benefiting from this win-win opportunity for all parties involved!  </p>
-                <button type='button' onClick={ () => showTheForm() }> Get Started </button>
+                <button type='button' onClick={ () => showTheForm() }> Create an account </button>
             </section>
 
             <section className='theForm'>

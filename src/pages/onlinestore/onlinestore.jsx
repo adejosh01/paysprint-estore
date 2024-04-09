@@ -190,7 +190,7 @@ export const OnlineStore = ({ title }) => {
 
               <div className="alertmsg">
                 <div>
-                  <p> Are you a store owner?, or do you want to list your products / services on Paysprint market place? </p>
+                  <p> Are you a store owner?, or do you want to list your products / services on Ashopree? </p>
                   <p> Let’s get you started. Create a merchant account today and own your Online Store </p>
                 </div>
 

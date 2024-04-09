@@ -138,8 +138,8 @@ export const Community = ({ title }) => {
                             </div>
 
                             <div className="all-categories">
-                                <a href="/askquestions"> Ask a Question </a>
-                                <h4> Members Categories </h4>
+                                {/* <a href="/askquestions"> Ask a Question </a> */}
+                                <h4> Member Categories </h4>
                                 <p> Community Associates </p>
                                 <p> Potential Store Owners </p>
                                 <p> Inactive Store Owners </p>
@@ -217,8 +217,8 @@ export const Community = ({ title }) => {
                             </div>
 
                             <div className="all-categories">
-                                <a href="/askquestions"> Ask a Question </a>
-                                <h4> Members Categories </h4>
+                                {/* <a href="/askquestions"> Ask a Question </a> */}
+                                <h4> Listed Shop Categories </h4>
                                 <p> Community Associates </p>
                                 <p> Potential Store Owners </p>
                                 <p> Inactive Store Owners </p>
@@ -296,8 +296,8 @@ export const Community = ({ title }) => {
                             </div>
 
                             <div className="all-categories">
-                                <a href="/askquestions"> Ask a Question </a>
-                                <h4> Members Categories </h4>
+                                {/* <a href="/askquestions"> Ask a Question </a> */}
+                                <h4> Listed Product Categories </h4>
                                 {/* <p> Community Associates </p>
                                 <p> Potential Store Owners </p>
                                 <p> Inactive Store Owners </p>
@@ -375,8 +375,8 @@ export const Community = ({ title }) => {
                             </div>
 
                             <div className="all-categories">
-                                <a href="/askquestions"> Ask a Question </a>
-                                <h4> Members Categories </h4>
+                                {/* <a href="/askquestions"> Ask a Question </a> */}
+                                <h4> Listed Partner Categories </h4>
                                 <p> Community Associates </p>
                                 <p> Potential Store Owners </p>
                                 <p> Inactive Store Owners </p>
