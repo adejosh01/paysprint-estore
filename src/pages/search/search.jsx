@@ -1,4 +1,4 @@
-import "./onlinestore.scss";
+import "./search.scss";
 import { useEffect, useState } from "react";
 import product1 from "../../assets/images/estore/products/product1.png";
 import product2 from "../../assets/images/estore/products/product2.png";
@@ -8,10 +8,16 @@ import arrowupright from "assets/icons/arrow-up-right.png";
 import { BottomNav } from "components/bottom-navs";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { handleClick } from "utils/utils";
+import { useNavigate } from "react-router-dom";
 
-export const OnlineStore = ({ title }) => {
+
+
+
+export const Search = ({ title }) => {
   const [categories, setData] = useState([]);
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title;
@@ -43,17 +49,19 @@ export const OnlineStore = ({ title }) => {
               <div className="describeProds">
                   <div className="b4Title">
                     <div className="title">
-                      <h2> Online Store </h2>
+                      <h2> Your Searched Items </h2>
                       <p> Check out products or services from our registered stores </p>
                     </div>
                     
-                    <div className="searchItstore">
+                    {/* <div className="searchItstore">
                         <input class="home" placeholder="Search for store" />
                         <button  className="searchbtnstore">
-                          {/* <img src={search} alt="searchIcon" /> */}
                           <svg style={{ marginLeft: '1.5rem' }} class="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                         </button>
-                    </div>
+                    </div> */}
+                    <button type="button" className="home-button" onClick={ () => handleClick('/', navigate)}>
+                       Return Home
+                    </button>
                   </div>
 
               </div>
@@ -190,7 +198,7 @@ export const OnlineStore = ({ title }) => {
 
               <div className="alertmsg">
                 <div>
-                  <p> Are you a store owner?, or do you want to list your products / services on Ashopree? </p>
+                  <p> Are you a store owner?, or do you want to list your products / services on Paysprint market place? </p>
                   <p> Let’s get you started. Create a merchant account today and own your Online Store </p>
                 </div>
 

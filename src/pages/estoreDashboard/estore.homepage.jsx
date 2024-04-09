@@ -24,31 +24,6 @@ export const EstoreDashboard = ({ title }) => {
   const [registeredStores, setData4] = useState([]);
   const [categories, setData5] = useState([]);
 
-  // const [input, setInput] = useState("");
-
-  // const fetchData = (value) => {
-  //   fetch("https://jsonplaceholder.typicode.com/users")
-  //     .then((response) => response.json())
-  //     .then((json) => {
-  //       const results = json.filter((user) => {
-  //         return (
-  //           value &&
-  //           user &&
-  //           user.name &&
-  //           user.name.toLowerCase().includes(value)
-  //         );
-  //       });
-  //       setResults(results);
-  //     });
-  // };
-
-  // const handleChange = (value) => {
-  //   setInput(value);
-  //   fetchData(value);
-  // };
-  // <input placeholder="Type to search..." value={input} onChange={(e) => handleChange(e.target.value)} />
-
-
   useEffect(() => {
 
     document.title = title;
@@ -152,50 +127,43 @@ export const EstoreDashboard = ({ title }) => {
                   </div>
 
                   <div class="buttons">
-
-                                  {/* Take 5 categories at random */}
-
-            {categories.length !== 0 ? (
-              Array.isArray(categories) ? (
-                <p style={{ display: 'contents' }}>
-                  {categories.slice(Math.floor(Math.random() * 5) + 0, 6).map((item, index) => (
-                    <button type="button">
-                      <p>{item.category}</p>
-                    </button>
-                    
-                  ))}
-                </p>
-
-              ) : (
-                <p>
-                    <button type="button">
-                      <p>Apparels</p>
-                    </button>
-                    <button type="button">
-                      <p>Consultancy</p>
-                    </button>
-                    <button type="button">
-                      <p>Professional Service</p>
-                    </button>
-                    <button type="button">
-                      <p>Electronic Devices</p>
-                    </button>
-                    <button type="button">
-                      <p>Professional Service</p>
-                    </button>
-                </p>
-              )
-            ) : (
-                <button type="button">
-                  <p>Please wait...</p>
-                </button>
-            )}
-
-
-                    
+                      {/* Take 5 categories at random */}
+                        {categories.length !== 0 ? (
+                          Array.isArray(categories) ? (
+                            <p style={{ display: 'contents' }}>
+                              {categories.slice(Math.floor(Math.random() * 5) + 0, 6).map((item, index) => (
+                                <button type="button">
+                                  <p>{item.category}</p>
+                                </button>
+                                
+                              ))}
+                            </p>
+                          ) : (
+                            <p>
+                                <button type="button">
+                                  <p>Apparels</p>
+                                </button>
+                                <button type="button">
+                                  <p>Consultancy</p>
+                                </button>
+                                <button type="button">
+                                  <p>Professional Service</p>
+                                </button>
+                                <button type="button">
+                                  <p>Electronic Devices</p>
+                                </button>
+                                <button type="button">
+                                  <p>Professional Service</p>
+                                </button>
+                            </p>
+                          )
+                        ) : (
+                            <button type="button">
+                              <p>Please wait...</p>
+                            </button>
+                        )}
                   </div>
               </div>
-
         </section>
 
         {hotDeals.length !== 0 && (
