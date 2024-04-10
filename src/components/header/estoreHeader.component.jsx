@@ -220,6 +220,8 @@ export const EstoreHeader = ({title}) => {
 
           <div className="lastside">
 
+            {/* Dusupay */}
+
             <form action="/search" method="GET">
               <div className="searching">
                 {/* <img src={search} alt="thesearch" /> */}
