@@ -56,7 +56,6 @@ export const Community = ({ title }) => {
                         {isOpen && (
                             <div className="settingsDetails">
                                 <div className="all-categories">
-                                    <p> Email Notifications </p>
                                     <p> New Products Listed </p>
                                     <p> New Store available </p>
                                     <p> New Question submitted </p>
