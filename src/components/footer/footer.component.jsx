@@ -24,7 +24,7 @@ export const EstoreFooter = () => {
             <ul>
               <li> <a href="referral-partner"> Referral Partner </a> </li>
               <li> <a href="#"> Affiliate Program </a> </li>
-              <li> <a href="#"> Blog and Newsletter </a> </li>
+              <li> <a href="https://paysprint.ca/blog"> Blog and Newsletter </a> </li>
               <li> <a href="/gallery"> Gallery and Media </a> </li>
             </ul>
           </div>
