@@ -405,6 +405,51 @@
 
   @media screen and (max-width: 900px) {
     .estore-container {
+      section.getallprods {
+        div.describeProds {
+          gap: 1rem;
+          padding: 2rem 2rem;
+          .b4Title {
+            .title {
+              h2 {
+                font-size: 37px;
+                line-height: 40px;
+              }
+            }
+            .searchIt {
+              height: 65px;
+              form {
+                .searchbtn {
+                  width: 40px;
+                  height: 40px;
+                  svg {
+                    margin-left: 0.8rem !important;
+                  }
+                }
+              }
+            }
+        }
+          div.buttons {
+            padding-top: 0rem;
+            p {
+              button {
+                display: flex;
+                align-items: center;
+                justify-content: unset;
+                border-radius: 24px;
+                padding: 5px 13px;
+                gap: 8px;
+                width: unset;
+                text-align: center;
+                p {
+                  font-size: 17px;
+                  text-align: center;
+                }
+              }
+            }
+          }
+        }
+      }
       section.topdeals {
         margin-left: auto;
         margin-right: auto;
@@ -442,6 +487,16 @@
 
   @media screen and (max-width: 800px) {
     .estore-container {
+      section.getallprods {
+        div.describeProds {
+          gap: 1rem;
+          padding: 2rem 2rem;
+          div.buttons {
+            display: none;
+          }
+        }
+      }
+
       section.topdeals {
         margin-left: auto;
         margin-right: auto;
@@ -465,6 +520,42 @@
 
   @media screen and (max-width: 700px) {
     .estore-container {
+      section.getallprods {
+        height: 40vh;
+        div.describeProds {
+          gap: 1rem;
+          padding: 2rem 2rem;
+          .b4Title {
+            width: 100%;
+            .title {
+              h2 {
+                font-size: 30px;
+                line-height: 35px;
+              }
+            }
+            .searchIt {
+              height: 50px;
+              form {
+                div {
+                  padding: unset;
+                  flex: 0 0 35%;
+                }
+                input {
+                  font-size: 14px;
+                }
+                .searchbtn {
+                  width: 40px;
+                  height: 40px;
+                  svg {
+                    margin-left: 0.8rem !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
       section.topdeals {
         margin-left: auto;
         margin-right: auto;
@@ -512,6 +603,49 @@
 
   @media screen and (max-width: 500px) {
     .estore-container {
+      section.getallprods {
+        height: 30vh;
+        div.describeProds {
+          gap: 1rem;
+          padding: 1rem;
+          .b4Title {
+            width: 100%;
+            .title {
+              width: 100%;
+              h2 {
+                font-size: 30px;
+                line-height: 35px;
+              }
+              p {
+                font-size: 18px;
+                line-height: 25px;
+                text-align: center;
+                width: unset;
+                height: unset;
+              }
+            }
+            .searchIt {
+              height: 50px;
+              form {
+                div {
+                  padding: unset;
+                  flex: 0 0 35%;
+                }
+                input {
+                  font-size: 14px;
+                }
+                .searchbtn {
+                  width: 40px;
+                  height: 40px;
+                  svg {
+                    margin-left: 0.8rem !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
       section.topdeals {
         margin-left: auto;
         margin-right: auto;

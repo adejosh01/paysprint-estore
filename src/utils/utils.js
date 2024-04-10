@@ -93,6 +93,24 @@ export function showTheForm() {
   }
 }
 
+export function getLoginScreen() {
+  const nextToSee = document.getElementsByClassName("theNextToSee");
+  const proceedToForm = document.getElementsByClassName("loginScreen");
+  let index = 0;
+  let index2 = 0;
+
+  for (index; index < nextToSee.length; index++) {
+
+    // nextToSee[index].style.display = "none"; 
+    nextToSee[index].classList.remove("active");
+  }
+
+  for (index2; index2 < proceedToForm.length; index2++) {
+
+    proceedToForm[index2].classList.add("activeForm");
+  }
+}
+
 export function communityTogglePages(event) {
   event.preventDefault();  //To prevent default callings
 

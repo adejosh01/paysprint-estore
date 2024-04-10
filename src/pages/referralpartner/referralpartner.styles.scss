@@ -46,16 +46,8 @@
                 line-height: 43px;
                 letter-spacing: 4px;
             }
-            // button {
-            //     font: 400 25px 'lato';
-            //     background-color: #4F0B92;
-            //     border-radius: 15px;
-            //     color: #fff;
-            //     text-align: center;
-            //     width: 425px;
-            //     height: 90px;
-            // } 
             div.navBtns {
+                width: 100%;
                 display: flex;
                 flex-direction: row;
                 gap: 30px;
@@ -68,12 +60,13 @@
                     text-align: center;
                     width: 100%;
                     height: 70px;
+                    padding: 1rem;
                 }
             }
         }
     }
   
-    section.theNextToSee, section.theForm {
+    section.theNextToSee, section.theForm, .loginScreen {
         display: none;
     } .active {
         padding: 5rem;
@@ -81,6 +74,19 @@
         flex-direction: column;
         gap: 3rem;
         align-items: center;
+        .login-choice {
+            width: 100%;
+            h4 {
+                font: 600 25px 'lato';
+                line-height: 53px;
+                text-align: left;
+            }
+            a {
+                font: 600 25px 'lato';
+                line-height: 53px;
+                color: #007bff;
+            }
+        }
         h4 {
             font: 600 30px 'lato';
             line-height: 53px;
@@ -298,6 +304,11 @@
             div:first-child {
                 img {
                     height: 300px;
+                }
+            }
+            div:last-child {
+                div.navBtns {
+                    flex-direction: column;
                 }
             }
         }
