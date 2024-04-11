@@ -137,7 +137,6 @@ export const Community = ({ title }) => {
                             </div>
 
                             <div className="all-categories">
-                                {/* <a href="/askquestions"> Ask a Question </a> */}
                                 <h4> Member Categories </h4>
                                 <p> Community Associates </p>
                                 <p> Potential Store Owners </p>
@@ -148,6 +147,7 @@ export const Community = ({ title }) => {
                                 {/* <CategoriesData /> */}
                             </div>
                         </div>
+
                         <div className="split-to-two" id="listedShops" style={{display: 'none'}}>
                             <div className="posted-questions">
                                 <div className="nav">
@@ -216,17 +216,17 @@ export const Community = ({ title }) => {
                             </div>
 
                             <div className="all-categories">
-                                {/* <a href="/askquestions"> Ask a Question </a> */}
-                                <h4> Listed Shop Categories </h4>
+                                {/* <h4> Listed Shop Categories </h4>
                                 <p> Community Associates </p>
                                 <p> Potential Store Owners </p>
                                 <p> Inactive Store Owners </p>
                                 <p> Store Under Construction </p>
                                 <p> Upcoming Stores </p>
-                                <p> Stores Available </p>
+                                <p> Stores Available </p> */}
                                 <CategoriesData />
                             </div>
                         </div>
+
                         <div className="split-to-two" id="listedProducts" style={{display: 'none'}}>
                             <div className="posted-questions">
                                 <div className="nav">
@@ -295,7 +295,6 @@ export const Community = ({ title }) => {
                             </div>
 
                             <div className="all-categories">
-                                {/* <a href="/askquestions"> Ask a Question </a> */}
                                 <h4> Listed Product Categories </h4>
                                 {/* <p> Community Associates </p>
                                 <p> Potential Store Owners </p>
@@ -306,6 +305,7 @@ export const Community = ({ title }) => {
                                 <CategoriesData />
                             </div>
                         </div>
+
                         <div className="split-to-two" id="listedPartners" style={{display: 'none'}}>
                             <div className="posted-questions">
                                 <div className="nav">
@@ -374,7 +374,6 @@ export const Community = ({ title }) => {
                             </div>
 
                             <div className="all-categories">
-                                {/* <a href="/askquestions"> Ask a Question </a> */}
                                 <h4> Listed Partner Categories </h4>
                                 <p> Community Associates </p>
                                 <p> Potential Store Owners </p>

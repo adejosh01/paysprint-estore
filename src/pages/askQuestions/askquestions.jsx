@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { handleClick } from "utils/utils";
 
 
+const firstCategory = ["Member Categories", "Community Associates", "Potential Store Owners", "Inactive Store Owners", "Store Under Construction", "Upcoming Stores", "Stores Available"];
+
 export const AskQuestions = ({ title }) => {
     const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
     const [setError] = useState(null);
@@ -26,7 +28,19 @@ export const AskQuestions = ({ title }) => {
 
 }, [apiUrl, title, setError]);
 
-// console.log(categories)
+  const [selectedCategory, setSelectedCategories] = useState('');
+  const [selectedSubCategories, setSelectedSubCategories] = useState('');
+
+  const handleCategoryChange = (event) => {
+    const selected = event.target.value;
+    setSelectedCategories(selected);
+  };
+
+  const handleSubCategoryChange = (event) => {
+    const selected = event.target.value;
+    setSelectedSubCategories(selected);
+  };
+
 
   return (
     <div className="estore-container">
@@ -45,15 +59,17 @@ export const AskQuestions = ({ title }) => {
                     <div className="real-section">
                         <p className="welcome"> Good day! Welcome to PaySprint developers community.👏 </p>
                         <div className="form-starts">
-                            <form action="#" method="POST"> 
+                            <form action="" method="GET"> 
                                 <div>
                                     <p> Categories <span> * </span> </p>
-                                    {categories.length !== 0 ? (
-                                        Array.isArray(categories) ? (  
-                                            <select name="category" defaultValue={'default'} required>
-                                                <option value="default"> Categories </option>
-                                                {categories.map((item, index) => (
-                                                    <option key={index} value={item.category} name="category">{item.category}</option>
+                                    {firstCategory.length !== 0 ? (
+                                        Array.isArray(firstCategory) ? (  
+                                            <select value={selectedCategory} onChange={handleCategoryChange} name="category" required>
+                                                <option value=""> Select Category </option>
+                                                {firstCategory.map((category) => (
+                                                <option key={category} value={category}>
+                                                    {category}
+                                                </option>
                                                 ))}
                                             </select>
                                         ) : (
@@ -63,6 +79,20 @@ export const AskQuestions = ({ title }) => {
                                         <p> Loading Categories.... </p> 
                                     )}
                                 </div>
+                                {selectedCategory && (
+                                    <div>
+                                        <p> Select Sub-Categories <span> * </span> </p>
+                                        <select value={selectedSubCategories} onChange={handleSubCategoryChange} name="sub-categories" id="" required>
+                                            <option value=""> Select Specific </option>
+                                            {categories.map((theSubCats, index) => (
+                                                <option key={index} value={theSubCats.category} >
+                                                    {theSubCats.category}
+                                                </option>
+                                            ))}
+                                        </select>
+                                    </div>
+                                )}
+
                                 <div>
                                     <p> Your question <span> * </span> </p>
                                     <input type="text" name="question" placeholder="What is your questions?" required/>
@@ -70,7 +100,7 @@ export const AskQuestions = ({ title }) => {
                                 <div>
                                     <p> What's this about (Optional) </p>
                                     <input type="file" name="insertedFile" />
-                                    <textarea name="addedDetails" id="" cols="30" rows="10"></textarea>
+                                    <textarea name="addedDetails" id="" cols="30" rows="10" placeholder="Feel free to describe in details what you've uploaded here"></textarea>
                                 </div>
                                 <div className="name-and-email">
                                     <div>
