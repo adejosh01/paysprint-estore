@@ -25,7 +25,7 @@ export const EstoreFooter = () => {
               <li> <a href="referral-partner"> Referral Partner </a> </li>
               <li> <a href="#"> Affiliate Program </a> </li>
               <li> <a href="https://paysprint.ca/blog"> Blog and Newsletter </a> </li>
-              <li> <a href="/gallery"> Gallery and Media </a> </li>
+              <li> <a href="#" style={{ cursor: 'not-allowed' }} title="This Feature Coming Soon"> Gallery and Media </a> </li>
             </ul>
           </div>
           
