@@ -5,13 +5,12 @@ import { getLoginScreen, handleClick, immediatePage, showTheForm } from 'utils/u
 import axios from 'axios';
 import countries from '../../utils/dummyCountriesDatas/countries.js';
 import { useNavigate } from "react-router-dom";
-// import { Card } from "antd";
 
 
 const apiUrl = 'https://restcountries.com/v3.1/all';
 
 export const ReferralPartner = ({ title }) => {
-    const [allCountriesNames, setData5] = useState([]);
+    const [setData5] = useState([]);
     const [setError] = useState(null);
     const navigate = useNavigate();
   
@@ -30,11 +29,11 @@ export const ReferralPartner = ({ title }) => {
           }
       );
 
-    }, [title, setError]);
+    }, [title, setError, setData5]);
 
   const [selectedCountry, setSelectedCountry] = useState('');
   const [selectedState, setSelectedState] = useState('');
-  const [states, setStates] = useState([]); // Empty array for states
+  const [setStates] = useState([]); // Empty array for states
 
   const handleCountryChange = (event) => {
     const selected = event.target.value;
@@ -46,9 +45,6 @@ export const ReferralPartner = ({ title }) => {
     setStates(countryData ? countryData.states : []); // Update states based on country
 
   };
-
-    // console.log(allCountriesNames);
-    // console.log(states);
     
 
     return (
