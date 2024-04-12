@@ -254,30 +254,16 @@ export const EstoreDashboard = ({ title }) => {
           <section className="registered">
             <h3> Registered Stores </h3>
 
-            {/* <div className="otherImages">
-              <div className="firstSection">
-                  {Array.isArray(registeredStores) > 0 ? (
-                    registeredStores.map((item, index) => (
-                      <div key={index}>
-                        <img src={item.businessLogo} alt="eachImage" />
-                      </div>
-                    ))
-                  ) : (
-                    <div>Error: Sorry, Please check your network connection and try again</div>
-                  )}
-              </div>
-            </div> */}
-
             <div className="otherImages">
               <div className="firstSection">
                   {Array.isArray(registeredStores) > 0 ? (
                     registeredStores.map((item, index) => (
-                      <Card className="eachItem" hoverable style={{ width: 240 }} key={index}>
+                      <Card className="eachItem" hoverable  key={index}>
                         <img src={item.businessLogo} alt="eachImage" />
                       </Card>
                     ))
                   ) : (
-                    <div>Error: Sorry, Please check your network connection and try again</div>
+                    <div> Error: Sorry, Please check your network connection and try again </div>
                   )}
               </div>
             </div>
