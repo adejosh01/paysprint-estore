@@ -18,13 +18,18 @@ export const Search = ({ title }) => {
   const [categories, setData] = useState([]);
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
   const navigate = useNavigate();
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const query = urlParams.get('query');
+  const category = urlParams.get('category');
 
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
 
-    axios.get(`${apiUrl}/ashopree/product/category`) 
+    axios.get(`${apiUrl}/ashopree/product/search?search=${query}&category=${category}`) 
     .then(response => {
+      console.log(response.data);
       setData(response.data.data);
     })
 

@@ -23,6 +23,7 @@ export const EstoreDashboard = ({ title }) => {
   const [trendingServices, setData3] = useState([]);
   const [registeredStores, setData4] = useState([]);
   const [categories, setData5] = useState([]);
+  const [value, setValue] = useState(''); // State variable to hold the search query
 
   useEffect(() => {
 
@@ -104,8 +105,8 @@ export const EstoreDashboard = ({ title }) => {
                             <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")} >
                                 {categories.length !== 0 ? (
                                     Array.isArray(categories) ? (  
-                                        <select name="category" defaultValue={'default'} required>
-                                            <option value="default"> Categories </option>
+                                        <select name="category" defaultValue={'all'} required>
+                                            <option value=""> Categories </option>
                                             {categories.map((item, index) => (
                                                 <option key={index} value={item.category} name="category"> {item.category} </option>
                                             ))}
@@ -117,8 +118,8 @@ export const EstoreDashboard = ({ title }) => {
                                     <p> Loading Categories </p> 
                                 )}
                             </div>
-                            <input className="home" name="searchQuery" type="text" placeholder="Search for a product, service, or online store" />
-                            <button type="submit" className="searchbtn" name="submit" onClick={ () => onsubmit}>
+                <input className="home" type="text" name="query" placeholder="Search for a product, service, or online store" value={value} onChange={e => setValue(e.target.value)} />
+                            <button type="submit" className="searchbtn" onClick={ () => onsubmit}>
                                 <svg style={{ marginLeft: '1.5rem' }} className="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                             </button>
                         </form>
