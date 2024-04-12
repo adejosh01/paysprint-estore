@@ -213,9 +213,22 @@ export const ReferralPartner = ({ title }) => {
                         <div className='largeDiv'>
                             <p> Telephone <span> * </span> </p>
                             <div className='bigDiv'>
-                                {/* <span class="imgspan"> @ </span> */}
                                 <img src="https://img.icons8.com/bubbles/25/phone--v2.png" alt="" />
                                 <input type="text" name="phone" placeholder='Telephone Number' required />
+                            </div>
+                        </div>
+                        <div className='largeDiv'>
+                            <p> Username <span> * </span> </p>
+                            <div className='bigDiv'>
+                                <img src="https://img.icons8.com/glyph-neue/25/name.png" alt="" />
+                                <input type="text" name="username" placeholder='User Name' required />
+                            </div>
+                        </div>
+                        <div className='largeDiv'>
+                            <p> Password <span> * </span> </p>
+                            <div className='bigDiv'>
+                                <span class="imgspan"> @ </span>
+                                <input type="password" name="phone" placeholder='Password' required />
                             </div>
                         </div>
                     </div>
