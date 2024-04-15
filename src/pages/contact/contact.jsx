@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 
 export const Contact = ({ title }) => {
-  const [categories, setData] = useState([]);
+  const [setData] = useState([]);
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
   const navigate = useNavigate();
 
@@ -25,9 +25,9 @@ export const Contact = ({ title }) => {
       console.error('Error fetching data:', error);
     });
 
-  }, [apiUrl, title]);
+  }, [apiUrl, title, setData]);
 
-  console.log(categories);
+  // console.log(categories);
 
 
   return (
@@ -61,7 +61,55 @@ export const Contact = ({ title }) => {
         </section>
 
         <section className="form">
+            <div className="intro">
+              <h3> Contact </h3>
+              <div className="address">
+                <p> Location </p>
+                <p> PaySprint Inc. <br /> WaterPark Place, 20 Bay Street, 11th Floor, <br />  Toronto, ON M5J 2N8 Canada </p>
+              </div>
+            </div>
 
+            <div className="itForm">
+              <h3> Send Us a Message </h3>
+              <form action="#" method="post">
+                  <div>
+                      <p> Last Name <span> * </span> </p>
+                      <input type="text" name="lastname" placeholder="What is your last name?" required/>
+                  </div>
+                  <div>
+                      <p> First Name <span> * </span> </p>
+                      <input type="text" name="firstname" placeholder="What is your first name?" required/>
+                  </div>
+                  <div>
+                      <p> Email <span> * </span> </p>
+                      <input type="email" name="email" placeholder="Please provide your email address" required/>
+                  </div>
+                  <div>
+                      <p> Phone Number <span> * </span> </p>
+                      <input type="number" name="phone" placeholder="Phone Number" required/>
+                  </div>
+                  <div>
+                      <p> Subject (optional) </p>
+                      <input type="text" name="subject" placeholder="What's the subject of your text?" required/>
+                  </div>
+                  <div>
+                      <p> Message <span> * </span> </p>
+                      <textarea name="message" id="" cols="30" rows="10" placeholder="Feel free to describe in details what you have in mind" style={{ maxHeight: '90px' }}> </textarea>
+                  </div>
+                  <div style={{ textAlign: 'center' }}>
+                    <img src="https://crm.zoho.com/crm/CaptchaServlet?formId=b7676fb486c62b9e48e985479454d494e8f5b69c5eb1610f2599f52edfa654f5&grpid=e8a3ad69df258ca810f448198a40c5f49ec7b96fc72f3f356f1e05ba5c8270ce" alt="" />
+                  </div>
+                  <div>
+                      <p> Enter the Captcha </p>
+                      <input type="text" name="captcha" placeholder="write exactly what you see" required/>
+                  </div>
+
+                  <div className="buttons">
+                    <button type="button" > Submit </button>
+                    <button type="button"> Reset </button>
+                  </div>
+              </form>
+            </div>
         </section>
 
     </div>
