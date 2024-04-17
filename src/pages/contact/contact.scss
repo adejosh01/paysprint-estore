@@ -215,7 +215,7 @@
   }
   
   
-  @media screen and (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
     .estore-container {
       max-width: 1200px;
   
@@ -232,7 +232,68 @@
         // justify-content: space-between;
       }
     
+    }
+}
 
+@media screen and (max-width: 900px) {
+  .estore-container {
+    section.form {
+      div.intro {
+        .address {
+          flex-direction: column;
+        }
+      }
+      div.itForm {
+        flex: 0 0 70%;
+      }
     }
   }
+}
+  
+
+@media screen and (max-width: 700px) {
+  .estore-container {
+    section.form {
+      flex-direction: column;
+      gap: 2rem;
+      div.intro {
+        width: 100%;
+        .address {
+          flex-direction: row;
+          justify-content: space-around;
+        }
+      }
+      div.itForm {
+        flex: unset;
+        width: 100%;
+        form {
+          padding: 2rem;
+            .buttons {
+                padding: 0rem 2rem;
+            }
+        }
+      }
+    }
+  }
+}
+  
+
+@media screen and (max-width: 500px) {
+  .estore-container {
+    section.form {
+      padding: 2.5rem;
+      div.intro {
+        width: 100%;
+      }
+      div.itForm {
+        form {
+          padding: 1rem;
+          .buttons {
+            padding: 0rem;
+          }
+        }
+      }
+    }
+  }
+}
   

@@ -71,7 +71,7 @@ export const Contact = ({ title }) => {
 
             <div className="itForm">
               <h3> Send Us a Message </h3>
-              <form action="#" method="post">
+              <form action="#">
                   <div>
                       <p> Last Name <span> * </span> </p>
                       <input type="text" name="lastname" placeholder="What is your last name?" required/>
@@ -96,16 +96,16 @@ export const Contact = ({ title }) => {
                       <p> Message <span> * </span> </p>
                       <textarea name="message" id="" cols="30" rows="10" placeholder="Feel free to describe in details what you have in mind" style={{ maxHeight: '90px' }}> </textarea>
                   </div>
-                  <div style={{ textAlign: 'center' }}>
+                  <div style={{ marginRight: '35%' }}>
                     <img src="https://crm.zoho.com/crm/CaptchaServlet?formId=b7676fb486c62b9e48e985479454d494e8f5b69c5eb1610f2599f52edfa654f5&grpid=e8a3ad69df258ca810f448198a40c5f49ec7b96fc72f3f356f1e05ba5c8270ce" alt="" />
                   </div>
                   <div>
-                      <p> Enter the Captcha </p>
+                      <p> Enter the Captcha <span> * </span> </p>
                       <input type="text" name="captcha" placeholder="write exactly what you see" required/>
                   </div>
 
                   <div className="buttons">
-                    <button type="button" > Submit </button>
+                    <button type="submit" > Submit </button>
                     <button type="button"> Reset </button>
                   </div>
               </form>
