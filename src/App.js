@@ -22,6 +22,7 @@ import { NotFound404 } from "pages/404/notFound";
 import { Community } from "pages/community/community";
 import { AskQuestions } from "pages/askQuestions/askquestions";
 import { Search } from "pages/search/search";
+import { Contact } from "pages/contact/contact";
 
 function App() {
 
@@ -46,7 +47,8 @@ function App() {
             <Route path="/terms-of-use" exact element={<TermsAndPrivacy title="Ashopree | Terms Of Use" />} />
             <Route path="/community" exact element={<Community title="Ashopree | Community " />} />
             <Route path="/askquestions" exact element={<AskQuestions title="Ashopree | Ask Questions " />} />
-            <Route path='/search' exact element={<Search title={"Ashopree | Searched Items"} />} />
+            <Route path='/search' exact element={<Search title="Ashopree | Searched Items" />} />
+            <Route path='/contact' exact element={<Contact title="Ashopree | Contact Us" />} />
             <Route path='*' exact={true} element={<NotFound404 title={"Ashopree | 404 Not Found"} />} />
           </Routes>
         <EstoreFooter />

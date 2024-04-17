@@ -1,0 +1,299 @@
+.estore-container {
+  margin: 0 auto;
+  background-color: white;
+  // padding: 1rem;
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+
+    section.getallprods {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // opacity: 0.5;
+      position: relative;
+      .allestoreprodsImage {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        display: flex;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        img {
+          width: 37rem;
+          height: 37rem;
+        }
+      }
+      .describeProds {
+        position: absolute;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%; // 100vw is appropriate but then, I'm getting the scrolling stufff
+        height: 100%;
+        background-color: #2D334A;
+        opacity: 0.9;
+        gap: 5rem;
+        .b4Title { 
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          .title {
+            h2 {
+              color: #fff;
+              font-size: 40px;
+              line-height: 50.4px;
+              font-weight: 700;
+            } p {
+              font-family: 'Plus Jakatra Sans';
+              font-weight: 600;
+              font-size: 20px;
+              line-height: 30px;
+              text-align: center;
+              color: #fff;
+              height: 75px;
+              width: 545px;
+            }
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+          } 
+          .home-button {
+            color: #fff;
+            background-color: #4F0B92;
+            text-align: center;
+            padding: 2rem 5.5rem;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+          }
+          .home-button:hover {
+            color: #fff;
+            background-color: #4F0B92;
+          }
+        }
+        .buttons {
+          display: flex;
+          gap: 22px;
+          padding-top: 3rem;
+          button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: hsla(0,0%,100%,.1);
+            border-radius: 24px;
+            padding: 8px;
+            gap: 8px;
+            width: 22rem;
+            height: 64px;
+            p {
+              color: #fff;
+              text-align: left;
+              font: 600 20px PlusJakartaSans-SemiBold,sans-serif;
+            }
+          }
+        }
+      }
+    }
+
+    section.map {
+      padding: 2rem 3rem;
+    }
+
+    section.form {
+      display: flex;
+      justify-content: space-between;
+      padding: 5rem;
+      div.intro {
+        width: 50%;
+        h3 {
+          font: 700 26px / 1 "Montserrat", sans-serif;
+          color: #222222;
+          padding-bottom: 15px;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 80px;
+            background: #f6b60b;
+            left: 0;
+            bottom: 0;
+          }
+        }
+        div.address {
+          padding-top: 4rem;
+          gap: 5rem;
+          display: flex;
+        }
+      }
+      div.itForm {
+        width: 50%;
+        h3 {
+          font: 700 26px / 1 "Montserrat", sans-serif;
+          color: #222222;
+          padding-bottom: 15px;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 80px;
+            background: #f6b60b;
+            left: 0;
+            bottom: 0;
+          }
+        }
+        form { 
+          padding: 4rem;
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;
+          div {
+            display: flex;
+            // gap: 5rem;
+            justify-content: space-between;
+            p {
+              font: 600 12px 'Arial';
+              span {
+                  color: red;
+              }
+            }
+            input, textarea {
+              width: 73%;
+              padding: .375rem .75rem;
+              font-size: 1.3rem;
+              font-weight: 400;
+              line-height: 1.5;
+              color: #495057;
+              background-color: #fff;
+              background-clip: padding-box;
+              border: 1px solid #ced4da;
+              border-radius: .25rem;
+              transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+            }
+            input:focus, textarea:focus {
+              border: 1px solid #007bff;
+              box-shadow: 0 0 0 0.3rem rgba(0, 123, 255, 0.25);
+            }
+          }
+          .buttons {
+            padding: 0rem 3rem;
+            button {
+              color: #fff;
+              background-color: #4F0B92;
+              text-align: center;
+              padding: 2rem 5.5rem;
+              border-radius: 4rem;
+            }
+          }
+        }
+      }
+      
+    }
+  
+  }
+  
+  
+@media screen and (max-width: 1200px) {
+    .estore-container {
+      max-width: 1200px;
+  
+      & > p {
+        max-width: 550px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      
+      section.getallprods {
+        // max-width: 1200px;
+        margin: 0 auto;
+        // display: flex;
+        // justify-content: space-between;
+      }
+    
+    }
+}
+
+@media screen and (max-width: 900px) {
+  .estore-container {
+    section.form {
+      div.intro {
+        .address {
+          flex-direction: column;
+        }
+      }
+      div.itForm {
+        flex: 0 0 70%;
+      }
+    }
+  }
+}
+  
+
+@media screen and (max-width: 700px) {
+  .estore-container {
+    section.form {
+      flex-direction: column;
+      gap: 2rem;
+      div.intro {
+        width: 100%;
+        .address {
+          flex-direction: row;
+          justify-content: space-around;
+        }
+      }
+      div.itForm {
+        flex: unset;
+        width: 100%;
+        form {
+          padding: 2rem;
+            .buttons {
+                padding: 0rem 2rem;
+            }
+        }
+      }
+    }
+  }
+}
+  
+
+@media screen and (max-width: 500px) {
+  .estore-container {
+    section.form {
+      padding: 2.5rem;
+      div.intro {
+        width: 100%;
+      }
+      div.itForm {
+        form {
+          padding: 1rem;
+          .buttons {
+            padding: 0rem;
+          }
+        }
+      }
+    }
+  }
+}
+  
