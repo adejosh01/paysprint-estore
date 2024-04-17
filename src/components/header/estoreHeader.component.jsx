@@ -246,13 +246,14 @@ export const EstoreHeader = ({title}) => {
                 <span style={{  marginLeft: '0.2rem' }} onClick={toggleAccountMenu}> 
                   <button> <FontAwesomeIcon icon={isAccountMenuOpen ? faAngleUp : faAngleDown} style={{ color: '#fff' }} /> </button>
                 </span>
-                <ul className={getConditionalClassName( isAccountMenuOpen, "account", "active" )}>
+                {/* Show this if the user is authenticated */}
+                {/* <ul className={getConditionalClassName( isAccountMenuOpen, "account", "active" )}>
                   <li>
                     <img src={passwordIcon} alt="User Icon" />
                     <Link to="#" > PS Account No: 20983 </Link> 
                     <img src={clip} alt="Clipboard Icon" />
                   </li>
-                  <li>``
+                  <li>
                     <img src={profileIcon} alt="User Icon" />
                     <Link to="#"> Profile </Link>
                   </li>
@@ -267,6 +268,22 @@ export const EstoreHeader = ({title}) => {
                   <li>
                     <img src={logout} alt="User Icon" />
                     <Link to="#"> Log Out </Link>
+                  </li>
+                </ul> */}
+
+                {/* else, show this */}
+                <ul className={getConditionalClassName( isAccountMenuOpen, "account", "active" )}>
+                  <li className="guest-link">
+                    <img src={profileIcon} alt="User Icon" />
+                    <Link to="#"> Register with PaySprint </Link>
+                  </li>
+                  <li className="guest-link">
+                    <img src={profileIcon} alt="User Icon" />
+                    <Link to="#"> Login with PaySprint </Link>
+                  </li>
+                  <li className="guest-link">
+                    <img src={profileIcon} alt="User Icon" />
+                    <Link to="#"> Create Merchant Account </Link>
                   </li>
                 </ul>
             </div>

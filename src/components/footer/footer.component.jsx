@@ -53,6 +53,7 @@ export const EstoreFooter = () => {
               <li> <a href="#"> Global Support </a> </li>
               <li> <a href="/askquestions"> Merchant Support </a> </li>
               <li> <a href="/community"> Ashopree Community </a> </li>
+              <li> <a href="#"> Create Merchant Account </a> </li>
             </ul>
           </div>
 
