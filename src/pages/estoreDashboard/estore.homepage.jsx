@@ -280,6 +280,7 @@ export const EstoreDashboard = ({ title }) => {
             <div className="imageitems">
               {Array.isArray(categories) > 0 ? (
                 categories.map((item, index) => (
+                  <Link to={`/allcategories?categoryname=${item.category}`} key={index}>
                   <div className="imgdescribtion" key={index}>
                     {/* <img src={office} alt="thetextdescription" /> */}
                     {index % 7 === 0 && <img src={office} alt="thetextdescription" />}
@@ -291,6 +292,7 @@ export const EstoreDashboard = ({ title }) => {
                     {index % 7 === 6 && <img src={fashion} alt="thetextdescription" />}
                       <p> {item.category} </p>
                   </div>
+                  </Link>
                 ))
               ) : (
                 <div className="imgdescribtion">
@@ -302,7 +304,7 @@ export const EstoreDashboard = ({ title }) => {
 
 
             <div className="thebutton">
-              <Link to="/allcategories">
+            <Link to={`/allcategories?categoryname=${categories[0].category}`}>
                 <button type="button">
                   See all categories
                 </button>

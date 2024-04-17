@@ -9,10 +9,16 @@ import gadget from "assets/images/estore/allcategories/category4.png";
 import secondgadget from "assets/images/estore/allcategories/category5.png";
 import thirdgadget from "assets/images/estore/allcategories/category6.png";
 import axios from "axios";
+import config from "../../config";
+import { Link } from "react-router-dom";
 
 export const AllCategories = ({ title }) => {
   const [data, setData] = useState([]);
-  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
+  const [productCategory, setProductCategory] = useState([]);
+  const apiUrl = config().baseUrl;
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const category = urlParams.get('categoryname');
 
   useEffect(() => {
     document.title = title;
@@ -21,15 +27,20 @@ export const AllCategories = ({ title }) => {
     axios.get(`${apiUrl}/ashopree/product/category`) 
     .then(response => {
       setData(response.data.data);
-    })
+    }).catch(error => {
+      console.error('Error fetching data:', error);
+    });
 
-    .catch(error => {
+    axios.get(`${apiUrl}/ashopree/product/category/${category}`) 
+    .then(response => {
+      setProductCategory(response.data);
+    }).catch(error => {
       console.error('Error fetching data:', error);
     });
 
   // console.log(data);
 
-  }, []);
+  }, [apiUrl, title]);
 
 
   return (
@@ -41,9 +52,11 @@ export const AllCategories = ({ title }) => {
             {data.length !== 0 ? (
               <div>
                   {Array.isArray(data) && data.map((item, index) => (
-                    <div>
-                      <p key={index}>{item.category}</p>
-                    </div>
+                    <a href={`/allcategories?categoryname=${item.category}`} key={index}>
+                      <div>
+                        <p >{item.category}</p>
+                      </div>
+                    </a>
                   ))} 
                       
                   {!Array.isArray(data) && <div>Error: Sorry, Please check your network connection and try again</div>}
@@ -57,194 +70,59 @@ export const AllCategories = ({ title }) => {
           <div className="maincontent">
             <div className="homeandoffice">
               <div className="producttitle">
-                  <p className="realtitle"> Home & Office </p>
+                  <p className="realtitle"> {category} </p>
                   <p className="secondtitle"> See all </p>
               </div>
 
               <div className="items">
-                  <div className="eachItem">
-                    <img src={chair} alt="eachImage" />
-                    <div className="imgdescription">
-                        <p className="nameofitem"> Office chair </p>
-                        <p className="priceofitem"> ₦1200.00 </p>
-                        <div>
-                            <span>
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            </span>
-                            <p className="initialprice"> 4.56 (132 reviews) </p>
-                        </div>
-                    </div>
-                  </div>
 
-                  <div className="eachItem">
-                    <img src={secondchair} alt="eachImage" />
-                    <div className="imgdescription">
-                        <p className="nameofitem"> Office chair + table </p>
-                        <p className="priceofitem"> ₦1200.00 </p>
-                        <div>
-                            <span>
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            </span>
-                            <p className="initialprice"> 4.56 (132 reviews) </p>
-                        </div>              
-                    </div>
-                  </div>
+              {
+                
+                productCategory.status === 200 ? (
+                  productCategory.data.length > 0 ? (
+                    <>
+                      {productCategory.data.map((item, index) => (
+                        <>
+                          <div className="eachItem" key={index}>
+                            <img src={item.image} alt={item.productName} />
+                            <div className="imgdescription">
+                              <p className="nameofitem"> {item.productName} </p>
+                              <p className="priceofitem"> {item.currencySymbol + '' + Number(item.amount).toFixed()} </p>
+                              <div>
+                                <span>
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                </span>
+                                <p className="initialprice"> 4.56 (132 reviews) </p>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      ))}
+                    </>
+                  ) : (
+                    <p>
+                      No product found for this category.
+                    </p>
+                  )
+                ) : (
+                  <p>Loading ...</p>
+                )
+              }
 
-                  <div className="eachItem">
-                    <img src={thirdchair} alt="eachImage" />
-                    <div className="imgdescription">
-                        <p className="nameofitem"> Workspace set up </p>
-                        <p className="priceofitem"> ₦1200.00 </p>
-                        <div>
-                            <span>
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            </span>
-                            <p className="initialprice"> 4.56 (132 reviews) </p>
-                        </div>              
-                    </div>
-                  </div>
+              
+
+                  
               </div>
+
+
             </div>
 
-            <div className="homeandoffice">
-              <div className="producttitle">
-                  <p className="realtitle"> Electronics </p>
-                  <p className="secondtitle"> See all </p>
-              </div>
 
-              <div className="items">
-                  <div className="eachItem">
-                    <img src={gadget} alt="eachImage" />
-                    <div className="imgdescription">
-                        <p className="nameofitem"> Office chair </p>
-                        <p className="priceofitem"> ₦1200.00 </p>
-                        <div>
-                            <span>
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            </span>
-                            <p className="initialprice"> 4.56 (132 reviews) </p>
-                        </div>
-                    </div>
-                  </div>
-
-                  <div className="eachItem">
-                    <img src={secondgadget} alt="eachImage" />
-                    <div className="imgdescription">
-                        <p className="nameofitem"> Office chair + table </p>
-                        <p className="priceofitem"> ₦1200.00 </p>
-                        <div>
-                            <span>
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            </span>
-                            <p className="initialprice"> 4.56 (132 reviews) </p>
-                        </div>              
-                    </div>
-                  </div>
-
-                  <div className="eachItem">
-                    <img src={thirdgadget} alt="eachImage" />
-                    <div className="imgdescription">
-                        <p className="nameofitem"> Workspace set up </p>
-                        <p className="priceofitem"> ₦1200.00 </p>
-                        <div>
-                            <span>
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            </span>
-                            <p className="initialprice"> 4.56 (132 reviews) </p>
-                        </div>              
-                    </div>
-                  </div>
-              </div>
-            </div>
-
-            <div className="homeandoffice">
-              <div className="producttitle">
-                  <p className="realtitle"> Electronics </p>
-                  <p className="secondtitle"> See all </p>
-              </div>
-
-              <div className="items">
-                  <div className="eachItem">
-                    <img src={chair} alt="eachImage" />
-                    <div className="imgdescription">
-                        <p className="nameofitem"> Office chair </p>
-                        <p className="priceofitem"> ₦1200.00 </p>
-                        <div>
-                            <span>
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            </span>
-                            <p className="initialprice"> 4.56 (132 reviews) </p>
-                        </div>
-                    </div>
-                  </div>
-
-                  <div className="eachItem">
-                    <img src={secondchair} alt="eachImage" />
-                    <div className="imgdescription">
-                        <p className="nameofitem"> Office chair + table </p>
-                        <p className="priceofitem"> ₦1200.00 </p>
-                        <div>
-                            <span>
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            </span>
-                            <p className="initialprice"> 4.56 (132 reviews) </p>
-                        </div>              
-                    </div>
-                  </div>
-
-                  <div className="eachItem">
-                    <img src={thirdchair} alt="eachImage" />
-                    <div className="imgdescription">
-                        <p className="nameofitem"> Workspace set up </p>
-                        <p className="priceofitem"> ₦1200.00 </p>
-                        <div>
-                            <span>
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            <img src={starimage} alt="justtheIconOfAStar" />
-                            </span>
-                            <p className="initialprice"> 4.56 (132 reviews) </p>
-                        </div>              
-                    </div>
-                  </div>
-              </div>
-            </div>
-
-          <BottomNav />
+          {/* <BottomNav /> */}
 
           </div>
 
