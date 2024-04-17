@@ -13,10 +13,10 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { getConditionalClassName } from "utils/utils";
 import { Card } from "antd";
-
+import config from "../../config";
 
 export const EstoreDashboard = ({ title }) => {
-  const apiUrl = process.env.NODE_ENV === "developments" ? "http://localhost:9090/api/v1" : process.env.REACT_APP_API_URL;
+  const apiUrl = config().baseUrl;
   const [error, setError] = useState(null);
   const [hotDeals, setData] = useState([]);
   const [topProducts, setData2] = useState([]);
@@ -258,9 +258,11 @@ export const EstoreDashboard = ({ title }) => {
               <div className="firstSection">
                   {Array.isArray(registeredStores) > 0 ? (
                     registeredStores.map((item, index) => (
-                      <Card className="eachItem" hoverable  key={index}>
-                        <img src={item.businessLogo} alt="eachImage" />
-                      </Card>
+                      <Link to={`/merchant-store/${item.merchantId}`}>
+                        <Card className="eachItem" hoverable key={index}>
+                          <img src={item.businessLogo} alt="eachImage" />
+                        </Card>
+                      </Link>
                     ))
                   ) : (
                     <div> Error: Sorry, Please check your network connection and try again </div>
@@ -316,8 +318,8 @@ export const EstoreDashboard = ({ title }) => {
             <div className="items">
               {Array.isArray(trendingServices) ? (
                   trendingServices.map((item, index) => (
-                  <Link to="/services">
-                    <div className="eachItem" key={index}>
+                    <Link to={`/services/${item.merchantId}`} key={index}>
+                    <div className="eachItem">
                       <img src={item.businessLogo} alt="eachImage" />
                       <div className="imgdescription">
                         <p className="nameofitem">{item.businessName}</p>
