@@ -56,15 +56,60 @@ export const Community = ({ title }) => {
                         {isOpen && (
                             <div className="settingsDetails">
                                 <div className="all-categories">
-                                    <p> New Products Listed </p>
-                                    <p> New Store available </p>
-                                    <p> New Question submitted </p>
-                                    <p> New Answer submitted </p>
-                                    <p> New Product price </p>
-                                    <p> Price Reduction </p>
-                                    <p> New Partner </p>
-                                    <p> New Tags </p>
-                                    <p> All </p>
+                                    <p> New Products Listed 
+                                        <div className="toggle-parent">
+                                            <input type="checkbox" id="check" />
+                                            <label for="check" className="button"></label>
+                                        </div> 
+                                    </p>
+                                    <p> New Store available
+                                        <div className="toggle-parent">
+                                            <input type="checkbox" id="check" />
+                                            <label for="check" className="button"></label>
+                                        </div> 
+                                     </p>
+                                    <p> New Question submitted
+                                        <div className="toggle-parent">
+                                            <input type="checkbox" id="check" />
+                                            <label for="check" className="button"></label>
+                                        </div> 
+                                     </p>
+                                    <p> New Answer submitted
+                                        <div className="toggle-parent">
+                                            <input type="checkbox" id="check" />
+                                            <label for="check" className="button"></label>
+                                        </div> 
+                                     </p>
+                                    <p> New Product price
+                                        <div className="toggle-parent">
+                                            <input type="checkbox" id="check" />
+                                            <label for="check" className="button"></label>
+                                        </div> 
+                                     </p>
+                                    <p> Price Reduction
+                                        <div className="toggle-parent">
+                                            <input type="checkbox" id="check" />
+                                            <label for="check" className="button"></label>
+                                        </div> 
+                                     </p>
+                                    <p> New Partner
+                                        <div className="toggle-parent">
+                                            <input type="checkbox" id="check" />
+                                            <label for="check" className="button"></label>
+                                        </div> 
+                                     </p>
+                                    <p> New Tags
+                                        <div className="toggle-parent">
+                                            <input type="checkbox" id="check" />
+                                            <label for="check" className="button"></label>
+                                        </div> 
+                                     </p>
+                                    <p> All
+                                        <div className="toggle-parent">
+                                            <input type="checkbox" id="check" />
+                                            <label for="check" className="button"></label>
+                                        </div> 
+                                     </p>
                                 </div>
                             </div>
                         )}

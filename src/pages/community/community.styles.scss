@@ -105,11 +105,49 @@
                                 padding: 1.5rem;
                                 background-color: #fff;
                                 border: 1px solid rgba(0, 0, 0, .125);
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                div.toggle-parent {
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    .button {
+                                        background-color: #d2d2d2;
+                                        width: 55px;
+                                        height: 25px;
+                                        border-radius: 100px;
+                                        cursor: pointer;
+                                        position: relative;
+                                        transition: 2s;
+                                    }
+                                    .button::before {
+                                        position: absolute;
+                                        content: '';
+                                        background-color: #4F0B92;
+                                        width: 25px;
+                                        height: 25px;
+                                        border-radius: 100px;
+                                        margin: 0px;
+                                        transition: 1s;
+                                    }
+                                    input:checked + .button {
+                                        background-color: #4F0B92;
+                                    }
+                                    input:checked + .button::before {
+                                        transform: translateX(30px);
+                                        background-color: #fff;
+                                    }
+                                    input {
+                                        display: none;
+                                    }
+                                }
                             }
                             p:hover {
                                 background-color: #4F0B92;
                                 color: #fff;
                             }
+                            
                         }
                     }
 
