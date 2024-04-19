@@ -10,27 +10,38 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { handleClick } from "utils/utils";
 import { useNavigate } from "react-router-dom";
-
+import { stripHtmlTags } from 'utils/utils';
+import config from "../../config";
 
 
 
 export const Search = ({ title }) => {
-  const [categories, setData] = useState([]);
-  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
+  const [searchItem, setData] = useState([]);
+  const [itemCategory, setCategory] = useState([]);
+  const apiUrl = config().baseUrl;
   const navigate = useNavigate();
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const query = urlParams.get('query');
+  const category = urlParams.get('category');
 
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
 
-    axios.get(`${apiUrl}/ashopree/product/category`) 
+    axios.get(`${apiUrl}/ashopree/product/search?search=${query}&category=${category}`) 
     .then(response => {
       setData(response.data.data);
-    })
-
-    .catch(error => {
+    }).catch(error => {
       console.error('Error fetching data:', error);
     });
+
+    axios.get(`${apiUrl}/ashopree/product/category`)
+      .then(response => {
+        setCategory(response.data.data);
+      }).catch(error => {
+        console.error('Error fetching Product category: ' + error.message);
+      });
 
   }, [apiUrl, title]);
 
@@ -72,15 +83,15 @@ export const Search = ({ title }) => {
           <div className="sidebar">
             <h4> Store Category</h4>
 
-            {categories.length !== 0 ? (
+          {itemCategory.length > 0 ? (
               <div style={{  display: 'flex', flexDirection: 'column' , padding: '2rem 2rem', gap: '4rem' }}>
-                  {Array.isArray(categories) && categories.map((item, index) => (
+                  {Array.isArray(itemCategory) && itemCategory.map((item, index) => (
                     <div>
                       <p key={index}>{item.category}</p>
                     </div>
                   ))} 
                       
-                  {!Array.isArray(categories) && <div>Error: Sorry, Please check your network connection and try again</div>}
+                  {!Array.isArray(itemCategory) && <div>Error: Sorry, Please check your network connection and try again</div>}
               </div>
             ) : (
               <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading...... </p>
@@ -89,112 +100,43 @@ export const Search = ({ title }) => {
 
           <div className="maincontent">
             <div className="titleandsearch">
-              <p> We have found 12,000 stores for you </p>
-
-              <div>
-                <p>
-                   Sort by: <span> <button type="button"> Newest </button> </span>
-                </p>
-              </div>
+            <p> We have found {searchItem.data?.length} products for you </p>
             </div>
 
             <div className="submain">
               <div className="allItems">
 
-                <div className="singlarity">
-                  <img src={product1} alt="firstproductImage" />
-                  <div>
-                    <Link to="/personalstore">
-                      <h2> Adebambo Store </h2>
-                    </Link>
-                    <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
-                    
-                    <div>
-                      <p> Fashion </p>
-                      <p> Beauty </p>
-                      <p> Clothing </p>
+              {searchItem.data?.length > 0 ? (
+                <>
+                  {Array.isArray(searchItem.data) && searchItem.data?.map((item, index) => (
+                    <div className="singlarity">
+                      <img style={{ width: "30%", height: "inherit", borderRadius: "5px" }} src={item.image} alt={item.productName} />
+                      <div>
+                        <Link to={`/productdetails/${item.productCode}`} key={index}>
+                          <h2> {item.productName} </h2>
+                        </Link>
+                        <p> {stripHtmlTags(item.description)} </p>
+
+                        <div>
+                          <p> {item.category} </p>
+                        </div>
+
+                        <Link to={`/productdetails/${item.productCode}`} key={index}>
+                          <button type="button" className="justforstore">
+                            <span> View product  </span>
+                            <img src={arrowupright} alt="arrowupright" />
+                          </button>
+                        </Link>
+                      </div>
                     </div>
+                  ))
+                  } 
+                </>
+              ) : (<p style={{ textAlign: 'center', fontSize: '2rem' }}> No result found for {query} </p>)}
 
-                    <Link to="/personalstore">
-                      <button type="button" className="justforstore">
-                        <span> Go to store  </span>
-                        <img src={arrowupright} alt="arrowupright" />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="singlarity">
-                  <img src={product2} alt="secondproductImage" />
-                  <div>
-                    <Link to="/personalstore">
-                      <h2> Adebambo Store </h2>
-                    </Link>
-                    <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
-                    
-                    <div>
-                      <p> Fashion </p>
-                      <p> Beauty </p>
-                      <p> Clothing </p>
-                    </div>
-
-                    <Link to="/personalstore">
-                      <button type="button" className="justforstore">
-                        <span> Go to store  </span>
-                        <img src={arrowupright} alt="arrowupright" />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="singlarity">
-                  <img src={product3} alt="thirdproductImage" />
-                  <div>
-                    <Link to="/personalstore">
-                      <h2> Adebambo Store </h2>
-                    </Link>
-                    <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
-                    
-                    <div>
-                      <p> Fashion </p>
-                      <p> Beauty </p>
-                      <p> Clothing </p>
-                    </div>
-
-                    <Link to="/personalstore">
-                      <button type="button" className="justforstore">
-                        <span> Go to store  </span>
-                        <img src={arrowupright} alt="arrowupright" />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="singlarity">
-                  <img src={product4} alt="fourthproductImage" />
-                  <div>
-                    <Link to="/personalstore">
-                      <h2> Adebambo Store </h2>
-                    </Link>
-                    <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
-                    
-                    <div>
-                      <p> Fashion </p>
-                      <p> Beauty </p>
-                      <p> Clothing </p>
-                    </div>
-
-                    <Link to="/personalstore">
-                      <button type="button" className="justforstore">
-                        <span> Go to store  </span>
-                        <img src={arrowupright} alt="arrowupright" />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
               </div>
 
-              <BottomNav />
+            {searchItem.next_page_url != null ? <BottomNav /> : null }
 
               <div className="alertmsg">
                 <div>

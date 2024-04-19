@@ -33,14 +33,14 @@ function App() {
             <Route path="/" exact element={<EstoreDashboard title="Ashopree | Homepage" />} />
             <Route path="/onlinestore" exact element={<OnlineStore title="Ashopree | Estore" />} />
             <Route path="/allcategories" exact element={<AllCategories title="Ashopree | All Categories" />} />
-            <Route path="/personalstore" exact element={<Personalstore title="Ashopree | Personal Store" />} />
+            <Route path="/merchant-store/:id" exact element={<Personalstore title="Ashopree | Merchant Store" />} />
             <Route path="/productdetails/:productCode" exact element={<ProductDetails title="Ashopree | Product Details" />} />
             <Route path="/mycart" exact element={<MyCarts title="Ashopree | My Carts" />} />
             <Route path="/checkout" exact element={<Checkout title="Ashopree | Checkout" />} />
             <Route path="/payment" exact element={<Payment title="Ashopree | Payments" />} />
             <Route path="/success" exact element={<SuccessfulOrder title="Ashopree | Successfully Ordered" />} />
             <Route path="/messages" exact element={<Messages title="Ashopree | Messages" />} />
-            <Route path="/services" exact element={<ServiceDetails title="Ashopree | Service Details" />} />
+          <Route path="/services/:id" exact element={<ServiceDetails title="Ashopree | Service Details" />} />
             <Route path="/pricing" exact element={<Pricing title="Ashopree | Plans & Pricing" />} />
             <Route path="/gallery" exact element={<Gallery title="Ashopree | Gallery & Media" />} />
             <Route path="/referral-partner" exact element={<ReferralPartner title="Ashopree | Referral Partner" />} />

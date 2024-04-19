@@ -178,7 +178,8 @@ export const EstoreHeader = ({title}) => {
                 {categories.length !== 0 ? (
                     Array.isArray(categories) && categories.map((item, index) => (
                         <li key={index}>
-                            <a href="" key={index}> {item.category} </a>
+                        
+                        <a href={`/allcategories?categoryname=${item.category}`} key={index}> {item.category} </a>
                         </li>
                     ))
                 ) : (

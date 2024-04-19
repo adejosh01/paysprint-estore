@@ -13,16 +13,17 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { getConditionalClassName } from "utils/utils";
 import { Card } from "antd";
-
+import config from "../../config";
 
 export const EstoreDashboard = ({ title }) => {
-  const apiUrl = process.env.NODE_ENV === "developments" ? "http://localhost:9090/api/v1" : process.env.REACT_APP_API_URL;
+  const apiUrl = config().baseUrl;
   const [error, setError] = useState(null);
   const [hotDeals, setData] = useState([]);
   const [topProducts, setData2] = useState([]);
   const [trendingServices, setData3] = useState([]);
   const [registeredStores, setData4] = useState([]);
   const [categories, setData5] = useState([]);
+  const [value, setValue] = useState(''); // State variable to hold the search query
 
   useEffect(() => {
 
@@ -104,8 +105,8 @@ export const EstoreDashboard = ({ title }) => {
                             <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")} >
                                 {categories.length !== 0 ? (
                                     Array.isArray(categories) ? (  
-                                        <select name="category" defaultValue={'default'} required>
-                                            <option value="default"> Categories </option>
+                                        <select name="category" defaultValue={'all'} required>
+                                            <option value=""> Categories </option>
                                             {categories.map((item, index) => (
                                                 <option key={index} value={item.category} name="category"> {item.category} </option>
                                             ))}
@@ -117,8 +118,8 @@ export const EstoreDashboard = ({ title }) => {
                                     <p> Loading Categories </p> 
                                 )}
                             </div>
-                            <input className="home" name="searchQuery" type="text" placeholder="Search for a product, service, or online store" />
-                            <button type="submit" className="searchbtn" name="submit" onClick={ () => onsubmit}>
+                <input className="home" type="text" name="query" placeholder="Search for a product, service, or online store" value={value} onChange={e => setValue(e.target.value)} />
+                            <button type="submit" className="searchbtn" onClick={ () => onsubmit}>
                                 <svg style={{ marginLeft: '1.5rem' }} className="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                             </button>
                         </form>
@@ -257,9 +258,11 @@ export const EstoreDashboard = ({ title }) => {
               <div className="firstSection">
                   {Array.isArray(registeredStores) > 0 ? (
                     registeredStores.map((item, index) => (
-                      <Card className="eachItem" hoverable  key={index}>
-                        <img src={item.businessLogo} alt="eachImage" />
-                      </Card>
+                      <Link to={`/merchant-store/${item.merchantId}`}>
+                        <Card className="eachItem" hoverable key={index}>
+                          <img src={item.businessLogo} alt="eachImage" />
+                        </Card>
+                      </Link>
                     ))
                   ) : (
                     <div> Error: Sorry, Please check your network connection and try again </div>
@@ -277,6 +280,7 @@ export const EstoreDashboard = ({ title }) => {
             <div className="imageitems">
               {Array.isArray(categories) > 0 ? (
                 categories.map((item, index) => (
+                  <Link to={`/allcategories?categoryname=${item.category}`} key={index}>
                   <div className="imgdescribtion" key={index}>
                     {/* <img src={office} alt="thetextdescription" /> */}
                     {index % 7 === 0 && <img src={office} alt="thetextdescription" />}
@@ -288,6 +292,7 @@ export const EstoreDashboard = ({ title }) => {
                     {index % 7 === 6 && <img src={fashion} alt="thetextdescription" />}
                       <p> {item.category} </p>
                   </div>
+                  </Link>
                 ))
               ) : (
                 <div className="imgdescribtion">
@@ -299,7 +304,7 @@ export const EstoreDashboard = ({ title }) => {
 
 
             <div className="thebutton">
-              <Link to="/allcategories">
+            <Link to={`/allcategories?categoryname=${categories[0].category}`}>
                 <button type="button">
                   See all categories
                 </button>
@@ -315,8 +320,8 @@ export const EstoreDashboard = ({ title }) => {
             <div className="items">
               {Array.isArray(trendingServices) ? (
                   trendingServices.map((item, index) => (
-                  <Link to="/services">
-                    <div className="eachItem" key={index}>
+                    <Link to={`/services/${item.merchantId}`} key={index}>
+                    <div className="eachItem">
                       <img src={item.businessLogo} alt="eachImage" />
                       <div className="imgdescription">
                         <p className="nameofitem">{item.businessName}</p>
