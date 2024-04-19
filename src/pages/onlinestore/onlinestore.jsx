@@ -8,10 +8,12 @@ import arrowupright from "assets/icons/arrow-up-right.png";
 import { BottomNav } from "components/bottom-navs";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import config from "../../config";
 
 export const OnlineStore = ({ title }) => {
   const [categories, setData] = useState([]);
-  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
+  const [merchant, setMerchant] = useState([]);
+  const apiUrl = config().baseUrl;
 
   useEffect(() => {
     document.title = title;
@@ -20,11 +22,17 @@ export const OnlineStore = ({ title }) => {
     axios.get(`${apiUrl}/ashopree/product/category`) 
     .then(response => {
       setData(response.data.data);
-    })
-
-    .catch(error => {
+    }).catch(error => {
       console.error('Error fetching data:', error);
     });
+
+    axios.get(`${apiUrl}/ashopree/stores/online`)
+      .then(response => {
+        setMerchant(response.data.data);
+        console.log(response.data.data);
+      }).catch(error => {
+        console.error('Error fetching Trending Services data: ' + error.message);
+      });
 
   }, [apiUrl, title]);
 
@@ -80,113 +88,65 @@ export const OnlineStore = ({ title }) => {
             </div>
 
           <div className="maincontent">
-            <div className="titleandsearch">
-              <p> We have found 12,000 stores for you </p>
 
-              <div>
-                <p>
-                   Sort by: <span> <button type="button"> Newest </button> </span>
-                </p>
-              </div>
-            </div>
+              {
+                merchant.length > 0 ? (
+                  <>
+                <div className="titleandsearch">
+                  <p> We have found {merchant.length} stores for you </p>
+
+                  <div>
+                    <p>
+                      Sort by: <span> <button type="button"> Newest </button> </span>
+                    </p>
+                  </div>
+                </div>
+
+                <div className="submain">
+
+                  <div className="allItems">
+
+                    {
+                      merchant.map((item, index) => (
+                        <div className="singlarity" key={index}>
+                          <img src={item.businessLogo} alt={item.shopName} style={{ width: "180px", objectFit: "contain" }} />
+                          <div>
+                            <Link to={`/merchant-store/${item.merchantId}`}>
+                              <h2> {item.shopName} </h2>
+                            </Link>
+                            <p> {item.headerTitle}</p>
+                            <p> {item.headerSubtitle}</p>
+
+                            <div>
+                            {
+                                item.advertTitle !== null ? <p> {item.advertTitle} </p> : null
+                            }
+                            </div>
+
+                            <Link to={`/merchant-store/${item.merchantId}`}>
+                              <button type="button" className="justforstore">
+                                <span> Go to store  </span>
+                                <img src={arrowupright} alt="arrowupright" />
+                              </button>
+                            </Link>
+                          </div>
+                        </div>
+                      ))
+                    }
+
+                    
+
+                  </div>
+
+                </div>
+                  </>
+                ) : (<p>No available store yet</p>)
+              }
+            
 
             <div className="submain">
-              <div className="allItems">
 
-                <div className="singlarity">
-                  <img src={product1} alt="firstproductImage" />
-                  <div>
-                    <Link to="/personalstore">
-                      <h2> Adebambo Store </h2>
-                    </Link>
-                    <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
-                    
-                    <div>
-                      <p> Fashion </p>
-                      <p> Beauty </p>
-                      <p> Clothing </p>
-                    </div>
-
-                    <Link to="/personalstore">
-                      <button type="button" className="justforstore">
-                        <span> Go to store  </span>
-                        <img src={arrowupright} alt="arrowupright" />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="singlarity">
-                  <img src={product2} alt="secondproductImage" />
-                  <div>
-                    <Link to="/personalstore">
-                      <h2> Adebambo Store </h2>
-                    </Link>
-                    <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
-                    
-                    <div>
-                      <p> Fashion </p>
-                      <p> Beauty </p>
-                      <p> Clothing </p>
-                    </div>
-
-                    <Link to="/personalstore">
-                      <button type="button" className="justforstore">
-                        <span> Go to store  </span>
-                        <img src={arrowupright} alt="arrowupright" />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="singlarity">
-                  <img src={product3} alt="thirdproductImage" />
-                  <div>
-                    <Link to="/personalstore">
-                      <h2> Adebambo Store </h2>
-                    </Link>
-                    <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
-                    
-                    <div>
-                      <p> Fashion </p>
-                      <p> Beauty </p>
-                      <p> Clothing </p>
-                    </div>
-
-                    <Link to="/personalstore">
-                      <button type="button" className="justforstore">
-                        <span> Go to store  </span>
-                        <img src={arrowupright} alt="arrowupright" />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-
-                <div className="singlarity">
-                  <img src={product4} alt="fourthproductImage" />
-                  <div>
-                    <Link to="/personalstore">
-                      <h2> Adebambo Store </h2>
-                    </Link>
-                    <p> We curate an exquisite collection of the latest trends and timeless classics. Discover a seamless shopping experience with a wide range of products... </p>
-                    
-                    <div>
-                      <p> Fashion </p>
-                      <p> Beauty </p>
-                      <p> Clothing </p>
-                    </div>
-
-                    <Link to="/personalstore">
-                      <button type="button" className="justforstore">
-                        <span> Go to store  </span>
-                        <img src={arrowupright} alt="arrowupright" />
-                      </button>
-                    </Link>
-                  </div>
-                </div>
-              </div>
-
-              <BottomNav />
+              {/* <BottomNav /> */}
 
               <div className="alertmsg">
                 <div>
@@ -195,11 +155,12 @@ export const OnlineStore = ({ title }) => {
                 </div>
 
                 <button type="button">
-                   Create Merchant account 
+                  Create Merchant account
                 </button>
               </div>
-
+              
             </div>
+
           </div>
 
        </section>

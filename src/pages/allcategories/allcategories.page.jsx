@@ -1,19 +1,11 @@
-import { BottomNav } from "components/bottom-navs";
-import "./allcategories.scss";
+// import "./allcategories.scss";
 import { useEffect, useState } from "react";
 import starimage from "assets/images/star.png";
-import chair from "assets/images/estore/allcategories/category1.png";
-import secondchair from "assets/images/estore/allcategories/category2.png";
-import thirdchair from "assets/images/estore/allcategories/category3.png";
-import gadget from "assets/images/estore/allcategories/category4.png";
-import secondgadget from "assets/images/estore/allcategories/category5.png";
-import thirdgadget from "assets/images/estore/allcategories/category6.png";
 import axios from "axios";
 import config from "../../config";
-import { Link } from "react-router-dom";
+import { Categories } from "components/categories";
 
 export const AllCategories = ({ title }) => {
-  const [data, setData] = useState([]);
   const [productCategory, setProductCategory] = useState([]);
   const apiUrl = config().baseUrl;
   const queryString = window.location.search;
@@ -23,13 +15,6 @@ export const AllCategories = ({ title }) => {
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
-
-    axios.get(`${apiUrl}/ashopree/product/category`) 
-    .then(response => {
-      setData(response.data.data);
-    }).catch(error => {
-      console.error('Error fetching data:', error);
-    });
 
     axios.get(`${apiUrl}/ashopree/product/category/${category}`) 
     .then(response => {
@@ -47,25 +32,8 @@ export const AllCategories = ({ title }) => {
     <div className="estore-container">
   
         <section className="allcats">
-          <div className="sidebar">
-            <h4> Category</h4>
-            {data.length !== 0 ? (
-              <div>
-                  {Array.isArray(data) && data.map((item, index) => (
-                    <a href={`/allcategories?categoryname=${item.category}`} key={index}>
-                      <div>
-                        <p >{item.category}</p>
-                      </div>
-                    </a>
-                  ))} 
-                      
-                  {!Array.isArray(data) && <div>Error: Sorry, Please check your network connection and try again</div>}
-              </div>
-            ) : (
-
-              <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading... </p>
-            )}
-          </div>
+          
+        <Categories />
 
           <div className="maincontent">
             <div className="homeandoffice">
