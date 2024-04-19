@@ -1,7 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-// import paysprintLogo from "assets/svg/footer_logo.svg";
-import paysprintNewLogo from "assets/ashopree/ashopree_logo_with_icon.png";
-// import paysprintNewLogo from "assets/ashopree/edited_ashopree_logo1.jpg";
+import paysprintNewLogo from "assets/updatedAshopree/footer_logo.png";
 import fbIconWhite from "assets/svg/fb_icon_white.svg";
 import igIconWhite from "assets/svg/ig_icon_white.svg";
 import linkedinIconWhite from "assets/svg/linkedin_icon_white.svg";
