@@ -9,11 +9,6 @@ import { useEffect, useState } from "react";
 import { getConditionalClassName } from "utils/utils";
 import { Link, NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import passwordIcon from 'assets/icons/profile/passwordIcon.png';
-import clip from 'assets/icons/profile/clipboard.png';
-import share from 'assets/icons/profile/share.png';
-import tag from 'assets/icons/profile/tag.png';
-import logout from 'assets/icons/profile/logout.png';
 import profileIcon from 'assets/icons/profile/profileIcon.png';
 import axios from "axios";
 
