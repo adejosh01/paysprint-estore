@@ -65,7 +65,7 @@ export const Contact = ({ title }) => {
               <h3> Contact </h3>
               <div className="address">
                 <p> Location </p>
-                <p> Ashopree Inc. <br /> 304-2250 Bovaird Drive East, Brampton, <br />  ON L6R 0W3, Canada. </p>
+                <p> aShopree Corp. <br /> 304-2250 Bovaird Drive East, Brampton, <br />  ON L6R 0W3, Canada. </p>
               </div>
             </div>
 
@@ -89,7 +89,7 @@ export const Contact = ({ title }) => {
                       <input type="number" name="phone" placeholder="Phone Number" required/>
                   </div>
                   <div>
-                      <p> Subject (optional) </p>
+                      <p> Subject <span> * </span> </p>
                       <input type="text" name="subject" placeholder="What's the subject of your text?" required/>
                   </div>
                   <div>

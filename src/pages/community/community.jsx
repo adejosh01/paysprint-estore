@@ -39,7 +39,7 @@ export const Community = ({ title }) => {
                     </div>
 
                     <div className="real-section">
-                        <p className="welcome"> Good day! Welcome to Ashopree's Community.👏 </p>
+                        <p className="welcome"> Good day! Welcome to aShopree's Community.👏 </p>
 
                         <div className="tags">
                             <div className="mini-navs">
@@ -139,13 +139,12 @@ export const Community = ({ title }) => {
 
                             <div className="all-categories">
                                 <h4> Member Categories </h4>
-                                <p> Community Associates </p>
-                                <p> Potential Store Owners </p>
-                                <p> Inactive Store Owners </p>
-                                <p> Store Under Construction </p>
-                                <p> Upcoming Stores </p>
                                 <p> Stores Available </p>
-                                {/* <CategoriesData /> */}
+                                <p> Inactive Store Owners </p>
+                                <p> Upcoming Stores </p>
+                                <p> Community Associates </p>
+                                {/* <p> Potential Store Owners </p> */}
+                                {/* <p> Store Under Construction </p> */}
                             </div>
                         </div>
 

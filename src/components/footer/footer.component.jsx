@@ -21,7 +21,7 @@ export const EstoreFooter = () => {
             <h5> About Us </h5>
             <ul>
               <li> <a href="referral-partner"> Referral Partner </a> </li>
-              <li> <a href="#"> Affiliate Program </a> </li>
+              <li> <a href="/contact"> Affiliate Program </a> </li>
               <li> <a href="https://paysprint.ca/blog"> Blog and Newsletter </a> </li>
               <li> <a href="#" style={{ cursor: 'not-allowed' }} title="This Feature Coming Soon"> Gallery and Media </a> </li>
             </ul>
@@ -48,9 +48,9 @@ export const EstoreFooter = () => {
           <div className="singleFooterItems">
             <h5> Support </h5>
             <ul>
-              <li> <a href="#"> Global Support </a> </li>
+              <li> <a href="/contact"> Global Support </a> </li>
               <li> <a href="/askquestions"> Merchant Support </a> </li>
-              <li> <a href="/community"> Ashopree Community </a> </li>
+              <li> <a href="/community"> aShopree Community </a> </li>
               <li> <a href="#"> Create Merchant Account </a> </li>
             </ul>
           </div>

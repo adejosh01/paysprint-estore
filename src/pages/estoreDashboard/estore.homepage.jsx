@@ -1,6 +1,6 @@
 import "./estore.homepage.scss";
 import { useEffect, useState } from "react";
-import starimage from "assets/images/star.png";
+// import starimage from "assets/images/star.png";
 import office from "assets/images/estore/topCategories/Office.png";
 import electronic from "assets/images/estore/topCategories/Electronics.png";
 import desktops from "assets/images/estore/topCategories/desktop.png";
@@ -119,7 +119,6 @@ export const EstoreDashboard = ({ title }) => {
                             </button>
                         </form>
                     </div>
-
                   </div>
 
                   <div class="buttons">
@@ -128,9 +127,9 @@ export const EstoreDashboard = ({ title }) => {
                           Array.isArray(categories) ? (
                             <p style={{ display: 'contents' }}>
                               {categories.slice(Math.floor(Math.random() * 5) + 0, 6).map((item, index) => (
-                                <button type="button">
+                                <a href={`/allcategories?categoryname=${item.category}`}>
                                   <p>{item.category}</p>
-                                </button>
+                                </a>
                                 
                               ))}
                             </p>
@@ -204,7 +203,7 @@ export const EstoreDashboard = ({ title }) => {
                         <div className="imgdescription">
                           <p className="nameofitem">{item.productName}</p>
                           <p className="priceofitem">{item.currencySymbol + Number(item.amount).toFixed(2)}</p>
-                          <div>
+                          {/* <div>
                             <span>
                               <img src={starimage} alt="justtheIconOfAStar" />
                               <img src={starimage} alt="justtheIconOfAStar" />
@@ -213,7 +212,7 @@ export const EstoreDashboard = ({ title }) => {
                               <img src={starimage} alt="justtheIconOfAStar" />
                             </span>
                             <p className="initialprice"> 4.56 (132 reviews) </p>
-                          </div>  
+                          </div>   */}
                         </div>
                       </div>
                       </Link>
@@ -244,6 +243,10 @@ export const EstoreDashboard = ({ title }) => {
                   )}
               </div>
             </div>
+
+            <button type="button">
+              See all Registered Stores
+            </button>
 
           </section>
         )}

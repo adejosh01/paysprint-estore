@@ -24,59 +24,12 @@ export const ProductDetails = ({ title }) => {
     });
 
 
-    }, [apiUrl, productCode]);
+    }, [apiUrl, productCode, title]);
 
     // console.log(specificProduct);
 
     return (
         <div className="estore-container">
-
-                {/* {Array.isArray(specificProduct) ? (specificProduct.map((item, index) => (
-                    <section className='oneproduct'>
-                        <div className='imagessection'>
-                            <div className="themainimage" key={index}>
-                                <img src={item.product.image} alt="myStoreImage" />
-                            </div>
-
-                            <div className="otherimages">
-                                <img src={item.product.image} alt="myStoreImage" />
-                            </div>
-                        </div>
-
-                        <div className="describingtheimages">
-                            <h2> {item.product.productName}</h2>
-                            <div className='longpiece'>
-                                <h4> Description</h4>
-                                <p> {typeof item.product.description === 'string' ? stripHtmlTags(item.product.description) : item.product.description} </p> 
-                                <div className='ratings'>
-                                    <span>
-                                        <img src={starimage} alt="justtheIconOfAStar" />
-                                        <img src={starimage} alt="justtheIconOfAStar" />
-                                        <img src={starimage} alt="justtheIconOfAStar" />
-                                        <img src={starimage} alt="justtheIconOfAStar" />
-                                        <img src={starimage} alt="justtheIconOfAStar" />
-                                    </span>
-                                    <p className="initialprice"> 4.56 (132 reviews) </p>
-                                </div>
-                            </div>
-                            
-                            <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {item.product.businessname} </span> </p>
-                            <p className='amount'> {item.product.currencySymbol + item.product.amount} </p>
-                            <div className='justbuttons'>
-                                <button type='button' id={`${item.product.productCode}`}> 
-                                    <a href='/mycart'> Add to cart </a>
-                                </button>
-                                <button type='button'> 
-                                    <Link href='#'> Buy now </Link>
-                                </button>
-                            </div>
-                        </div>
-                    </section>
-                ))
-                ) : (
-                    <div>Error: {error}</div>
-                )} */}
-
             {specificProduct.length !== 0 ? (
                 Array.isArray(specificProduct) ? (
                     specificProduct.map((item, index) => (
@@ -96,7 +49,7 @@ export const ProductDetails = ({ title }) => {
                                 <div className='longpiece'>
                                     <h4> Description</h4>
                                     <p> {typeof item.product.description === 'string' ? stripHtmlTags(item.product.description) : item.product.description} </p> 
-                                    <div className='ratings'>
+                                    {/* <div className='ratings'>
                                         <span>
                                             <img src={starimage} alt="justtheIconOfAStar" />
                                             <img src={starimage} alt="justtheIconOfAStar" />
@@ -105,7 +58,7 @@ export const ProductDetails = ({ title }) => {
                                             <img src={starimage} alt="justtheIconOfAStar" />
                                         </span>
                                         <p className="initialprice"> 4.56 (132 reviews) </p>
-                                    </div>
+                                    </div> */}
                                 </div>
                                 
                                 <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {item.product.businessname} </span> </p>
