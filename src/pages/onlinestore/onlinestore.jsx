@@ -1,14 +1,10 @@
 import "./onlinestore.scss";
-import { useEffect } from "react";
-import product1 from "../../assets/images/estore/products/product1.png";
-import product2 from "../../assets/images/estore/products/product2.png";
-import product3 from "../../assets/images/estore/products/product3.png";
-import product4 from "../../assets/images/estore/products/product4.png";
+import { useEffect, useState } from "react";
 import arrowupright from "assets/icons/arrow-up-right.png";
-import { BottomNav } from "components/bottom-navs";
 import { Link } from "react-router-dom";
 import { SideBarCategories } from "components/sidebarCategories/sidebarCategories";
 import config from "../../config";
+import axios from "axios";
 
 export const OnlineStore = ({ title }) => {
   const [merchant, setMerchant] = useState([]);
@@ -17,6 +13,14 @@ export const OnlineStore = ({ title }) => {
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
+
+    axios.get(`${apiUrl}/ashopree/stores/online`)
+      .then(response => {
+        setMerchant(response.data.data);
+        // console.log(response.data.data);
+      }).catch(error => {
+        console.error('Error fetching Trending Services data: ' + error.message);
+      });
 
   }, [apiUrl, title]);
 
@@ -48,7 +52,6 @@ export const OnlineStore = ({ title }) => {
                   </div>
 
               </div>
-
         </section>
 
        <section className="nextup">
@@ -112,9 +115,6 @@ export const OnlineStore = ({ title }) => {
             
 
             <div className="submain">
-
-              {/* <BottomNav /> */}
-
               <div className="alertmsg">
                 <div>
                   <p> Are you a store owner?, or do you want to list your products / services on Ashopree? </p>
@@ -125,11 +125,9 @@ export const OnlineStore = ({ title }) => {
                   Create Merchant account
                 </button>
               </div>
-              
             </div>
-
+            
           </div>
-
        </section>
 
     </div>
