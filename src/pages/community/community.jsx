@@ -6,6 +6,7 @@ import { BottomNav } from "components/bottom-navs";
 import CategoriesData from "utils/allcategories/categories";
 import { communityTogglePages, handleClick } from "utils/utils";
 import { useNavigate } from "react-router-dom";
+import Toggle from "components/toggleBtnsOnly/toggle";
 
 
 export const Community = ({ title }) => {
@@ -56,15 +57,15 @@ export const Community = ({ title }) => {
                         {isOpen && (
                             <div className="settingsDetails">
                                 <div className="all-categories">
-                                    <p> New Products Listed </p>
-                                    <p> New Store available </p>
-                                    <p> New Question submitted </p>
-                                    <p> New Answer submitted </p>
-                                    <p> New Product price </p>
-                                    <p> Price Reduction </p>
-                                    <p> New Partner </p>
-                                    <p> New Tags </p>
-                                    <p> All </p>
+                                    <p> New Products Listed <Toggle /> </p>
+                                    <p> New Store available <Toggle /> </p> 
+                                    <p> New Question submitted <Toggle /> </p>
+                                    <p> New Answer submitted <Toggle /> </p>
+                                    <p> New Product price <Toggle /> </p>
+                                    <p> Price Reduction <Toggle /> </p>
+                                    <p> New Partner <Toggle /> </p>
+                                    <p> New Tags <Toggle /> </p>
+                                    <p> All <Toggle /> </p>
                                 </div>
                             </div>
                         )}

@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-// import paysprintLogo from "assets/svg/new_logo.svg";
-import paysprintNewLogo from "assets/ashopree/edited_ashopree_logo1.jpg";
+import paysprintNewLogo from "assets/updatedAshopree/edited_ashopree_header_logo.jpg";
+import moblieLogo from "assets/updatedAshopree/moblie_logo.png";
 import hamburgerIcon from "assets/svg/hamburger.svg";
 import "./estoreHeader.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -9,11 +9,6 @@ import { useEffect, useState } from "react";
 import { getConditionalClassName } from "utils/utils";
 import { Link, NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import passwordIcon from 'assets/icons/profile/passwordIcon.png';
-import clip from 'assets/icons/profile/clipboard.png';
-import share from 'assets/icons/profile/share.png';
-import tag from 'assets/icons/profile/tag.png';
-import logout from 'assets/icons/profile/logout.png';
 import profileIcon from 'assets/icons/profile/profileIcon.png';
 import axios from "axios";
 
@@ -63,7 +58,7 @@ export const EstoreHeader = ({title}) => {
   return (
     <>
       <nav className="mobile-nav">
-        <img src={paysprintNewLogo} alt="" style={{ width: '25%' }} />  {/* Instead  of width: 150px*/}
+        <img src={moblieLogo} alt="" style={{ width: '25%' }} />  {/* Instead  of width: 150px*/}
         <div className="buttons">
           <Link to="/"> Home </Link>
           <button onClick={() => setIsMenuOpen(true)}>

@@ -55,7 +55,7 @@
                 }
                 .real-section {
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: column; 
                     gap: 2rem;
                     .welcome {
                         margin-top: 3rem;
@@ -105,11 +105,15 @@
                                 padding: 1.5rem;
                                 background-color: #fff;
                                 border: 1px solid rgba(0, 0, 0, .125);
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
                             }
                             p:hover {
                                 background-color: #4F0B92;
                                 color: #fff;
                             }
+                            
                         }
                     }
 
