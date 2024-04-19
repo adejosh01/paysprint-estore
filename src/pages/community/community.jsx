@@ -64,10 +64,10 @@ export const Community = ({ title }) => {
                                     </p>
                                     <p> New Store available
                                         <div className="toggle-parent">
-                                            <input type="checkbox" id="check" />
+                                            <input type="checkbox" id="check" /> 
                                             <label for="check" className="button"></label>
                                         </div> 
-                                     </p>
+                                     </p> 
                                     <p> New Question submitted
                                         <div className="toggle-parent">
                                             <input type="checkbox" id="check" />

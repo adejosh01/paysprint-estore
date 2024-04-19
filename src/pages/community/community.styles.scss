@@ -55,7 +55,7 @@
                 }
                 .real-section {
                     display: flex;
-                    flex-direction: column;
+                    flex-direction: column; 
                     gap: 2rem;
                     .welcome {
                         margin-top: 3rem;
@@ -149,6 +149,18 @@
                             }
                             
                         }
+                        .toggle-button {
+                            background-color: #ccc;
+                            border: none;
+                            padding: 10px 20px;
+                            cursor: pointer;
+                            outline: none;
+                            transition: background-color 0.3s ease;
+                          
+                            &.active {
+                              background-color: #99cc00;
+                            }
+                          }
                     }
 
                     .split-to-two {
