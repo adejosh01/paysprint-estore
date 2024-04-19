@@ -6,6 +6,7 @@ import { BottomNav } from "components/bottom-navs";
 import CategoriesData from "utils/allcategories/categories";
 import { communityTogglePages, handleClick } from "utils/utils";
 import { useNavigate } from "react-router-dom";
+import Toggle from "components/toggleBtnsOnly/toggle";
 
 
 export const Community = ({ title }) => {
@@ -56,60 +57,15 @@ export const Community = ({ title }) => {
                         {isOpen && (
                             <div className="settingsDetails">
                                 <div className="all-categories">
-                                    <p> New Products Listed 
-                                        <div className="toggle-parent">
-                                            <input type="checkbox" id="check" />
-                                            <label for="check" className="button"></label>
-                                        </div> 
-                                    </p>
-                                    <p> New Store available
-                                        <div className="toggle-parent">
-                                            <input type="checkbox" id="check" /> 
-                                            <label for="check" className="button"></label>
-                                        </div> 
-                                     </p> 
-                                    <p> New Question submitted
-                                        <div className="toggle-parent">
-                                            <input type="checkbox" id="check" />
-                                            <label for="check" className="button"></label>
-                                        </div> 
-                                     </p>
-                                    <p> New Answer submitted
-                                        <div className="toggle-parent">
-                                            <input type="checkbox" id="check" />
-                                            <label for="check" className="button"></label>
-                                        </div> 
-                                     </p>
-                                    <p> New Product price
-                                        <div className="toggle-parent">
-                                            <input type="checkbox" id="check" />
-                                            <label for="check" className="button"></label>
-                                        </div> 
-                                     </p>
-                                    <p> Price Reduction
-                                        <div className="toggle-parent">
-                                            <input type="checkbox" id="check" />
-                                            <label for="check" className="button"></label>
-                                        </div> 
-                                     </p>
-                                    <p> New Partner
-                                        <div className="toggle-parent">
-                                            <input type="checkbox" id="check" />
-                                            <label for="check" className="button"></label>
-                                        </div> 
-                                     </p>
-                                    <p> New Tags
-                                        <div className="toggle-parent">
-                                            <input type="checkbox" id="check" />
-                                            <label for="check" className="button"></label>
-                                        </div> 
-                                     </p>
-                                    <p> All
-                                        <div className="toggle-parent">
-                                            <input type="checkbox" id="check" />
-                                            <label for="check" className="button"></label>
-                                        </div> 
-                                     </p>
+                                    <p> New Products Listed <Toggle /> </p>
+                                    <p> New Store available <Toggle /> </p> 
+                                    <p> New Question submitted <Toggle /> </p>
+                                    <p> New Answer submitted <Toggle /> </p>
+                                    <p> New Product price <Toggle /> </p>
+                                    <p> Price Reduction <Toggle /> </p>
+                                    <p> New Partner <Toggle /> </p>
+                                    <p> New Tags <Toggle /> </p>
+                                    <p> All <Toggle /> </p>
                                 </div>
                             </div>
                         )}
