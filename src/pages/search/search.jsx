@@ -8,12 +8,12 @@ import { handleClick } from "utils/utils";
 import { useNavigate } from "react-router-dom";
 import { stripHtmlTags } from 'utils/utils';
 import config from "../../config";
+import { SideBarCategories } from "components/sidebarCategories/sidebarCategories";
 
 
 
 export const Search = ({ title }) => {
   const [searchItem, setData] = useState([]);
-  const [itemCategory, setCategory] = useState([]);
   const apiUrl = config().baseUrl;
   const navigate = useNavigate();
   const queryString = window.location.search;
@@ -31,13 +31,6 @@ export const Search = ({ title }) => {
     }).catch(error => {
       console.error('Error fetching data:', error);
     });
-
-    axios.get(`${apiUrl}/ashopree/product/category`)
-      .then(response => {
-        setCategory(response.data.data);
-      }).catch(error => {
-        console.error('Error fetching Product category: ' + error.message);
-      });
 
   }, [apiUrl, title, category, query]);
 
@@ -70,23 +63,7 @@ export const Search = ({ title }) => {
         </section>
 
        <section className="nextup">
-          <div className="sidebar">
-            <h4> Store Category</h4>
-
-          {itemCategory.length > 0 ? (
-              <div style={{  display: 'flex', flexDirection: 'column' , padding: '2rem 2rem', gap: '4rem' }}>
-                  {Array.isArray(itemCategory) && itemCategory.map((item, index) => (
-                    <div>
-                      <p key={index}>{item.category}</p>
-                    </div>
-                  ))} 
-                      
-                  {!Array.isArray(itemCategory) && <div>Error: Sorry, Please check your network connection and try again</div>}
-              </div>
-            ) : (
-              <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading...... </p>
-            )}
-            </div>
+          <SideBarCategories />
 
           <div className="maincontent">
             <div className="titleandsearch">

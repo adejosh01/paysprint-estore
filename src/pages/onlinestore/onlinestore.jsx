@@ -1,17 +1,12 @@
 import "./onlinestore.scss";
 import { useEffect, useState } from "react";
-import product1 from "../../assets/images/estore/products/product1.png";
-import product2 from "../../assets/images/estore/products/product2.png";
-import product3 from "../../assets/images/estore/products/product3.png";
-import product4 from "../../assets/images/estore/products/product4.png";
 import arrowupright from "assets/icons/arrow-up-right.png";
-import { BottomNav } from "components/bottom-navs";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { SideBarCategories } from "components/sidebarCategories/sidebarCategories";
 import config from "../../config";
+import axios from "axios";
 
 export const OnlineStore = ({ title }) => {
-  const [categories, setData] = useState([]);
   const [merchant, setMerchant] = useState([]);
   const apiUrl = config().baseUrl;
 
@@ -19,17 +14,10 @@ export const OnlineStore = ({ title }) => {
     document.title = title;
     window.scrollTo(0, 0);
 
-    axios.get(`${apiUrl}/ashopree/product/category`) 
-    .then(response => {
-      setData(response.data.data);
-    }).catch(error => {
-      console.error('Error fetching data:', error);
-    });
-
     axios.get(`${apiUrl}/ashopree/stores/online`)
       .then(response => {
         setMerchant(response.data.data);
-        console.log(response.data.data);
+        // console.log(response.data.data);
       }).catch(error => {
         console.error('Error fetching Trending Services data: ' + error.message);
       });
@@ -58,34 +46,16 @@ export const OnlineStore = ({ title }) => {
                     <div className="searchItstore">
                         <input class="home" placeholder="Search for store" />
                         <button  className="searchbtnstore">
-                          {/* <img src={search} alt="searchIcon" /> */}
                           <svg style={{ marginLeft: '1.5rem' }} class="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
                         </button>
                     </div>
                   </div>
 
               </div>
-
         </section>
 
        <section className="nextup">
-          <div className="sidebar">
-            <h4> Store Category</h4>
-
-            {categories.length !== 0 ? (
-              <div style={{  display: 'flex', flexDirection: 'column' , padding: '2rem 2rem', gap: '4rem' }}>
-                  {Array.isArray(categories) && categories.map((item, index) => (
-                    <div>
-                      <p key={index}>{item.category}</p>
-                    </div>
-                  ))} 
-                      
-                  {!Array.isArray(categories) && <div>Error: Sorry, Please check your network connection and try again</div>}
-              </div>
-            ) : (
-              <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading...... </p>
-            )}
-            </div>
+          <SideBarCategories />
 
           <div className="maincontent">
 
@@ -145,9 +115,6 @@ export const OnlineStore = ({ title }) => {
             
 
             <div className="submain">
-
-              {/* <BottomNav /> */}
-
               <div className="alertmsg">
                 <div>
                   <p> Are you a store owner?, or do you want to list your products / services on Ashopree? </p>
@@ -158,11 +125,9 @@ export const OnlineStore = ({ title }) => {
                   Create Merchant account
                 </button>
               </div>
-              
             </div>
-
+            
           </div>
-
        </section>
 
     </div>

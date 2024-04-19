@@ -1,9 +1,9 @@
-// import "./allcategories.scss";
+import "./allcategories.scss";
 import { useEffect, useState } from "react";
 import starimage from "assets/images/star.png";
 import axios from "axios";
 import config from "../../config";
-import { Categories } from "components/categories";
+import { SideBarCategories } from "components/sidebarCategories/sidebarCategories";
 
 export const AllCategories = ({ title }) => {
   const [productCategory, setProductCategory] = useState([]);
@@ -25,15 +25,14 @@ export const AllCategories = ({ title }) => {
 
   // console.log(data);
 
-  }, [apiUrl, title]);
+  }, [apiUrl, title, category]);
 
 
   return (
     <div className="estore-container">
   
         <section className="allcats">
-          
-        <Categories />
+          <SideBarCategories />
 
           <div className="maincontent">
             <div className="homeandoffice">
@@ -45,7 +44,6 @@ export const AllCategories = ({ title }) => {
               <div className="items">
 
               {
-                
                 productCategory.status === 200 ? (
                   productCategory.data.length > 0 ? (
                     <>
@@ -72,8 +70,8 @@ export const AllCategories = ({ title }) => {
                       ))}
                     </>
                   ) : (
-                    <p>
-                      No product found for this category.
+                    <p style={{ width: '135%' }}>
+                      No product found for this category. Please select another category
                     </p>
                   )
                 ) : (
@@ -81,22 +79,13 @@ export const AllCategories = ({ title }) => {
                 )
               }
 
-              
-
-                  
               </div>
-
-
             </div>
 
-
           {/* <BottomNav /> */}
-
           </div>
-
        </section>
        
-
     </div>
 
   );
