@@ -1,19 +1,11 @@
-import { BottomNav } from "components/bottom-navs";
 import "./allcategories.scss";
 import { useEffect, useState } from "react";
 import starimage from "assets/images/star.png";
-import chair from "assets/images/estore/allcategories/category1.png";
-import secondchair from "assets/images/estore/allcategories/category2.png";
-import thirdchair from "assets/images/estore/allcategories/category3.png";
-import gadget from "assets/images/estore/allcategories/category4.png";
-import secondgadget from "assets/images/estore/allcategories/category5.png";
-import thirdgadget from "assets/images/estore/allcategories/category6.png";
 import axios from "axios";
 import config from "../../config";
-import { Link } from "react-router-dom";
+import { SideBarCategories } from "components/sidebarCategories/sidebarCategories";
 
 export const AllCategories = ({ title }) => {
-  const [data, setData] = useState([]);
   const [productCategory, setProductCategory] = useState([]);
   const apiUrl = config().baseUrl;
   const queryString = window.location.search;
@@ -24,13 +16,6 @@ export const AllCategories = ({ title }) => {
     document.title = title;
     window.scrollTo(0, 0);
 
-    axios.get(`${apiUrl}/ashopree/product/category`) 
-    .then(response => {
-      setData(response.data.data);
-    }).catch(error => {
-      console.error('Error fetching data:', error);
-    });
-
     axios.get(`${apiUrl}/ashopree/product/category/${category}`) 
     .then(response => {
       setProductCategory(response.data);
@@ -40,32 +25,14 @@ export const AllCategories = ({ title }) => {
 
   // console.log(data);
 
-  }, [apiUrl, title]);
+  }, [apiUrl, title, category]);
 
 
   return (
     <div className="estore-container">
   
         <section className="allcats">
-          <div className="sidebar">
-            <h4> Category</h4>
-            {data.length !== 0 ? (
-              <div>
-                  {Array.isArray(data) && data.map((item, index) => (
-                    <a href={`/allcategories?categoryname=${item.category}`} key={index}>
-                      <div>
-                        <p >{item.category}</p>
-                      </div>
-                    </a>
-                  ))} 
-                      
-                  {!Array.isArray(data) && <div>Error: Sorry, Please check your network connection and try again</div>}
-              </div>
-            ) : (
-
-              <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading... </p>
-            )}
-          </div>
+          <SideBarCategories />
 
           <div className="maincontent">
             <div className="homeandoffice">
@@ -77,7 +44,6 @@ export const AllCategories = ({ title }) => {
               <div className="items">
 
               {
-                
                 productCategory.status === 200 ? (
                   productCategory.data.length > 0 ? (
                     <>
@@ -104,8 +70,8 @@ export const AllCategories = ({ title }) => {
                       ))}
                     </>
                   ) : (
-                    <p>
-                      No product found for this category.
+                    <p style={{ width: '135%' }}>
+                      No product found for this category. Please select another category
                     </p>
                   )
                 ) : (
@@ -113,22 +79,13 @@ export const AllCategories = ({ title }) => {
                 )
               }
 
-              
-
-                  
               </div>
-
-
             </div>
 
-
           {/* <BottomNav /> */}
-
           </div>
-
        </section>
        
-
     </div>
 
   );
