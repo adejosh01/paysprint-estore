@@ -65,7 +65,7 @@ export const Contact = ({ title }) => {
               <h3> Contact </h3>
               <div className="address">
                 <p> Location </p>
-                <p> PaySprint Inc. <br /> WaterPark Place, 20 Bay Street, 11th Floor, <br />  Toronto, ON M5J 2N8 Canada </p>
+                <p> Ashopree Inc. <br /> 304-2250 Bovaird Drive East, Brampton, <br />  ON L6R 0W3, Canada. </p>
               </div>
             </div>
 
