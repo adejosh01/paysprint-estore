@@ -49,7 +49,7 @@ export const to2DecimalPlaces = (num) => Number(num).toFixed(2);
 
 export function handleClick(destination, navigate) {
   navigate(destination);
-  console.log(`Going to ${destination}`);
+  // console.log(`Going to ${destination}`);
 }
 
 export function stripHtmlTags(html) {

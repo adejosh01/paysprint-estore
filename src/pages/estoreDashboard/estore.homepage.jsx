@@ -203,7 +203,7 @@ export const EstoreDashboard = ({ title }) => {
                         <div className="imgdescription">
                           <p className="nameofitem">{item.productName}</p>
                             <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)}</p>
-                          <div>
+                          {/* <div>
                             <span>
                               <img src={starimage} alt="justtheIconOfAStar" />
                               <img src={starimage} alt="justtheIconOfAStar" />
@@ -212,7 +212,7 @@ export const EstoreDashboard = ({ title }) => {
                               <img src={starimage} alt="justtheIconOfAStar" />
                             </span>
                             <p className="initialprice"> 4.56 (132 reviews) </p>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                       </Link>
