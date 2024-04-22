@@ -7,7 +7,8 @@ import { useNavigate } from "react-router-dom";
 import { handleClick } from "utils/utils";
 
 
-const firstCategory = ["Member Categories", "Community Associates", "Potential Store Owners", "Inactive Store Owners", "Store Under Construction", "Upcoming Stores", "Stores Available"];
+const firstCategory = ["Members Category", "Listed Shops", "Listed Products", "Listed Partners"];
+const membersCategory = ["Stores Available", "Inactive Store Owners", "Upcoming Stores", "Community Associates"];
 
 export const AskQuestions = ({ title }) => {
     const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
@@ -83,12 +84,20 @@ export const AskQuestions = ({ title }) => {
                                     <div>
                                         <p> Select Sub-Categories <span> * </span> </p>
                                         <select value={selectedSubCategories} onChange={handleSubCategoryChange} name="sub-categories" id="" required>
-                                            <option value=""> Select Specific </option>
-                                            {categories.map((theSubCats, index) => (
-                                                <option key={index} value={theSubCats.category} >
-                                                    {theSubCats.category}
-                                                </option>
-                                            ))}
+                                            <option value=""> Please select a specific sub-category </option>
+                                                {selectedCategory === "Members Category" ? (
+                                                    membersCategory.map((category, index) => (
+                                                        <option key={index} value={category}>
+                                                            {category}
+                                                        </option>
+                                                    ))
+                                                ) : (
+                                                    categories.map((theSubCats, index) => (
+                                                        <option key={index} value={theSubCats.category}>
+                                                            {theSubCats.category}
+                                                        </option>
+                                                    ))
+                                                )}
                                         </select>
                                     </div>
                                 )}
