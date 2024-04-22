@@ -18,6 +18,27 @@ export const Community = ({ title }) => {
     setIsOpen(!isOpen);
   };
 
+  const [allChecked, setAllChecked] = useState(false);
+  const [individualToggles, setIndividualToggles] = useState({ productsListed: false, storeAvailable: false, questionSubmitted: false, answerSubmitted: false, productPrice: false, priceReduction: false, partner: false, tags: false, });
+
+  const handleAllToggle = () => {
+    setAllChecked(!allChecked);
+    setIndividualToggles(prevState => {
+      const newState = {};
+      for (const key in prevState) {
+        newState[key] = !allChecked;
+      }
+      return newState;
+    });
+  };
+
+  const handleSingleToggle = (toggleName) => {
+    setIndividualToggles(prevState => ({
+      ...prevState,
+      [toggleName]: !prevState[toggleName],
+    }));
+  };
+
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
@@ -39,7 +60,7 @@ export const Community = ({ title }) => {
                     </div>
 
                     <div className="real-section">
-                        <p className="welcome"> Good day! Welcome to Ashopree's Community.👏 </p>
+                        <p className="welcome"> Good day! Welcome to aShopree's Community.👏 </p>
 
                         <div className="tags">
                             <div className="mini-navs">
@@ -57,15 +78,15 @@ export const Community = ({ title }) => {
                         {isOpen && (
                             <div className="settingsDetails">
                                 <div className="all-categories">
-                                    <p> New Products Listed <Toggle /> </p>
-                                    <p> New Store available <Toggle /> </p> 
-                                    <p> New Question submitted <Toggle /> </p>
-                                    <p> New Answer submitted <Toggle /> </p>
-                                    <p> New Product price <Toggle /> </p>
-                                    <p> Price Reduction <Toggle /> </p>
-                                    <p> New Partner <Toggle /> </p>
-                                    <p> New Tags <Toggle /> </p>
-                                    <p> All <Toggle /> </p>
+                                    <p> New Products Listed <Toggle checked={individualToggles.productsListed} onChange={() => handleSingleToggle('productsListed')} /> </p>
+                                    <p> New Store available <Toggle checked={individualToggles.storeAvailable} onChange={() => handleSingleToggle('storeAvailable')} /> </p> 
+                                    <p> New Question submitted <Toggle checked={individualToggles.questionSubmitted} onChange={() => handleSingleToggle('questionSubmitted')} /> </p>
+                                    <p> New Answer submitted <Toggle checked={individualToggles.answerSubmitted} onChange={() => handleSingleToggle('answerSubmitted')} /> </p>
+                                    <p> New Product price <Toggle checked={individualToggles.productPrice} onChange={() => handleSingleToggle('productPrice')} /> </p>
+                                    <p> Price Reduction <Toggle checked={individualToggles.priceReduction} onChange={() => handleSingleToggle('priceReduction')} /> </p>
+                                    <p> New Partner <Toggle checked={individualToggles.partner} onChange={() => handleSingleToggle('partner')} /> </p>
+                                    <p> New Tags <Toggle checked={individualToggles.tags} onChange={() => handleSingleToggle('tags')} /> </p>
+                                    <p> All <Toggle checked={allChecked} onChange={handleAllToggle} /> </p>
                                 </div>
                             </div>
                         )}
@@ -139,13 +160,12 @@ export const Community = ({ title }) => {
 
                             <div className="all-categories">
                                 <h4> Member Categories </h4>
-                                <p> Community Associates </p>
-                                <p> Potential Store Owners </p>
-                                <p> Inactive Store Owners </p>
-                                <p> Store Under Construction </p>
-                                <p> Upcoming Stores </p>
                                 <p> Stores Available </p>
-                                {/* <CategoriesData /> */}
+                                <p> Inactive Store Owners </p>
+                                <p> Upcoming Stores </p>
+                                <p> Community Associates </p>
+                                {/* <p> Potential Store Owners </p> */}
+                                {/* <p> Store Under Construction </p> */}
                             </div>
                         </div>
 

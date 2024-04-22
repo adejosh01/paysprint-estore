@@ -1,14 +1,17 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './success.style.scss';
 import { useEffect } from 'react';
 import successIcon from 'assets/icons/success.png';
 import coke from 'assets/images/estore/productDetails/cokesecond.png';
 import sneakers from 'assets/images/estore/rectangle-23.png';
+import { handleClick } from 'utils/utils';
 
 
 
 
 export const SuccessfulOrder = ({title}) => {
+    const navigate = useNavigate();
+
     useEffect(() => {
         document.title = title;
         window.scrollTo(0, 0);
@@ -81,10 +84,8 @@ export const SuccessfulOrder = ({title}) => {
                                         <p> #12,000.00 </p>
                                     </div>
                                 </div>
-                                <button type='button'> 
-                                    <Link to={'/estore'}>
-                                        <p> Continue Shopping </p>
-                                    </Link> 
+                                <button type='button' onClick={ () => handleClick('/onlinestore', navigate)}> 
+                                    <p> Continue Shopping </p>
                                 </button>
                             </div>
                         </div>

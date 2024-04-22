@@ -1,6 +1,6 @@
 import "./estore.homepage.scss";
 import { useEffect, useState } from "react";
-import starimage from "assets/images/star.png";
+// import starimage from "assets/images/star.png";
 import office from "assets/images/estore/topCategories/Office.png";
 import electronic from "assets/images/estore/topCategories/Electronics.png";
 import desktops from "assets/images/estore/topCategories/desktop.png";
@@ -74,11 +74,6 @@ export const EstoreDashboard = ({ title }) => {
 
 }, [apiUrl, title]);
 
-  // hotDeals.map((item, index) => (
-  //   console.log(item.productCode)
-  // ))
-// console.log(hotDeals.productCode);  210720
-
   const [isSubMenuOpen] = useState(false);
 
   return (
@@ -118,13 +113,12 @@ export const EstoreDashboard = ({ title }) => {
                                     <p> Loading Categories </p> 
                                 )}
                             </div>
-                <input className="home" type="text" name="query" placeholder="Search for a product, service, or online store" value={value} onChange={e => setValue(e.target.value)} />
+                            <input className="home" type="text" name="query" placeholder="Search for a product, service, or online store" value={value} onChange={e => setValue(e.target.value)} />
                             <button type="submit" className="searchbtn" onClick={ () => onsubmit}>
                                 <svg style={{ marginLeft: '1.5rem' }} className="search-alt" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M16.6725 16.6412L21 21M19 11C19 15.4183 15.4183 19 11 19C6.58172 19 3 15.4183 3 11C3 6.58172 6.58172 3 11 3C15.4183 3 19 6.58172 19 11Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path></svg>
                             </button>
                         </form>
                     </div>
-
                   </div>
 
                   <div class="buttons">
@@ -133,9 +127,9 @@ export const EstoreDashboard = ({ title }) => {
                           Array.isArray(categories) ? (
                             <p style={{ display: 'contents' }}>
                               {categories.slice(Math.floor(Math.random() * 5) + 0, 6).map((item, index) => (
-                                <button type="button">
+                                <a href={`/allcategories?categoryname=${item.category}`}>
                                   <p>{item.category}</p>
-                                </button>
+                                </a>
                                 
                               ))}
                             </p>
@@ -171,25 +165,6 @@ export const EstoreDashboard = ({ title }) => {
           <section className="topdeals">
             <p className="dealtitle"> Hottest Deals </p>
 
-            {/* <div className="items">
-                {Array.isArray(hotDeals) ? (
-                  hotDeals.map((item, index) => (
-                  <Link to={`/productdetails/${item.productCode}`} key={index}>
-                    <div className="eachItem" key={index}>
-                      <img src={item.image} alt="eachImage" />
-                      <div className="imgdescription">
-                        <p className="nameofitem">{item.productName}</p>
-                          <p className="priceofitem">{item.currencySymbol + Number(item.amount).toFixed(2)}</p>
-                          <p className="initialprice">{item.currencySymbol + Number(item.previousAmount).toFixed(2)}</p>
-                      </div>
-                    </div>
-                  </Link>
-                  ))
-                ) : (
-                  <div>Error: Sorry, Please check your network connection and try again</div>
-                )}
-            </div> */}
-
             <div className="items">
                 {Array.isArray(hotDeals) ? (
                   hotDeals.map((item, index) => (
@@ -219,7 +194,6 @@ export const EstoreDashboard = ({ title }) => {
               <p className="secondtitle"> See all Products </p>
             </div>
 
-
             <div className="items">
                 {Array.isArray(topProducts) ? (
                     topProducts.map((item, index) => (
@@ -238,7 +212,7 @@ export const EstoreDashboard = ({ title }) => {
                               <img src={starimage} alt="justtheIconOfAStar" />
                             </span>
                             <p className="initialprice"> 4.56 (132 reviews) </p>
-                          </div>  
+                          </div>
                         </div>
                       </div>
                       </Link>
@@ -269,6 +243,10 @@ export const EstoreDashboard = ({ title }) => {
                   )}
               </div>
             </div>
+
+            <button type="button">
+              See all Registered Stores
+            </button>
 
           </section>
         )}

@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import starimage from "assets/images/star.png";
 import config from "../../config";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { handleClick } from "utils/utils";
 
 export const Personalstore = ({ title }) => {
   const apiUrl = config().baseUrl;
@@ -11,6 +12,7 @@ export const Personalstore = ({ title }) => {
   const queryString = window.location.pathname;
   const urlId = queryString.split("/");
   const merchantId = urlId[2];
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title;
@@ -23,7 +25,7 @@ export const Personalstore = ({ title }) => {
         console.error(error);
       });
 
-  }, [apiUrl, title]);
+  }, [apiUrl, title, merchantId]);
 
 
   return (
@@ -36,29 +38,24 @@ export const Personalstore = ({ title }) => {
               <div className="describeProds">
                   <div className="b4Everything">
 
+                    <div className="titleOnly">
+                      <h2> Welcome to </h2>
+                    </div>
 
-                  <div className="titleOnly">
-                    <h2> Welcome to </h2>
+                    <div className="headerStuffs">
+                      <img src={merchantStore[0].storeDetail?.businessLogo} alt={merchantStore[0].storeDetail?.headerTitle} />
+                      <p>{merchantStore[0].storeDetail?.headerTitle} </p>
+                    </div>
+
+                    <div className="btnandtext">
+                      <p> {merchantStore[0].storeDetail?.headerSubtitle} </p>
+                      <button type="button" onClick={() => handleClick('/messages', navigate)} >
+                        Connect Now
+                      </button>
+                    </div>
+                  
                   </div>
-
-                  <div className="headerStuffs">
-                    <img src={merchantStore[0].storeDetail?.businessLogo} alt={merchantStore[0].storeDetail?.headerTitle} />
-                    <p>{merchantStore[0].storeDetail?.headerTitle} </p>
-                  </div>
-
-                  <div className="btnandtext">
-                    <p> {merchantStore[0].storeDetail?.headerSubtitle} </p>
-                    <button>
-                      Order a service
-                    </button>
-                  </div>
-                     
-
-
-                  </div>
-
               </div>
-
         </section>
 
           </>
@@ -70,18 +67,15 @@ export const Personalstore = ({ title }) => {
         <section className="ourproducts">
           <div className="producttitle">
             <p className="realtitle"> Our Products </p>
-            {/* <p className="secondtitle"> See all Products </p> */}
+            <p className="secondtitle"> See all Products </p>
           </div>
         <div className="items">
           {
             merchantStore.length > 0 ? 
             (
             <>
-              {
-
-                    merchantStore[0].products.length > 0 ? (
+              { merchantStore[0].products.length > 0 ? (
                       merchantStore[0].products.map((item, index) => (
-
                         <Link to={`/productdetails/${item.productCode}`} key={index}>
                           <div className="eachItem">
                             <img src={item.image} alt={item.productName} />
@@ -101,13 +95,10 @@ export const Personalstore = ({ title }) => {
                             </div>
                           </div>
                         </Link>
-
                       ))
                     ) : (
                       <p>No Products available yet ...</p>
                     )
-
-
               }
             </>
           ) : (

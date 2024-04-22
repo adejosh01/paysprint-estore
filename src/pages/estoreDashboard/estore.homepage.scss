@@ -142,7 +142,8 @@
           display: flex;
           gap: 22px;
           padding-top: 3rem;
-          button {
+          width: 100%;
+          button, a {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -272,6 +273,10 @@
     section.registered {
       padding: 5rem 5.6rem;
       background-color: #2D334A;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
       h3 {
         font-family: 'Plus Jakarta Sans';
         font-weight: 600;
@@ -308,6 +313,17 @@
             }
           }
         }
+      }
+      button {
+        text-align: center;
+        padding: 1.5rem 7rem;
+        font-size: 20px;
+        font-weight: 500;
+        font-family: "Plus Jakarta Sans";
+        color: #4F0B92;
+        background-color: #fff;
+        border: 2px solid #4F0B92;
+        border-radius: 1rem;
       }
     }
     
@@ -692,6 +708,9 @@
           .firstSection {
             grid-template-columns: repeat(2, 1fr);
           }
+        }
+        button {
+          padding: 1.5rem 5rem;
         }
       }
 
