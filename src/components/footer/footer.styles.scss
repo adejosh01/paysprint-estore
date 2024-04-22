@@ -18,11 +18,20 @@ footer {
         gap: 32px;
         display: flex;
         flex-direction: column;
-        li a {
-          font: 500 16px 'Lato';
-          img {
-            width: 21px;
-          }
+        li {
+            a {
+              font: 500 16px 'Lato';
+              img {
+                width: 21px;
+              }
+            }
+            p {
+              font: 500 16px 'Lato';
+              cursor: not-allowed;
+              img {
+                width: 21px;
+              }
+            }
         }
       }
       h5 {
@@ -44,9 +53,21 @@ footer {
           gap: 32px;
           display: flex;
           flex-direction: column;
-          li a {
-            font: 500 16px 'Lato';
-          }
+          li {
+            a {
+              font: 500 16px 'Lato';
+              img {
+                width: 21px;
+              }
+            }
+            p {
+              font: 500 16px 'Lato';
+              cursor: not-allowed;
+              img {
+                width: 21px;
+              }
+            }
+        }
         }
       }
     }

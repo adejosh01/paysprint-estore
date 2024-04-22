@@ -98,7 +98,7 @@ export const ProductDetails = ({ title }) => {
                                             <div className="imgdescription">
                                                 <p className="nameofitem">{singleProduct.productName}</p>
                                                 <p className="priceofitem">{singleProduct.currencySymbol + Number(singleProduct.amount).toFixed(2)}</p>
-                                                <div>
+                                                {/* <div>
                                                     <span>
                                                         <img src={starimage} alt="justtheIconOfAStar" />
                                                         <img src={starimage} alt="justtheIconOfAStar" />
@@ -107,7 +107,7 @@ export const ProductDetails = ({ title }) => {
                                                         <img src={starimage} alt="justtheIconOfAStar" />
                                                     </span>
                                                     <p className="initialprice">4.56 132(reviews)</p>
-                                                </div>
+                                                </div> */}
                                             </div>
                                         </div>
                                     </Link>
