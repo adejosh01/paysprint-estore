@@ -172,7 +172,7 @@ export const EstoreDashboard = ({ title }) => {
                     <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt="itemImage" src={item.image} />} >
                       <div className="imgdescription">
                         <p className="nameofitem">{item.productName}</p>
-                          <p className="priceofitem">{item.currencySymbol + Number(item.amount).toFixed(2)}</p>
+                          <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)}</p>
                           <p className="initialprice">{item.currencySymbol + Number(item.previousAmount).toFixed(2)}</p>
                       </div>
                     </Card>
@@ -202,8 +202,8 @@ export const EstoreDashboard = ({ title }) => {
                         <img className="prodImage" src={item.image} alt="eachImage" />
                         <div className="imgdescription">
                           <p className="nameofitem">{item.productName}</p>
-                          <p className="priceofitem">{item.currencySymbol + Number(item.amount).toFixed(2)}</p>
-                          {/* <div>
+                            <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)}</p>
+                          <div>
                             <span>
                               <img src={starimage} alt="justtheIconOfAStar" />
                               <img src={starimage} alt="justtheIconOfAStar" />
@@ -212,7 +212,7 @@ export const EstoreDashboard = ({ title }) => {
                               <img src={starimage} alt="justtheIconOfAStar" />
                             </span>
                             <p className="initialprice"> 4.56 (132 reviews) </p>
-                          </div>   */}
+                          </div>
                         </div>
                       </div>
                       </Link>

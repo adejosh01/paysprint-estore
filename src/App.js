@@ -23,12 +23,15 @@ import { Community } from "pages/community/community";
 import { AskQuestions } from "pages/askQuestions/askquestions";
 import { Search } from "pages/search/search";
 import { Contact } from "pages/contact/contact";
+import AuthProvider from "hook/AuthProvider";
 
 function App() {
 
     return (
       <div className="app-container"> 
         <EstoreHeader />
+
+        <AuthProvider>
           <Routes>
             <Route path="/" exact element={<EstoreDashboard title="Ashopree | Homepage" />} />
             <Route path="/onlinestore" exact element={<OnlineStore title="Ashopree | Estore" />} />
@@ -51,6 +54,8 @@ function App() {
             <Route path='/contact' exact element={<Contact title="Ashopree | Contact Us" />} />
             <Route path='*' exact={true} element={<NotFound404 title={"Ashopree | 404 Not Found"} />} />
           </Routes>
+        </AuthProvider>
+          
         <EstoreFooter />
       </div>
     ); 
