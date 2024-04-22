@@ -24,6 +24,7 @@ import { AskQuestions } from "pages/askQuestions/askquestions";
 import { Search } from "pages/search/search";
 import { Contact } from "pages/contact/contact";
 import AuthProvider from "hook/AuthProvider";
+import { Login } from "pages/login/login";
 
 function App() {
 
@@ -52,6 +53,7 @@ function App() {
             <Route path="/askquestions" exact element={<AskQuestions title="Ashopree | Ask Questions " />} />
             <Route path='/search' exact element={<Search title="Ashopree | Searched Items" />} />
             <Route path='/contact' exact element={<Contact title="Ashopree | Contact Us" />} />
+            <Route path='/login' exact element={<Login title="Ashopree | Login" />} />
             <Route path='*' exact={true} element={<NotFound404 title={"Ashopree | 404 Not Found"} />} />
           </Routes>
         </AuthProvider>

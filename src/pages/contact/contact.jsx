@@ -1,6 +1,5 @@
 import "./contact.scss";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect } from "react";
 import { handleClick } from "utils/utils";
 import { useNavigate } from "react-router-dom";
 
@@ -8,26 +7,14 @@ import { useNavigate } from "react-router-dom";
 
 
 export const Contact = ({ title }) => {
-  const [setData] = useState([]);
-  const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
   const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
 
-    axios.get(`${apiUrl}/ashopree/product/category`) 
-    .then(response => {
-      setData(response.data.data);
-    })
+  }, [title]);
 
-    .catch(error => {
-      console.error('Error fetching data:', error);
-    });
-
-  }, [apiUrl, title, setData]);
-
-  // console.log(categories);
 
 
   return (
