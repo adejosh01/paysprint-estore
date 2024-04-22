@@ -57,7 +57,7 @@ export const AskQuestions = ({ title }) => {
                     </div>
                    
                     <div className="real-section">
-                        <p className="welcome"> Good day! Welcome to Ashopree community.👏 </p>
+                        <p className="welcome"> Good day! Welcome to aShopree community.👏 </p>
                         <div className="form-starts">
                             <form action="" method="GET"> 
                                 <div>

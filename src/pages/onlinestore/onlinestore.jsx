@@ -59,8 +59,7 @@ export const OnlineStore = ({ title }) => {
 
           <div className="maincontent">
 
-              {
-                merchant.length > 0 ? (
+              { merchant.length > 0 ? (
                   <>
                 <div className="titleandsearch">
                   <p> We have found {merchant.length} stores for you </p>
@@ -110,10 +109,9 @@ export const OnlineStore = ({ title }) => {
 
                 </div>
                   </>
-                ) : (<p>No available store yet</p>)
+                ) : (<p> No available store yet </p>)
               }
             
-
             <div className="submain">
               <div className="alertmsg">
                 <div>
@@ -126,7 +124,7 @@ export const OnlineStore = ({ title }) => {
                 </button>
               </div>
             </div>
-            
+
           </div>
        </section>
 
