@@ -21,97 +21,45 @@
       margin-bottom: 3.2rem;
     }
 
-    section.getallprods {
+    section.login-page {
+      padding: 48px 0px 32px 0px;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      // opacity: 0.5;
-      position: relative;
-      .allestoreprodsImage {
+      flex-direction: column;
+      gap: 2rem;
+      div.acct-type {
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        margin: 0 auto;
-        display: flex;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center;
-        img {
-          width: 37rem;
-          height: 37rem;
+        height: 56px;
+        p {
+          font: 500 16px 'Plus jakarta sans';
+          line-height: 20.15px;
+          color: #272343;
+        }
+        div.personal {
+          padding: 8px;
+          border-top: 1px solid #423F5A;
+          border-right: 1px solid #423F5A;
+          border-radius: 1px 10px 0px 1px;
+          text-align: right;
+          width: 50%;
+        }
+        div.merchant {
+          padding: 8px;
+          border-bottom: 1px solid #423F5A;
+          // border-left: 1px solid #423F5A;
+          border-radius: 1px 1px 0px 0px;
+          text-align: left;
+          width: 50%;
         }
       }
-      .describeProds {
-        position: absolute;
-        text-align: center;
+      div.form {
         display: flex;
-        justify-content: center;
         align-items: center;
         flex-direction: column;
-        width: 100%; // 100vw is appropriate but then, I'm getting the scrolling stufff
-        height: 100%;
-        background-color: #2D334A;
-        opacity: 0.9;
-        gap: 5rem;
-        .b4Title { 
+        gap: 48px;
+        form {
           display: flex;
-          justify-content: center;
-          align-items: center;
           flex-direction: column;
-          .title {
-            h2 {
-              color: #fff;
-              font-size: 40px;
-              line-height: 50.4px;
-              font-weight: 700;
-            } p {
-              font-family: 'Plus Jakatra Sans';
-              font-weight: 600;
-              font-size: 20px;
-              line-height: 30px;
-              text-align: center;
-              color: #fff;
-              height: 75px;
-              width: 545px;
-            }
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-          } 
-          .home-button {
-            color: #fff;
-            background-color: #4F0B92;
-            text-align: center;
-            padding: 2rem 5.5rem;
-            border-radius: .25rem;
-            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-          }
-          .home-button:hover {
-            color: #fff;
-            background-color: #4F0B92;
-          }
-        }
-        .buttons {
-          display: flex;
-          gap: 22px;
-          padding-top: 3rem;
-          button {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: hsla(0,0%,100%,.1);
-            border-radius: 24px;
-            padding: 8px;
-            gap: 8px;
-            width: 22rem;
-            height: 64px;
-            p {
-              color: #fff;
-              text-align: left;
-              font: 600 20px PlusJakartaSans-SemiBold,sans-serif;
-            }
-          }
         }
       }
     }

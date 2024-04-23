@@ -1,11 +1,8 @@
 import "./login.scss";
 import { useEffect } from "react";
-import { handleClick } from "utils/utils";
-import { useNavigate } from "react-router-dom";
 
 
 export const Login = ({ title }) => {
-  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title;
@@ -18,26 +15,34 @@ export const Login = ({ title }) => {
   return (
     <div className="estore-container">
         
-        <section className="getallprods">
-            <div className="allestoreprodsImage">
-              <img src={"assets/images/estore/rectangle-480.png"} alt="allprods" />
-              <img src={"assets/images/estore/rectangle-490.png"} alt="allprods" />
-              <img src={"assets/images/estore/rectangle-500.png"} alt="allprods" />
-              <img src={"assets/images/estore/rectangle-510.png"} alt="allprods" />
+        <section className="login-page">
+          <div className="acct-type">
+            <div className="personal"> <p> Personal Account </p> </div>
+            <div className="merchant"> <p> Merchant Account </p> </div>
+          </div>
+
+          <div className="form">
+            <div className="welcome">
+              <h1> Welcome Back</h1>
+              <p> Please provide your details to log in </p>
             </div>
-            
-              <div className="describeProds">
-                  <div className="b4Title">
-                    <div className="title">
-                      <h2> Login Page </h2>
-                      <p> Feel free to reach us anytime, any day, from anywhere!! </p>
-                    </div>
-                  
-                    <button type="button" className="home-button" onClick={ () => handleClick('/', navigate)}>
-                       Return Home
-                    </button>
-                  </div>
+
+            <form action="#">
+              <div className="requirements">
+                <div>
+                  <p> PaySprint Number <span> * </span> </p>
+                  <input type="number" name="paysprintNumber" placeholder="123456789" />
+                </div>
               </div>
+
+              <div className="other-details">
+                <button type="button">
+                  Proceed
+                </button>
+              </div>
+            </form>
+          </div>
+
         </section>
 
     </div>

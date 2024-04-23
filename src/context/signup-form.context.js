@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { getMaxDOBForAdult } from "utils/utils";
 
 export const SignupFormContext = createContext({
