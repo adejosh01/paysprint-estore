@@ -24,6 +24,7 @@ import { AskQuestions } from "pages/askQuestions/askquestions";
 import { Search } from "pages/search/search";
 import { Contact } from "pages/contact/contact";
 import AuthProvider from "hook/AuthProvider";
+import { Login } from "pages/login/login";
 
 function App() {
 
@@ -33,26 +34,27 @@ function App() {
 
         <AuthProvider>
           <Routes>
-            <Route path="/" exact element={<EstoreDashboard title="Ashopree | Homepage" />} />
-            <Route path="/onlinestore" exact element={<OnlineStore title="Ashopree | Estore" />} />
-            <Route path="/allcategories" exact element={<AllCategories title="Ashopree | All Categories" />} />
-            <Route path="/merchant-store/:id" exact element={<Personalstore title="Ashopree | Merchant Store" />} />
-            <Route path="/productdetails/:productCode" exact element={<ProductDetails title="Ashopree | Product Details" />} />
-            <Route path="/mycart" exact element={<MyCarts title="Ashopree | My Carts" />} />
-            <Route path="/checkout" exact element={<Checkout title="Ashopree | Checkout" />} />
-            <Route path="/payment" exact element={<Payment title="Ashopree | Payments" />} />
-            <Route path="/success" exact element={<SuccessfulOrder title="Ashopree | Successfully Ordered" />} />
-            <Route path="/messages" exact element={<Messages title="Ashopree | Messages" />} />
-            <Route path="/services/:id" exact element={<ServiceDetails title="Ashopree | Service Details" />} />
-            <Route path="/pricing" exact element={<Pricing title="Ashopree | Plans & Pricing" />} />
-            <Route path="/gallery" exact element={<Gallery title="Ashopree | Gallery & Media" />} />
-            <Route path="/referral-partner" exact element={<ReferralPartner title="Ashopree | Referral Partner" />} />
-            <Route path="/terms-of-use" exact element={<TermsAndPrivacy title="Ashopree | Terms Of Use" />} />
-            <Route path="/community" exact element={<Community title="Ashopree | Community " />} />
-            <Route path="/askquestions" exact element={<AskQuestions title="Ashopree | Ask Questions " />} />
-            <Route path='/search' exact element={<Search title="Ashopree | Searched Items" />} />
-            <Route path='/contact' exact element={<Contact title="Ashopree | Contact Us" />} />
-            <Route path='*' exact={true} element={<NotFound404 title={"Ashopree | 404 Not Found"} />} />
+            <Route path="/" exact element={<EstoreDashboard title="aShopree | Homepage" />} />
+            <Route path="/onlinestore" exact element={<OnlineStore title="aShopree | Estore" />} />
+            <Route path="/allcategories" exact element={<AllCategories title="aShopree | All Categories" />} />
+            <Route path="/merchant-store/:id" exact element={<Personalstore title="aShopree | Merchant Store" />} />
+            <Route path="/productdetails/:productCode" exact element={<ProductDetails title="aShopree | Product Details" />} />
+            <Route path="/mycart" exact element={<MyCarts title="aShopree | My Carts" />} />
+            <Route path="/checkout" exact element={<Checkout title="aShopree | Checkout" />} />
+            <Route path="/payment" exact element={<Payment title="aShopree | Payments" />} />
+            <Route path="/success" exact element={<SuccessfulOrder title="aShopree | Successfully Ordered" />} />
+            <Route path="/messages" exact element={<Messages title="aShopree | Messages" />} />
+            <Route path="/services/:id" exact element={<ServiceDetails title="aShopree | Service Details" />} />
+            <Route path="/pricing" exact element={<Pricing title="aShopree | Plans & Pricing" />} />
+            <Route path="/gallery" exact element={<Gallery title="aShopree | Gallery & Media" />} />
+            <Route path="/referral-partner" exact element={<ReferralPartner title="aShopree | Referral Partner" />} />
+            <Route path="/terms-of-use" exact element={<TermsAndPrivacy title="aShopree | Terms Of Use" />} />
+            <Route path="/community" exact element={<Community title="aShopree | Community " />} />
+            <Route path="/askquestions" exact element={<AskQuestions title="aShopree | Ask Questions " />} />
+            <Route path='/search' exact element={<Search title="aShopree | Searched Items" />} />
+            <Route path='/contact' exact element={<Contact title="aShopree | Contact Us" />} />
+            <Route path='/login' exact element={<Login title="aShopree | Login" />} />
+            <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} />
           </Routes>
         </AuthProvider>
           
