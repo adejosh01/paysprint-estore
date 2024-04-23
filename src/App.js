@@ -53,7 +53,7 @@ function App() {
             <Route path="/askquestions" exact element={<AskQuestions title="aShopree | Ask Questions " />} />
             <Route path='/search' exact element={<Search title="aShopree | Searched Items" />} />
             <Route path='/contact' exact element={<Contact title="aShopree | Contact Us" />} />
-            <Route path='/login' exact element={<Login title="aShopree | Login" />} />
+            <Route path='/login' exact element={<Login title="aShopree | Login" />} />  
             <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} />
           </Routes>
         </AuthProvider>
