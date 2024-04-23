@@ -275,7 +275,7 @@ export const EstoreHeader = ({title}) => {
                   </li>
                   <li className="guest-link">
                     <img src={profileIcon} alt="User Icon" />
-                    <Link to="#"> Login with PaySprint </Link>
+                    <Link to="/login"> Login with PaySprint </Link>
                   </li>
                   <li className="guest-link">
                     <img src={profileIcon} alt="User Icon" />
