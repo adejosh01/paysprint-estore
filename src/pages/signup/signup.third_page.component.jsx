@@ -1,6 +1,5 @@
-import googleColoredIcon from "assets/svg/google_colored_icon.svg";
 import { SignupFormContext } from "context/signup-form.context";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 export const SignupThirdPage = () => {
   const {
@@ -18,10 +17,7 @@ export const SignupThirdPage = () => {
     <div className="signup-third-page">
       <h1>Create Your Account</h1>
       <em>To create your account please provide your details</em>
-      <button>
-        <img src={googleColoredIcon} alt="" />
-        Sign up with Google
-      </button>
+      
       <form>
         <label htmlFor="transaction-range">
           Expected transaction range<span>*</span>

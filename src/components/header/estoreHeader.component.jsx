@@ -271,7 +271,7 @@ export const EstoreHeader = ({title}) => {
                 <ul className={getConditionalClassName( isAccountMenuOpen, "account", "active" )}>
                   <li className="guest-link">
                     <img src={profileIcon} alt="User Icon" />
-                    <Link to="#"> Register with PaySprint </Link>
+                    <Link to="/register"> Register with PaySprint </Link>
                   </li>
                   <li className="guest-link">
                     <img src={profileIcon} alt="User Icon" />

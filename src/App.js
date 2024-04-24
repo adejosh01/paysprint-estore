@@ -26,6 +26,7 @@ import { Contact } from "pages/contact/contact";
 import { Login } from "pages/login/login";
 import AuthProvider from "hook/AuthProvider";
 import { SignupPage } from "pages/signup/signup.component";
+import { SignupFormContextProvider } from "context/signup-form.context";
 
 function App() {
 
@@ -55,7 +56,7 @@ function App() {
             <Route path='/search' exact element={<Search title="aShopree | Searched Items" />} />
             <Route path='/contact' exact element={<Contact title="aShopree | Contact Us" />} />
             <Route path='/login' exact element={<Login title="aShopree | Login" />} />  
-            <Route path='/register' exact element={<SignupPage title="aShopree | Register" />} />  
+            <Route path="/register" exact element={ <SignupFormContextProvider> <SignupPage title="aShopree | Register" /> </SignupFormContextProvider>} />
             <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} />
           </Routes>
         </AuthProvider>

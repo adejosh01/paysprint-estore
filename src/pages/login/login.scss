@@ -146,16 +146,22 @@
   }
   
   
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 600px) {
     .estore-container {
       max-width: 1200px;
   
-      & > p {
-        max-width: 550px;
-        margin-left: auto;
-        margin-right: auto;
+      section.login-page {
+        // padding: 30px;
+        div.personal-acct-form {
+          padding: 2rem;
+          form {
+            width: 100%;
+            div.other-details {
+              width: 100%;
+            }
+          }
+        }
       }
-      
     }
 }
 
