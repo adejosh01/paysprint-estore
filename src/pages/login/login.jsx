@@ -17,13 +17,13 @@ export const Login = ({ title }) => {
         
         <section className="login-page">
           <div className="acct-type">
-            <div className="personal"> <p> Personal Account </p> </div>
-            <div className="merchant"> <p> Merchant Account </p> </div>
+            <div className="personal" type="button"> <p> Personal Account </p> </div>
+            <div className="merchant" type="button"> <p> Merchant Account </p> </div>
           </div>
 
-          <div className="form">
+          <div className="personal-acct-form">
             <div className="welcome">
-              <h1> Welcome Back</h1>
+              <h1> Welcome Back </h1>
               <p> Please provide your details to log in </p>
             </div>
 
@@ -31,14 +31,19 @@ export const Login = ({ title }) => {
               <div className="requirements">
                 <div>
                   <p> PaySprint Number <span> * </span> </p>
-                  <input type="number" name="paysprintNumber" placeholder="123456789" />
+                  <input type="number" name="paysprintNumber" placeholder="123456789" required />
+                </div>
+                <div>
+                  <p> Transaction Pin <span> * </span> </p>
+                  <input type="password" name="transactionPin" placeholder="****" required />
                 </div>
               </div>
 
               <div className="other-details">
-                <button type="button">
+                <button type="submit">
                   Proceed
                 </button>
+                <p> Don't have an account? <a href="/register"> Create Account </a> </p>
               </div>
             </form>
           </div>

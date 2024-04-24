@@ -42,6 +42,7 @@
           border-radius: 1px 10px 0px 1px;
           text-align: right;
           width: 50%;
+          cursor: pointer;
         }
         div.merchant {
           padding: 8px;
@@ -50,16 +51,94 @@
           border-radius: 1px 1px 0px 0px;
           text-align: left;
           width: 50%;
+          cursor: pointer;
         }
       }
-      div.form {
+      div.personal-acct-form {
         display: flex;
         align-items: center;
         flex-direction: column;
         gap: 48px;
+        div.welcome {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          h1 {
+            font: 600 40px 'plus jakarta sans';
+            line-height: 50.14px;
+            color: #272343;
+            text-align: center;
+            margin: unset;
+          }
+          p {
+            font: 500 18px 'plus jakarta sans';
+            line-height: 26px;
+            color: #272343;
+            text-align: center;
+          }
+        }
         form {
           display: flex;
           flex-direction: column;
+          width: 544px;
+          gap: 48px;
+          div.requirements {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            div {
+              p {
+                font: 500 14px 'plus jakarta sans';
+                line-height: 30px;
+                span {
+                  font: 500 14px 'plus jarkata sans';
+                  color: red;
+                }
+              }
+              input, select, textarea {
+                padding: .375rem .75rem;
+                font: 600 16px 'lato';
+                width: 100%;
+                line-height: 19px;
+                height: 48px;
+                color: #423F5A;
+                background-color: #fff;
+                background-clip: padding-box;
+                border: 2px solid #d2d2d2;
+                border-radius: 8px;
+                transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+              }
+              input:focus, select:focus, textarea:focus {
+                  border: 1px solid #007bff;
+                  box-shadow: 0 0 0 .3rem rgba(0,123,255,.25);
+              }
+            }
+          }
+          div.other-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            width: 544px;
+            button {
+              width: 100%;
+              padding: 8px;
+              background-color: #423F5A;
+              color: #fff;
+              font: 700 16px 'plus jarkata sans';
+              line-height: 30px;
+              border-radius: 10px;
+            }
+            p  {
+              font: 500 18px 'lato';
+              line-height: 26px;
+              color: #8B8B8B;
+              a {
+                font: 700 18px 'lato';
+                color: #423F5A;
+              }
+            }
+          }
         }
       }
     }
