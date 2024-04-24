@@ -1,6 +1,6 @@
-import googleColoredIcon from "assets/svg/google_colored_icon.svg";
+// import googleColoredIcon from "assets/svg/google_colored_icon.svg";
 import { SignupFormContext } from "context/signup-form.context";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 
 export const SignupFirstPage = () => {
   const {
@@ -18,10 +18,11 @@ export const SignupFirstPage = () => {
     <div className="signup-first-page">
       <h1>Create Your Account</h1>
       <em>To create your account please provide your details</em>
-      <button>
+      {/* <button>
         <img src={googleColoredIcon} alt="" />
         Sign up with Google
-      </button>
+      </button> */}
+
       <form>
         <div className="emails">
           <label htmlFor="email">

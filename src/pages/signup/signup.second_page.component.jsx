@@ -1,4 +1,3 @@
-import googleColoredIcon from "assets/svg/google_colored_icon.svg";
 import { SignupFormContext } from "context/signup-form.context";
 
 import "react-datepicker/dist/react-datepicker.css";
@@ -37,10 +36,7 @@ export const SignupSecondPage = () => {
     <div className="signup-second-page">
       <h1>Create Your Account</h1>
       <em>To create your account please provide your details</em>
-      <button>
-        <img src={googleColoredIcon} alt="" />
-        Sign up with Google
-      </button>
+      
       <form>
         <div className="names">
           <label htmlFor="first-name">

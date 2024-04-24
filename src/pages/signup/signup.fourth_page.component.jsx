@@ -1,11 +1,9 @@
-import googleColoredIcon from "assets/svg/google_colored_icon.svg";
 import notARobot from "assets/images/not_a_robot.png";
 import shield from "assets/svg/shield.svg";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { SignupFormContext } from "context/signup-form.context";
 
 export const SignupFourthPage = () => {
-  const [hearValue, setHearValue] = useState("");
 
   const {
     hearAboutUs,
@@ -22,10 +20,7 @@ export const SignupFourthPage = () => {
     <div className="signup-fourth-page">
       <h1>Create Your Account</h1>
       <em>To create your account please provide your details</em>
-      <button>
-        <img src={googleColoredIcon} alt="" />
-        Sign up with Google
-      </button>
+      
       <form>
         <label htmlFor="hear">
           How did you hear about us?<span>*</span>
