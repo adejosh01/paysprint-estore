@@ -23,8 +23,9 @@ import { Community } from "pages/community/community";
 import { AskQuestions } from "pages/askQuestions/askquestions";
 import { Search } from "pages/search/search";
 import { Contact } from "pages/contact/contact";
-import AuthProvider from "hook/AuthProvider";
 import { Login } from "pages/login/login";
+import AuthProvider from "hook/AuthProvider";
+import { SignupPage } from "pages/signup/signup.component";
 
 function App() {
 
@@ -54,6 +55,7 @@ function App() {
             <Route path='/search' exact element={<Search title="aShopree | Searched Items" />} />
             <Route path='/contact' exact element={<Contact title="aShopree | Contact Us" />} />
             <Route path='/login' exact element={<Login title="aShopree | Login" />} />  
+            <Route path='/register' exact element={<SignupPage title="aShopree | Register" />} />  
             <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} />
           </Routes>
         </AuthProvider>

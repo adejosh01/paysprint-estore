@@ -1,11 +1,8 @@
 import "./login.scss";
 import { useEffect } from "react";
-import { handleClick } from "utils/utils";
-import { useNavigate } from "react-router-dom";
 
 
 export const Login = ({ title }) => {
-  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title;
@@ -18,26 +15,39 @@ export const Login = ({ title }) => {
   return (
     <div className="estore-container">
         
-        <section className="getallprods">
-            <div className="allestoreprodsImage">
-              <img src={"assets/images/estore/rectangle-480.png"} alt="allprods" />
-              <img src={"assets/images/estore/rectangle-490.png"} alt="allprods" />
-              <img src={"assets/images/estore/rectangle-500.png"} alt="allprods" />
-              <img src={"assets/images/estore/rectangle-510.png"} alt="allprods" />
+        <section className="login-page">
+          <div className="acct-type">
+            <div className="personal" type="button"> <p> Personal Account </p> </div>
+            <div className="merchant" type="button"> <p> Merchant Account </p> </div>
+          </div>
+
+          <div className="personal-acct-form">
+            <div className="welcome">
+              <h1> Welcome Back </h1>
+              <p> Please provide your details to log in </p>
             </div>
-            
-              <div className="describeProds">
-                  <div className="b4Title">
-                    <div className="title">
-                      <h2> Login Page </h2>
-                      <p> Feel free to reach us anytime, any day, from anywhere!! </p>
-                    </div>
-                  
-                    <button type="button" className="home-button" onClick={ () => handleClick('/', navigate)}>
-                       Return Home
-                    </button>
-                  </div>
+
+            <form action="#">
+              <div className="requirements">
+                <div>
+                  <p> PaySprint Number <span> * </span> </p>
+                  <input type="number" name="paysprintNumber" placeholder="123456789" required />
+                </div>
+                <div>
+                  <p> Transaction Pin <span> * </span> </p>
+                  <input type="password" name="transactionPin" placeholder="****" required />
+                </div>
               </div>
+
+              <div className="other-details">
+                <button type="submit">
+                  Proceed
+                </button>
+                <p> Don't have an account? <a href="/register"> Create Account </a> </p>
+              </div>
+            </form>
+          </div>
+
         </section>
 
     </div>
