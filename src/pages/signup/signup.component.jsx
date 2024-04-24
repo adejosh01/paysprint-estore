@@ -36,7 +36,7 @@ export const SignupPage = ({ title }) => {
     transactionRange,
     sourceOfFunds,
     hearAboutUs,
-    referredBy,
+    // referredBy,
     acceptTandC,
     specifyHeardAboutUs,
     specifySourceOfFunds,
@@ -105,7 +105,7 @@ export const SignupPage = ({ title }) => {
       if (!email || !confirmEmail || !password || !confirmPassword)
         return setErrorMessage("All fields must be filled.");
 
-      const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+      const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
 
       if (!emailRegex.exec(email))
         return setErrorMessage("Invalid Email entered.");
@@ -161,9 +161,9 @@ export const SignupPage = ({ title }) => {
 
   const showSignupPage = () => {
     switch (page) {
-      case 1:
+      case 1: 
         return <SignupFirstPage goToSecondPage={() => pageChange(2)} />;
-      case 2:
+      case 2: 
         return <SignupSecondPage goToThirdPage={() => pageChange(3)} />;
       case 3:
         return <SignupThirdPage goToFourthPage={() => pageChange(4)} />;
@@ -295,34 +295,37 @@ export const SignupPage = ({ title }) => {
           </div>
           <div className="text">
             <h3>Source Attribution</h3>
-            <em>Please provide your name and necessary information</em>
+            <em> We would like to know how you heard about us </em>
           </div>
         </div>
       </div>
-      <main>
-        {showSignupPage()}
-        {errorMessage && <em className="error">*{errorMessage}</em>}
-        <button
-          onClick={() => {
-            if (page === 4) {
-              registerUser();
-            } else if (validateInputs(page)) {
-              setPage(page + 1);
-            }
-          }}
-        >
-          {responseState === RESPONSE_STATES.loading ? (
-            <Loader />
-          ) : page === 4 ? (
-            "Register"
-          ) : (
-            "Proceed"
-          )}
-        </button>
-        <em>
-          Already have an account? <Link to="/signin">Sign in</Link>
-        </em>
-      </main>
+
+      <section>
+        <main>
+          {showSignupPage()}
+          {errorMessage && <em className="error">*{errorMessage}</em>}
+          <button type="submit"
+            onClick={() => {
+              if (page === 4) {
+                registerUser();
+              } else if (validateInputs(page)) {
+                setPage(page + 1);
+              }
+            }}
+          >
+            {responseState === RESPONSE_STATES.loading ? (
+              <Loader />
+            ) : page === 4 ? (
+              "Register"
+            ) : (
+              "Proceed"
+            )}
+          </button>
+          <em>
+            Already have an account? <Link to="/login">Sign in</Link>
+          </em>
+        </main>
+      </section>
     </div>
   );
 };
