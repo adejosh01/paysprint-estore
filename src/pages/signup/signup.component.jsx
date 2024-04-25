@@ -83,7 +83,7 @@ export const SignupPage = ({ title }) => {
 
       if (resp.status === 200) {
         setResponseState(RESPONSE_STATES.success);
-        navigate("/signin");
+        navigate("/register");
         console.log(resp);
       } else {
         throw resp.data;
