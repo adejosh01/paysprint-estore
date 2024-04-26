@@ -169,7 +169,7 @@ export const EstoreDashboard = ({ title }) => {
                 {Array.isArray(hotDeals) ? (
                   hotDeals.map((item, index) => (
                   <Link to={`/productdetails/${item.productCode}`} key={index}>
-                    <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt="itemImage" src={item.image} />} >
+                    <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt={item.productName} src={item.image} />} >
                       <div className="imgdescription">
                         <p className="nameofitem">{item.productName}</p>
                           <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)}</p>
@@ -182,7 +182,6 @@ export const EstoreDashboard = ({ title }) => {
                   <div>Error: Sorry, Please check your network connection and try again</div>
                 )}
             </div>
-
             
           </section>
         )}
@@ -199,11 +198,11 @@ export const EstoreDashboard = ({ title }) => {
                     topProducts.map((item, index) => (
                       <Link to={`/productdetails/${item.productCode}`} key={index}>
                       <div className="eachItem" key={index}>
-                        <img className="prodImage" src={item.image} alt="eachImage" />
+                        <img className="prodImage" src={item.image} alt={item.productName} />
                         <div className="imgdescription">
                           <p className="nameofitem">{item.productName}</p>
                             <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)}</p>
-                          <div>
+                          {/* <div>
                             <span>
                               <img src={starimage} alt="justtheIconOfAStar" />
                               <img src={starimage} alt="justtheIconOfAStar" />
@@ -212,7 +211,7 @@ export const EstoreDashboard = ({ title }) => {
                               <img src={starimage} alt="justtheIconOfAStar" />
                             </span>
                             <p className="initialprice"> 4.56 (132 reviews) </p>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                       </Link>
@@ -234,7 +233,7 @@ export const EstoreDashboard = ({ title }) => {
                     registeredStores.map((item, index) => (
                       <Link to={`/merchant-store/${item.merchantId}`}>
                         <Card className="eachItem" hoverable key={index}>
-                          <img src={item.businessLogo} alt="eachImage" />
+                          <img src={item.businessLogo} alt={item.shopName} />
                         </Card>
                       </Link>
                     ))
