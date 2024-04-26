@@ -60,7 +60,7 @@ export const EstoreFooter = () => {
               <li> <a href="/contact"> Global Support </a> </li>
               <li> <a href="/askquestions"> Merchant Support </a> </li>
               <li> <a href="/community"> aShopree Community </a> </li>
-              <li> <a href="#"> Create Merchant Account </a> </li>
+              <li> <a href="/merchant-register"> Create Merchant Account </a> </li>
             </ul>
           </div>
 

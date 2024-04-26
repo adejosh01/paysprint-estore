@@ -27,6 +27,7 @@ import { Login } from "pages/login/login";
 import AuthProvider from "hook/AuthProvider";
 import { SignupPage } from "pages/signup/signup.component";
 import { SignupFormContextProvider } from "context/signup-form.context";
+import { SignupMerchantPage } from "pages/signupformerchant/signup_merchant.component";
 
 function App() {
 
@@ -37,7 +38,7 @@ function App() {
         <AuthProvider>
           <Routes>
             <Route path="/" exact element={<EstoreDashboard title="aShopree | Homepage" />} />
-            <Route path="/onlinestore" exact element={<OnlineStore title="aShopree | Estore" />} />
+            <Route path="/onlinestore" exact element={<OnlineStore title="aShopree | Online Store" />} />
             <Route path="/allcategories" exact element={<AllCategories title="aShopree | All Categories" />} />
             <Route path="/merchant-store/:id" exact element={<Personalstore title="aShopree | Merchant Store" />} />
             <Route path="/productdetails/:productCode" exact element={<ProductDetails title="aShopree | Product Details" />} />
@@ -57,6 +58,7 @@ function App() {
             <Route path='/contact' exact element={<Contact title="aShopree | Contact Us" />} />
             <Route path='/login' exact element={<Login title="aShopree | Login" />} />  
             <Route path="/register" exact element={ <SignupFormContextProvider> <SignupPage title="aShopree | Register" /> </SignupFormContextProvider>} />
+            <Route path="/merchant-register" exact element={ <SignupFormContextProvider> <SignupMerchantPage title="aShopree | Merchant Registration" /> </SignupFormContextProvider>} />
             <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} />
           </Routes>
         </AuthProvider>

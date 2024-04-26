@@ -279,7 +279,7 @@ export const EstoreHeader = ({title}) => {
                   </li>
                   <li className="guest-link">
                     <img src={profileIcon} alt="User Icon" />
-                    <Link to="#"> Create Merchant Account </Link>
+                    <Link to="/merchant-register"> Create Merchant Account </Link>
                   </li>
                 </ul>
             </div>

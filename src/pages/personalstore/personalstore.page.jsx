@@ -108,8 +108,6 @@ export const Personalstore = ({ title }) => {
 
         </div>
 
-
-
         </section>
 
     </div>

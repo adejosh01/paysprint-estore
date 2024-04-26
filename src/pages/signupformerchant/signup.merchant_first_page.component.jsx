@@ -10,7 +10,7 @@ import {
 
 const MAX_DOB_FOR_ADULT = getMaxDOBForAdult();
 
-export const SignupFirstPage = () => {
+export const SignupMerchantFirstPage = () => {
   const {
     address,
     city,
