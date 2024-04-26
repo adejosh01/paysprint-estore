@@ -49,8 +49,8 @@ export const SignupFormContext = createContext({
 });
 
 export const SignupFormContextProvider = ({ children }) => {
-  const [email, setEmail] = useState("lorddro1532@gmail.com");
-  const [confirmEmail, setConfirmEmail] = useState("lorddro1532@gmail.com");
+  const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [firstName, setFirstName] = useState("");

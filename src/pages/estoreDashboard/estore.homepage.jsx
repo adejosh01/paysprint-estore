@@ -1,6 +1,5 @@
 import "./estore.homepage.scss";
 import { useEffect, useState } from "react";
-import starimage from "assets/images/star.png";
 import office from "assets/images/estore/topCategories/Office.png";
 import electronic from "assets/images/estore/topCategories/Electronics.png";
 import desktops from "assets/images/estore/topCategories/desktop.png";
@@ -121,43 +120,6 @@ export const EstoreDashboard = ({ title }) => {
                     </div>
                   </div>
 
-                  <div class="buttons">
-                      {/* Take 5 categories at random */}
-                        {categories.length !== 0 ? (
-                          Array.isArray(categories) ? (
-                            <p style={{ display: 'contents' }}>
-                              {categories.slice(Math.floor(Math.random() * 5) + 0, 6).map((item, index) => (
-                                <a href={`/allcategories?categoryname=${item.category}`}>
-                                  <p>{item.category}</p>
-                                </a>
-                                
-                              ))}
-                            </p>
-                          ) : (
-                            <p>
-                                <button type="button">
-                                  <p>Apparels</p>
-                                </button>
-                                <button type="button">
-                                  <p>Consultancy</p>
-                                </button>
-                                <button type="button">
-                                  <p>Professional Service</p>
-                                </button>
-                                <button type="button">
-                                  <p>Electronic Devices</p>
-                                </button>
-                                <button type="button">
-                                  <p>Professional Service</p>
-                                </button>
-                            </p>
-                          )
-                        ) : (
-                            <button type="button">
-                              <p>Please wait...</p>
-                            </button>
-                        )}
-                  </div>
               </div>
         </section>
 
@@ -173,7 +135,7 @@ export const EstoreDashboard = ({ title }) => {
                       <div className="imgdescription">
                         <p className="nameofitem">{item.productName}</p>
                           <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)}</p>
-                          <p className="initialprice">{item.currencySymbol + Number(item.previousAmount).toFixed(2)}</p>
+                          <p className="initialprice">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toFixed(2) : item.currencySymbol + Number(item.previousAmount).toFixed(2)}</p>
                       </div>
                     </Card>
                   </Link>
