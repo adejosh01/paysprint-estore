@@ -130,7 +130,7 @@ export const EstoreDashboard = ({ title }) => {
             <div className="items">
                 {Array.isArray(hotDeals) ? (
                   hotDeals.map((item, index) => (
-                  <Link to={`/productdetails/${item.productCode}`} key={index}>
+                    <Link to={`/productdetails/${item.productCode}?r=${btoa(item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2))}`} key={index}>
                     <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt={item.productName} src={item.image} />} >
                       <div className="imgdescription">
                         <p className="nameofitem">{item.productName}</p>
