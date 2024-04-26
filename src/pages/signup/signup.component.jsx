@@ -102,24 +102,6 @@ export const SignupPage = ({ title }) => {
 
   const validateInputs = (page) => {
     if (page === 1) {
-      // if (!email || !confirmEmail || !password || !confirmPassword)
-      //   return setErrorMessage("All fields must be filled.");
-
-      // const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-
-      // if (!emailRegex.exec(email))
-      //   return setErrorMessage("Invalid Email entered.");
-      // if (email !== confirmEmail)
-      //   return setErrorMessage("Email and Confirm Email fields must match.");
-
-      // if (password.length < 8)
-      //   return setErrorMessage("Password cannot be less than 8 characters.");
-
-      // if (password !== confirmPassword)
-      //   return setErrorMessage(
-      //     "Password and Confirm Password fields must match."
-      //   );
-
       if (
         !firstName ||
         !lastName ||
@@ -140,25 +122,6 @@ export const SignupPage = ({ title }) => {
       if (dateOfBirth.getFullYear() > new Date().getFullYear() - 18)
         return setErrorMessage("User must be 18 or above");
     } else if (page === 2) {
-      // if (
-      //   !firstName ||
-      //   !lastName ||
-      //   !dateOfBirth ||
-      //   !address ||
-      //   !city ||
-      //   !postalCode ||
-      //   !country ||
-      //   !state
-      // )
-      //   return setErrorMessage("All fields must be filled.");
-
-      // if (firstName.length < 3 || lastName < 3)
-      //   return setErrorMessage(
-      //     "First name and last name must be 3 or more characters"
-      //   );
-
-      // if (dateOfBirth.getFullYear() > new Date().getFullYear() - 18)
-      //   return setErrorMessage("User must be 18 or above");
       if (!email || !confirmEmail || !password || !confirmPassword)
         return setErrorMessage("All fields must be filled.");
 
@@ -199,11 +162,9 @@ export const SignupPage = ({ title }) => {
   const showSignupPage = () => {
     switch (page) {
       case 1: 
-        return <SignupSecondPage goToSecondPage={() => pageChange(2)} />;
-        // return <SignupFirstPage goToSecondPage={() => pageChange(2)} />;
+        return <SignupFirstPage goToSecondPage={() => pageChange(2)} />;
       case 2: 
-        return <SignupFirstPage goToThirdPage={() => pageChange(3)} />;
-        // return <SignupSecondPage goToThirdPage={() => pageChange(3)} />;
+        return <SignupSecondPage goToThirdPage={() => pageChange(3)} />;
       case 3:
         return <SignupThirdPage goToFourthPage={() => pageChange(4)} />;
       case 4:
