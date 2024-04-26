@@ -1,6 +1,6 @@
 import "./estore.homepage.scss";
 import { useEffect, useState } from "react";
-// import starimage from "assets/images/star.png";
+import starimage from "assets/images/star.png";
 import office from "assets/images/estore/topCategories/Office.png";
 import electronic from "assets/images/estore/topCategories/Electronics.png";
 import desktops from "assets/images/estore/topCategories/desktop.png";
