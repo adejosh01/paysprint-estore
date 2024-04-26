@@ -1,14 +1,16 @@
 import "./onlinestore.scss";
 import { useEffect, useState } from "react";
 import arrowupright from "assets/icons/arrow-up-right.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SideBarCategories } from "components/sidebarCategories/sidebarCategories";
 import config from "../../config";
 import axios from "axios";
+import { handleClick } from "utils/utils";
 
 export const OnlineStore = ({ title }) => {
   const [merchant, setMerchant] = useState([]);
   const apiUrl = config().baseUrl;
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title;
@@ -119,7 +121,7 @@ export const OnlineStore = ({ title }) => {
                   <p> Let’s get you started. Create a merchant account today and own your Online Store </p>
                 </div>
 
-                <button type="button">
+                <button type="button" onClick={ () => handleClick('/merchant-register', navigate) }>
                   Create Merchant account
                 </button>
               </div>
