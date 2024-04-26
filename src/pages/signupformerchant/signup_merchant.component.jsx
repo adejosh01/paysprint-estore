@@ -1,20 +1,20 @@
-import "./signup.styles.scss";
+import "./signup_merchant.styles.scss";
 
 import { useContext, useEffect, useState } from "react";
-import { SignupFirstPage } from "./signup.first_page.component";
+import { SignupMerchantFirstPage } from "./signup.merchant_first_page.component";
 import { getConditionalClassNames, getConditionalClassName } from "utils/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import { SignupSecondPage } from "./signup.second_page.component";
-import { SignupThirdPage } from "./signup.third_page.component";
-import { SignupFourthPage } from "./signup.fourth_page.component";
+import { SignupMerchantSecondPage } from "./signup.merchant_second_page.component";
+import { SignupMerchantThirdPage } from "./signup.merchant_third_page.component";
+import { SignupMerchantFourthPage } from "./signup.merchant_fourth_page.component";
 import { Link, useNavigate } from "react-router-dom";
 import { SignupFormContext } from "context/signup-form.context";
 import { RESPONSE_STATES } from "utils/constants";
 import axios from "axios";
 import { Loader } from "components/loader/loader.component";
 
-export const SignupPage = ({ title }) => {
+export const SignupMerchantPage = ({ title }) => {
   const [page, setPage] = useState(1);
   const [errorMessage, setErrorMessage] = useState("");
   const [responseState, setResponseState] = useState(RESPONSE_STATES.none);
@@ -159,16 +159,16 @@ export const SignupPage = ({ title }) => {
     return true;
   };
 
-  const showSignupPage = () => {
+  const showSignupPageMerchant = () => {
     switch (page) {
       case 1: 
-        return <SignupFirstPage goToSecondPage={() => pageChange(2)} />;
+        return <SignupMerchantFirstPage goToSecondPage={() => pageChange(2)} />;
       case 2: 
-        return <SignupSecondPage goToThirdPage={() => pageChange(3)} />;
+        return <SignupMerchantSecondPage goToThirdPage={() => pageChange(3)} />;
       case 3:
-        return <SignupThirdPage goToFourthPage={() => pageChange(4)} />;
+        return <SignupMerchantThirdPage goToFourthPage={() => pageChange(4)} />;
       case 4:
-        return <SignupFourthPage />;
+        return <SignupMerchantFourthPage />;
       default:
         <></>;
     }
@@ -302,7 +302,7 @@ export const SignupPage = ({ title }) => {
 
       <section>
         <main>
-          {showSignupPage()}
+          {showSignupPageMerchant()}
           {errorMessage && <em className="error">*{errorMessage}</em>}
           <button type="submit"
             onClick={() => {

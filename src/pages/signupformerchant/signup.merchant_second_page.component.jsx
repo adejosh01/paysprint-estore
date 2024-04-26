@@ -2,7 +2,7 @@
 import { SignupFormContext } from "context/signup-form.context";
 import { useContext } from "react";
 
-export const SignupSecondPage = () => {
+export const SignupMerchantSecondPage = () => {
   const {
     email,
     confirmEmail,
