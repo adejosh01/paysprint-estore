@@ -1,8 +1,53 @@
-import { useContext, createContext } from "react";
+import { useContext, createContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import config from "../config";
+import axios from "axios";
+
 const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
-    return <AuthContext.Provider>{children}</AuthContext.Provider>
+
+    const apiUrl = config().baseUrl;
+
+    const [user, setUser] = useState(null);
+    const [token, setToken] = useState(localStorage.getItem("authtoken") || "");
+    const navigate = useNavigate();
+    const loginAction = async (data) => {
+        try {
+            
+            const response = await fetch("your-api-endpoint/auth/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(data),
+            });
+            const res = await response.json();
+            if (res.data) {
+                setUser(res.data.user);
+                setToken(res.token);
+                localStorage.setItem("authtoken", res.token);
+                navigate("/dashboard");
+                return;
+            }
+            throw new Error(res.message);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+
+    const logOut = () => {
+        setUser(null);
+        setToken("");
+        localStorage.removeItem("authtoken");
+        navigate("/login");
+    };
+
+    return (
+        <AuthContext.Provider value={{ token, user, loginAction, logOut }}>
+            {children}
+        </AuthContext.Provider>
+    );
 }
 
 export default AuthProvider;
