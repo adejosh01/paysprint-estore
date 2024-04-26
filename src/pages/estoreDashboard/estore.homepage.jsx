@@ -158,7 +158,7 @@ export const EstoreDashboard = ({ title }) => {
             <div className="items">
                 {Array.isArray(topProducts) ? (
                     topProducts.map((item, index) => (
-                      <Link to={`/productdetails/${item.productCode}`} key={index}>
+                      <Link to={`/productdetails/${item.productCode}?r=${btoa(item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2))}`} key={index}>
                       <div className="eachItem" key={index}>
                         <img className="prodImage" src={item.image} alt={item.productName} />
                         <div className="imgdescription">
