@@ -124,7 +124,10 @@ export function toggleLoginScreen(accountType) {
     personalForm.classList.remove('current_screen');
     merchantForm.classList.add('current_screen');
     
+  } else {
+    console.log('Cannot find your account type')
   }
+
 }
 
 
