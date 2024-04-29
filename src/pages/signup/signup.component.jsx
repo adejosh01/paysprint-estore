@@ -246,8 +246,8 @@ export const SignupPage = ({ title }) => {
             <FontAwesomeIcon icon={faCheck} />
           </div>
           <div className="text">
-            <h3>Your Details</h3>
-            <em>Please provide your email and necessary information</em>
+            <h3> Personal Information</h3>
+            <em>Please provide your name and necessary information</em>
           </div>
         </div>
         <div
@@ -262,8 +262,8 @@ export const SignupPage = ({ title }) => {
             <FontAwesomeIcon icon={faCheck} />
           </div>
           <div className="text">
-            <h3>Personal information</h3>
-            <em>Please provide your name and necessary information</em>
+            <h3> Your Details </h3>
+            <em>Please provide your email and necessary information</em>
           </div>
         </div>
         <div
