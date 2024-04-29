@@ -2,7 +2,7 @@ import "./signup_merchant.styles.scss";
 
 import { useContext, useEffect, useState } from "react";
 import { SignupMerchantFirstPage } from "./signup.merchant_first_page.component";
-import { getConditionalClassNames, getConditionalClassName } from "utils/utils";
+import { getConditionalClassNames, getConditionalClassName, handleClick } from "utils/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { SignupMerchantSecondPage } from "./signup.merchant_second_page.component";
@@ -302,6 +302,10 @@ export const SignupMerchantPage = ({ title }) => {
 
       <section>
         <main>
+          <div className="acct-type-merchant">
+            <div className="personal" type="button" onClick={ () => handleClick('/register', navigate) }> <p> Personal Account </p> </div>
+            <div className="merchant" type="button" onClick={ () => handleClick('#', navigate) }> <p> Merchant Account </p> </div>
+          </div>
           {showSignupPageMerchant()}
           {errorMessage && <em className="error">*{errorMessage}</em>}
           <button type="submit"
