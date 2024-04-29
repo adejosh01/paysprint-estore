@@ -17,7 +17,7 @@ import { ServiceDetails } from "pages/servicesdetails/service.page";
 import { Pricing } from "pages/pricing/pricing";
 import { Gallery } from "pages/gallery/gallery";
 import { ReferralPartner } from "pages/referralpartner/referralpartner";
-import { TermsAndPrivacy } from "pages/termsAndPrivacy/terms"; 
+import { TermsOfUse } from "./pages/termsOfUse/terms";
 import { NotFound404 } from "pages/404/notFound";
 import { Community } from "pages/community/community";
 import { AskQuestions } from "pages/askQuestions/askquestions";
@@ -28,6 +28,7 @@ import AuthProvider from "hook/AuthProvider";
 import { SignupPage } from "pages/signup/signup.component";
 import { SignupFormContextProvider } from "context/signup-form.context";
 import { SignupMerchantPage } from "pages/signupformerchant/signup_merchant.component";
+import { PrivacyPolicy } from "pages/privacyPolicy/privacy";
 
 function App() {
 
@@ -51,7 +52,7 @@ function App() {
             <Route path="/pricing" exact element={<Pricing title="aShopree | Plans & Pricing" />} />
             <Route path="/gallery" exact element={<Gallery title="aShopree | Gallery & Media" />} />
             <Route path="/referral-partner" exact element={<ReferralPartner title="aShopree | Referral Partner" />} />
-            <Route path="/terms-of-use" exact element={<TermsAndPrivacy title="aShopree | Terms Of Use" />} />
+            <Route path="/terms-of-use" exact element={<TermsOfUse title="aShopree | Terms Of Use" />} />
             <Route path="/community" exact element={<Community title="aShopree | Community " />} />
             <Route path="/askquestions" exact element={<AskQuestions title="aShopree | Ask Questions " />} />
             <Route path='/search' exact element={<Search title="aShopree | Searched Items" />} />
@@ -59,6 +60,7 @@ function App() {
             <Route path='/login' exact element={<Login title="aShopree | Login" />} />  
             <Route path="/register" exact element={ <SignupFormContextProvider> <SignupPage title="aShopree | Register" /> </SignupFormContextProvider>} />
             <Route path="/merchant-register" exact element={ <SignupFormContextProvider> <SignupMerchantPage title="aShopree | Merchant Registration" /> </SignupFormContextProvider>} />
+            <Route path="/privacy-policy" exact element={<PrivacyPolicy title="aShopree | Privacy Policy" />} />
             <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} />
           </Routes>
         </AuthProvider>

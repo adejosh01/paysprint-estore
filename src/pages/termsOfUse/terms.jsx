@@ -2,7 +2,7 @@ import './terms.styles.scss';
 import { useEffect } from 'react';
 
 
-export const TermsAndPrivacy = ({ title }) => {
+export const TermsOfUse = ({ title }) => {
     useEffect(() => {
       document.title = title;
       window.scrollTo(0, 0);
@@ -70,7 +70,7 @@ export const TermsAndPrivacy = ({ title }) => {
                                     <li>
                                         <h5> Account Terms </h5>
                                         <p> Which means You are responsible for your Account, the Materials you upload to the Ashopree Service and the operation of your Ashopree Store. If you violate Ashopree’s terms of service, we may cancel your service access. If we need to reach you, we will communicate via the Primary Email Address on file. </p>
-                                        <p> To access and use the Services, you must register for a Ashopree account (“Account”).   To complete your Account registration, you must provide us with your full legal name, business address, phone number, a valid email address, and any other information indicated as required. Ashopree may reject your application for an Account, or cancel an existing Account, for any reason, at our sole discretion. </p>
+                                        <p> To access and use the Services, you must register for a Ashopree account (“Account”).  To complete your Account registration, you must provide us with your full legal name, business address, phone number, a valid email address, and any other information indicated as required. Ashopree may reject your application for an Account, or cancel an existing Account, for any reason, at our sole discretion. </p>
                                         <p> You must be the older of: (i) 18 years, or (ii) at least the age of majority based on the jurisdiction where you reside and from which you use the Services to open an Account. </p>
                                         <p> You confirm that you are receiving any Services provided by Ashopree for the purposes of carrying on a business activity and not for any personal, household or family purpose. </p>
                                         <p> You acknowledge that Ashopree will use the email address you provide on opening an Account or as updated by you from time to time as the primary method for communication with you (“Primary Email Address”). You must monitor the Primary Email Address you provide to Ashopree and your Primary Email Address must be capable of both sending and receiving messages. Your email communications with Ashopree can only be authenticated if they come from your Primary Email Address. </p>

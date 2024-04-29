@@ -6,8 +6,8 @@
     background-color: #4F0B92;
     justify-content: space-between;
     align-items: center;
-    // padding: 1rem;
     padding: 0rem;
+    gap: 1rem;
     & > ul {
       list-style-type: none;
       width: 25%;
@@ -283,11 +283,10 @@
     }
     nav.desktop-nav {
       display: block;
-      // position: fixed;
-      top: 0;
-      right: 0;
-      left: 0;
-      z-index: 1030;
+      padding: 0 0.5rem;
+      position: fixed;
+      z-index: 3;
+      width: 100%;
       .mainEstore-header {
         img {
           width: 120px;
