@@ -1,12 +1,5 @@
 import "./estore.homepage.scss";
 import { useEffect, useState } from "react";
-import office from "assets/images/estore/topCategories/Office.png";
-import electronic from "assets/images/estore/topCategories/Electronics.png";
-import desktops from "assets/images/estore/topCategories/desktop.png";
-import groceries from "assets/images/estore/topCategories/groceries.png";
-import health from "assets/images/estore/topCategories/healthcare.png";
-import travels from "assets/images/estore/topCategories/travels.png";
-import fashion from "assets/images/estore/topCategories/fashion.png";
 import others from "assets/images/estore/topCategories/others.png";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -134,8 +127,8 @@ export const EstoreDashboard = ({ title }) => {
                     <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt={item.productName} src={item.image} />} >
                       <div className="imgdescription">
                         <p className="nameofitem">{item.productName}</p>
-                          <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)}</p>
-                          <p className="initialprice">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toFixed(2) : item.currencySymbol + Number(item.previousAmount).toFixed(2)}</p>
+                          <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
+                          <p className="initialprice">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')}</p>
                       </div>
                     </Card>
                   </Link>
@@ -163,7 +156,7 @@ export const EstoreDashboard = ({ title }) => {
                         <img className="prodImage" src={item.image} alt={item.productName} />
                         <div className="imgdescription">
                           <p className="nameofitem">{item.productName}</p>
-                            <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)}</p>
+                            <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
                           {/* <div>
                             <span>
                               <img src={starimage} alt="justtheIconOfAStar" />
@@ -218,17 +211,17 @@ export const EstoreDashboard = ({ title }) => {
 
             <div className="imageitems">
               {Array.isArray(categories) > 0 ? (
-                categories.map((item, index) => (
+              categories.slice(0, 8).map((item, index) => (
                   <Link to={`/allcategories?categoryname=${item.category}`} key={index}>
                   <div className="imgdescribtion" key={index}>
-                    {/* <img src={office} alt="thetextdescription" /> */}
-                    {index % 7 === 0 && <img src={office} alt="thetextdescription" />}
+                    <img src={others} alt="thetextdescription" />
+                    {/* {index % 7 === 0 && <img src={office} alt="thetextdescription" />}
                     {index % 7 === 1 && <img src={electronic} alt="thetextdescription" />}
                     {index % 7 === 2 && <img src={desktops} alt="thetextdescription" />}
                     {index % 7 === 3 && <img src={groceries} alt="thetextdescription" />}
                     {index % 7 === 4 && <img src={health} alt="thetextdescription" />}
                     {index % 7 === 5 && <img src={travels} alt="thetextdescription" />}
-                    {index % 7 === 6 && <img src={fashion} alt="thetextdescription" />}
+                    {index % 7 === 6 && <img src={fashion} alt="thetextdescription" />} */}
                       <p> {item.category} </p>
                   </div>
                   </Link>
