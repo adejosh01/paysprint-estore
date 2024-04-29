@@ -2,7 +2,7 @@ import "./signup_merchant.styles.scss";
 
 import { useContext, useEffect, useState } from "react";
 import { SignupMerchantFirstPage } from "./signup.merchant_first_page.component";
-import { getConditionalClassNames, getConditionalClassName } from "utils/utils";
+import { getConditionalClassNames, getConditionalClassName, handleClick } from "utils/utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { SignupMerchantSecondPage } from "./signup.merchant_second_page.component";
@@ -102,6 +102,25 @@ export const SignupMerchantPage = ({ title }) => {
 
   const validateInputs = (page) => {
     if (page === 1) {
+      if (!email || !confirmEmail || !password || !confirmPassword)
+        return setErrorMessage("All fields must be filled.");
+
+      const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
+
+      if (!emailRegex.exec(email))
+        return setErrorMessage("Invalid Email entered.");
+      if (email !== confirmEmail)
+        return setErrorMessage("Email and Confirm Email fields must match.");
+
+      if (password.length < 8)
+        return setErrorMessage("Password cannot be less than 8 characters.");
+
+      if (password !== confirmPassword)
+        return setErrorMessage(
+          "Password and Confirm Password fields must match."
+        );
+        
+    } else if (page === 2) {
       if (
         !firstName ||
         !lastName ||
@@ -121,24 +140,6 @@ export const SignupMerchantPage = ({ title }) => {
 
       if (dateOfBirth.getFullYear() > new Date().getFullYear() - 18)
         return setErrorMessage("User must be 18 or above");
-    } else if (page === 2) {
-      if (!email || !confirmEmail || !password || !confirmPassword)
-        return setErrorMessage("All fields must be filled.");
-
-      const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
-
-      if (!emailRegex.exec(email))
-        return setErrorMessage("Invalid Email entered.");
-      if (email !== confirmEmail)
-        return setErrorMessage("Email and Confirm Email fields must match.");
-
-      if (password.length < 8)
-        return setErrorMessage("Password cannot be less than 8 characters.");
-
-      if (password !== confirmPassword)
-        return setErrorMessage(
-          "Password and Confirm Password fields must match."
-        );
     } else if (page === 3) {
       if (!transactionRange)
         return setErrorMessage("Select transaction range.");
@@ -246,8 +247,8 @@ export const SignupMerchantPage = ({ title }) => {
             <FontAwesomeIcon icon={faCheck} />
           </div>
           <div className="text">
-            <h3>Your Details</h3>
-            <em>Please provide your email and necessary information</em>
+            <h3> Business Details </h3>
+            <em>Please provide the necessary business information</em>
           </div>
         </div>
         <div
@@ -262,7 +263,7 @@ export const SignupMerchantPage = ({ title }) => {
             <FontAwesomeIcon icon={faCheck} />
           </div>
           <div className="text">
-            <h3>Personal information</h3>
+            <h3>Personal Information</h3>
             <em>Please provide your name and necessary information</em>
           </div>
         </div>
@@ -302,6 +303,10 @@ export const SignupMerchantPage = ({ title }) => {
 
       <section>
         <main>
+          <div className="acct-type-merchant">
+            <div className="personal" type="button" onClick={ () => handleClick('/register', navigate) }> <p> Personal Account </p> </div>
+            <div className="merchant" type="button" onClick={ () => handleClick('#', navigate) }> <p> Merchant Account </p> </div>
+          </div>
           {showSignupPageMerchant()}
           {errorMessage && <em className="error">*{errorMessage}</em>}
           <button type="submit"

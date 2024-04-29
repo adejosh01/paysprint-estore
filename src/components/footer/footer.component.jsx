@@ -68,8 +68,8 @@ export const EstoreFooter = () => {
             <h5> Legal </h5>
             <ul>
               <li> <a href="/terms-of-use"> Terms </a> </li>
-              {/* <li> <a href="#"> Privacy Policy </a> </li> */}
-              <li> <p title="This Feature Coming Soon"> Privacy Policy </p> </li>
+              <li> <a href="/privacy-policy"> Privacy Policy </a> </li>
+              {/* <li> <p title="This Feature Coming Soon"> Privacy Policy </p> </li> */}
             </ul>
           </div>
 

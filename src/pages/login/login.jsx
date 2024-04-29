@@ -1,6 +1,6 @@
 import { toggleLoginScreen } from "utils/utils";
 import "./login.scss";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 
 export const Login = ({ title }) => {
@@ -11,30 +11,17 @@ export const Login = ({ title }) => {
 
   }, [title]);
 
-  const [isMerchantActive, setIsMerchantActive] = useState(false);
-
-  function handleClick(accountType) {
-    toggleLoginScreen(accountType, setIsMerchantActive);
-  }
-
 
   return (
     <div className="estore-container">
         
-        <section className="login-page">
+        <section className="login_page_for_individual current_screen">
           <div className="acct-type">
-            {/* <div className="personal" type="button" onClick={ () => toggleLoginScreen('personal-acct') }> <p> Personal Account </p> </div>
-            <div className="merchant" type="button" onClick={ () => toggleLoginScreen('merchant-acct') }> <p> Merchant Account </p> </div> */}
-
-            <div className={"personal " + (isMerchantActive ? "" : "active_title")} type="button" onClick={() => handleClick('personal-acct')}>
-              <p>Personal Account</p>
-            </div>
-            <div className={"merchant " + (isMerchantActive ? "active_title" : "")} type="button" onClick={() => handleClick('merchant-acct')}>
-              <p>Merchant Account</p>
-            </div>
+            <div className="personal" type="button" onClick={ () => toggleLoginScreen('personal-acct') }> <p> Personal Account </p> </div>
+            <div className="merchant" type="button" onClick={ () => toggleLoginScreen('merchant-acct') }> <p> Merchant Account </p> </div>
           </div>
 
-          <div className={"personal-acct-form " + (isMerchantActive ? "" : "current_screen")}>
+          <div className="personal-acct-form">
             <div className="welcome">
               <h1> Welcome Back </h1>
               <p> Please provide your details to log in </p>
@@ -61,7 +48,15 @@ export const Login = ({ title }) => {
             </form>
           </div>
 
-          <div className={"merchant-acct-form " + (isMerchantActive ? "current_screen" : "")}>
+        </section>
+        
+        <section className="login_page_for_merchant">
+          <div className="acct-type">
+            <div className="personal" type="button" onClick={ () => toggleLoginScreen('personal-acct') }> <p> Personal Account </p> </div>
+            <div className="merchant" type="button" onClick={ () => toggleLoginScreen('merchant-acct') }> <p> Merchant Account </p> </div>
+          </div>
+
+          <div className="merchant-acct-form">
             <div className="welcome">
               <h1> Welcome Back </h1>
               <p> Please provide your Merchant details to proceed </p>
