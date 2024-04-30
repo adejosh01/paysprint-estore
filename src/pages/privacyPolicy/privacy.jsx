@@ -205,6 +205,11 @@ export const PrivacyPolicy = ({ title }) => {
                                                         <p> If you opt to use an optional third-party processor, you give that processor the right, power, and authority to act on your behalf to access and transmit your personal and other information (including Financial Information) according to terms of that third-party provider’s privacy policy. </p>
                                                         <p> If you do not want your Individual Information to be shared with third parties for example for the purposes of emailing or texting you or supporting any activity, please let the Merchant you are affiliated with know and they can disable these services for you. </p>
                                                     </li>
+                                                    <li>
+                                                        <h5> Financial Information </h5>
+                                                        <p> When undertaking a financial transaction via our Services, for example, when sending money, adding money to your wallet or withdrawing money from your wallet, you may provide information including credit, debit or bank account details, and your name and address (“Financial Information”). ASHOPREE does not disclose Financial Information except to the appropriate banking institutions or payment processing provider in order to process a credit or debit authorization for payment, or to resolve a dispute or for other related purposes. </p>
+                                                        <p> ASHOPREE does not have any access to your Financial Information inputted via third party payment processors. </p>
+                                                    </li>
                                                 </ol>
                                             </li>
                                         </ol>
