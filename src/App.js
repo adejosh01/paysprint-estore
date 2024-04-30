@@ -29,6 +29,7 @@ import { SignupPage } from "pages/signup/signup.component";
 import { SignupFormContextProvider } from "context/signup-form.context";
 import { SignupMerchantPage } from "pages/signupformerchant/signup_merchant.component";
 import { PrivacyPolicy } from "pages/privacyPolicy/privacy";
+import { RegisteredStore } from "pages/registeredStore/registered.page";
 
 function App() {
 
@@ -61,6 +62,7 @@ function App() {
             <Route path="/register" exact element={ <SignupFormContextProvider> <SignupPage title="aShopree | Register" /> </SignupFormContextProvider>} />
             <Route path="/merchant-register" exact element={ <SignupFormContextProvider> <SignupMerchantPage title="aShopree | Merchant Registration" /> </SignupFormContextProvider>} />
             <Route path="/privacy-policy" exact element={<PrivacyPolicy title="aShopree | Privacy Policy" />} />
+            <Route path="/registered-stores" exact element={<RegisteredStore title="aShopree | Registered Stores" />} />
             <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} />
           </Routes>
         </AuthProvider>
