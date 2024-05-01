@@ -92,9 +92,26 @@
                                     font: 700 14px 'lato';
                                     color: #000;
                                     line-height: 53px;
+                                    text-transform: uppercase;
                                 }
                                 p {
                                     font-size: 14px;
+                                }
+                                ol {
+                                    margin-bottom: unset;
+                                    padding: 0 1.5rem;
+                                    list-style-type: lower-roman;
+                                    li {
+                                        font: 400 14px 'lato';
+                                        line-height: 30px;
+                                        text-transform: none;
+                                        h5 {
+                                            text-transform: capitalize;
+                                        }
+                                        p {
+                                            font-size: 14px;
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -115,3 +132,33 @@
     }
 }
 
+
+@media screen and (max-width: 800px) {
+    .estore-container {
+        section.termsandprivacy {
+            div.contents {
+                div.details {
+                    .both-contents {
+                        flex-direction: column;
+                        gap: 5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .estore-container {
+        section.termsandprivacy {
+            padding: 1rem;
+            div.contents {
+                padding: 20px 10px;
+                div.details {
+                    gap: 10px;
+                }
+            }
+        }
+    }
+}

@@ -148,3 +148,34 @@
         }
     }
 }
+
+
+
+@media screen and (max-width: 800px) {
+    .estore-container {
+        section.privacy-policy {
+            div.contents {
+                div.details {
+                    .both-contents {
+                        flex-direction: column;
+                        gap: 5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .estore-container {
+        section.privacy-policy {
+            padding: 1rem;
+            div.contents {
+                padding: 20px 10px;
+                div.details {
+                    gap: 10px;
+                }
+            }
+        }
+    }
+}
