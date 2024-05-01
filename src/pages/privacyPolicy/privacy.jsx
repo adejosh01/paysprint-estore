@@ -78,9 +78,9 @@ export const PrivacyPolicy = ({ title }) => {
                                 <ol type='1'>
                                     <li>
                                         <h5> Introduction </h5>
-                                        <p> Thank you for using the services of Ashopree. We provide ecommerce, store front and payment services for micro and small businesses all over the world. </p>
-                                        <p> This Privacy Policy applies to the processing of personal data by Ashopree Inc. (as defined) located at 340-2250 Bovaird Drive East, Brampton ON. L6R 3J5 </p>
-                                        <p> We may change this Policy from time to time. If we do, we shall post a revision of this Privacy Policy at httAshopree://ashopree.com/privacy-policy and your continued use of the Services provided through mobile app or website shall be subject to such revised terms. </p>
+                                        <p> Thank you for using the services of aShopree. We provide ecommerce, store front and payment services for micro and small businesses all over the world. </p>
+                                        <p> This Privacy Policy applies to the processing of personal data by aShopree Inc. (as defined) located at 340-2250 Bovaird Drive East, Brampton ON. L6R 3J5 </p>
+                                        <p> We may change this Policy from time to time. If we do, we shall post a revision of this Privacy Policy at httaShopree://ashopree.com/privacy-policy and your continued use of the Services provided through mobile app or website shall be subject to such revised terms. </p>
                                     </li> 
                                     <li>
                                         <h5> Our Services </h5>
@@ -109,7 +109,7 @@ export const PrivacyPolicy = ({ title }) => {
                                                 <p> Other information required for verification purposes such as date of birth and copy of personal identification. </p>
                                                 <p> Payment information such as bank account details or credit / debit card information. </p>
                                                 <p> We collect and process Individual Information as a Data Controller (for GDPR purposes). </p>
-                                                <p> More detailed information about the data collected in relation to the use of our Services  included in the Ashopree Terms of Service. </p>
+                                                <p> More detailed information about the data collected in relation to the use of our Services  included in the aShopree Terms of Service. </p>
                                             </li>
                                             <li>
                                                 <h5> Customer Collected Information </h5>
@@ -128,19 +128,19 @@ export const PrivacyPolicy = ({ title }) => {
                                             </li>
                                             <li>
                                                 <h5> Cookies and Web Beacons </h5>
-                                                <p> Ashopree may collect information through the use of common information-gathering tools such as web beacons or cookies. </p>
-                                                <p>  A cookie is a small string of text that a website can send to your browser which helAshopree the Site remember and customize your visit. You have the option to delete or decline cookies by changing your browser’s settings. </p>
+                                                <p> aShopree may collect information through the use of common information-gathering tools such as web beacons or cookies. </p>
+                                                <p>  A cookie is a small string of text that a website can send to your browser which helaShopree the Site remember and customize your visit. You have the option to delete or decline cookies by changing your browser’s settings. </p>
                                                 <p> Web beacons help sites to understand the browsing, viewing, and click activity of visitors to our site. </p>
                                                 <p> For more information about our collection and use of this type of data, please refer to our Cookie Policy. </p>
                                             </li>
                                             <li>
-                                                <h5> Other information Ashopree may also collect information from your interaction with the Site, such as statistics in connection with pageviews, IP address, and standard web log information. </h5>
-                                                <p> Other information that may be collected includes the average sent or received amount, the geographic breakdown of transactions by area, what times of the day have the heaviest traffic, and for what purpose money was sent or the type of service an invoice is paid. This information, collected in the aggregate, allows ASHOPREE to better serve all users and in the development of new products and services. None of this information is used to identify individuals. </p>
-                                                <p> When browsing the Site through a mobile phone or mobile application, we will attempt to collect your location through ASHOPREE in order to understand transactions behaviours purposes. You may remove this location sharing authorization. </p>
+                                                <h5> Other information aShopree may also collect information from your interaction with the Site, such as statistics in connection with pageviews, IP address, and standard web log information. </h5>
+                                                <p> Other information that may be collected includes the average sent or received amount, the geographic breakdown of transactions by area, what times of the day have the heaviest traffic, and for what purpose money was sent or the type of service an invoice is paid. This information, collected in the aggregate, allows aShopree to better serve all users and in the development of new products and services. None of this information is used to identify individuals. </p>
+                                                <p> When browsing the Site through a mobile phone or mobile application, we will attempt to collect your location through aShopree in order to understand transactions behaviours purposes. You may remove this location sharing authorization. </p>
                                             </li>
                                             <li>
                                                 <h5> Children </h5>
-                                                <p> ASHOPREE does not knowingly collect any Personal Information from or about a child (which we generally regard as anyone under the age of 16 years, subject to local law requirements) without the consent of the child’s parent or legal guardian. We may ask for evidence of a user’s date of birth to help us verify this. </p>
+                                                <p> aShopree does not knowingly collect any Personal Information from or about a child (which we generally regard as anyone under the age of 16 years, subject to local law requirements) without the consent of the child’s parent or legal guardian. We may ask for evidence of a user’s date of birth to help us verify this. </p>
                                                 <p> If we discover that we have inadvertently collected information from a child without the appropriate consent, we will promptly take all reasonable measures to delete that data from our systems. </p>
                                             </li>
                                             <li>
@@ -150,8 +150,8 @@ export const PrivacyPolicy = ({ title }) => {
                                                 <p> When you interact with us via our website, Chatbot or another online channel. </p>
                                                 <p> When you connect with us via one of our social media platforms. </p>
                                                 <p> When you contact us via email or over the phone? </p>
-                                                <p> Customer Collected Information is collected by the Merchant you are connected to, including when you interact with one of the ASHOPREE Services. In most cases, ASHOPREE does not directly collect or control any Customer Collected Information. </p>
-                                                <p> If you are concerned about the Customer Collected Information that has been included in any of ASHOPREE’s Services, we recommend you contact the Merchant you are affiliated with. </p>
+                                                <p> Customer Collected Information is collected by the Merchant you are connected to, including when you interact with one of the aShopree Services. In most cases, aShopree does not directly collect or control any Customer Collected Information. </p>
+                                                <p> If you are concerned about the Customer Collected Information that has been included in any of aShopree’s Services, we recommend you contact the Merchant you are affiliated with. </p>
                                             </li>
                                             <li>
                                                 <h5> How we use your personal information. </h5>
@@ -174,16 +174,16 @@ export const PrivacyPolicy = ({ title }) => {
                                                     <li>
                                                         <h5> Direct Marketing and Mailing List </h5>
                                                         <p> We may communicate directly with you by sending newsletters, promotions and other updates about our products and services. </p>
-                                                        <p>  If you do not wish to receive marketing communications from ASHOPREE, you may unsubscribe by: </p>
+                                                        <p>  If you do not wish to receive marketing communications from aShopree, you may unsubscribe by: </p>
                                                         <p> following the instructions in the communications sent to you; or </p>
                                                         <p> contacting us by email to privacy@ashopree.com </p>
-                                                        <p> ASHOPREE does not participate in bulk email solicitations (i.e., “spam”) without your consent. </p>
-                                                        <p> Your Personal Information will not be disclosed to third party marketers. We never sell, share, or otherwise use personal information for any commercial purposes outside of ASHOPREE. However, we may share aggregated anonymous information with third party advertisers, but this aggregated anonymous information cannot be matched with you personally unless you voluntarily share your Personal Information with the third-party advertisers. </p>
+                                                        <p> aShopree does not participate in bulk email solicitations (i.e., “spam”) without your consent. </p>
+                                                        <p> Your Personal Information will not be disclosed to third party marketers. We never sell, share, or otherwise use personal information for any commercial purposes outside of aShopree. However, we may share aggregated anonymous information with third party advertisers, but this aggregated anonymous information cannot be matched with you personally unless you voluntarily share your Personal Information with the third-party advertisers. </p>
                                                     </li>
                                                     <li>
                                                         <h5> Other Sharing </h5>
                                                         <p> Personal data may be shared among the different members of the EXBC Inc. group (subject to compliance with any legal restrictions on cross-border transfers). </p>
-                                                        <p> ASHOPREE may disclose or transfer personal information to a third party in the event of a proposed or actual purchase, sale, lease, merger, amalgamation or any other type of acquisition, disposal, transfer, conveyance or financing of all or any portion of EXBC Inc.in order for you to continue to receive the same services from the third party. </p>
+                                                        <p> aShopree may disclose or transfer personal information to a third party in the event of a proposed or actual purchase, sale, lease, merger, amalgamation or any other type of acquisition, disposal, transfer, conveyance or financing of all or any portion of EXBC Inc.in order for you to continue to receive the same services from the third party. </p>
                                                     </li>
                                                 </ol>
                                             </li>
@@ -207,15 +207,141 @@ export const PrivacyPolicy = ({ title }) => {
                                                     </li>
                                                     <li>
                                                         <h5> Financial Information </h5>
-                                                        <p> When undertaking a financial transaction via our Services, for example, when sending money, adding money to your wallet or withdrawing money from your wallet, you may provide information including credit, debit or bank account details, and your name and address (“Financial Information”). ASHOPREE does not disclose Financial Information except to the appropriate banking institutions or payment processing provider in order to process a credit or debit authorization for payment, or to resolve a dispute or for other related purposes. </p>
-                                                        <p> ASHOPREE does not have any access to your Financial Information inputted via third party payment processors. </p>
+                                                        <p> When undertaking a financial transaction via our Services, for example, when sending money, adding money to your wallet or withdrawing money from your wallet, you may provide information including credit, debit or bank account details, and your name and address (“Financial Information”). aShopree does not disclose Financial Information except to the appropriate banking institutions or payment processing provider in order to process a credit or debit authorization for payment, or to resolve a dispute or for other related purposes. </p>
+                                                        <p> aShopree does not have any access to your Financial Information inputted via third party payment processors. </p>
+                                                    </li>
+                                                    <li>
+                                                        <h5> Social Network </h5>
+                                                        <p> We use social networking services such as Twitter, Facebook, Instagram and YouTube to communicate with Customers, Merchant Administrators, Authorized Users, Merchants and the public about our Services. When you communicate with us using these services, we may collect your personal information. The social networking service will also handle your personal information for its own purposes. </p>
+                                                        <p> Our Site may also contain links to websites not affiliated with the aShopree. </p>
+                                                        <p> These social networking and non-affiliated sites have their own privacy policies, and we recommend that you review them. We cannot control or be responsible for the policies of other sites we may link to, or the use of any personal information you may share with them. </p>
+                                                        <p> By integrating your YouTube channel or Playlist with any aShopree Services you are also bound by Google Privacy Policy at http://www.google.com/policies/privacy. </p>
                                                     </li>
                                                 </ol>
+                                            </li>
+                                            <li>
+                                                <h5> International Transfer of Information </h5>
+                                                <p> Some of the processors and sub-processors we use are located in jurisdictions including Australia, the US, the United Kingdom and the EU. Use of their services may involve the cross-border transfer of personal information. aShopree also has offices and employees located globally, for example, in the USA and the United Kingdom. This means that the aShopree may process personal information in another country from time to time. </p>
+                                                <p> In all cases, appropriate safeguards for the purposes of the GDPR and other laws which restrict the cross-border flow of personal information, have been established and are maintained, whether in the form of standard contractual clauses, appropriate inter-company agreements, adequacy measures or through ensuring certification with the US-EU Privacy Shield. For more information, please refer to our Terms of Service (and the aShopree Data Processing Addendum). </p>
+                                            </li>
+                                            <li>
+                                                <h5> Security and retention of personal information </h5>
+                                                <ol>
+                                                    <li> 
+                                                        <h5> Secure your account </h5>
+                                                        <p> Access to your account is secured via unique user passwords. You can help to keep your personal information secure by ensuring that any password you use is kept strictly confidential and by logging off when you have finished using a shared computer. More information about your security responsibilities is included in the Terms of Service. </p>
+                                                    </li>
+                                                    <li>
+                                                        <h5> Data Security </h5>
+                                                        <p> We take steps at aShopree to protect the security of the personal information we hold from both internal and external threats by: </p>
+                                                        <p> regularly assessing the risk of misuse, interference, loss, and unauthorised access, modification or disclosure of that information </p>
+                                                        <p> conducting regular internal and external audits to assess whether we have adequately complied with or implemented these measures. </p>
+                                                        <p> encrypting the transfer of data all the way from the browser to where the data is stored. We use HTTS aShopree and all our data is encrypted at rest. </p>
+                                                    </li>
+                                                    <li>
+                                                        <h5> Data Breaches </h5>
+                                                        <p> Unfortunately, no data transmitted over or accessible through the Internet can be guaranteed to be 100% secure. As a result, while aShopree attempts to protect all Personal Information, aShopree cannot ensure or warrant that Personal Information will be completely secure from misappropriation by hackers or from other nefarious or criminal activities, or in the event of a failure of computer hardware, software, or a telecommunications network. </p>
+                                                        <p> If a data breach (as defined by applicable laws) involving Personal Information occurs, aShopree will: </p>
+                                                        <p> notify you of it as soon as reasonably possible after it comes to our attention. </p>
+                                                        <p> take reasonable steps at aShopree to secure the affected data and minimise harm to all individuals; and provide you with whatever reasonable assistance might otherwise be required. </p>
+                                                        <p> Please note, our obligations in regard to notification of data breaches may vary depending on whether we are acting as Data Controller or Data Processor in regard to the Personal Information affected by the data breach. </p>
+                                                    </li>
+                                                    <li>
+                                                        <h5> Retention of Personal Information </h5>
+                                                        <p> Generally, we will keep Personal Information for as long as a Customer is actively using aShopree’s Services or the period during which any legal claim may be made in regard to the provision of Services in accordance with legal requirements or to meet our legal obligations. For example, we hold billing records, and any information associated with those records for 7 years. </p>
+                                                        <p> If we hold personal information about you, and we do not need that information for any purpose, we will take reasonable steps aShopree to securely destroy or de-identify that information unless we are prevented from doing so by law. </p>
+                                                        <p> We apply the following rules to the permanent deletion of information: </p>
+                                                        <p> Customer accounts and associated Individual Information, where there has been no activity for more than 6 months (and where not required for aShopree’s own records or administrative processes) will be deleted permanently; and </p>
+                                                        <p> Individual Information which has been deleted or disabled, will be permanently deleted or de-identified 90 days after deletion or disabling (or 18 months where members have financial data associated to them). </p>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li>
+                                                <h5> Your rights in relation to personal information </h5>
+                                                <ol>
+                                                    <li>
+                                                        <h5> 13.1. Access and Amendments </h5>
+                                                        <p> If you would like to request details about Customer Information or Individual Information that we hold about you and how we process it, contact us via the contact details below and we’ll be more than happy to help. </p>
+                                                        <p> privacy@aShopree.ca </p>
+                                                        <p> If you ever wish to amend personal information held by us, you may do so by: </p>
+                                                        <p> logging into your account using your login credentials and password; or </p>
+                                                        <p> contacting us at support@aShopree.ca or via the contact details below. </p>
+                                                    </li>
+                                                    <li>
+                                                        <h5> Deleting your Personal Information </h5>
+                                                        <p> Persons who wish to delete any personal information held by aShopree can contact us via the contact details below and we’ll be more than happy to help. </p>
+                                                        <p> Customer Information </p>
+                                                        <p> In relation to Customer Information, a Merchant Administrator can ask us to delete Customer Information at any time, and we will delete it from all live systems and make sure we do not process it further in any way (other than as we may need to support your account or for other reasonable administrative or legal purposes, such as billing). </p>
+                                                        <p> Customer Collected Information </p>
+                                                        <p> Merchants also can delete or disable Customer Collected Information at any time. </p>
+                                                        <p> Individuals who wish to delete or stop the use of their Customer Collected Information for the purposes of any of the Services should contact the Merchant they are affiliated with directly. If an individual feels their Merchant has not dealt with their request promptly or effectively, we will work with the relevant data controller to attempt to resolve their request. </p>
+                                                    </li>
+                                                    <li>
+                                                        <h5> Other Rights </h5>
+                                                        <p> Under the GDPR, persons residing in the European Economic Area (‘EEA) may also be entitled to, at any time: </p>
+                                                        <p> Withdraw consent to our use of your information for marketing purposes. </p>
+                                                        <p> Object to the processing of your personal data, where we collect personal data on the basis of legitimate interests; and </p>
+                                                        <p> Request your personal information be transferred to yourself or a third party without hindrance in a commonly used format. </p>
+                                                        <p> You may also wish to make a complaint about the way we have handled your personal information or other interference with your privacy rights. </p>
+                                                        <p> You can exercise any of these rights at any time by contacting us (see ‘Contact Details’, below) or your relevant privacy or data protection authority. </p>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li>
+                                                <h5> Additional EU GDPR Matters </h5>
+                                                <p> This information is relevant for Merchants and individuals who use our Services and are currently residing in the European Economic Area. </p>
+                                                <ol>
+                                                    <li>
+                                                        <h5> Lawful Bases for Processing Personal Data </h5>
+                                                        <p> At least one of the lawful bases set out in Article 6 of the GDPR must apply in relation to a given processing activity. The lawful bases for aShopree’s processing activities are as follows: </p>
+                                                        <p> Customer Information – Collection is necessary for the performance of a contract (to provide you with our services) or for legitimate business interests. </p>
+                                                        <p> Individual Information – Collection is necessary for the performance of a contract (to provide you with our services) or for legitimate business interests. </p>
+                                                        <p> Customer Collected Information – Refer to your Merchant Administrator. </p>
+                                                        <p> Customer Enquiry/Support Records – Collected for our legitimate interests, namely, to record your query, to be able to provide you with support and continuity in our customer service. </p>
+                                                    </li>
+                                                    <li>
+                                                        <h5> Data Protection Officer/EU Representative </h5>
+                                                        <p> aShopree has appointed an external Data Protection Officer (DPO) and EU Representative to help ensure that we meet our obligations under the GDPR. </p>
+                                                        <p> If you have any queries, questions, concerns or wish to make a complaint regarding how we deal with your personal information please contact us (see ‘Contact Us’, below) </p>
+                                                    </li>
+                                                </ol>
+                                            </li>
+                                            <li>
+                                                <h5> Contact Details </h5>
+                                                <p> If you have any queries, questions, concerns or wish to make a complaint regarding how we deal with your personal information please contact us: </p>
+                                                <p> Email: privacy@ashopree.ca </p>
+                                                <p> Phone (North America): (437) 925 8344 </p>
+                                                <p> Phone (Others): 888-469-0999 </p>
+                                                <p> Mail to the following address: </p>
+                                                <p> Privacy Officer </p>
+                                                <p> aShopree by EXBC Inc. </p> 
+                                                <p> 340-2250 Bovard Drive East, Brampton. ON </p>
+                                                <p> L6R 3J5 Canada </p>
+                                                <p> We will endeavour to respond to your request as soon as reasonably possible. </p>
+                                                <p> For Australian visitors, the Office of the Information Commissioner is a great resource. </p>
+                                            </li>
+                                            <li>
+                                                <h5> Definitions </h5>
+                                                <p> In this Policy, these terms have the following meanings given: </p>
+                                                <p> Authorized Users are users who are granted permission to access the Services by either (i) a Customer, (ii) a Merchant Administrator, or (iii) another Authorized User that has been given the permissions to add additional Authorized Users by a Merchant Administrator. </p> 
+                                                <p> Customer means any Merchant or individual who establishes an account with aShopree or uses a Service. </p> 
+                                                <p> Data Controller has meaning given to it in the GDPR. </p>
+                                                <p> GDPR means Regulation (EU) 2016/679 of the European Parliament and of the Council of 27 April 2016 on the protection of natural persons with regard to the processing of Personal Data and on the free movement of Personal Data, and repealing Directive 95/46/EC. </p>
+                                                <p> Merchant Administrator means any user who has been granted permission to manage, access or make decisions concerning a Customer’s Account by the owner of that Customer Account. </p> 
+                                                <p> Personal Information includes the following: </p>
+                                                <p> ‘Personal data’ as defined in the GDPR. </p>
+                                                <p> ‘Personally, identifiable information’ as defined in US data breach notification laws. </p>
+                                                <p> ‘Personal information’ as defined in the Privacy Act 1988 (Cth) </p> 
+                                                <p> ‘Personal information’ as defined in the Personal Information Protection and Electronic Documents Act (Canada) </p>
+                                                <p> Sub-processor has the meaning given to it in the GDPR. </p>
                                             </li>
                                         </ol>
                                     </li>
                                 </ol>           
 
+                                <div>
+                                    <p> aShopree or aShopree means aShopree by EXBC Inc, which includes the trading name, “aShopree”, and all subsidiaries and affiliates of EXBC Inc.. For a complete list of Express Ca Corp’s subsidiaries, associates, or affiliated companies, kindly send email to info@ashopree.ca. </p>
+                                </div>
                             </div>
                         </div>
                     </div>                    
