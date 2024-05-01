@@ -75,6 +75,9 @@
                     div.main {
                         background-color: #fff;
                         padding: 30px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5rem;
                         ol {
                             list-style: auto;
                             display: flex;
@@ -121,6 +124,11 @@
                                         }
                                     }
                                 }
+                            }
+                        }
+                        div {
+                            p {
+                                font-size: 14px;
                             }
                         }
                     }
