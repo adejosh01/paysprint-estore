@@ -169,8 +169,10 @@ export function communityTogglePages(event) {
 
 
 export function scrollToDataSection(sectionId) {
+
   const section = document.getElementById(sectionId);
 
+  console.log(section);
   if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
   }
