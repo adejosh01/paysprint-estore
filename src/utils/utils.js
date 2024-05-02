@@ -167,3 +167,13 @@ export function communityTogglePages(event) {
 
 }
 
+
+export function scrollToDataSection(sectionId) {
+  const section = document.getElementById(sectionId);
+
+  if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+  }
+
+}
+

@@ -1,13 +1,14 @@
 import './terms.styles.scss';
 import { useEffect } from 'react';
+import { scrollToDataSection } from 'utils/utils';
 
 
 export const TermsOfUse = ({ title }) => {
     useEffect(() => {
       document.title = title;
       window.scrollTo(0, 0);
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+      
+    }, [title]);
 
     return (
         <div className="estore-container">
@@ -20,7 +21,7 @@ export const TermsOfUse = ({ title }) => {
                         <div className="both-contents">
                             <div className="side">
                                 <ol type='1'>
-                                    <li> <a href="#term1"> Account Terms </a> </li>
+                                    <li onClick={ () => scrollToDataSection('term1')} > Account Terms </li>
                                     <li> Account Activation
                                         <ol>
                                             <li> Store Owner </li>
@@ -30,7 +31,7 @@ export const TermsOfUse = ({ title }) => {
                                             <li> Domain Names </li>
                                         </ol>
                                     </li>
-                                    <li> aShopree Rights </li>
+                                    <li onClick={ () => scrollToDataSection('term2')}> aShopree Rights </li>
                                     <li> Your Responsibilities </li>
                                     <li> Payment of fees and taskes </li>
                                     <li> Confidentiality </li>
@@ -84,7 +85,7 @@ export const TermsOfUse = ({ title }) => {
                                         <p> connecting networks or devices. “Materials” means Your Trademarks, copyright content, any products or services you sell through the Services (including description and price), and any </p>
                                         <p> photos, images, videos, graphics, written content, audio files, code, information, or other data provided or made available by you or your affiliates to aShopree or its affiliates. </p>
                                     </li> 
-                                    <li>
+                                    <li id='term2'>
                                         <h5> Account Activation </h5>
                                         <p> Which means Only contact person can be the “Store Owner”, usually the person signing up for the aShopree Service. The Store Owner is responsible for the Account, is bound by these Terms of Service and is responsible for the actions of others accessing the Account. If you sign up on behalf of your employer, your employer is the Store Owner responsible for your Account.We automatically create certain accounts for you to accept payments. You are responsible for activating and deactivating these accounts and complying with their terms, which may be with various third parties, including but not limited to PayPal, Apple Pay, and Google Payment. Any domain you purchase through us will automatically renew unless you opt out. </p>
                                         <ol>
