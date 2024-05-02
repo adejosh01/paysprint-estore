@@ -11,10 +11,14 @@ import { Link, NavLink } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import profileIcon from 'assets/icons/profile/profileIcon.png';
 import axios from "axios";
-
+import { useAuth } from "../../hook/AuthProvider";
 
 
 export const EstoreHeader = ({title}) => {
+  const auth = useAuth();
+
+  // console.log(auth);
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
@@ -209,31 +213,39 @@ export const EstoreHeader = ({title}) => {
               </div>
             </form>
 
-            <Link to="/mycart">
-              { (pathname === "/mycart") ? (
-                <div style={{ background: '#fff' }}> 
-                    <FontAwesomeIcon icon={faCartShopping}  style={{ color: '#4F0B92' }}/>
-                </div>
-              ) : (
-                <div> 
-                    {/* <img src={cart} alt="thecartlogo" /> */}
-                    <FontAwesomeIcon icon={faCartShopping}  style={{ color: 'white' }}/>
-                </div>
-              )}
-            </Link>
+            {
+              auth.token ? (
+                <>
+                  <Link to="/mycart">
+                    {(pathname === "/mycart") ? (
+                      <div style={{ background: '#fff' }}>
+                        <FontAwesomeIcon icon={faCartShopping} style={{ color: '#4F0B92' }} />
+                      </div>
+                    ) : (
+                      <div>
+                        {/* <img src={cart} alt="thecartlogo" /> */}
+                        <FontAwesomeIcon icon={faCartShopping} style={{ color: 'white' }} />
+                      </div>
+                    )}
+                  </Link>
 
-            <Link to="/messages">
-              { (pathname === "/messages") ? (
-                <div style={{ background: '#fff' }}> 
-                    <FontAwesomeIcon icon={faMessage}  style={{ color: '#4F0B92' }}/>
-                </div>
-              ) : (
-                <div> 
-                  {/* <img src={msglogo} alt="themsglogo" /> */}
-                  <FontAwesomeIcon icon={faMessage}  style={{ color: 'white' }}/>
-                </div>
-              )}
-            </Link>
+                  <Link to="/messages">
+                    {(pathname === "/messages") ? (
+                      <div style={{ background: '#fff' }}>
+                        <FontAwesomeIcon icon={faMessage} style={{ color: '#4F0B92' }} />
+                      </div>
+                    ) : (
+                      <div>
+                        {/* <img src={msglogo} alt="themsglogo" /> */}
+                        <FontAwesomeIcon icon={faMessage} style={{ color: 'white' }} />
+                      </div>
+                    )}
+                  </Link>
+                </>
+              ) : null
+            }
+
+            
 
             <div className="acctstuffs" > 
               {/* <img src={user} alt="theuserlogo" /> */}
@@ -242,47 +254,50 @@ export const EstoreHeader = ({title}) => {
                 <span style={{  marginLeft: '0.2rem' }} onClick={toggleAccountMenu}> 
                   <button> <FontAwesomeIcon icon={isAccountMenuOpen ? faAngleUp : faAngleDown} style={{ color: '#fff' }} /> </button>
                 </span>
-                {/* Show this if the user is authenticated */}
-                {/* <ul className={getConditionalClassName( isAccountMenuOpen, "account", "active" )}>
-                  <li>
-                    <img src={passwordIcon} alt="User Icon" />
-                    <Link to="#" > PS Account No: 20983 </Link> 
-                    <img src={clip} alt="Clipboard Icon" />
-                  </li>
-                  <li>
-                    <img src={profileIcon} alt="User Icon" />
-                    <Link to="#"> Profile </Link>
-                  </li>
-                  <li style={{ width: '70%' }}>
-                    <img src={share} alt="User Icon" />
-                    <Link to="#"> Share profile link </Link>
-                  </li>
-                  <li style={{ width: '24.4rem' }}>
-                    <img src={tag} alt="User Icon" />
-                    <Link to="#"> Check out Special Promo </Link>
-                  </li>
-                  <li>
-                    <img src={logout} alt="User Icon" />
-                    <Link to="#"> Log Out </Link>
-                  </li>
-                </ul> */}
 
-                {/* else, show this */}
-                <ul className={getConditionalClassName( isAccountMenuOpen, "account", "active" )}>
-                  <li className="guest-link">
-                    <img src={profileIcon} alt="User Icon" />
-                    <Link to="/register"> Register with PaySprint </Link>
-                  </li>
-                  <li className="guest-link">
-                    <img src={profileIcon} alt="User Icon" />
-                    <Link to="/login"> Login with PaySprint </Link>
-                  </li>
-                  <li className="guest-link">
-                    <img src={profileIcon} alt="User Icon" />
-                    <Link to="/merchant-register"> Create Merchant Account </Link>
-                  </li>
-                </ul>
+                {
+                auth.token ? (<>
+                  <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
+                    <li className="guest-link">
+                      <Link> View Profile </Link>
+                    </li>
+                    <li className="guest-link">
+                      <Link> My Wish List </Link>
+                    </li>
+                    <li className="guest-link">
+                      <Link> My Orders </Link>
+                    </li>
+                    <li className="guest-link">
+                      <Link to={"/community"}> Community </Link>
+                    </li>
+                    <li className="guest-link">
+                      <Link onClick={() => auth.logOut()}> Logout </Link>
+                    </li>
+                  </ul>
+                </>) : (<>
+                    <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
+                      <li className="guest-link">
+                        <img src={profileIcon} alt="User Icon" />
+                        <Link to="/register"> Register with PaySprint </Link>
+                      </li>
+                      <li className="guest-link">
+                        <img src={profileIcon} alt="User Icon" />
+                        <Link to="/login"> Login with PaySprint </Link>
+                      </li>
+                      <li className="guest-link">
+                        <img src={profileIcon} alt="User Icon" />
+                        <Link to="/merchant-register"> Create Merchant Account </Link>
+                      </li>
+                    </ul>
+                </>)
+                }
+
+                
+
+
             </div>
+
+
           </div>
         </header>
       </nav>
