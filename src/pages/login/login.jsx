@@ -11,13 +11,9 @@ export const Login = ({ title }) => {
 
   }, [title]);
 
-  const [isMerchantActive, setIsMerchantActive] = useState(false);
   const [accountNumber, setAccountNumber] = useState("");
   const [transactionPin, settransactionPin] = useState("");
 
-  function handleClick(accountType) {
-    toggleLoginScreen(accountType, setIsMerchantActive);
-  }
 
   const submitLogin = () => {
       try {
