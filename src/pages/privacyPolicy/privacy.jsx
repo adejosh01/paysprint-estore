@@ -1,3 +1,4 @@
+import { scrollToDataSection } from 'utils/utils';
 import './privacy.styles.scss';
 import { useEffect } from 'react';
 
@@ -20,9 +21,9 @@ export const PrivacyPolicy = ({ title }) => {
                         <div className="both-contents">
                             <div className="side">
                                 <ol type='1'>
-                                    <li> Introduction </li>
-                                    <li> Our Services</li>
-                                    <li> Information We Collect About You
+                                    <li onClick={ () => scrollToDataSection('privacyCondition1') } > Introduction </li>
+                                    <li onClick={ () => scrollToDataSection('privacyCondition2')}> Our Services</li>
+                                    <li onClick={ () => scrollToDataSection('privacyCondition3')}> Information We Collect About You
                                         <ol>
                                             <li> Customer Information </li>    
                                             <li> Individual Information </li>    
@@ -74,18 +75,18 @@ export const PrivacyPolicy = ({ title }) => {
                                      </li>
                                 </ol>
                             </div>
-                            <div className="main">
+                            <div className="main" id='privacyCondition1'>
                                 <ol type='1'>
                                     <li>
                                         <h5> Introduction </h5>
                                         <p> Thank you for using the services of aShopree. We provide ecommerce, store front and payment services for micro and small businesses all over the world. </p>
-                                        <p> This Privacy Policy applies to the processing of personal data by aShopree Inc. (as defined) located at 340-2250 Bovaird Drive East, Brampton ON. L6R 3J5 </p>
+                                        <p id='privacyCondition2'> This Privacy Policy applies to the processing of personal data by aShopree Inc. (as defined) located at 340-2250 Bovaird Drive East, Brampton ON. L6R 3J5 </p>
                                         <p> We may change this Policy from time to time. If we do, we shall post a revision of this Privacy Policy at httaShopree://ashopree.com/privacy-policy and your continued use of the Services provided through mobile app or website shall be subject to such revised terms. </p>
                                     </li> 
                                     <li>
                                         <h5> Our Services </h5>
                                         <p> Our Service include: </p>
-                                        <p> We offer ecommerce solution, store front and capacilities for your business to receive payment for goods and services sold. </p>
+                                        <p id='privacyCondition3'> We offer ecommerce solution, store front and capacilities for your business to receive payment for goods and services sold. </p>
                                         <p> We also offer fulfilment centre, a network of delivery service providers that assist businesses to delivery goods. </p>
                                     </li> 
                                     <li>
