@@ -12,27 +12,34 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null);
     const [token, setToken] = useState(localStorage.getItem("authtoken") || "");
     const navigate = useNavigate();
+
     const loginAction = async (data) => {
         try {
-            
-            const response = await fetch("your-api-endpoint/auth/login", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(data),
-            });
-            const res = await response.json();
-            if (res.data) {
-                setUser(res.data.user);
-                setToken(res.token);
-                localStorage.setItem("authtoken", res.token);
-                navigate("/dashboard");
-                return;
+
+            const apiConfig = {
+                method: 'POST',
+                url: `${apiUrl}/ashopree/auth/login`,
+                data
             }
-            throw new Error(res.message);
-        } catch (err) {
-            console.error(err);
+
+            const result = await axios(apiConfig);
+
+            if (result.data.status === 200) {
+                setUser(result.data.data);
+                setToken(result.data.data.apiToken);
+                localStorage.setItem("authtoken", result.data.data.apiToken);
+                navigate("/");
+                return;
+
+            } 
+
+
+        } catch (error) {
+            if (error.response) {
+                alert(error.response.data.message);
+            } else {
+                alert(error.message);
+            }
         }
     };
 
