@@ -1,0 +1,199 @@
+.estore-container {
+    margin: 0 auto;
+    background-color: white;
+    // padding: 1rem;
+      
+      h1 {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 40px;
+        text-align: center;
+        text-transform: capitalize;
+        color: #272343;
+        margin-bottom: 0.8rem;
+      }
+      & > p {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        color: #2d334a;
+        margin-bottom: 3.2rem;
+      }
+
+      section.titleHead {
+        padding: 0rem 5rem;
+        div.title {
+          padding-top: 4rem;
+        }
+      }
+
+      section.allcats {
+        padding: 4rem 5rem;
+        display: flex;
+        .sidebar {
+          flex: 0 0 30%;
+          background-color: #f5f5f5;
+          padding: 1rem;
+          h4 {
+            font-size: 20px;
+            font-weight: 500;
+            color: #9FA1A7;
+            text-transform: uppercase;
+            margin-left: 1rem;
+          } 
+          div {
+            display: flex;
+            flex-direction: column; 
+            padding: 1rem 2rem;
+            gap: 1rem;
+            div {
+              p {
+                font-weight: 400;
+                font-size: 20px;
+                color: #2D334A;
+                font-family: Plus Jakarta sans-serif;
+                text-transform: capitalize;
+              }
+            }
+          }
+        } 
+        .maincontent {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          .homeandoffice {
+            padding: 1rem 2rem;
+            .items {
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
+              column-gap: 2rem;
+              row-gap: 2rem;
+              .eachItem {
+                .imgdescription {
+                  margin: 4% auto;
+                  .nameofitem {
+                    font-weight: 500;
+                    font-size: 23px;
+                    line-height: 25.2px;
+                  }
+                  .priceofitem {
+                    font-weight: 600;
+                    font-size: 20px;
+                  }
+                  .initialprice {
+                    font-weight: 500;
+                    font-size: 14.5px;
+                    color: #C6C6C6;
+                  }
+                  div {
+                    display: flex;
+                    margin: 1rem auto;
+                    span {
+                      display: grid;
+                      grid-template-columns: repeat(5, 1fr);
+                      column-gap: 0.5rem;
+                    }
+                    p {
+                      margin-left: 1rem;
+                    }
+                  }
+                }
+              }
+            }
+            .producttitle {
+              margin-bottom: 5px;
+              display: flex;
+              justify-content: space-between;
+      
+              .realtitle { 
+              font-family: 'Plus Jakarta Sans';
+              font-weight: 400;
+              font-size: 24px;
+              color: #2D334A;
+              }
+              .secondtitle {
+                color: #4F0B92;
+                font-size: 16px;
+                font-weight: 700;
+              }
+      
+            }
+          }
+        }
+      }
+
+    }
+    
+    
+    @media screen and (min-width: 1200px) {
+      .estore-container {
+        // max-width: 1200px;
+        
+    
+        & > p {
+          max-width: 550px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        
+        section.getallprods {
+          // max-width: 1200px;
+          margin: 0 auto;
+          // display: flex;
+          // justify-content: space-between;
+        }
+      
+  
+      }
+    }
+    
+  
+    @media screen and (max-width: 900px) {
+      .estore-container {
+        section.allcats {
+          flex-direction: column;
+        }
+      }
+  
+    }
+  
+    // @media screen and (max-width: 800px) {
+    //   .estore-container {
+  
+    //   }
+  
+    // }
+  
+    @media screen and (max-width: 700px) {
+      .estore-container {
+        section.allcats {
+          .maincontent{
+            .homeandoffice {
+              .items {
+                grid-template-columns: repeat(2, 1fr);
+              }
+            }
+          }
+        }
+      }
+  
+    }
+  
+
+    @media screen and (max-width: 500px) {
+      .estore-container {
+        section.allcats {
+          .maincontent{
+            .homeandoffice {
+              .items {
+                grid-template-columns: repeat(1, 1fr);
+              }
+            }
+          }
+        }
+      }
+  
+    }
+    
+  

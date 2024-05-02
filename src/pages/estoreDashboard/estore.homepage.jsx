@@ -1,9 +1,9 @@
 import "./estore.homepage.scss";
 import { useEffect, useState } from "react";
 import others from "assets/images/estore/topCategories/others.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { getConditionalClassName } from "utils/utils";
+import { getConditionalClassName, handleClick } from "utils/utils";
 import { Card } from "antd";
 import config from "../../config";
 
@@ -16,6 +16,7 @@ export const EstoreDashboard = ({ title }) => {
   const [registeredStores, setData4] = useState([]);
   const [categories, setData5] = useState([]);
   const [value, setValue] = useState(''); // State variable to hold the search query
+  const navigate = useNavigate();
 
   useEffect(() => {
 
@@ -145,7 +146,7 @@ export const EstoreDashboard = ({ title }) => {
           <section className="topproducts">
             <div className="producttitle">
               <p className="realtitle"> Top Products </p>
-              <p className="secondtitle"> See all Products </p>
+              {/* <p className="secondtitle"> See all Products </p> */}
             </div>
 
             <div className="items">
@@ -198,7 +199,7 @@ export const EstoreDashboard = ({ title }) => {
               </div>
             </div>
 
-            <button type="button">
+            <button type="button" onClick={ () => handleClick("/registered-stores", navigate)}>
               See all Registered Stores
             </button>
 
@@ -236,7 +237,7 @@ export const EstoreDashboard = ({ title }) => {
 
 
             <div className="thebutton">
-            <Link to={`/allcategories?categoryname=${categories[0].category}`}>
+              <Link to={`/allcategories?categoryname=${categories[0].category}`}>
                 <button type="button">
                   See all categories
                 </button>

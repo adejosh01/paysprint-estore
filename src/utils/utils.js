@@ -112,21 +112,22 @@ export function getLoginScreen() {
   }
 }
 
-export function toggleLoginScreen(accountType, setIsMerchantActive) {
-  const personalForm = document.querySelector('.personal-acct-form');
-  const merchantForm = document.querySelector('.merchant-acct-form');
+export function toggleLoginScreen(accountType) {
+  const personalForm = document.querySelector('.login_page_for_individual');
+  const merchantForm = document.querySelector('.login_page_for_merchant');
 
   if (accountType === 'personal-acct') {
     personalForm.classList.add('current_screen');
     merchantForm.classList.remove('current_screen');
-    setIsMerchantActive(false); 
 
   } else if (accountType === 'merchant-acct') {
     personalForm.classList.remove('current_screen');
     merchantForm.classList.add('current_screen');
-    setIsMerchantActive(true);
     
+  } else {
+    console.log('Cannot find your account type')
   }
+
 }
 
 

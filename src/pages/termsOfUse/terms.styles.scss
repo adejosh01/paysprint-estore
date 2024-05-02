@@ -1,0 +1,164 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    font: 500 20px 'Plus Jakarta Sans';
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+
+    section.termsandprivacy {
+        padding: 5rem 5.6rem;
+        background-color: #9747FF66;
+        width: 100%;
+        div.contents {
+            padding: 58px 33px;
+            background-color: #E5E9EE;
+            border-radius: 5px;
+            width: 100%;
+            div.details {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                gap: 35px;
+                h2 {
+                    font: 700 25px 'Plus jakarta sans';
+                    text-align: center;
+                    line-height: 53px;
+                    color: #000;
+                    text-transform: uppercase;
+                }
+                .both-contents {
+                    display: flex;
+                    gap: 2rem;
+                    width: 100%;
+                    div.side {
+                        background-color: #fff;
+                        flex: 0 0 30%;
+                        ol {
+                            list-style: auto;
+                            padding: 0 2.3rem;
+                            margin-bottom: 5rem;
+                            li {
+                                font: 700 14px 'lato';
+                                color: #000;
+                                line-height: 45px;
+                                text-transform: uppercase;
+                                ol {
+                                    margin-bottom: unset;
+                                    list-style-type: lower-roman;
+                                    li {
+                                        font: 400 14px 'lato';
+                                        line-height: 30px;
+                                        text-transform: none;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    div.main {
+                        background-color: #fff;
+                        padding: 0px 32px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2.5rem;
+                        div {
+                            h5 {
+                                font: 700 14px 'lato';
+                                color: #000;
+                                line-height: 53px;
+                            }
+                            p {
+                                font-size: 14px;
+                            }
+                        }
+                        ol {
+                            list-style: auto;
+                            li {
+                                h5 {
+                                    font: 700 14px 'lato';
+                                    color: #000;
+                                    line-height: 53px;
+                                    text-transform: uppercase;
+                                }
+                                p {
+                                    font-size: 14px;
+                                }
+                                ol {
+                                    margin-bottom: unset;
+                                    padding: 0 1.5rem;
+                                    list-style-type: lower-roman;
+                                    li {
+                                        font: 400 14px 'lato';
+                                        line-height: 30px;
+                                        text-transform: none;
+                                        h5 {
+                                            text-transform: capitalize;
+                                        }
+                                        p {
+                                            font-size: 14px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+  
+}
+
+
+@media screen and (min-width: 1218px) {
+    .estore-container {
+        section.termsandprivacy {
+            padding: 8.6rem 5.6rem;
+        }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .estore-container {
+        section.termsandprivacy {
+            div.contents {
+                div.details {
+                    .both-contents {
+                        flex-direction: column;
+                        gap: 5rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .estore-container {
+        section.termsandprivacy {
+            padding: 1rem;
+            div.contents {
+                padding: 20px 10px;
+                div.details {
+                    gap: 10px;
+                }
+            }
+        }
+    }
+}

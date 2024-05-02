@@ -21,6 +21,7 @@ export const ProductDetails = ({ title }) => {
 
     axios.get(`${apiUrl}/ashopree/product/specific/${productCode}`) 
     .then(response => {
+        console.log(response.data.data);
       setData(response.data.data);
     }).catch(error => {
       setError('Error fetching product using a specific product code: ' + error.message);
@@ -65,7 +66,7 @@ export const ProductDetails = ({ title }) => {
                                 </div>
                                 
                                 <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {item.product.businessname} </span> </p>
-                                <p className='amount'> {atob(convertedAmount)} </p>
+                                <p className='amount'> {item.product.currencySymbol+Number(item.product.amount).toFixed(2)} </p>
                                 <div className='justbuttons'>
                                     <button type='button' id={`${item.product.productCode}`}> 
                                         <a href='/mycart'> Add to cart </a>
