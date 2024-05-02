@@ -20,7 +20,7 @@ export const TermsOfUse = ({ title }) => {
                         <div className="both-contents">
                             <div className="side">
                                 <ol type='1'>
-                                    <li> Account Terms </li>
+                                    <li> <a href="#term1"> Account Terms </a> </li>
                                     <li> Account Activation
                                         <ol>
                                             <li> Store Owner </li>
@@ -47,14 +47,14 @@ export const TermsOfUse = ({ title }) => {
                                             <li> Third Party Services, Experts, and Experts Marketplace </li>    
                                             <li> Beta Services </li>    
                                         </ol>    
-                                     </li>
-                                     <li> Feedback and Review </li>
-                                     <li> DMCA Notice and Takedown Procedure </li>
-                                     <li> Privacy and Data Protection </li>
-                                     <li> aShopree Contracting Party </li>
-                                     <li> Term and Termination </li>
-                                     <li> Modifications </li>
-                                     <li> General Conditions </li>
+                                    </li>
+                                    <li> Feedback and Review </li>
+                                    <li> DMCA Notice and Takedown Procedure </li>
+                                    <li> Privacy and Data Protection </li>
+                                    <li> aShopree Contracting Party </li>
+                                    <li> Term and Termination </li>
+                                    <li> Modifications </li>
+                                    <li> General Conditions </li>
                                 </ol>
                             </div>
                             <div className="main">
@@ -67,7 +67,7 @@ export const TermsOfUse = ({ title }) => {
                                     <p> Please read the Terms of Service, including any document referred to in these Terms of Service, for the complete understanding of your legal requirements. By using aShopree or any aShopree services, you are agreeing to these terms. Please check back for updates regularly. </p>
                                 </div> 
                                 <ol type='1'>
-                                    <li>
+                                    <li id='term1'>
                                         <h5> Account Terms </h5>
                                         <p> Which means You are responsible for your Account, the Materials you upload to the aShopree Service and the operation of your aShopree Store. If you violate Ashopree’s terms of service, we may cancel your service access. If we need to reach you, we will communicate via the Primary Email Address on file. </p>
                                         <p> To access and use the Services, you must register for a aShopree account (“Account”).  To complete your Account registration, you must provide us with your full legal name, business address, phone number, a valid email address, and any other information indicated as required. aShopree may reject your application for an Account, or cancel an existing Account, for any reason, at our sole discretion. </p>
