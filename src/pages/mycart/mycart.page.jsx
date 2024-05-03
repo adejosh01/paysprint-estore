@@ -129,11 +129,11 @@ export const MyCarts = ({title}) => {
                         <div className='grped'>
                             <div>
                                 <p> Items </p>
-                                <p> 3 </p>
+                              <p> {cartItem.length} </p>
                             </div>
                             <div>
                                 <p> Subtotal </p>
-                                <p> #12,000.00 </p>
+                              <p> {merchantInfo?.currencySymbol} 12,000.00 </p>
                             </div>
                         </div>
                         <button type='button'> 
