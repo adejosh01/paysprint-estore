@@ -62,7 +62,7 @@ export const Search = ({ title }) => {
 
         </section>
 
-       <section className="nextup">
+       <section className="nextupforsearch">
           <SideBarCategories />
 
           <div className="maincontent">

@@ -80,7 +80,7 @@ export const OnlineStore = ({ title }) => {
                     {
                       merchant.map((item, index) => (
                         <div className="singlarity" key={index}>
-                          <img src={item.businessLogo} alt={item.shopName} style={{ width: "180px", objectFit: "contain" }} />
+                          <img src={item.businessLogo} alt={item.shopName} className="storeImg" />
                           <div>
                             <Link to={`/merchant-store/${item.merchantId}`}>
                               <h2> {item.shopName} </h2>
