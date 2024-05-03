@@ -6,14 +6,39 @@ import washingMachine from 'assets/images/estore/rectangle-22.png';
 import sneakers from 'assets/images/estore/rectangle-23.png';
 import { Link } from 'react-router-dom';
 import { performOperation } from 'components/randomFunctions/counter';
-
+import config from "../../config";
+import axios from "axios";
+import { useAuth } from "../../hook/AuthProvider";
 
 export const MyCarts = ({title}) => {
+    const apiUrl = config().baseUrl; 
+    const auth = useAuth();
+    const [cartItem, setCartItem] = useState([]);
+    const [merchantInfo, setMerchantInfo] = useState();
     useEffect(() => {
         document.title = title;
         window.scrollTo(0, 0);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);    
+
+        const getCartItems = async () => {
+
+            const thisconfig = {
+                method: 'get',
+                url: `${apiUrl}/shop/product/loadmycart`,
+                headers: {
+                    Authorization: 'Bearer ' +auth.token
+                }
+            }
+
+            const response = await axios(thisconfig);
+
+            setCartItem(response.data.data);
+            setMerchantInfo(response.data.merchant);
+
+        }
+
+        getCartItems();
+
+    }, [title, apiUrl]);    
     
     let currentNumber = 1;
 
@@ -36,74 +61,66 @@ export const MyCarts = ({title}) => {
                 <section className="maincontent">
                     <div className="relevantstuffs">
                         <div className='titlesandall'>
-                            <h1> My Cart <span> (3) </span> </h1>
-                            <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
-                                <img src={deleteIcon} alt="the trash bin" /> Remove    
-                            </button>
+                          <h1> My Cart <span> ({cartItem.length}) </span> </h1>
+
+                          {cartItem.length > 0 ? (
+                            <>
+                                  <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                                      <img src={deleteIcon} alt="the trash bin" /> Remove
+                                  </button>
+                            </>
+                          ) : null}
+
+                            
                         </div>
 
+
+
+
                         <div className='details'>
-                            <div className="detailstitle">
-                                <p> Product </p>
-                                <p> Quantity </p>
-                                <p> Price </p>
-                            </div>
 
-                            <div className="realdeals">
-                                <div>
-                                    <div>
-                                        <img src={itemimage} alt="" />
-                                        <p> Coca cola 60cl * 12</p>
-                                    </div>
-                                    <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                                        <div>
-                                            <p onClick={ handleSubtraction }> - </p>
-                                            <p style={{ margin: '2rem 1rem' }}> { number} </p>
-                                            <p onClick={handleAddition}> + </p>
-                                        </div>
-                                        <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
-                                            <img src={deleteIcon} alt="the trash bin" /> Remove    
-                                        </button>
-                                    </div>
-                                    <p className='price'> #1200.00 </p>
-                                </div> <br /> <hr />
 
-                                <div>
-                                    <div>
-                                        <img src={sneakers} alt="" />
-                                        <p> White Sneakers</p>
-                                    </div>
-                                    <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                                        <div>
-                                            <p onClick={handleSubtraction}> - </p>
-                                            <p style={{ margin: '2rem 1rem' }}> {number} </p>
-                                            <p onClick={handleAddition}> + </p>
-                                        </div>
-                                        <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
-                                            <img src={deleteIcon} alt="the trash bin" /> Remove    
-                                        </button>
-                                    </div>
-                                    <p className='price'> #1200.00 </p>
-                                </div> <br /> <hr />
+                          <div className="detailstitle">
+                                          <p> Product </p>
+                                          <p> Quantity </p>
+                                          <p> Price </p>
+                                      </div>
 
-                                <div>
-                                    <div>
-                                        <img src={washingMachine} alt="" />
-                                        <p> Washing Machine</p>
-                                    </div>
-                                    <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                                        <div>
-                                            <p> - </p>
-                                            <p style={{ margin: '2rem 1rem' }}> 1 </p>
-                                            <p> + </p>
-                                        </div>
-                                        <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
-                                            <img src={deleteIcon} alt="the trash bin" /> Remove    
-                                        </button>
-                                    </div>
-                                    <p className='price'> #1200.00 </p>
-                                </div> <br /> <hr />
-                            </div>
+                          {
+                              cartItem.length > 0 ? (
+
+                                      cartItem.map((item, index) => (
+                                              <>
+                                                  <div className="realdeals" index={index}>
+                                                      <div>
+                                                          <div>
+                                                          <img src={item.productImage} alt="" />
+                                                          <p> {item.productName}</p>
+                                                          </div>
+                                                          <div style={{ display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                                                              <div>
+                                                                  <p onClick={handleSubtraction}> - </p>
+                                                              <p style={{ margin: '2rem 1rem' }}> {item.quantity} </p>
+                                                                  <p onClick={handleAddition}> + </p>
+                                                              </div>
+                                                              <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                                                                  <img src={deleteIcon} alt="the trash bin" /> Remove
+                                                              </button>
+                                                          </div>
+                                                      <p className='price'> {merchantInfo?.currencySymbol} {Number(item.price).toFixed(2)} </p>
+                                                      </div> <br /> <hr />
+                                                  </div>
+                                              </>
+                                          ))
+                                      
+                              ) : (
+                                      <p style={{ textAlign: "center", fontSize: 20 }}>No item added to cart. Continue shopping</p>
+                              )
+                          }
+                          
+                            
+
+                            
                         </div>
                     </div>
 
