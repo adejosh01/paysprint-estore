@@ -133,7 +133,7 @@ export const MyCarts = ({title}) => {
                             </div>
                             <div>
                                 <p> Subtotal </p>
-                              <p> {merchantInfo?.currencySymbol} 12,000.00 </p>
+                              <p> {merchantInfo?.currencySymbol} {cartItem.length > 0 ? "12,000.00" : 0 }  </p>
                             </div>
                         </div>
                         <button type='button'> 
