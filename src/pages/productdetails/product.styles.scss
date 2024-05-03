@@ -189,7 +189,6 @@
 
 
 
-
 @media screen and (max-width: 1200px) {
     .estore-container {
         section.oneproduct { 
@@ -229,7 +228,14 @@
 @media screen and (max-width: 500px) {
     .estore-container {
         section.oneproduct { 
+            padding: 2.5rem;
             .imagessection {
+                .themainimage {
+                    img {
+                        width: 100%;
+                        height: unset;
+                    }
+                }
                 .otherimages {
                     img {
                         width: 9rem;
@@ -237,11 +243,37 @@
                     }
                 }
             }
+            .describingtheimages {
+                padding: 0rem;
+                h2 {
+                    font: 600 25px 'Plus Jakarta Sans';
+                    line-height: 40.4px;
+                    text-align: left;
+                }
+            }
         }
 
         section.similarproducts {
+            padding: 2rem;
             .items {
                 grid-template-columns: repeat(2, 1fr);
+                a { 
+                    .eachItem {
+                        .fortheimages {
+                            width: 100%;
+                            height: unset;
+                        }
+                        .imgdescription {
+                            margin: 4% auto;
+                            .nameofitem {
+                              font-size: 18px;
+                            }
+                            .priceofitem {
+                              font-size: 16px;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

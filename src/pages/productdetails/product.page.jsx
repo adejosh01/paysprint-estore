@@ -1,6 +1,6 @@
 import './product.styles.scss';
 import React, { useEffect, useState } from 'react';  
-import starimage from "assets/images/star.png";
+// import starimage from "assets/images/star.png";
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios'; 
 import { stripHtmlTags } from 'utils/utils';
@@ -11,9 +11,9 @@ export const ProductDetails = ({ title }) => {
     const { productCode } = useParams();
     const [specificProduct, setData] = useState([]);
     const [error, setError] = useState(null);
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const convertedAmount = urlParams.get('r');
+    // const queryString = window.location.search;
+    // const urlParams = new URLSearchParams(queryString);
+    // const convertedAmount = urlParams.get('r');
 
     useEffect(() => {
       document.title = title;

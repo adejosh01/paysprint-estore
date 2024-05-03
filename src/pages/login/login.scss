@@ -453,12 +453,20 @@
   }
   
   
+@media screen and (max-width: 1023px) {
+  .estore-container {
+    section.login_page_for_merchant, section.login_page_for_individual {
+      padding: 48px 0px 32px 0px;
+    }
+  }
+}
+
 @media screen and (max-width: 600px) {
     .estore-container {
       max-width: 1200px;
   
       section.login_page_for_individual.current_screen {
-        // padding: 30px;
+        padding: 25px 0px 20px 0px;
         div.personal-acct-form {
           padding: 2rem;
           form {
@@ -471,7 +479,7 @@
       }
 
       section.login_page_for_merchant.current_screen {
-        // padding: 30px;
+        padding: 25px 0px 20px 0px;
         div.merchant-acct-form {
           padding: 2rem;
           form {
@@ -485,3 +493,11 @@
     }
 }
 
+
+@media screen and (min-width: 1218px) {
+  .estore-container {
+    section.login_page_for_merchant, section.login_page_for_individual {
+      padding: 6rem 0rem 5.6rem 0rem !important;
+    }
+  }
+}
