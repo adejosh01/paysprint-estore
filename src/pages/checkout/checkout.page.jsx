@@ -1,14 +1,57 @@
 import { Link } from 'react-router-dom';
 import './checkout.styles.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import config from "../../config";
+import axios from "axios";
+import { useAuth } from "../../hook/AuthProvider";
 
 
 export const Checkout = ({title}) => {
+
+    const apiUrl = config().baseUrl;
+    const auth = useAuth();
+    const [cartItem, setCartItem] = useState([]);
+    const [merchantInfo, setMerchantInfo] = useState();
+    const [sumTotal, setSumTotal] = useState(0);
+
     useEffect(() => {
         document.title = title;
         window.scrollTo(0, 0);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-      }, []);
+        
+        const getCartItems = async () => {
+
+            const thisconfig = {
+                method: 'get',
+                url: `${apiUrl}/shop/product/loadmycart`,
+                headers: {
+                    Authorization: 'Bearer ' + auth.token
+                }
+            }
+
+            const response = await axios(thisconfig);
+
+            console.log(response.data.data);
+
+            setCartItem(response.data.data);
+            setMerchantInfo(response.data.merchant);
+
+            if ((response.data.data).length > 0) {
+                for (let i = 0; i < response.data.data.length; i++) {
+                    const arrTotal = [Number(response.data.data[i].price * response.data.data[i].quantity)];
+                    const cartTotal = arrTotal.reduce((a, b) => a + b);
+                    setSumTotal(cartTotal);
+                }
+            }
+
+
+
+
+
+        }
+
+        getCartItems();
+
+    }, [apiUrl, title]);
 
       return (
             <div className="estore-container">
@@ -59,74 +102,68 @@ export const Checkout = ({title}) => {
 
                         <div className="sideconts">
                             <p> Order Summary</p>
-                            <div className='desc'>
+
+                          <div className='grped'>
+                              <div className='items'>
                                 <p> Description </p>
                                 <p> Quantity </p>
                                 <p> Price </p>
                                 <p> Amount </p>
                             </div>
+                              <hr style={{ marginBottom: '2rem' }} />
+
+                            </div>
+
+                            
+                          
                             <div className='grped'>
-                                <div className='items'>
-                                    <p> Coke </p>
-                                    <p> 2 </p>
-                                    <p> 20 </p>
-                                    <p> 40 </p>
-                                </div>
 
-                                {/* <table>
-                                    <thead> 
-                                        <tr>
-                                            <th>check</th>
-                                            <th>check</th>
-                                            <th>check</th>
-                                        </tr> 
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td> check one</td>
-                                            <td> check one</td>
-                                        </tr>
-                                    </tbody>
-                                </table> */}
+                              {
+                                  cartItem.length > 0 ? (
+                                      cartItem.map((item, index) => (
+                                          <div className='items' index={index}>
+                                              <p style={{ textWrap: "pretty" }}> {item.productName} </p>
+                                              <p> {item.quantity} </p>
+                                              <p> {merchantInfo?.currencySymbol} {Number(item.price).toLocaleString()} </p>
+                                              <p> {merchantInfo?.currencySymbol} {Number(item.price * item.quantity).toLocaleString()} </p>
+                                          </div>
+                                      ))
+                                  ) : (<p>No item to checkout</p>)
+                              }
 
-                                <div className='items'>
-                                    <p> Shoe </p>
-                                    <p> 1 </p>
-                                    <p> 50 </p>
-                                    <p> 50 </p>
-                                </div>
-                                <div className='items'>
-                                    <p> Cooler </p>
-                                    <p> 5 </p>
-                                    <p> 15 </p>
-                                    <p> 75 </p>
-                                </div> <hr />
-                                <div className='items'>
-                                    <p> Sub Total </p>
-                                    <p> 168 </p>
-                                </div> <hr style={{ marginBottom: '2rem' }} />
 
-                                <div>
-                                    <p> Delivery </p>
-                                    <p> 0 </p>
-                                </div>
-                                <div>
-                                    <p> Service Charge </p>
-                                    <p> 0 </p>
-                                </div>
-                                <div>
-                                    <p> Taxes </p>
-                                    <p> 13% </p>
-                                    <p> 21.45 </p>
-                                </div>
-                                <div>
-                                    <p> Other Charges </p>
-                                    <p> 21.45 </p>
-                                </div>
-                                <div>
-                                    <p> Total Amount </p>
-                                    <p> #12,000.00 </p>
-                                </div>
+                              {
+                                  cartItem.length > 0 ? (
+                                    <>
+                                          <hr style={{ marginBottom: '2rem' }} />
+                                          <div>
+                                              <p> Sub Total </p>
+                                              <p> 168 </p>
+                                          </div>
+
+                                          <div>
+                                              <p> Delivery </p>
+                                              <p> 0 </p>
+                                          </div>
+                                          <div>
+                                              <p> Service Charge </p>
+                                              <p> 0 </p>
+                                          </div>
+                                          <div>
+                                              <p> Taxes </p>
+                                              <p> 13% </p>
+                                          </div>
+                                          
+                                          <div>
+                                              <p> Total Amount </p>
+                                              <p> #12,000.00 </p>
+                                          </div>
+                                    </>
+                                  ) : null
+                              }
+                                
+
+                              
                             </div>
                             
                             <button type='button' name='submit'> 
