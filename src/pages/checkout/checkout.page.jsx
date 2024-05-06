@@ -156,7 +156,7 @@ export const Checkout = ({title}) => {
                                           
                                           <div>
                                               <p> Total Amount </p>
-                                              <p> #12,000.00 </p>
+                                              <p> {merchantInfo?.currencySymbol} {Number(sumTotal).toLocaleString()} </p>
                                           </div>
                                     </>
                                   ) : null
