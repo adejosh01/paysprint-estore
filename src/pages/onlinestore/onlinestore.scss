@@ -348,7 +348,9 @@
     .estore-container {
       section.nextup {
         flex-direction: column;
-        
+        .sidebar {
+          display: none;
+        }
       }
     }
 
