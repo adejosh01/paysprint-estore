@@ -40,7 +40,6 @@ export const EstoreHeader = ({title}) => {
 
   const [value, setValue] = useState(''); // State variable to hold the search query
 
-  // console.log(value);
 
   useEffect(() => {
     document.title = title;
@@ -57,7 +56,7 @@ export const EstoreHeader = ({title}) => {
 
   }, [apiUrl, title]);
 
-  // console.log(pathname);
+  // console.log(categories);
 
   return (
     <>
@@ -90,51 +89,19 @@ export const EstoreHeader = ({title}) => {
               </a>
             </li>
             <ul className={getConditionalClassName( isSubMenuOpen, "submenu", "active" )}>
-                <li>
-                  <a>Accounting(18)</a>
-                </li>
-                <li>
-                  <a>Art & Craft(10)</a>
-                </li>
-                <li>
-                  <a>Automotive(23)</a>
-                </li>
-                <li>
-                  <a> Chemicals(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Accounting(18) </a>
-                </li>
-                <li>
-                  <a> Others(18) </a>
-                </li>
+                {categories.length !== 0 ? (
+                    Array.isArray(categories) && categories.map((item, index) => (
+                        <li key={index}>
+                          <a href={`/allcategories?categoryname=${item.category}`} key={index}> {item.category} </a>
+                        </li>
+                    ))
+                ) : (
+                    !Array.isArray(categories) && <a href="#"> Sorry, an error occurred</a>
+                )}
+
+                {categories.length === 0 && !Array.isArray(categories) && (
+                    <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading... </p>
+                )}
             </ul>
             <li>
               <NavLink to="/onlinestore" onClick={() => setIsMenuOpen(false)}>
@@ -207,14 +174,12 @@ export const EstoreHeader = ({title}) => {
 
             <form action={`/search?${value}`}>
               <div className="searching">
-                {/* <img src={search} alt="thesearch" /> */}
                 <FontAwesomeIcon icon={faSearch} />
                 <input type="text" name="query" placeholder="Search for a product" value={value} onChange={e => setValue(e.target.value)} />
               </div>
             </form>
 
-            {
-              auth.token ? (
+            { auth.token ? (
                 <>
                   <Link to="/mycart">
                     {(pathname === "/mycart") ? (
@@ -245,8 +210,6 @@ export const EstoreHeader = ({title}) => {
               ) : null
             }
 
-            
-
             <div className="acctstuffs" > 
               {/* <img src={user} alt="theuserlogo" /> */}
                 <FontAwesomeIcon icon={faUser} style={{ color: '#fff' }} />
@@ -255,8 +218,7 @@ export const EstoreHeader = ({title}) => {
                   <button> <FontAwesomeIcon icon={isAccountMenuOpen ? faAngleUp : faAngleDown} style={{ color: '#fff' }} /> </button>
                 </span>
 
-                {
-                auth.token ? (<>
+                { auth.token ? (<>
                   <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
                     <li className="guest-link">
                       <Link> View Profile </Link>
@@ -274,29 +236,24 @@ export const EstoreHeader = ({title}) => {
                       <Link onClick={() => auth.logOut()}> Logout </Link>
                     </li>
                   </ul>
-                </>) : (<>
-                    <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
-                      <li className="guest-link">
-                        <img src={profileIcon} alt="User Icon" />
-                        <Link to="/register"> Register with PaySprint </Link>
-                      </li>
-                      <li className="guest-link">
-                        <img src={profileIcon} alt="User Icon" />
-                        <Link to="/login"> Login with PaySprint </Link>
-                      </li>
-                      <li className="guest-link">
-                        <img src={profileIcon} alt="User Icon" />
-                        <Link to="/merchant-register"> Create Merchant Account </Link>
-                      </li>
-                    </ul>
-                </>)
-                }
-
-                
-
-
+                  </>) : (<>
+                      <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
+                        <li className="guest-link">
+                          <img src={profileIcon} alt="User Icon" />
+                          <Link to="/register"> Register with PaySprint </Link>
+                        </li>
+                        <li className="guest-link">
+                          <img src={profileIcon} alt="User Icon" />
+                          <Link to="/login"> Login with PaySprint </Link>
+                        </li>
+                        <li className="guest-link">
+                          <img src={profileIcon} alt="User Icon" />
+                          <Link to="/merchant-register"> Create Merchant Account </Link>
+                        </li>
+                      </ul>
+                  </>
+                )}
             </div>
-
 
           </div>
         </header>
