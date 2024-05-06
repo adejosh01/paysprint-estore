@@ -30,7 +30,7 @@ export const Checkout = ({title}) => {
 
             const response = await axios(thisconfig);
 
-            console.log(response.data.data);
+            // console.log(response.data.data);
 
             setCartItem(response.data.data);
             setMerchantInfo(response.data.merchant);
@@ -42,16 +42,11 @@ export const Checkout = ({title}) => {
                     setSumTotal(cartTotal);
                 }
             }
-
-
-
-
-
         }
 
         getCartItems();
 
-    }, [apiUrl, title]);
+    }, [apiUrl, title, auth.token]);
 
       return (
             <div className="estore-container">
@@ -103,37 +98,33 @@ export const Checkout = ({title}) => {
                         <div className="sideconts">
                             <p> Order Summary</p>
 
-                          <div className='grped'>
-                              <div className='items'>
-                                <p> Description </p>
-                                <p> Quantity </p>
-                                <p> Price </p>
-                                <p> Amount </p>
-                            </div>
-                              <hr style={{ marginBottom: '2rem' }} />
-
-                            </div>
-
-                            
-                          
                             <div className='grped'>
+                                { cartItem.length > 0 ? (
+                                        cartItem.map((item, index) => (
+                                            <div className="table-container" index={index}>
+                                                <table className="custom-table">
+                                                    <thead>
+                                                        <th> Description</th>
+                                                        <th> Quantity </th>
+                                                        <th> Price </th>
+                                                        <th> Amount </th>
+                                                        <hr style={{ marginBottom: '2rem' }} />
+                                                    </thead>
+                                                    <tbody>
+                                                        <td style={{ textWrap: "pretty" }}> {item.productName} </td>
+                                                        <td> {item.quantity} </td>
+                                                        <td> {merchantInfo?.currencySymbol} {Number(item.price).toLocaleString()} </td>
+                                                        <td> {merchantInfo?.currencySymbol} {Number(item.price * item.quantity).toLocaleString()} </td>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        ))
+                                    ) : ( <p> No item to checkout </p> )
+                                }
+                            </div>
 
-                              {
-                                  cartItem.length > 0 ? (
-                                      cartItem.map((item, index) => (
-                                          <div className='items' index={index}>
-                                              <p style={{ textWrap: "pretty" }}> {item.productName} </p>
-                                              <p> {item.quantity} </p>
-                                              <p> {merchantInfo?.currencySymbol} {Number(item.price).toLocaleString()} </p>
-                                              <p> {merchantInfo?.currencySymbol} {Number(item.price * item.quantity).toLocaleString()} </p>
-                                          </div>
-                                      ))
-                                  ) : (<p>No item to checkout</p>)
-                              }
-
-
-                              {
-                                  cartItem.length > 0 ? (
+                            <div className='grped'>
+                              { cartItem.length > 0 ? (
                                     <>
                                           <hr style={{ marginBottom: '2rem' }} />
                                           <div>
@@ -161,9 +152,7 @@ export const Checkout = ({title}) => {
                                     </>
                                   ) : null
                               }
-                                
-
-                              
+                                                              
                             </div>
                             
                             <button type='button' name='submit'> 

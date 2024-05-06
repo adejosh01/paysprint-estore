@@ -2,7 +2,7 @@ import './mycart.styles.scss';
 import { useEffect, useState } from 'react';
 import deleteIcon from 'assets/icons/trashcan.png';
 import { Link } from 'react-router-dom';
-import { performOperation } from 'components/randomFunctions/counter';
+// import { performOperation } from 'components/randomFunctions/counter';
 import config from "../../config";
 import axios from "axios";
 import { useAuth } from "../../hook/AuthProvider";
@@ -39,32 +39,28 @@ export const MyCarts = ({ title }) => {
                     setSumTotal(cartTotal);
                 }
             }
-            
-
-            
-
 
         }
 
         getCartItems();
 
-    }, [title, apiUrl]);
+    }, [title, apiUrl, auth.token]);
 
-    let currentNumber = 1;
+    // let currentNumber = 1;
 
-    const [number, setNumber] = useState(currentNumber);
+    // const [number, setNumber] = useState(currentNumber);
 
-    // Function to handle the click event and perform the subtraction operation
-    const handleSubtraction = () => {
-        const newNumber = performOperation(number, '-');
-        setNumber(newNumber);
-    };
+    // // Function to handle the click event and perform the subtraction operation
+    // const handleSubtraction = () => {
+    //     const newNumber = performOperation(number, '-');
+    //     setNumber(newNumber);
+    // };
 
-    // Function to handle the click event and perform the addition operation
-    const handleAddition = () => {
-        const newNumber = performOperation(number, '+');
-        setNumber(newNumber);
-    };
+    // // Function to handle the click event and perform the addition operation
+    // const handleAddition = () => {
+    //     const newNumber = performOperation(number, '+');
+    //     setNumber(newNumber);
+    // };
 
     return (
         <div className="estore-container">
@@ -81,14 +77,9 @@ export const MyCarts = ({ title }) => {
                             </>
                         ) : null}
 
-
                     </div>
 
-
-
-
                     <div className='details'>
-
 
                         <div className="detailstitle">
                             <p> Product </p>
@@ -96,41 +87,34 @@ export const MyCarts = ({ title }) => {
                             <p> Price </p>
                         </div>
 
-                        {
-                            cartItem.length > 0 ? (
-
-                                cartItem.map((item, index) => (
-                                    <>
-                                        <div className="realdeals" index={index}>
+                        { cartItem.length > 0 ? (
+                            cartItem.map((item, index) => (
+                                <>
+                                    <div className="realdeals" index={index}>
+                                        <div>
                                             <div>
+                                                <img src={item.productImage} alt="" />
+                                                <p> {item.productName}</p>
+                                            </div>
+                                            <div style={{ display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
                                                 <div>
-                                                    <img src={item.productImage} alt="" />
-                                                    <p> {item.productName}</p>
+                                                    {/* <p onClick={handleSubtraction}> - </p> */}
+                                                    <p style={{ margin: '2rem 1rem' }}> {item.quantity} </p>
+                                                    {/* <p onClick={handleAddition}> + </p> */}
                                                 </div>
-                                                <div style={{ display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                                                    <div>
-                                                        {/* <p onClick={handleSubtraction}> - </p> */}
-                                                        <p style={{ margin: '2rem 1rem' }}> {item.quantity} </p>
-                                                        {/* <p onClick={handleAddition}> + </p> */}
-                                                    </div>
-                                                    {/* <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                                                                  <img src={deleteIcon} alt="the trash bin" /> Remove
-                                                              </button> */}
-                                                </div>
-                                                <p className='price'> {merchantInfo?.currencySymbol} {Number(item.price).toLocaleString()} </p>
-                                            </div> <br /> <hr />
-                                        </div>
-                                    </>
-                                ))
+                                                {/* <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                                                                <img src={deleteIcon} alt="the trash bin" /> Remove
+                                                            </button> */}
+                                            </div>
+                                            <p className='price'> {merchantInfo?.currencySymbol} {Number(item.price).toLocaleString()} </p>
+                                        </div> <br /> <hr />
+                                    </div>
+                                </>
+                            ))
 
-                            ) : (
-                                <p style={{ textAlign: "center", fontSize: 20 }}>No item added to cart. Continue shopping</p>
-                            )
-                        }
-
-
-
-
+                        ) : (
+                            <p style={{ textAlign: "center", fontSize: 20 }}>No item added to cart. Continue shopping</p>
+                        )}
                     </div>
                 </div>
 

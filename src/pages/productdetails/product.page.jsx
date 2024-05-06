@@ -21,7 +21,6 @@ export const ProductDetails = ({ title }) => {
 
     axios.get(`${apiUrl}/ashopree/product/specific/${productCode}`) 
     .then(response => {
-        console.log(response.data.data);
       setData(response.data.data);
     }).catch(error => {
       setError('Error fetching product using a specific product code: ' + error.message);

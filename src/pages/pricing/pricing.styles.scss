@@ -125,6 +125,14 @@
     }
 }
 
+@media screen and (max-width: 500px) {
+    .estore-container { 
+        section.pricing {
+            padding: 4rem 3rem;
+        }    
+    }
+}
+
 @media screen and (max-width: 800px) {
     .estore-container { 
         section.pricing {

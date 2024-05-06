@@ -224,10 +224,10 @@ export const EstoreHeader = ({title}) => {
                       <Link> View Profile </Link>
                     </li>
                     <li className="guest-link">
-                      <Link> My Wish List </Link>
+                      <Link to={'/mywishlist'}> My Wish List </Link>
                     </li>
                     <li className="guest-link">
-                      <Link> My Orders </Link>
+                      <Link to={'/myorders'}> My Orders </Link>
                     </li>
                     <li className="guest-link">
                       <Link to={"/community"}> Community </Link>
