@@ -1,0 +1,112 @@
+import './wishlist.styles.scss';
+import { useEffect, useState } from 'react';
+import deleteIcon from 'assets/icons/trashcan.png';
+import itemimage from 'assets/images/estore/productDetails/cokesecond.png';
+import washingMachine from 'assets/images/estore/rectangle-22.png';
+import sneakers from 'assets/images/estore/rectangle-23.png';
+import { performOperation } from 'components/randomFunctions/counter';
+
+
+export const MyWishlist = ({title}) => {
+    useEffect(() => {
+        document.title = title;
+        window.scrollTo(0, 0);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, []);    
+    
+    let currentNumber = 1;
+
+    const [number, setNumber] = useState(currentNumber);
+
+    // Function to handle the click event and perform the subtraction operation
+    const handleSubtraction = () => {
+        const newNumber = performOperation(number, '-');
+        setNumber(newNumber);
+    };
+
+    // Function to handle the click event and perform the addition operation
+    const handleAddition = () => {
+        const newNumber = performOperation(number, '+');
+        setNumber(newNumber);
+    };
+
+return (
+    <div className="estore-container">
+        <section className="wishlist">
+            <div className="relevantstuffs">
+                <div className='titlesandall'>
+                    <h1> My Wishlist <span> (3) </span> </h1>
+                    <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
+                        <img src={deleteIcon} alt="the trash bin" /> Remove    
+                    </button>
+                </div>
+
+                <div className='details'>
+                    <div className="detailstitle">
+                        <p> Product </p>
+                        <p> Quantity </p>
+                        <p> Price </p>
+                    </div>
+
+                    <div className="realdeals">
+                        <div>
+                            <div>
+                                <img src={itemimage} alt="" />
+                                <p> Coca cola 60cl * 12</p>
+                            </div>
+                            <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                                <div>
+                                    <p onClick={ handleSubtraction }> - </p>
+                                    <p style={{ margin: '2rem 1rem' }}> { number} </p>
+                                    <p onClick={handleAddition}> + </p>
+                                </div>
+                                <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
+                                    <img src={deleteIcon} alt="the trash bin" /> Remove    
+                                </button>
+                            </div>
+                            <p className='price'> #1200.00 </p>
+                        </div> <br /> <hr />
+
+                        <div>
+                            <div>
+                                <img src={sneakers} alt="" />
+                                <p> White Sneakers</p>
+                            </div>
+                            <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                                <div>
+                                    <p onClick={handleSubtraction}> - </p>
+                                    <p style={{ margin: '2rem 1rem' }}> {number} </p>
+                                    <p onClick={handleAddition}> + </p>
+                                </div>
+                                <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
+                                    <img src={deleteIcon} alt="the trash bin" /> Remove    
+                                </button>
+                            </div>
+                            <p className='price'> #1200.00 </p>
+                        </div> <br /> <hr />
+
+                        <div>
+                            <div>
+                                <img src={washingMachine} alt="" />
+                                <p> Washing Machine</p>
+                            </div>
+                            <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                                <div>
+                                    <p> - </p>
+                                    <p style={{ margin: '2rem 1rem' }}> 1 </p>
+                                    <p> + </p>
+                                </div>
+                                <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
+                                    <img src={deleteIcon} alt="the trash bin" /> Remove    
+                                </button>
+                            </div>
+                            <p className='price'> #1200.00 </p>
+                        </div> <br /> <hr />
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+      );
+
+};
