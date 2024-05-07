@@ -76,7 +76,7 @@ function App() {
             <Route path="/merchant-register" exact element={ <SignupFormContextProvider> <SignupMerchantPage title="aShopree | Merchant Registration" /> </SignupFormContextProvider>} />
             <Route path="/privacy-policy" exact element={<PrivacyPolicy title="aShopree | Privacy Policy" />} />
             <Route path="/registered-stores" exact element={<RegisteredStore title="aShopree | Registered Stores" />} />
-            <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} />
+    {/* <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} /> */}
           </Routes>
         </AuthProvider>
           
