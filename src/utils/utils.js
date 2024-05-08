@@ -1,7 +1,6 @@
-// import axios from "axios";
-// import { useState } from "react";
-// const [isMerchantActive, setIsMerchantActive] = useState(false);
-
+import config from "../config";
+import { useState } from "react";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 export const getConditionalClassName = (
   condition,
@@ -179,3 +178,47 @@ export function scrollToDataSection(sectionId) {
 
 }
 
+
+// export function AddressAutocomplete() {
+//   useEffect(() => {
+//       const initAutocomplete = () => {
+//           const input = document.getElementById('autocomplete');
+//           const autocomplete = new window.Map.places.Autocomplete(input);
+//           console.log(autocomplete);
+//           autocomplete.addListener('place_changed', () => {
+//               const place = autocomplete.getPlace();
+
+//               console.log(place);
+//           });
+//       };
+
+//       if (typeof window !== 'undefined') {
+//           initAutocomplete();
+//       }
+//   }, []);
+// }
+
+export function CheckAutoComplete () {
+    const [value, setValue] = useState(null);
+
+    return (
+        <label htmlFor="address">
+          Auto complete address
+          {/* <input
+            type="text"
+            id="autocomplete"
+            onChange={(e) => setAddress(e.target.value)}
+            value={address}
+            onFocus={handleFocus}
+            /> */}
+
+            <GooglePlacesAutocomplete 
+                apiKey={`${config().google.apiKey}`}
+                selectProps={{ 
+                    value: value,
+                    onChange: setValue
+                 }}
+            />
+        </label>
+    );
+}

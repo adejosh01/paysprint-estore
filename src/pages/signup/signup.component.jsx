@@ -30,6 +30,8 @@ export const SignupPage = ({ title }) => {
     address,
     city,
     phone,
+    str_number,
+    str_name,
     postalCode,
     country,
     state,
@@ -66,6 +68,8 @@ export const SignupPage = ({ title }) => {
       telephone: phone,
       address,
       city,
+      str_number,
+      str_name,
       state,
       country,
       dayOfBirth: dateOfBirth.getDate(),
@@ -108,6 +112,8 @@ export const SignupPage = ({ title }) => {
         !dateOfBirth ||
         !address ||
         !city ||
+        !str_number ||
+        !str_name ||
         !postalCode ||
         !country ||
         !state
@@ -180,7 +186,7 @@ export const SignupPage = ({ title }) => {
     setPage(iPage);
   };
 
-  return (
+  return ( 
     <div className="signup-container">
       <div className="mobile-progress">
         <div

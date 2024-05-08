@@ -11,6 +11,8 @@ export const SignupFormContext = createContext({
   dateOfBirth: null,
   address: "",
   city: "",
+  str_number: "",
+  str_name: "",
   postalCode: "",
   country: "",
   state: "",
@@ -33,6 +35,8 @@ export const SignupFormContext = createContext({
   setDateOfBirth: () => null,
   setAddress: () => null,
   setCity: () => null,
+  setStreetNumber: () => null,
+  setStreetName: () => null,
   setPostalCode: () => null,
   setCountry: () => null,
   setState: () => null,
@@ -48,6 +52,7 @@ export const SignupFormContext = createContext({
   setPhone: () => null,
 });
 
+
 export const SignupFormContextProvider = ({ children }) => {
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
@@ -59,6 +64,8 @@ export const SignupFormContextProvider = ({ children }) => {
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [city, setCity] = useState("");
+  const [str_number, setStreetNumber] = useState("");
+  const [str_name, setStreetName] = useState("");
   const [postalCode, setPostalCode] = useState("");
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
@@ -86,6 +93,8 @@ export const SignupFormContextProvider = ({ children }) => {
         phone,
         firstName,
         lastName,
+        str_number,
+        str_name,
         postalCode,
         state,
         sourceOfFunds,
@@ -103,6 +112,8 @@ export const SignupFormContextProvider = ({ children }) => {
         setDateOfBirth,
         setFirstName,
         setLastName,
+        setStreetNumber,
+        setStreetName,
         setPostalCode,
         setState,
         setEmail,
