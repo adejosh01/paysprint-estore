@@ -62,5 +62,21 @@
         t.parentNode.insertBefore(s,t);
         d.write("<div id='zsiqwidget'></div>");
     </script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4b_d3enQHEGQpGQ1WragPd0L89xG4vGA&libraries=places&callback=initAutocomplete" async defer></script>
+
+<script>
+  function initAutocomplete() {
+      var input = document.getElementById('autocomplete');
+      var autocomplete = new google.maps.places.Autocomplete(input);
+      autocomplete.addListener('place_changed', function() {
+          var place = autocomplete.getPlace();
+          // Do something with the selected place
+          console.log(place);
+      });
+  }
+</script>
+
+
   </body>
 </html>
