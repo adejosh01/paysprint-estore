@@ -38,7 +38,7 @@ export const SignupPage = ({ title }) => {
     transactionRange,
     sourceOfFunds,
     hearAboutUs,
-    // referredBy,
+    referredBy,
     acceptTandC,
     specifyHeardAboutUs,
     specifySourceOfFunds,
@@ -121,9 +121,7 @@ export const SignupPage = ({ title }) => {
         return setErrorMessage("All fields must be filled.");
 
       if (firstName.length < 3 || lastName < 3)
-        return setErrorMessage(
-          "First name and last name must be 3 or more characters"
-        );
+        return setErrorMessage("First name and last name must be 3 or more characters");
 
       if (dateOfBirth.getFullYear() > new Date().getFullYear() - 18)
         return setErrorMessage("User must be 18 or above");
