@@ -3,6 +3,7 @@ import { SignupFormContext } from "context/signup-form.context";
 import "react-datepicker/dist/react-datepicker.css";
 import { useContext } from "react";
 import {
+  CheckAutoComplete,
   formatDateToInputDate,
   formatInputDateToDate,
   getMaxDOBForAdult,
@@ -37,18 +38,22 @@ export const SignupFirstPage = () => {
     setPhone,
   } = useContext(SignupFormContext);
 
-  const handleFocus = () => {
-    console.log('Input field focused');
-    // function initAutocomplete () {
-      let input = document.getElementById('autocomplete');
-      let autocomplete = new GooglePlacesAutocomplete.maps.places.Autocomplete(input);
-      autocomplete.addListener('place_changed', function() {
-          let place = autocomplete.getPlace();
+  // const handleFocus = () => {
+  //   console.log('Input field focused');
+  //   // function initAutocomplete () {
+  //     let input = document.getElementById('autocomplete');
+  //     let autocomplete = new GooglePlacesAutocomplete.maps.places.Autocomplete(input);
+  //     autocomplete.addListener('place_changed', function() {
+  //         let place = autocomplete.getPlace();
 
-          console.log(place);
-      });
-    // };
-  }
+  //         console.log(place);
+  //     });
+  //   // };
+  // }
+
+  // const handleClick = () => {
+  //   CheckAutoComplete();
+  // }
 
 
   return (
@@ -110,7 +115,7 @@ export const SignupFirstPage = () => {
             name="address"
             onChange={(e) => setAddress(e.target.value)}
             value={address}
-            onFocus={handleFocus}
+            // onFocus={handleClick}
             />
         </label>
         <div className="codes">
