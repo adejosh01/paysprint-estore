@@ -179,25 +179,6 @@ export function scrollToDataSection(sectionId) {
 }
 
 
-// export function AddressAutocomplete() {
-//   useEffect(() => {
-//       const initAutocomplete = () => {
-//           const input = document.getElementById('autocomplete');
-//           const autocomplete = new window.Map.places.Autocomplete(input);
-//           console.log(autocomplete);
-//           autocomplete.addListener('place_changed', () => {
-//               const place = autocomplete.getPlace();
-
-//               console.log(place);
-//           });
-//       };
-
-//       if (typeof window !== 'undefined') {
-//           initAutocomplete();
-//       }
-//   }, []);
-// }
-
 export function CheckAutoComplete () {
     const [value, setValue] = useState(null);
 

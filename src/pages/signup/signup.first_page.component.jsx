@@ -6,9 +6,8 @@ import {
   formatDateToInputDate,
   formatInputDateToDate,
   getMaxDOBForAdult,
-  // AddressAutocomplete,
-  CheckAutoComplete,
 } from "utils/utils";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 const MAX_DOB_FOR_ADULT = getMaxDOBForAdult();
 
@@ -40,7 +39,17 @@ export const SignupFirstPage = () => {
 
   const handleFocus = () => {
     console.log('Input field focused');
-  };
+    // function initAutocomplete () {
+      let input = document.getElementById('autocomplete');
+      let autocomplete = new GooglePlacesAutocomplete.maps.places.Autocomplete(input);
+      autocomplete.addListener('place_changed', function() {
+          let place = autocomplete.getPlace();
+
+          console.log(place);
+      });
+    // };
+  }
+
 
   return (
     <div className="signup-second-page">
@@ -98,12 +107,12 @@ export const SignupFirstPage = () => {
           <input
             type="text"
             id="autocomplete"
+            name="address"
             onChange={(e) => setAddress(e.target.value)}
             value={address}
             onFocus={handleFocus}
             />
         </label>
-        {/* <CheckAutoComplete onChange={(e) => setAddress(e.target.value) } value={address} /> */}
         <div className="codes">
           <label htmlFor="street_number">
             Street Number <span>*</span>
@@ -148,8 +157,8 @@ export const SignupFirstPage = () => {
           <label htmlFor="country">
             Country<span>*</span>
             <input
-              type="text"
-              id="country"
+              type="text" 
+              id="country" 
               onChange={(e) => setCountry(e.target.value)}
               value={country}
             />
@@ -159,6 +168,7 @@ export const SignupFirstPage = () => {
             <input
               type="text"
               id="state"
+              name="state"
               onChange={(e) => setState(e.target.value)}
               value={state}
             />
