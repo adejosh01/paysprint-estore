@@ -1,7 +1,3 @@
-import config from "../config";
-import { useState } from "react";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
-
 export const getConditionalClassName = (
   condition,
   defaultClass,
@@ -176,30 +172,4 @@ export function scrollToDataSection(sectionId) {
       section.scrollIntoView({ behavior: 'smooth' });
   }
 
-}
-
-
-export function CheckAutoComplete () {
-    const [value, setValue] = useState(null);
-
-    return (
-        <label htmlFor="address">
-          Auto complete address
-          {/* <input
-            type="text"
-            id="autocomplete"
-            onChange={(e) => setAddress(e.target.value)}
-            value={address}
-            onFocus={handleFocus}
-            /> */}
-
-            <GooglePlacesAutocomplete 
-                apiKey={`${config().google.apiKey}`}
-                selectProps={{ 
-                    value: value,
-                    onChange: setValue
-                 }}
-            />
-        </label>
-    );
 }

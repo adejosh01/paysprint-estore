@@ -1,64 +1,41 @@
-import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
-import config from '../../config';
-import React from 'react';
+import { SignupFormContext } from "context/signup-form.context";
 
-let autocomplete;
-const componentForm = {
-  street_number: 'short_name',
-  route: 'long_name',
-  locality: 'long_name',
-  postal_code: 'short_name',
-  apiKey: config().google.apiKey
+const { LoadScript, StandaloneSearchBox } = require("@react-google-maps/api");
+const { default: config } = require("../../config");
+const { useRef, useContext } = require("react");
+
+
+const AutoCompleteAddr = () => {
+  const inputRef = useRef();
+  const { address, setAddress } = useContext(SignupFormContext);
+
+  const handlePlaceChanged = () => {
+    // const [place] = inputRef.current.getPlaces();
+    // if (place) {
+    //   console.log(place.formatted_address);
+    //   console.log(place.geometry.location.lat());
+    //   console.log(place.geometry.location.lng());
+    // }
+  };
+
+  return (
+    <>
+      <LoadScript googleMapsApiKey={config().google.apiKey} libraries={["places"]} >
+
+        <StandaloneSearchBox onLoad={ref => (inputRef.current = ref)} onPlacesChanged={handlePlaceChanged} >
+          <input
+            type="text"
+            id="autocomplete"
+            name="address"
+            onChange={(e) => setAddress(e.target.value)}
+            value={address}
+            />
+        </StandaloneSearchBox>
+        </LoadScript>
+    </>
+
+  )
+
 };
 
-// const componentKey = Object.keys(componentForm);
-
-const initAutocomplete = () => {
-  autocomplete = new GooglePlacesAutocomplete.maps.places.Autocomplete(
-    document.getElementById('autocomplete'),
-    { types: ['geocode'] }
-  );
-  autocomplete.addListener('place_changed', fillInAddress);
-};
-
-const fillInAddress = () => {
-  const place = autocomplete.getPlace();
-  for (const component in componentForm) {
-    document.getElementById(component).value = '';
-    document.getElementById(component).disabled = false;
-  }
-  for (let i = 0; i < place.address_components.length; i++) {
-    const addressType = place.address_components[i].types[0];
-    if (componentForm[addressType]) {
-      const val = place.address_components[i][componentForm[addressType]];
-      document.getElementById(addressType).value = val;
-    }
-  }
-};
-
-const geolocate = () => {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      const geolocation = {
-        lat: position.coords.latitude,
-        lng: position.coords.longitude
-      };
-      const circle = new GooglePlacesAutocomplete.maps.Circle({
-        center: geolocation,
-        radius: position.coords.accuracy
-      });
-      autocomplete.setBounds(circle.getBounds());
-    });
-  }
-};
-
-const AutocompleteAddressComponent = () => {
-  React.useEffect(() => {
-    initAutocomplete();
-    geolocate();
-  }, []);
-
-  return <></>;
-};
-
-export default AutocompleteAddressComponent;
+export default AutoCompleteAddr;
