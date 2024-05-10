@@ -110,7 +110,7 @@ export const SignupPage = ({ title }) => {
         !firstName ||
         !lastName ||
         !dateOfBirth ||
-        !address ||
+        // !address ||
         !city ||
         !str_number ||
         !str_name ||

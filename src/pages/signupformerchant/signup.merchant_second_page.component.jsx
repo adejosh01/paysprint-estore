@@ -7,12 +7,13 @@ import {
   formatInputDateToDate,
   getMaxDOBForAdult,
 } from "utils/utils";
+import AutoCompleteAddr from "components/usefulJsScripts/addressCompletion";
 
 const MAX_DOB_FOR_ADULT = getMaxDOBForAdult();
 
 export const SignupMerchantSecondPage = () => {
   const {
-    address,
+    // address,
     city,
     country,
     dateOfBirth,
@@ -21,7 +22,9 @@ export const SignupMerchantSecondPage = () => {
     postalCode,
     state,
     phone,
-    setAddress,
+    str_number,
+    str_name,
+    // setAddress,
     setCity,
     setCountry,
     setDateOfBirth,
@@ -30,6 +33,8 @@ export const SignupMerchantSecondPage = () => {
     setPostalCode,
     setState,
     setPhone,
+    setStreetNumber,
+    setStreetName
   } = useContext(SignupFormContext);
 
   return (
@@ -84,14 +89,37 @@ export const SignupMerchantSecondPage = () => {
           />
         </label>
         <label htmlFor="address">
-          Address<span>*</span>
-          <input
+          Auto complete address
+          {/* <input
             type="text"
-            id="address"
+            id="autocomplete"
+            name="address"
             onChange={(e) => setAddress(e.target.value)}
             value={address}
-          />
+            onFocus={handleFocus}
+            /> */}
+            <AutoCompleteAddr />
         </label>
+        <div className="codes">
+          <label htmlFor="street_number">
+            Street Number <span>*</span>
+            <input
+              type="text"
+              id="str_number"
+              onChange={(e) => setStreetNumber(e.target.value)}
+              value={str_number}
+            />
+          </label>
+          <label htmlFor="code">
+            Street Name/Route <span>*</span>
+            <input
+              type="text"
+              id="str_name"
+              onChange={(e) => setStreetName(e.target.value)}
+              value={str_name}
+            />
+          </label>
+        </div>
         <div className="codes">
           <label htmlFor="city">
             City<span>*</span>
