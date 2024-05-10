@@ -28,6 +28,8 @@ export const SignupMerchantPage = ({ title }) => {
     lastName,
     dateOfBirth,
     address,
+    str_number,
+    str_name,
     city,
     phone,
     postalCode,
@@ -65,6 +67,8 @@ export const SignupMerchantPage = ({ title }) => {
       password,
       telephone: phone,
       address,
+      str_number,
+      str_name,
       city,
       state,
       country,
@@ -125,7 +129,9 @@ export const SignupMerchantPage = ({ title }) => {
         !firstName ||
         !lastName ||
         !dateOfBirth ||
-        !address ||
+        // !address ||
+        !str_number ||
+        !str_name ||
         !city ||
         !postalCode ||
         !country ||
