@@ -3,18 +3,17 @@ import { SignupFormContext } from "context/signup-form.context";
 import "react-datepicker/dist/react-datepicker.css";
 import { useContext } from "react";
 import {
-  CheckAutoComplete,
   formatDateToInputDate,
   formatInputDateToDate,
   getMaxDOBForAdult,
 } from "utils/utils";
-import GooglePlacesAutocomplete from "react-google-places-autocomplete";
+import AutoCompleteAddr from "components/usefulJsScripts/addressCompletion";
 
 const MAX_DOB_FOR_ADULT = getMaxDOBForAdult();
 
 export const SignupFirstPage = () => {
   const {
-    address,
+    // address,
     city,
     country,
     dateOfBirth,
@@ -25,7 +24,7 @@ export const SignupFirstPage = () => {
     postalCode,
     state,
     phone,
-    setAddress,
+    // setAddress,
     setCity,
     setCountry,
     setDateOfBirth,
@@ -39,22 +38,8 @@ export const SignupFirstPage = () => {
   } = useContext(SignupFormContext);
 
   // const handleFocus = () => {
-  //   console.log('Input field focused');
-  //   // function initAutocomplete () {
-  //     let input = document.getElementById('autocomplete');
-  //     let autocomplete = new GooglePlacesAutocomplete.maps.places.Autocomplete(input);
-  //     autocomplete.addListener('place_changed', function() {
-  //         let place = autocomplete.getPlace();
-
-  //         console.log(place);
-  //     });
-  //   // };
+  //   PlaceComponent ();
   // }
-
-  // const handleClick = () => {
-  //   CheckAutoComplete();
-  // }
-
 
   return (
     <div className="signup-second-page">
@@ -109,14 +94,15 @@ export const SignupFirstPage = () => {
         </label>
         <label htmlFor="address">
           Auto complete address
-          <input
+          {/* <input
             type="text"
             id="autocomplete"
             name="address"
             onChange={(e) => setAddress(e.target.value)}
             value={address}
-            // onFocus={handleClick}
-            />
+            onFocus={handleFocus}
+            /> */}
+            <AutoCompleteAddr />
         </label>
         <div className="codes">
           <label htmlFor="street_number">
