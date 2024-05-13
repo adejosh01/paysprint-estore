@@ -21,7 +21,7 @@
     }
 
     section.reward {
-        padding: 4rem 7rem;
+        padding: 4rem 2rem;
         display: flex;
         flex-direction: column;
         gap: 85px;
@@ -30,9 +30,10 @@
             text-align: center;
             line-height: 28px;
             padding-left: 33px;
-        }
+        }  
+
     }
-  
+
 }
 
 @media screen and (max-width: 1300px) {
@@ -83,7 +84,7 @@
 @media screen and (min-width: 1218px) {
     .estore-container {
         section.reward {
-            padding: 8.6rem 5.6rem;
+            padding: 8.6rem 0.5rem;
         }
     }
 }

@@ -58,6 +58,7 @@ function App() {
               <Route path="/community" exact element={<Community title="aShopree | Community " />} />
               <Route path="/myorders" exact element={<MyOrders title="aShopree | My Orders " />} />
               <Route path="/mywishlist" exact element={<MyWishlist title="aShopree | My Wishlists " />} />
+              <Route path="/myrewards" exact element={<Reward title="aShopree | My Reward Page" />} />
             </Route>
 
             
@@ -77,7 +78,6 @@ function App() {
             <Route path="/merchant-register" exact element={ <SignupFormContextProvider> <SignupMerchantPage title="aShopree | Merchant Registration" /> </SignupFormContextProvider>} />
             <Route path="/privacy-policy" exact element={<PrivacyPolicy title="aShopree | Privacy Policy" />} />
             <Route path="/registered-stores" exact element={<RegisteredStore title="aShopree | Registered Stores" />} />
-            <Route path="/reward" exact element={<Reward title="aShopree | My Reward Page" />} />
             {/* <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} /> */}
           </Routes>
         </AuthProvider>
