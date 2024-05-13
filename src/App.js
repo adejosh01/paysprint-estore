@@ -33,6 +33,7 @@ import { PrivacyPolicy } from "pages/privacyPolicy/privacy";
 import { RegisteredStore } from "pages/registeredStore/registered.page";
 import { MyOrders } from "pages/myorders/myorders.page";
 import { MyWishlist } from "pages/mywishlist/wishlist.page";
+import { Reward } from "pages/reward/reward.page";
 
 function App() {
 
@@ -76,6 +77,7 @@ function App() {
             <Route path="/merchant-register" exact element={ <SignupFormContextProvider> <SignupMerchantPage title="aShopree | Merchant Registration" /> </SignupFormContextProvider>} />
             <Route path="/privacy-policy" exact element={<PrivacyPolicy title="aShopree | Privacy Policy" />} />
             <Route path="/registered-stores" exact element={<RegisteredStore title="aShopree | Registered Stores" />} />
+            <Route path="/reward" exact element={<Reward title="aShopree | My Reward Page" />} />
             {/* <Route path='*' exact={true} element={<NotFound404 title={"aShopree | 404 Not Found"} />} /> */}
           </Routes>
         </AuthProvider>
