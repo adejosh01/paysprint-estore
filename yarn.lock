@@ -8967,6 +8967,11 @@
     "regenerator-runtime" "^0.13.9"
     "whatwg-fetch" "^3.6.2"
 
+"react-country-state-city@^1.1.0":
+  "integrity" "sha512-HT2VkqB9bwmzu1TE1EmrBet0lSIiH5WEh/FTuiW4jZxVNjs4Qv2MrzY8htcQ8V7d4kvuQ6j/swhnuXIH1CevpA=="
+  "resolved" "https://registry.npmjs.org/react-country-state-city/-/react-country-state-city-1.1.0.tgz"
+  "version" "1.1.0"
+
 "react-datepicker@^4.11.0":
   "integrity" "sha512-50n93o7mQwBEhg05tbopjFKgs8qgi8VBCAOMC4VqrKut72eAjESc/wXS/k5hRtnP0oe2FCGw7MJuIwh37wuXOw=="
   "resolved" "https://registry.npmjs.org/react-datepicker/-/react-datepicker-4.11.0.tgz"
@@ -9140,7 +9145,7 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
-"react@*", "react@^15.5.x || ^16.x || ^17.x || ^18.x", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17 || ^18", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0 || 18.0.0", "react@>=16.0.0", "react@>=16.11.0", "react@>=16.3", "react@>=16.8", "react@>=16.9.0":
+"react@*", "react@^15.5.x || ^16.x || ^17.x || ^18.x", "react@^16.8.0 || ^17 || ^18", "react@^16.8.0 || ^17.0.0 || ^18.0.0", "react@^16.9.0 || ^17 || ^18", "react@^18.0.0", "react@^18.2.0", "react@>= 16", "react@>= 16.8.0 || 18.0.0", "react@>=16", "react@>=16.0.0", "react@>=16.11.0", "react@>=16.3", "react@>=16.8", "react@>=16.9.0":
   "integrity" "sha512-/3IjMdb2L9QbBdWiW5e3P2/npwMBaU9mHCSCUzNln0ZCYbcfTsGbTJrU/kGemdH2IWmB2ioZ+zkxtmq6g09fGQ=="
   "resolved" "https://registry.npmjs.org/react/-/react-18.2.0.tgz"
   "version" "18.2.0"

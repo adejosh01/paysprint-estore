@@ -4,19 +4,52 @@ import { useEffect, useState } from 'react';
 import config from "../../config";
 import axios from "axios";
 import { useAuth } from "../../hook/AuthProvider";
+import {
+    GetCountries,
+    GetState,
+    GetCity,
+    GetLanguages, //async functions
+    CitySelect,
+    CountrySelect,
+    StateSelect,
+    LanguageSelect,
+} from "react-country-state-city";
+
+import "react-country-state-city/dist/react-country-state-city.css";
 
 
 export const Checkout = ({title}) => {
 
     const apiUrl = config().baseUrl;
     const auth = useAuth();
+
+    const [countryid, setCountryid] = useState(0);
+    const [stateid, setStateid] = useState(0);
+    const [cityid, setCityid] = useState(0);
+    const [language, setLanguage] = useState(0);
+
+    const [countriesList, setCountriesList] = useState([]);
+    const [stateList, setStateList] = useState([]);
+    const [cityList, setCityList] = useState([]);
+    const [languageList, setLanguageList] = useState([]);
+
     const [cartItem, setCartItem] = useState([]);
     const [merchantInfo, setMerchantInfo] = useState();
     const [sumTotal, setSumTotal] = useState(0);
+    const [taxValue, setTaxValue] = useState(0);
+    const [deliveryValue, setDeliveryValue] = useState(0);
 
     useEffect(() => {
         document.title = title;
         window.scrollTo(0, 0);
+
+        GetCountries().then((result) => {
+            setCountriesList(result);
+        });
+
+        GetLanguages().then((result) => {
+            setLanguageList(result);
+        });
         
         const getCartItems = async () => {
 
@@ -82,15 +115,37 @@ export const Checkout = ({title}) => {
                                 <h4> Shipping Method </h4>
                                 <div className='descrip'>
                                     <p> Country </p>
-                                    <input name='country' type="country" placeholder='Select a payment method' />
+                                  <CountrySelect
+                                      onChange={(e) => {
+                                          setCountryid(e.id);
+                                      }}
+                                      placeHolder="Select Country"
+                                  />
                                 </div>
                                 <div className='descrip'>
                                     <p> State </p>
-                                    <input name='state' type="state" placeholder='Select a payment method' />
+                                  <StateSelect
+                                      countryid={countryid}
+                                      onChange={(e) => {
+                                          setStateid(e.id);
+                                      }}
+                                      placeHolder="Select State"
+                                  />
+                                </div>
+                                <div className='descrip'>
+                                    <p> City </p>
+                                  <CitySelect
+                                      countryid={countryid}
+                                      stateid={stateid}
+                                      onChange={(e) => {
+                                          console.log(e);
+                                      }}
+                                      placeHolder="Select City"
+                                  />
                                 </div>
                                 <div className='descrip'>
                                     <p> Address </p>
-                                    <input name='address' type="address" placeholder='Select a payment method' />
+                                    <input name='address' type="address" placeholder='Input delivery address' />
                                 </div>
                             </div>
                         </div>
@@ -134,15 +189,11 @@ export const Checkout = ({title}) => {
 
                                           <div>
                                               <p> Delivery </p>
-                                              <p> 0 </p>
-                                          </div>
-                                          <div>
-                                              <p> Service Charge </p>
-                                              <p> 0 </p>
+                                          <p> {deliveryValue} </p>
                                           </div>
                                           <div>
                                               <p> Taxes </p>
-                                              <p> 13% </p>
+                                                <p> {taxValue}% </p>
                                           </div>
                                           
                                           <div>
