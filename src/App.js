@@ -33,6 +33,7 @@ import { PrivacyPolicy } from "pages/privacyPolicy/privacy";
 import { RegisteredStore } from "pages/registeredStore/registered.page";
 import { MyOrders } from "pages/myorders/myorders.page";
 import { MyWishlist } from "pages/mywishlist/wishlist.page";
+import { Reward } from "pages/reward/reward.page";
 
 function App() {
 
@@ -57,6 +58,7 @@ function App() {
               <Route path="/community" exact element={<Community title="aShopree | Community " />} />
               <Route path="/myorders" exact element={<MyOrders title="aShopree | My Orders " />} />
               <Route path="/mywishlist" exact element={<MyWishlist title="aShopree | My Wishlists " />} />
+              <Route path="/myrewards" exact element={<Reward title="aShopree | My Reward Page" />} />
             </Route>
 
             

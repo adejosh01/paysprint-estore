@@ -179,6 +179,29 @@ export const EstoreDashboard = ({ title }) => {
           </section>
         )}
 
+        {trendingServices.length !== 0 && (
+          <section className="topdeals">
+            <p className="dealtitle"> Trending Services </p>
+
+            <div className="items">
+              {Array.isArray(trendingServices) ? (
+                  trendingServices.map((item, index) => (
+                    <Link to={`/services/${item.merchantId}`} key={index}>
+                    <div className="eachItem">
+                      <img src={item.businessLogo} alt="eachImage" />
+                      <div className="imgdescription">
+                        <p className="nameofitem">{item.businessName}</p>
+                      </div>
+                    </div>
+                    </Link>
+                  ))
+                ) : (
+                  <div>Error: Sorry, Please check your network connection and try again</div>
+                )}
+            </div>
+          </section>
+        )}
+
         {registeredStores.length !== 0 && (
           <section className="registered">
             <h3> Registered Stores </h3>
@@ -242,29 +265,6 @@ export const EstoreDashboard = ({ title }) => {
                   See all categories
                 </button>
               </Link>
-            </div>
-          </section>
-        )}
-
-        {trendingServices.length !== 0 && (
-          <section className="topdeals">
-            <p className="dealtitle"> Trending Services </p>
-
-            <div className="items">
-              {Array.isArray(trendingServices) ? (
-                  trendingServices.map((item, index) => (
-                    <Link to={`/services/${item.merchantId}`} key={index}>
-                    <div className="eachItem">
-                      <img src={item.businessLogo} alt="eachImage" />
-                      <div className="imgdescription">
-                        <p className="nameofitem">{item.businessName}</p>
-                      </div>
-                    </div>
-                    </Link>
-                  ))
-                ) : (
-                  <div>Error: Sorry, Please check your network connection and try again</div>
-                )}
             </div>
           </section>
         )}

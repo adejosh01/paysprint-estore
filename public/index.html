@@ -62,5 +62,21 @@
         t.parentNode.insertBefore(s,t);
         d.write("<div id='zsiqwidget'></div>");
     </script>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script id="autocomplete-script">
+  window.initAutocomplete = function() {
+     var input = document.getElementById('autocomplete');
+     var autocomplete = new google.maps.places.Autocomplete(input);
+     autocomplete.addListener('place_changed', function() {
+         var place = autocomplete.getPlace();
+         // Do something with the selected place
+         console.log(place);
+     });
+ }
+</script>
+
+
   </body>
 </html>

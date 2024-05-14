@@ -1,0 +1,152 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    font: 500 20px 'Plus Jakarta Sans';
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+
+    section.reward {
+        padding: 4rem 2rem;
+        h2 {
+            font: 600 45px 'Plus jakarta sans';
+            text-align: center;
+            line-height: 28px;
+            padding-left: 33px;
+        }  
+        section.all-items {
+            display: flex;
+            gap: 32px;
+            width: 100%;
+            div.left-side {
+                flex: 0 0 345px;
+                padding: 0px 35px;
+                ul.side-menu {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    .active {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        gap: 24px;
+                        height: 64px;
+                        padding: 15px 20px 15px 20px;
+                        border-radius: 15px;
+                        background-color: #4F0B92;
+                        a {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+                            color: #fff;
+                            svg {
+                                margin-top: 0.3rem;
+                            }
+                        }
+                    }
+                    li {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        gap: 24px;
+                        height: 64px;
+                        padding: 15px 20px 15px 20px;
+                        border-radius: 15px;
+                        background-color: #fff;
+                        a {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+                            color: #737791;
+                        }
+                    }
+                    li:hover {
+                        background-color: #4F0B92;
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            main {
+                width: 100%;
+                display: flex;
+                gap: 32px;
+                div.rigt-side {
+                    flex: 0 0 395px;
+                }
+            }
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+    .estore-container { 
+        section.reward {
+            div.plans {
+                // display: grid;
+                // grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    .estore-container { 
+        section.reward {
+            div.plans {
+                // display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .estore-container { 
+        section.reward {
+            padding: 4rem 3rem;
+        }    
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .estore-container { 
+        section.reward {
+            div.plans {
+                // display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: 60px;
+            }
+        }    
+    }
+}
+
+
+@media screen and (min-width: 1218px) {
+    .estore-container {
+        section.reward {
+            padding: 8.6rem 0.5rem;
+        }
+    }
+}

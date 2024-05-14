@@ -7,30 +7,39 @@ import {
   formatInputDateToDate,
   getMaxDOBForAdult,
 } from "utils/utils";
+import AutoCompleteAddr from "components/usefulJsScripts/addressCompletion";
 
 const MAX_DOB_FOR_ADULT = getMaxDOBForAdult();
 
 export const SignupFirstPage = () => {
   const {
-    address,
+    // address,
     city,
     country,
     dateOfBirth,
     firstName,
     lastName,
+    str_number,
+    str_name,
     postalCode,
     state,
     phone,
-    setAddress,
+    // setAddress,
     setCity,
     setCountry,
     setDateOfBirth,
     setFirstName,
     setLastName,
+    setStreetNumber,
+    setStreetName,
     setPostalCode,
     setState,
     setPhone,
   } = useContext(SignupFormContext);
+
+  // const handleFocus = () => {
+  //   PlaceComponent ();
+  // }
 
   return (
     <div className="signup-second-page">
@@ -84,14 +93,37 @@ export const SignupFirstPage = () => {
           />
         </label>
         <label htmlFor="address">
-          Address<span>*</span>
-          <input
+          Auto complete address
+          {/* <input
             type="text"
-            id="address"
+            id="autocomplete"
+            name="address"
             onChange={(e) => setAddress(e.target.value)}
             value={address}
-          />
+            onFocus={handleFocus}
+            /> */}
+            <AutoCompleteAddr />
         </label>
+        <div className="codes">
+          <label htmlFor="street_number">
+            Street Number <span>*</span>
+            <input
+              type="text"
+              id="str_number"
+              onChange={(e) => setStreetNumber(e.target.value)}
+              value={str_number}
+            />
+          </label>
+          <label htmlFor="code">
+            Street Name/Route <span>*</span>
+            <input
+              type="text"
+              id="str_name"
+              onChange={(e) => setStreetName(e.target.value)}
+              value={str_name}
+            />
+          </label>
+        </div>
         <div className="codes">
           <label htmlFor="city">
             City<span>*</span>
@@ -116,8 +148,8 @@ export const SignupFirstPage = () => {
           <label htmlFor="country">
             Country<span>*</span>
             <input
-              type="text"
-              id="country"
+              type="text" 
+              id="country" 
               onChange={(e) => setCountry(e.target.value)}
               value={country}
             />
@@ -127,6 +159,7 @@ export const SignupFirstPage = () => {
             <input
               type="text"
               id="state"
+              name="state"
               onChange={(e) => setState(e.target.value)}
               value={state}
             />

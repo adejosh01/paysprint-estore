@@ -1,8 +1,3 @@
-// import axios from "axios";
-// import { useState } from "react";
-// const [isMerchantActive, setIsMerchantActive] = useState(false);
-
-
 export const getConditionalClassName = (
   condition,
   defaultClass,
@@ -178,4 +173,3 @@ export function scrollToDataSection(sectionId) {
   }
 
 }
-

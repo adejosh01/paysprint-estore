@@ -30,13 +30,15 @@ export const SignupPage = ({ title }) => {
     address,
     city,
     phone,
+    str_number,
+    str_name,
     postalCode,
     country,
     state,
     transactionRange,
     sourceOfFunds,
     hearAboutUs,
-    // referredBy,
+    referredBy,
     acceptTandC,
     specifyHeardAboutUs,
     specifySourceOfFunds,
@@ -66,6 +68,8 @@ export const SignupPage = ({ title }) => {
       telephone: phone,
       address,
       city,
+      str_number,
+      str_name,
       state,
       country,
       dayOfBirth: dateOfBirth.getDate(),
@@ -106,8 +110,10 @@ export const SignupPage = ({ title }) => {
         !firstName ||
         !lastName ||
         !dateOfBirth ||
-        !address ||
+        // !address ||
         !city ||
+        !str_number ||
+        !str_name ||
         !postalCode ||
         !country ||
         !state
@@ -115,9 +121,7 @@ export const SignupPage = ({ title }) => {
         return setErrorMessage("All fields must be filled.");
 
       if (firstName.length < 3 || lastName < 3)
-        return setErrorMessage(
-          "First name and last name must be 3 or more characters"
-        );
+        return setErrorMessage("First name and last name must be 3 or more characters");
 
       if (dateOfBirth.getFullYear() > new Date().getFullYear() - 18)
         return setErrorMessage("User must be 18 or above");
@@ -180,7 +184,7 @@ export const SignupPage = ({ title }) => {
     setPage(iPage);
   };
 
-  return (
+  return ( 
     <div className="signup-container">
       <div className="mobile-progress">
         <div
