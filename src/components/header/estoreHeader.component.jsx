@@ -230,6 +230,9 @@ export const EstoreHeader = ({title}) => {
                       <Link to={'/myorders'}> My Orders </Link>
                     </li>
                     <li className="guest-link">
+                      <Link to={'/myrewards'}> My Rewards </Link>
+                    </li>
+                    <li className="guest-link">
                       <Link to={"/community"}> Community </Link>
                     </li>
                     <li className="guest-link">

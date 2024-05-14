@@ -1,5 +1,8 @@
 import './reward.styles.scss';
 import { useEffect } from 'react';
+import RewardSideBar from 'components/myRewards/side.page';
+
+
 
 export const Reward = ({ title }) => {
     useEffect(() => {
@@ -12,8 +15,19 @@ export const Reward = ({ title }) => {
         <div className="estore-container">
 
             <section className="reward">
-                <h2> Reward Page </h2>
                 
+                <section className="all-items">
+                    <RewardSideBar />
+                    <main>
+                        <div className="main-element">
+                            <p> Main components </p>
+                        </div>
+                        <div className="right-side">
+                            <p> Right hand side </p>
+                        </div>
+                    </main>
+                </section>
+
             </section>
 
         </div>

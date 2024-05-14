@@ -21,18 +21,81 @@
     }
 
     section.reward {
-        padding: 4rem 7rem;
-        display: flex;
-        flex-direction: column;
-        gap: 85px;
+        padding: 4rem 2rem;
         h2 {
             font: 600 45px 'Plus jakarta sans';
             text-align: center;
             line-height: 28px;
             padding-left: 33px;
+        }  
+        section.all-items {
+            display: flex;
+            gap: 32px;
+            width: 100%;
+            div.left-side {
+                flex: 0 0 345px;
+                padding: 0px 35px;
+                ul.side-menu {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    .active {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        gap: 24px;
+                        height: 64px;
+                        padding: 15px 20px 15px 20px;
+                        border-radius: 15px;
+                        background-color: #4F0B92;
+                        a {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+                            color: #fff;
+                            svg {
+                                margin-top: 0.3rem;
+                            }
+                        }
+                    }
+                    li {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        gap: 24px;
+                        height: 64px;
+                        padding: 15px 20px 15px 20px;
+                        border-radius: 15px;
+                        background-color: #fff;
+                        a {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+                            color: #737791;
+                        }
+                    }
+                    li:hover {
+                        background-color: #4F0B92;
+                        a {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+            main {
+                width: 100%;
+                display: flex;
+                gap: 32px;
+                div.rigt-side {
+                    flex: 0 0 395px;
+                }
+            }
         }
+
     }
-  
+
 }
 
 @media screen and (max-width: 1300px) {
@@ -83,7 +146,7 @@
 @media screen and (min-width: 1218px) {
     .estore-container {
         section.reward {
-            padding: 8.6rem 5.6rem;
+            padding: 8.6rem 0.5rem;
         }
     }
 }
