@@ -50,22 +50,6 @@ export const MyCarts = ({ title }) => {
 
     }, [title, apiUrl, auth.token]);
 
-    // let currentNumber = 1;
-
-    // const [number, setNumber] = useState(currentNumber);
-
-    // // Function to handle the click event and perform the subtraction operation
-    // const handleSubtraction = () => {
-    //     const newNumber = performOperation(number, '-');
-    //     setNumber(newNumber);
-    // };
-
-    // // Function to handle the click event and perform the addition operation
-    // const handleAddition = () => {
-    //     const newNumber = performOperation(number, '+');
-    //     setNumber(newNumber);
-    // };
-
     return (
         <div className="estore-container">
             <section className="maincontent">
