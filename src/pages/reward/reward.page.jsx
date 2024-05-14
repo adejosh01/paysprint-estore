@@ -15,7 +15,6 @@ export const Reward = ({ title }) => {
         <div className="estore-container">
 
             <section className="reward">
-                <h2> Reward Page </h2>
                 
                 <section className="all-items">
                     <RewardSideBar />

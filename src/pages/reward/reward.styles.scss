@@ -34,10 +34,54 @@
             width: 100%;
             div.left-side {
                 flex: 0 0 345px;
-                padding: 0px 40px;
-                ul {
+                padding: 0px 35px;
+                ul.side-menu {
                     display: flex;
                     flex-direction: column;
+                    gap: 20px;
+                    .active {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        gap: 24px;
+                        height: 64px;
+                        padding: 15px 20px 15px 20px;
+                        border-radius: 15px;
+                        background-color: #4F0B92;
+                        a {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+                            color: #fff;
+                            svg {
+                                margin-top: 0.3rem;
+                            }
+                        }
+                    }
+                    li {
+                        width: 100%;
+                        display: flex;
+                        align-items: center;
+                        gap: 24px;
+                        height: 64px;
+                        padding: 15px 20px 15px 20px;
+                        border-radius: 15px;
+                        background-color: #fff;
+                        a {
+                            width: 100%;
+                            display: flex;
+                            align-items: center;
+                            gap: 20px;
+                            color: #737791;
+                        }
+                    }
+                    li:hover {
+                        background-color: #4F0B92;
+                        a {
+                            color: #fff;
+                        }
+                    }
                 }
             }
             main {
