@@ -22,15 +22,33 @@
 
     section.reward {
         padding: 4rem 2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 85px;
         h2 {
             font: 600 45px 'Plus jakarta sans';
             text-align: center;
             line-height: 28px;
             padding-left: 33px;
         }  
+        section.all-items {
+            display: flex;
+            gap: 32px;
+            width: 100%;
+            div.left-side {
+                flex: 0 0 345px;
+                padding: 0px 40px;
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+            main {
+                width: 100%;
+                display: flex;
+                gap: 32px;
+                div.rigt-side {
+                    flex: 0 0 395px;
+                }
+            }
+        }
 
     }
 
