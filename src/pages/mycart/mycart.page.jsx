@@ -33,11 +33,15 @@ export const MyCarts = ({ title }) => {
             setMerchantInfo(response.data.merchant);
 
             if ((response.data.data).length > 0) {
+                var cartTotal = [];
                 for (let i = 0; i < response.data.data.length; i++) {
-                    const arrTotal = [Number(response.data.data[i].price * response.data.data[i].quantity)];
-                    const cartTotal = arrTotal.reduce((a, b) => a + b);
-                    setSumTotal(cartTotal);
+                    const arrTotal = Number(response.data.data[i].price * response.data.data[i].quantity);
+                    cartTotal.push(arrTotal);
                 }
+
+                const sum = cartTotal.reduce((total, n) => total + n, 0);
+                setSumTotal(sum);
+
             }
 
         }

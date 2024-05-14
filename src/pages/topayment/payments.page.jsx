@@ -31,7 +31,7 @@ export const Payment = ({title}) => {
                             <div className='thedetails'>
                                 <div className='title'>
                                     <h4> Shipping Address </h4>
-                                    <Link to='#'>
+                                    <Link to={'/checkout'}>
                                         <p> Edit Details </p>
                                     </Link>
                                 </div>

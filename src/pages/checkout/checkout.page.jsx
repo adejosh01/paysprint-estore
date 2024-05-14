@@ -23,6 +23,7 @@ export const Checkout = ({title}) => {
     const apiUrl = config().baseUrl;
     const auth = useAuth();
 
+    const [user, setUser] = useState(JSON.parse(auth.user));
     const [countryid, setCountryid] = useState(0);
     const [stateid, setStateid] = useState(0);
     const [cityid, setCityid] = useState(0);
@@ -42,6 +43,7 @@ export const Checkout = ({title}) => {
     useEffect(() => {
         document.title = title;
         window.scrollTo(0, 0);
+
 
         GetCountries().then((result) => {
             setCountriesList(result);
@@ -68,12 +70,17 @@ export const Checkout = ({title}) => {
             setCartItem(response.data.data);
             setMerchantInfo(response.data.merchant);
 
+
             if ((response.data.data).length > 0) {
+                var cartTotal = [];
                 for (let i = 0; i < response.data.data.length; i++) {
-                    const arrTotal = [Number(response.data.data[i].price * response.data.data[i].quantity)];
-                    const cartTotal = arrTotal.reduce((a, b) => a + b);
-                    setSumTotal(cartTotal);
+                    const arrTotal = Number(response.data.data[i].price * response.data.data[i].quantity);
+                    cartTotal.push(arrTotal);
                 }
+
+                const sum = cartTotal.reduce((total, n) => total + n, 0);
+                setSumTotal(sum);
+
             }
         }
 
@@ -99,20 +106,20 @@ export const Checkout = ({title}) => {
                                 <h4> Shipping Details </h4>
                                 <div className='descrip'>
                                     <p> Name </p>
-                                    <input name='name' type="name" placeholder='Enter a name' />
+                                  <input name='name' type="name" placeholder='Enter a name' value={user.name}  />
                                 </div>
                                 <div className='descrip'>
                                     <p> Address </p>
-                                    <input name='address' type="text" placeholder='Enter an address' />
+                                  <input name='address' type="text" placeholder='Enter an address' value={user.address} />
                                 </div>
                                 <div className='descrip'>
                                     <p> Telephone Number </p>
-                                    <input name='phone' type="phone" placeholder='Enter a phone number' />
+                                    <input name='phone' type="phone" placeholder='Enter a phone number' value={user.telephone} />
                                 </div>
                             </div>
 
                             <div className='thedetails'>
-                                <h4> Shipping Method </h4>
+                                <h4> Shipping Address </h4>
                                 <div className='descrip'>
                                     <p> Country </p>
                                   <CountrySelect
@@ -147,6 +154,14 @@ export const Checkout = ({title}) => {
                                     <p> Address </p>
                                     <input name='address' type="address" placeholder='Input delivery address' />
                                 </div>
+                                <div className='descrip'>
+                                    <p> Delivery Option </p>
+                                    <select>
+                                        <option value="">Select delivery option</option>
+                                        <option value="home_delivery">Home delivery</option>
+                                        <option value="pick_up">Pick up station</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
 
@@ -154,28 +169,33 @@ export const Checkout = ({title}) => {
                             <p> Order Summary</p>
 
                             <div className='grped'>
+                              <div className="table-container" >
+                              <table className="custom-table">
+                                  <thead>
+                                      <th> Image</th>
+                                      <th> Description</th>
+                                      <th> Quantity </th>
+                                      <th> Price </th>
+                                      <th> Amount </th>
+                                      <hr style={{ marginBottom: '2rem' }} />
+                                  </thead>
                                 { cartItem.length > 0 ? (
                                         cartItem.map((item, index) => (
-                                            <div className="table-container" index={index}>
-                                                <table className="custom-table">
-                                                    <thead>
-                                                        <th> Description</th>
-                                                        <th> Quantity </th>
-                                                        <th> Price </th>
-                                                        <th> Amount </th>
-                                                        <hr style={{ marginBottom: '2rem' }} />
-                                                    </thead>
-                                                    <tbody>
+                                            
+                                            <tbody index={index}>
+                                                        <td style={{ width: "100px" }}> <img src={item.productImage} alt={item.productName} /> </td>
                                                         <td style={{ textWrap: "pretty" }}> {item.productName} </td>
                                                         <td> {item.quantity} </td>
                                                         <td> {merchantInfo?.currencySymbol} {Number(item.price).toLocaleString()} </td>
                                                         <td> {merchantInfo?.currencySymbol} {Number(item.price * item.quantity).toLocaleString()} </td>
                                                     </tbody>
-                                                </table>
-                                            </div>
+                                                
                                         ))
-                                    ) : ( <p> No item to checkout </p> )
+                                    ) : ( <p style={{ textAlign: "center" }}> Loading ... </p> )
                                 }
+                          </table>
+                              </div>
+
                             </div>
 
                             <div className='grped'>
@@ -184,7 +204,7 @@ export const Checkout = ({title}) => {
                                           <hr style={{ marginBottom: '2rem' }} />
                                           <div>
                                               <p> Sub Total </p>
-                                              <p> 168 </p>
+                                          <p> {merchantInfo?.currencySymbol} {Number(sumTotal).toLocaleString()} </p>
                                           </div>
 
                                           <div>
