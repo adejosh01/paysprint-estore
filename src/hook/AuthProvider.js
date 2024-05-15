@@ -9,7 +9,7 @@ const AuthProvider = ({children}) => {
 
     const apiUrl = config().baseUrl;
 
-    const [user, setUser] = useState(null);
+    const [user, setUser] = useState(localStorage.getItem("user") || null);
     const [token, setToken] = useState(localStorage.getItem("authtoken") || "");
     const navigate = useNavigate();
 
@@ -28,6 +28,7 @@ const AuthProvider = ({children}) => {
                 setUser(result.data.data);
                 setToken(result.data.data.apiToken);
                 localStorage.setItem("authtoken", result.data.data.apiToken);
+                localStorage.setItem("user", JSON.stringify(result.data.data));
                 navigate("/");
                 return;
 
@@ -46,6 +47,7 @@ const AuthProvider = ({children}) => {
     const logOut = () => {
         setUser(null);
         setToken("");
+        localStorage.removeItem("user");
         localStorage.removeItem("authtoken");
         navigate("/login");
     };

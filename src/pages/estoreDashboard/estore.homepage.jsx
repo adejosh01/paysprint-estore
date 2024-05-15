@@ -128,8 +128,8 @@ export const EstoreDashboard = ({ title }) => {
                     <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt={item.productName} src={item.image} />} >
                       <div className="imgdescription">
                         <p className="nameofitem">{item.productName}</p>
-                          <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
-                          <p className="initialprice">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')}</p>
+                          <p className="priceofitem">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
+                          <p className="initialprice">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')}</p>
                       </div>
                     </Card>
                   </Link>
@@ -157,7 +157,7 @@ export const EstoreDashboard = ({ title }) => {
                         <img className="prodImage" src={item.image} alt={item.productName} />
                         <div className="imgdescription">
                           <p className="nameofitem">{item.productName}</p>
-                            <p className="priceofitem">{item.myCountryConversion ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
+                            <p className="priceofitem">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
                           {/* <div>
                             <span>
                               <img src={starimage} alt="justtheIconOfAStar" />

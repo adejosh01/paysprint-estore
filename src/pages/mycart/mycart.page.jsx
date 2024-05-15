@@ -33,11 +33,15 @@ export const MyCarts = ({ title }) => {
             setMerchantInfo(response.data.merchant);
 
             if ((response.data.data).length > 0) {
+                var cartTotal = [];
                 for (let i = 0; i < response.data.data.length; i++) {
-                    const arrTotal = [Number(response.data.data[i].price * response.data.data[i].quantity)];
-                    const cartTotal = arrTotal.reduce((a, b) => a + b);
-                    setSumTotal(cartTotal);
+                    const arrTotal = Number(response.data.data[i].price * response.data.data[i].quantity);
+                    cartTotal.push(arrTotal);
                 }
+
+                const sum = cartTotal.reduce((total, n) => total + n, 0);
+                setSumTotal(sum);
+
             }
 
         }
@@ -45,22 +49,6 @@ export const MyCarts = ({ title }) => {
         getCartItems();
 
     }, [title, apiUrl, auth.token]);
-
-    // let currentNumber = 1;
-
-    // const [number, setNumber] = useState(currentNumber);
-
-    // // Function to handle the click event and perform the subtraction operation
-    // const handleSubtraction = () => {
-    //     const newNumber = performOperation(number, '-');
-    //     setNumber(newNumber);
-    // };
-
-    // // Function to handle the click event and perform the addition operation
-    // const handleAddition = () => {
-    //     const newNumber = performOperation(number, '+');
-    //     setNumber(newNumber);
-    // };
 
     return (
         <div className="estore-container">
