@@ -61,7 +61,21 @@ export const Reward = ({ title }) => {
                                 </div>
                             </div>
                             <div className='second'>
-
+                                <h4> Tasks </h4>
+                                <div className="table">
+                                    <table>
+                                        <thead>
+                                            <th> # </th>
+                                            <th> Name </th>
+                                            <th> Progress </th>
+                                            <th> Status </th>
+                                        </thead> <hr />
+                                        <tbody>
+                                            <td> 01 </td>
+                                            <td> 01 </td>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
 
