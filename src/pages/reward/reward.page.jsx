@@ -1,5 +1,5 @@
 import './reward.styles.scss';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import RewardSideBar from 'components/myRewards/side.page';
 import exchange_icon from 'assets/svg/reward_page/exchange.png';
 import cashback from 'assets/svg/reward_page/cash_back.png';
