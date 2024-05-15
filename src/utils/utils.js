@@ -1,3 +1,6 @@
+import { useState } from "react";
+import Swal from "sweetalert2";
+
 export const getConditionalClassName = (
   condition,
   defaultClass,
@@ -172,4 +175,27 @@ export function scrollToDataSection(sectionId) {
       section.scrollIntoView({ behavior: 'smooth' });
   }
 
+}
+
+export function useCounter(initialValue = 0) {
+  const [count, setCount] = useState(initialValue);
+
+  const increment = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  const decrement = () => {
+    setCount(prevCount => prevCount - 1);
+  };
+
+  return { count, increment, decrement };
+}
+
+export function alertMsg () {
+  // alert("Sorry you need to add a quantity that is greater than zero");
+  Swal.fire({
+    icon: 'error',
+    title: 'Oops...',
+    text: 'Sorry, you need to add a quantity that is greater than zero',
+  });
 }
