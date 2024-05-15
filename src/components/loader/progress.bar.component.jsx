@@ -3,8 +3,8 @@ import React from 'react';
 const ProgressBar = ({ width }) => {
   const progressBarStyles = {
     width: `${width}%`,
-    height: '20px',
-    backgroundColor: '#4079ED',
+    height: '10px',
+    backgroundColor: '#4F0B92',
     borderRadius: '10px',
     transition: 'width 0.3s ease-in-out'
   };
@@ -14,6 +14,8 @@ const ProgressBar = ({ width }) => {
       <div style={progressBarStyles}></div>
     </div>
   );
+
+
 };
 
 export default ProgressBar;
