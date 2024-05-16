@@ -80,7 +80,7 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                Categories{" "}
+                {auth.token ? ( <> My Shoppings {" "} </> ) : ( <> Categories {" "} </> )}
                 <button onClick={toggleIsSubmenuOpen}>
                   <FontAwesomeIcon
                     icon={isSubMenuOpen ? faAngleUp : faAngleDown}
@@ -123,6 +123,21 @@ export const EstoreHeader = ({title}) => {
                 Contact Us
               </NavLink>
             </li>
+            { auth.token ? ( 
+              <li className="guest-link">
+                <Link onClick={() => auth.logOut()}> Logout </Link>
+              </li>
+            ) : ( <>
+              <li className="guest-link">
+                <Link to="/register"> Register with PaySprint </Link>
+              </li>
+              <li className="guest-link">
+                <Link to="/login"> Login with PaySprint </Link>
+              </li>
+              <li className="guest-link">
+                <Link to="/merchant-register"> Create Merchant Account </Link>
+              </li>
+            </>)}
           </ul>
         </div>
       </nav>
@@ -138,7 +153,7 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                Categories{" "}
+                {auth.token ? ( <> My Shoppings {" "} </> ) : ( <> Categories {" "} </> )}
                 <button onClick={toggleIsSubmenuOpen}>
                   <FontAwesomeIcon
                     icon={isSubMenuOpen ? faAngleUp : faAngleDown}
@@ -210,7 +225,8 @@ export const EstoreHeader = ({title}) => {
               ) : null
             }
 
-            <div className="acctstuffs" > 
+          { auth.token ? (<>
+              <div className="acctstuffs" > 
               {/* <img src={user} alt="theuserlogo" /> */}
                 <FontAwesomeIcon icon={faUser} style={{ color: '#fff' }} />
                 <p style={{ fontSize: '1.5rem', color: '#fff' }} onClick={toggleAccountMenu}> Account {" "} </p>
@@ -218,19 +234,13 @@ export const EstoreHeader = ({title}) => {
                   <button> <FontAwesomeIcon icon={isAccountMenuOpen ? faAngleUp : faAngleDown} style={{ color: '#fff' }} /> </button>
                 </span>
 
-                { auth.token ? (<>
-                  <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
+                
+                <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
                     <li className="guest-link">
                       <Link> View Profile </Link>
                     </li>
                     <li className="guest-link">
-                      <Link to={'/mywishlist'}> My Wish List </Link>
-                    </li>
-                    <li className="guest-link">
-                      <Link to={'/myorders'}> My Orders </Link>
-                    </li>
-                    <li className="guest-link">
-                      <Link to={'/myrewards'}> My Rewards </Link>
+                      <Link to={'/myshoppings'}> My Shoppings </Link>
                     </li>
                     <li className="guest-link">
                       <Link to={"/community"}> Community </Link>
@@ -238,25 +248,34 @@ export const EstoreHeader = ({title}) => {
                     <li className="guest-link">
                       <Link onClick={() => auth.logOut()}> Logout </Link>
                     </li>
-                  </ul>
-                  </>) : (<>
-                      <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
-                        <li className="guest-link">
-                          <img src={profileIcon} alt="User Icon" />
-                          <Link to="/register"> Register with PaySprint </Link>
-                        </li>
-                        <li className="guest-link">
-                          <img src={profileIcon} alt="User Icon" />
-                          <Link to="/login"> Login with PaySprint </Link>
-                        </li>
-                        <li className="guest-link">
-                          <img src={profileIcon} alt="User Icon" />
-                          <Link to="/merchant-register"> Create Merchant Account </Link>
-                        </li>
-                      </ul>
-                  </>
-                )}
-            </div>
+                </ul>
+              </div>
+          </>) : (<>
+              <div className="acctStuffs"> 
+                {/* <img src={user} alt="theuserlogo" /> */}
+                {/* <FontAwesomeIcon icon={faUser} style={{ color: '#fff' }} /> */}
+                <p style={{ fontSize: '1.5rem', color: '#fff' }} onClick={toggleAccountMenu}> Get Started {" "} </p>
+                {/* <span style={{  marginLeft: '0.2rem' }} onClick={toggleAccountMenu}> 
+                  <button> <FontAwesomeIcon icon={isAccountMenuOpen ? faAngleUp : faAngleDown} style={{ color: '#fff' }} /> </button>
+                </span> */}
+
+                <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
+                  <li className="guest-link">
+                    <img src={profileIcon} alt="User Icon" />
+                    <Link to="/register"> Register with PaySprint </Link>
+                  </li>
+                  <li className="guest-link">
+                    <img src={profileIcon} alt="User Icon" />
+                    <Link to="/login"> Login with PaySprint </Link>
+                  </li>
+                  <li className="guest-link">
+                    <img src={profileIcon} alt="User Icon" />
+                    <Link to="/merchant-register"> Create Merchant Account </Link>
+                  </li>
+                </ul>
+              </div>
+            </>
+          )}
 
           </div>
         </header>
