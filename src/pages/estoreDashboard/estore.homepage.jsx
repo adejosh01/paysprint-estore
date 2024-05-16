@@ -1,6 +1,6 @@
 import "./estore.homepage.scss";
 import { useEffect, useState } from "react";
-import others from "assets/images/estore/topCategories/others.png";
+// import others from "assets/images/estore/topCategories/others.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getConditionalClassName, handleClick } from "utils/utils";
@@ -94,7 +94,7 @@ export const EstoreDashboard = ({ title }) => {
                                 {categories.length !== 0 ? (
                                     Array.isArray(categories) ? (  
                                         <select name="category" defaultValue={'all'} required>
-                                            <option value=""> Categories </option>
+                                            <option value=""> Select Categories </option>
                                             {categories.map((item, index) => (
                                                 <option key={index} value={item.category} name="category"> {item.category} </option>
                                             ))}
@@ -229,7 +229,7 @@ export const EstoreDashboard = ({ title }) => {
           </section>
         )}
 
-        {categories.length !== 0 && (
+        {/* {categories.length !== 0 && (
           <section className="topcategories">
             <h3> Top Categories</h3>
 
@@ -239,13 +239,6 @@ export const EstoreDashboard = ({ title }) => {
                   <Link to={`/allcategories?categoryname=${item.category}`} key={index}>
                   <div className="imgdescribtion" key={index}>
                     <img src={others} alt="thetextdescription" />
-                    {/* {index % 7 === 0 && <img src={office} alt="thetextdescription" />}
-                    {index % 7 === 1 && <img src={electronic} alt="thetextdescription" />}
-                    {index % 7 === 2 && <img src={desktops} alt="thetextdescription" />}
-                    {index % 7 === 3 && <img src={groceries} alt="thetextdescription" />}
-                    {index % 7 === 4 && <img src={health} alt="thetextdescription" />}
-                    {index % 7 === 5 && <img src={travels} alt="thetextdescription" />}
-                    {index % 7 === 6 && <img src={fashion} alt="thetextdescription" />} */}
                       <p> {item.category} </p>
                   </div>
                   </Link>
@@ -267,7 +260,7 @@ export const EstoreDashboard = ({ title }) => {
               </Link>
             </div>
           </section>
-        )}
+        )} */}
 
     </div>
 

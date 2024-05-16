@@ -1,0 +1,123 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    font: 500 20px 'Plus Jakarta Sans';
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+
+    section.location {
+        padding: 4rem 3rem;
+        h2 {
+            font: 600 45px 'Plus jakarta sans';
+            text-align: center;
+            line-height: 28px;
+            padding-left: 33px;
+        }  
+        section.all-items {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+    .estore-container { 
+        section.location {
+            div.plans {
+                // display: grid;
+                // grid-template-columns: repeat(3, 1fr);
+                gap: 25px;
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .estore-container { 
+        section.location {
+            section.all-items {
+                div.left-side {
+                    flex: 0 0 260px;
+                    padding: 0px 2px;
+                }
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 1123px) {
+    .estore-container { 
+        section.location {
+            section.all-items {
+                main {
+                    flex-direction: column;
+                    gap: 0px;
+                    div.main-element {
+                        flex: 0 0 50%;
+                    }
+                }
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .estore-container { 
+        section.location {
+            section.all-items {
+                div.left-side {
+                    display: none;
+                }
+            }
+        }    
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .estore-container { 
+        section.location {
+            padding: 2rem;
+            section.all-items {
+                main {
+                    // gap: 30px;
+                    div.main-element {
+                        div.first {
+                            padding: 15px;
+                        }
+                        div.second {
+                            padding: 15px;
+                        }
+                    }
+                }
+            }
+        }    
+    }
+}
+
+
+@media screen and (min-width: 1218px) {
+    .estore-container {
+        section.location {
+            padding: 8.6rem 0.5rem;
+        }
+    }
+}

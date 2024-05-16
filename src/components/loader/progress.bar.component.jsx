@@ -6,11 +6,12 @@ const ProgressBar = ({ width }) => {
     height: '10px',
     backgroundColor: '#4F0B92',
     borderRadius: '10px',
-    transition: 'width 0.3s ease-in-out'
+    // transition: 'width 0.3s ease-in-out'
+
   };
 
   return (
-    <div style={{ border: '1px solid #ccc', borderRadius: '10px', overflow: 'hidden' }}>
+    <div style={{ border: '1px solid #ccc', borderRadius: '10px', overflow: 'hidden', background: '#f5f5f5' }}>
       <div style={progressBarStyles}></div>
     </div>
   );

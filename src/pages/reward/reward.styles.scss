@@ -21,7 +21,7 @@
     }
 
     section.reward {
-        padding: 4rem 2rem;
+        padding: 4rem 3rem;
         h2 {
             font: 600 45px 'Plus jakarta sans';
             text-align: center;
@@ -32,58 +32,6 @@
             display: flex;
             gap: 30px;
             width: 100%;
-            div.left-side {
-                flex: 0 0 345px;
-                padding: 0px 35px;
-                ul.side-menu {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 20px;
-                    .active {
-                        width: 100%;
-                        display: flex;
-                        align-items: center;
-                        gap: 24px;
-                        height: 64px;
-                        padding: 15px 20px 15px 20px;
-                        border-radius: 15px;
-                        background-color: #4F0B92;
-                        a {
-                            width: 100%;
-                            display: flex;
-                            align-items: center;
-                            gap: 20px;
-                            color: #fff;
-                            svg {
-                                margin-top: 0.3rem;
-                            }
-                        }
-                    }
-                    li {
-                        width: 100%;
-                        display: flex;
-                        align-items: center;
-                        gap: 24px;
-                        height: 64px;
-                        padding: 15px 20px 15px 20px;
-                        border-radius: 15px;
-                        background-color: #fff;
-                        a {
-                            width: 100%;
-                            display: flex;
-                            align-items: center;
-                            gap: 20px;
-                            color: #737791;
-                        }
-                    }
-                    li:hover {
-                        background-color: #4F0B92;
-                        a {
-                            color: #fff;
-                        }
-                    }
-                }
-            }
             main {
                 width: 100%;
                 display: flex;
@@ -271,22 +219,31 @@
     }
 }
 
-@media screen and (max-width: 1023px) {
+@media screen and (max-width: 1200px) {
     .estore-container { 
         section.reward {
-            div.plans {
-                // display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
+            section.all-items {
+                div.left-side {
+                    flex: 0 0 260px;
+                    padding: 0px 2px;
+                }
             }
         }    
     }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1123px) {
     .estore-container { 
         section.reward {
-            padding: 4rem 3rem;
+            section.all-items {
+                main {
+                    flex-direction: column;
+                    gap: 0px;
+                    div.main-element {
+                        flex: 0 0 50%;
+                    }
+                }
+            }
         }    
     }
 }
@@ -294,10 +251,32 @@
 @media screen and (max-width: 800px) {
     .estore-container { 
         section.reward {
-            div.plans {
-                // display: grid;
-                grid-template-columns: repeat(1, 1fr);
-                gap: 60px;
+            section.all-items {
+                div.left-side {
+                    display: none;
+                }
+            }
+        }    
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .estore-container { 
+        section.reward {
+            padding: 2rem;
+            section.all-items {
+                main {
+                    // gap: 30px;
+                    div.main-element {
+                        div.first {
+                            padding: 15px;
+                        }
+                        div.second {
+                            padding: 15px;
+                        }
+                    }
+                }
             }
         }    
     }

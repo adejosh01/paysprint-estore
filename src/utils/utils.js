@@ -199,3 +199,21 @@ export function alertMsg () {
     text: 'Sorry, you need to add a quantity that is greater than zero',
   });
 }
+
+export function confirmationOfAction(auth) {
+  
+  Swal.fire({
+    icon: 'warning',
+    title: 'Are you sure?',
+    text: 'Are you really sure you want to log out?',
+    showCancelButton: true,
+    confirmButtonText: 'Yes, log me out',
+    cancelButtonText: 'No, please dont',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      auth.logOut();
+
+    }
+  });
+  
+}
