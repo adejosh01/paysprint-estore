@@ -2,6 +2,7 @@ import { toggleLoginScreen } from "utils/utils";
 import "./login.scss";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../hook/AuthProvider";
+import Swal from "sweetalert2";
 
 export const Login = ({ title }) => {
   const auth = useAuth();
@@ -20,6 +21,13 @@ export const Login = ({ title }) => {
         
         if (accountNumber !== "" && transactionPin !== "") {
           auth.loginAction({ accountNumber, transactionPin});
+          Swal.fire({
+            icon: 'success',
+            title: 'Welcome Back',
+            text: 'You have been logged into your account',
+          });
+
+          // console.log(auth.loginAction);
           return;
         }
 

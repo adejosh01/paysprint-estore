@@ -1,9 +1,9 @@
 import './product.styles.scss';
 import React, { useEffect, useState } from 'react';  
 // import starimage from "assets/images/star.png";
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'; 
-import { stripHtmlTags } from 'utils/utils';
+import { alertMsg, handleClick, stripHtmlTags, useCounter } from 'utils/utils';
 import { useAuth } from 'hook/AuthProvider';
 import config from '../../config';
 
@@ -15,9 +15,8 @@ export const ProductDetails = ({ title }) => {
     const [specificProduct, setData] = useState([]);
     const [similarProduct, setSimilarProduct] = useState([]);
     const [error, setError] = useState(null);
-    // const queryString = window.location.search;
-    // const urlParams = new URLSearchParams(queryString);
-    // const convertedAmount = urlParams.get('r');
+    const { count, increment, decrement } = useCounter();
+    const navigate = useNavigate();
 
     const addToCart = async (productId) => {
         try {
@@ -91,14 +90,27 @@ export const ProductDetails = ({ title }) => {
 
                         <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {specificProduct.businessname} </span> </p>
                         <p className='amount'> {specificProduct.currencySymbol + Number(specificProduct.amount).toFixed(2)} </p>
-                        <div className='justbuttons'>
-                            <button type='button' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
-                                Add to cart
+                        <form className='justbuttons'>
+                            <div>
+                                <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
+                                <div>
+                                    <button type='button' onClick={increment}> + </button>
+                                    <button type='button' onClick={decrement}> - </button>
+                                </div>
+                            </div>
+                            {count <= 0 ? (
+                                <button type='button' onClick={() => alertMsg() }>
+                                    Add to cart
+                                </button>
+                            ) : (
+                                <button type='submit' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
+                                    Add to cart
+                                </button>
+                            )}
+                            <button type='button' onClick={ () => handleClick('/messages', navigate) }>
+                                Buy now
                             </button>
-                            <button type='button'>
-                                <Link href='#'> Buy now </Link>
-                            </button>
-                        </div>
+                        </form>
                     </div>
                 </section>
             ) : (

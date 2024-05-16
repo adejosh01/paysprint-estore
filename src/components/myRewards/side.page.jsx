@@ -1,25 +1,36 @@
-import { faArrowTrendUp, faCartShopping, faGear, faGlobe, faMessage } from "@fortawesome/free-solid-svg-icons";
+import './side.styles.scss';
+import { faArrowTrendUp, faCartShopping, faGear, faGift, faGlobe, faMessage } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Link } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import graph_metric from 'assets/svg/reward_page/graph_metric.png';
+import graph_metric2 from 'assets/svg/reward_page/graph_metric2.png';
 import product_icon from 'assets/svg/reward_page/product_icon.png';
 import logout from 'assets/svg/reward_page/logout.png';
+import { confirmationOfAction } from "utils/utils";
+import { useAuth } from "hook/AuthProvider";
 
 
 const RewardSideBar = () => {
+
+    const location = useLocation();
+    const pathname = location.pathname;
+
+    const auth = useAuth();
+    // console.log(auth);
 
     return (
         <>
             <div className="left-side">
                 <ul className="side-menu">
-                    <li className="active"> <Link to={'#'}> <img src={graph_metric} alt="djsh" />  Reward Metrics </Link> </li>
-                    <li> <Link to={'#'}> <FontAwesomeIcon icon={faCartShopping} /> Store </Link> </li>
-                    <li> <Link to={'#'}> <img src={product_icon} alt="productImg" /> Products </Link> </li>
-                    <li> <Link to={'#'}> <FontAwesomeIcon icon={faArrowTrendUp} /> Purchase History </Link> </li>
-                    <li> <Link to={'#'}> <FontAwesomeIcon icon={faGlobe} /> Store Locations </Link> </li>
-                    <li> <Link to={'#'}> <FontAwesomeIcon icon={faMessage} /> Messages </Link> </li>
-                    <li> <Link to={'#'}> <FontAwesomeIcon icon={faGear} /> Settings </Link> </li>
-                    <li> <Link to={'#'}> <img src={logout} alt="logoutImg" /> Sign Out </Link> </li>
+                    <NavLink to={'/myshoppings'}> <p> {pathname === '/myshoppings' ? ( <img src={graph_metric} alt='graphImg' /> ) : ( <img src={graph_metric2} alt="graphImg" /> )}  Reward Metrics </p> </NavLink>
+                    <NavLink to={'/recent-stores'}> <p> <FontAwesomeIcon icon={faCartShopping} /> My Stores </p> </NavLink>
+                    <NavLink to={'/mywishlist'}> <p> <FontAwesomeIcon icon={faGift} /> My Wishlist </p> </NavLink>
+                    <NavLink to={'/myorders'}> <p> <img src={product_icon} alt="productImg" /> My Orders </p> </NavLink>
+                    <NavLink to={'/purchase-history'}> <p> <FontAwesomeIcon icon={faArrowTrendUp} /> Purchase History </p> </NavLink>
+                    <NavLink to={'/store-location'}> <p> <FontAwesomeIcon icon={faGlobe} /> Store Locations </p> </NavLink>
+                    <NavLink to={'/messages'}> <p> <FontAwesomeIcon icon={faMessage} /> Messages </p> </NavLink>
+                    <NavLink to={'/settings'}> <p> <FontAwesomeIcon icon={faGear} /> Settings </p> </NavLink>
+                    <NavLink to={'logout'}> <p onClick={ () => confirmationOfAction(auth) }> <img src={logout} alt="logoutImg" /> Sign Out </p> </NavLink>
                 </ul>    
             </div>
         </>
