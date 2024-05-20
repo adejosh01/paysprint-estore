@@ -6,8 +6,8 @@ import "./estoreHeader.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp, faCartShopping, faMessage, faSearch, faUser, faXmark, } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import { getConditionalClassName } from "utils/utils";
-import { Link, NavLink } from "react-router-dom";
+import { getConditionalClassName, handleClick } from "utils/utils";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import profileIcon from 'assets/icons/profile/profileIcon.png';
 import axios from "axios";
@@ -39,6 +39,7 @@ export const EstoreHeader = ({title}) => {
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
 
   const [value, setValue] = useState(''); // State variable to hold the search query
+  const navigate  = useNavigate();
 
 
   useEffect(() => {
@@ -252,12 +253,7 @@ export const EstoreHeader = ({title}) => {
               </div>
           </>) : (<>
               <div className="acctStuffs"> 
-                {/* <img src={user} alt="theuserlogo" /> */}
-                {/* <FontAwesomeIcon icon={faUser} style={{ color: '#fff' }} /> */}
-                <p style={{ fontSize: '1.5rem', color: '#fff' }} onClick={toggleAccountMenu}> Get Started {" "} </p>
-                {/* <span style={{  marginLeft: '0.2rem' }} onClick={toggleAccountMenu}> 
-                  <button> <FontAwesomeIcon icon={isAccountMenuOpen ? faAngleUp : faAngleDown} style={{ color: '#fff' }} /> </button>
-                </span> */}
+                <button style={{ fontSize: '1.5rem', color: '#fff' }} onClick={ () => handleClick('/get-started', navigate) }> Get Started {" "} </button>
 
                 <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
                   <li className="guest-link">
