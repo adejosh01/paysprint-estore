@@ -80,7 +80,7 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                {auth.token ? ( <> My aShopree {" "} </> ) : ( <> Categories {" "} </> )}
+                {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> My aShopree </a> {" "} </> ) : ( <> Categories {" "} </> )}
                 <button onClick={toggleIsSubmenuOpen}>
                   <FontAwesomeIcon
                     icon={isSubMenuOpen ? faAngleUp : faAngleDown}
