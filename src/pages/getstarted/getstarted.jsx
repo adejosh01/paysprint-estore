@@ -58,7 +58,7 @@ export const GetStarted = ({ title }) => {
               <div className="ashopree">
                 <img src={ashopree} alt="" />
               </div>
-
+ 
               <div className="body">
                 <div className="head">
                   <h1> Sign in to your account </h1>

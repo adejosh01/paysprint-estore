@@ -80,7 +80,7 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                {auth.token ? ( <> My Shoppings {" "} </> ) : ( <> Categories {" "} </> )}
+                {auth.token ? ( <> My aShopree {" "} </> ) : ( <> Categories {" "} </> )}
                 <button onClick={toggleIsSubmenuOpen}>
                   <FontAwesomeIcon
                     icon={isSubMenuOpen ? faAngleUp : faAngleDown}
@@ -153,7 +153,7 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                {auth.token ? ( <> My Shoppings {" "} </> ) : ( <> Categories {" "} </> )}
+                {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> My aShopree </a> {" "} </> ) : ( <> Categories {" "} </> )}
                 <button onClick={toggleIsSubmenuOpen}>
                   <FontAwesomeIcon
                     icon={isSubMenuOpen ? faAngleUp : faAngleDown}
@@ -236,12 +236,6 @@ export const EstoreHeader = ({title}) => {
 
                 
                 <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
-                    <li className="guest-link">
-                      <Link> View Profile </Link>
-                    </li>
-                    <li className="guest-link">
-                      <Link to={"/community"}> Community </Link>
-                    </li>
                     <li className="guest-link">
                       <Link onClick={() => auth.logOut()}> Logout </Link>
                     </li>
