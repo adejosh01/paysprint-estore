@@ -58,7 +58,7 @@ export const GetStarted = ({ title }) => {
 
             <form>
               <div className="requirements">
-                <p> <hr /> <span> or sign in with email </span> </p>
+                <p> <hr /> <span className="alt"> or sign in with email </span> </p>
                 <div>
                   <p> PaySprint Number <span> * </span> </p>
                 <input type="text" name="accountNumber" placeholder="123456789" required value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />

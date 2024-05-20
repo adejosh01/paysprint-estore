@@ -24,86 +24,6 @@
       display: none;
     }
 
-    form {
-      display: flex;
-      flex-direction: column;
-      width: 544px;
-      gap: 48px;
-      div.requirements {
-        display: flex;
-        flex-direction: column;
-        gap: 2.5rem;
-        hr {
-          border-color: hsla(0,0%,100%,.12);
-          display: block;
-          flex: 1 1;
-          border: solid;
-          border-width: thin 0 0;
-        }
-
-        span {
-          padding: 16px 155px;
-          font-size: 22px;
-          position: absolute;
-          top: 13.5%;
-          background-color: hsla(0,0%,100%,.12);
-        }
-
-        div {
-          p {
-            font: 500 14px 'plus jakarta sans';
-            line-height: 30px;
-            span {
-              font: 500 14px 'plus jarkata sans';
-              color: red;
-            }
-          }
-          input, select, textarea {
-            padding: .375rem .75rem;
-            font: 600 16px 'lato';
-            width: 100%;
-            line-height: 19px;
-            height: 48px;
-            color: #423F5A;
-            background-color: #fff;
-            background-clip: padding-box;
-            border: 2px solid #d2d2d2;
-            border-radius: 8px;
-            transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-          }
-          input:focus, select:focus, textarea:focus {
-              border: 1px solid #007bff;
-              box-shadow: 0 0 0 .3rem rgba(0,123,255,.25);
-          }
-        }
-      }
-      div.other-details {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 2rem;
-        width: 544px;
-        button {
-          width: 100%;
-          padding: 8px;
-          background-color: #423F5A;
-          color: #fff;
-          font: 700 16px 'plus jarkata sans';
-          line-height: 30px;
-          border-radius: 10px;
-        }
-        p  {
-          font: 500 18px 'lato';
-          line-height: 26px;
-          color: #8B8B8B;
-          a {
-            font: 700 18px 'lato';
-            color: #423F5A;
-          }
-        }
-      }
-    }
-
     section.get-started {
       display: flex;
       flex-direction: column;
@@ -121,6 +41,86 @@
           flex-direction: column;
           gap: 7rem;
 
+        }
+        form {
+          display: flex;
+          flex-direction: column;
+          width: 544px;
+          gap: 48px;
+          div.requirements {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+            p {
+              hr {
+                border-color: hsla(0,0%,100%,.12);
+                display: block;
+                flex: 1 1;
+                border: solid;
+                border-width: thin 0 0;
+              }
+              span.alt {
+                padding: 16px 8px;
+                font-size: 22px;
+                position: absolute;
+                top: 13.5%;
+                right: 24%;
+                background-color: #fff;
+              }
+            }
+            div {
+              p {
+                font: 500 14px 'plus jakarta sans';
+                line-height: 30px;
+                span {
+                  font: 500 14px 'plus jarkata sans';
+                  color: red;
+                }
+              }
+              input, select, textarea {
+                padding: .375rem .75rem;
+                font: 600 16px 'lato';
+                width: 100%;
+                line-height: 19px;
+                height: 48px;
+                color: #423F5A;
+                background-color: #fff;
+                background-clip: padding-box;
+                border: 2px solid #d2d2d2;
+                border-radius: 8px;
+                transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+              }
+              input:focus, select:focus, textarea:focus {
+                  border: 1px solid #007bff;
+                  box-shadow: 0 0 0 .3rem rgba(0,123,255,.25);
+              }
+            }
+          }
+          div.other-details {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            width: 544px;
+            button {
+              width: 100%;
+              padding: 8px;
+              background-color: #423F5A;
+              color: #fff;
+              font: 700 16px 'plus jarkata sans';
+              line-height: 30px;
+              border-radius: 10px;
+            }
+            p  {
+              font: 500 18px 'lato';
+              line-height: 26px;
+              color: #8B8B8B;
+              a {
+                font: 700 18px 'lato';
+                color: #423F5A;
+              }
+            }
+          }
         }
       }
     }
