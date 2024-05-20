@@ -6,10 +6,9 @@ import "./estoreHeader.styles.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown, faAngleUp, faCartShopping, faMessage, faSearch, faUser, faXmark, } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
-import { getConditionalClassName } from "utils/utils";
-import { Link, NavLink } from "react-router-dom";
+import { getConditionalClassName, handleClick } from "utils/utils";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import profileIcon from 'assets/icons/profile/profileIcon.png';
 import axios from "axios";
 import { useAuth } from "../../hook/AuthProvider";
 
@@ -39,6 +38,7 @@ export const EstoreHeader = ({title}) => {
   const apiUrl = process.env.REACT_APP_API_URL || 'https://paysprint.ca/api/v1';
 
   const [value, setValue] = useState(''); // State variable to hold the search query
+  const navigate  = useNavigate();
 
 
   useEffect(() => {
@@ -80,7 +80,7 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                {auth.token ? ( <> My Shoppings {" "} </> ) : ( <> Categories {" "} </> )}
+                {auth.token ? ( <> My aShopree {" "} </> ) : ( <> Categories {" "} </> )}
                 <button onClick={toggleIsSubmenuOpen}>
                   <FontAwesomeIcon
                     icon={isSubMenuOpen ? faAngleUp : faAngleDown}
@@ -153,7 +153,7 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                {auth.token ? ( <> My Shoppings {" "} </> ) : ( <> Categories {" "} </> )}
+                {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> My aShopree </a> {" "} </> ) : ( <> Categories {" "} </> )}
                 <button onClick={toggleIsSubmenuOpen}>
                   <FontAwesomeIcon
                     icon={isSubMenuOpen ? faAngleUp : faAngleDown}
@@ -237,43 +237,20 @@ export const EstoreHeader = ({title}) => {
                 
                 <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
                     <li className="guest-link">
-                      <Link> View Profile </Link>
-                    </li>
-                    <li className="guest-link">
-                      <Link to={'/myshoppings'}> My Shoppings </Link>
-                    </li>
-                    <li className="guest-link">
-                      <Link to={"/community"}> Community </Link>
-                    </li>
-                    <li className="guest-link">
                       <Link onClick={() => auth.logOut()}> Logout </Link>
                     </li>
                 </ul>
               </div>
           </>) : (<>
-              <div className="acctStuffs"> 
-                {/* <img src={user} alt="theuserlogo" /> */}
-                {/* <FontAwesomeIcon icon={faUser} style={{ color: '#fff' }} /> */}
-                <p style={{ fontSize: '1.5rem', color: '#fff' }} onClick={toggleAccountMenu}> Get Started {" "} </p>
-                {/* <span style={{  marginLeft: '0.2rem' }} onClick={toggleAccountMenu}> 
-                  <button> <FontAwesomeIcon icon={isAccountMenuOpen ? faAngleUp : faAngleDown} style={{ color: '#fff' }} /> </button>
-                </span> */}
+                <div className="acctStuffs"> 
+                  <button style={{ fontSize: '1.5rem', color: '#fff' }} onClick={ () => handleClick('/get-started', navigate) }> Get Started {" "} </button>
 
-                <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
-                  <li className="guest-link">
-                    <img src={profileIcon} alt="User Icon" />
-                    <Link to="/register"> Register with PaySprint </Link>
-                  </li>
-                  <li className="guest-link">
-                    <img src={profileIcon} alt="User Icon" />
-                    <Link to="/login"> Login with PaySprint </Link>
-                  </li>
-                  <li className="guest-link">
-                    <img src={profileIcon} alt="User Icon" />
-                    <Link to="/merchant-register"> Create Merchant Account </Link>
-                  </li>
-                </ul>
-              </div>
+                  <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
+                    <li className="guest-link">
+                      <p> Please Login or <a href="/get-started"> Click here </a> to get started </p>
+                    </li>
+                  </ul>
+                </div>
             </>
           )}
 

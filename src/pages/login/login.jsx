@@ -21,14 +21,14 @@ export const Login = ({ title }) => {
         
         if (accountNumber !== "" && transactionPin !== "") {
           auth.loginAction({ accountNumber, transactionPin});
-          Swal.fire({
-            icon: 'success',
-            title: 'Welcome Back',
-            text: 'You have been logged into your account',
-          });
-
-          // console.log(auth.loginAction);
           return;
+          
+        } else {
+          Swal.fire({
+            icon: 'error',
+            title: 'Please try again',
+            text: 'Sorry one of your credentials was not correct'
+          });
         }
 
         
@@ -70,7 +70,7 @@ export const Login = ({ title }) => {
               </div>
 
               <div className="other-details">
-              <button type="button" onClick={() => submitLogin()}>
+                <button type="button" onClick={() => submitLogin()}>
                   Proceed
                 </button>
                 <p> Don't have an account? <a href="/register"> Create Account </a> </p>

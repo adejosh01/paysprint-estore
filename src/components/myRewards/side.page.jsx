@@ -1,5 +1,5 @@
 import './side.styles.scss';
-import { faArrowTrendUp, faCartShopping, faGear, faGift, faGlobe, faMessage } from "@fortawesome/free-solid-svg-icons";
+import { faArrowTrendUp, faCartShopping, faGear, faGift, faGlobe, faMessage, faPeopleGroup, faStarHalfStroke, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { NavLink, useLocation } from "react-router-dom";
 import graph_metric from 'assets/svg/reward_page/graph_metric.png';
@@ -23,12 +23,15 @@ const RewardSideBar = () => {
             <div className="left-side">
                 <ul className="side-menu">
                     <NavLink to={'/myshoppings'}> <p> {pathname === '/myshoppings' ? ( <img src={graph_metric} alt='graphImg' /> ) : ( <img src={graph_metric2} alt="graphImg" /> )}  Reward Metrics </p> </NavLink>
-                    <NavLink to={'/recent-stores'}> <p> <FontAwesomeIcon icon={faCartShopping} /> My Stores </p> </NavLink>
+                    <NavLink to={'/recent-stores'}> <p> <FontAwesomeIcon icon={faCartShopping} /> Favourite Stores </p> </NavLink>
                     <NavLink to={'/mywishlist'}> <p> <FontAwesomeIcon icon={faGift} /> My Wishlist </p> </NavLink>
-                    <NavLink to={'/myorders'}> <p> <img src={product_icon} alt="productImg" /> My Orders </p> </NavLink>
+                    <NavLink to={'/myorders'}> <p> <img src={product_icon} alt="productImg" /> Track Orders </p> </NavLink>
                     <NavLink to={'/purchase-history'}> <p> <FontAwesomeIcon icon={faArrowTrendUp} /> Purchase History </p> </NavLink>
                     <NavLink to={'/store-location'}> <p> <FontAwesomeIcon icon={faGlobe} /> Store Locations </p> </NavLink>
                     <NavLink to={'/messages'}> <p> <FontAwesomeIcon icon={faMessage} /> Messages </p> </NavLink>
+                    <NavLink to={'/review'}> <p> <FontAwesomeIcon icon={faStarHalfStroke} /> My Reviews </p> </NavLink>
+                    <NavLink to={'/profile'}> <p> <FontAwesomeIcon icon={faUser} /> Profile </p> </NavLink>
+                    <NavLink to={'/community'}> <p> <FontAwesomeIcon icon={faPeopleGroup} /> Community </p> </NavLink>
                     <NavLink to={'/settings'}> <p> <FontAwesomeIcon icon={faGear} /> Settings </p> </NavLink>
                     <NavLink to={'logout'}> <p onClick={ () => confirmationOfAction(auth) }> <img src={logout} alt="logoutImg" /> Sign Out </p> </NavLink>
                 </ul>    
