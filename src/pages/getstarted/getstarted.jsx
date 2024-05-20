@@ -3,6 +3,11 @@ import { useAuth } from "hook/AuthProvider";
 import "./getstarted.scss";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
+import google from 'assets/updatedAshopree/google_logo.png';
+import paysprint from 'assets/updatedAshopree/paysprint.png';
+import linkedln from 'assets/svg/linkedin_icon_white.svg';
+import ashopree from 'assets/updatedAshopree/edited_ashopree_header_logo.jpg';
+
 
 export const GetStarted = ({ title }) => {
   const auth = useAuth();
@@ -49,11 +54,23 @@ export const GetStarted = ({ title }) => {
         <section className="get-started">
           <div className="main">
             <div className="header">
-              <div className="head">
-                <h1> Sign in to your account </h1>
-                <p> Access all our products and services with one single account </p>
+
+              <div className="ashopree">
+                <img src={ashopree} alt="" />
               </div>
 
+              <div className="body">
+                <div className="head">
+                  <h1> Sign in to your account </h1>
+                  <p> Access all our products and services with one single account </p>
+                </div>
+
+                <div className="externals">
+                  <button type="button"> <img src={paysprint} alt="paysprint_logo" /> <p> PaySprint </p> </button>
+                  <button type="button"> <img src={google} alt="google_logo" /> <p> Google </p> </button>
+                  <button type="button"> <img src={linkedln} alt="linkedln_logo" /> <p> Linkedln </p> </button>
+                </div>
+              </div>
             </div>
 
             <form>

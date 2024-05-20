@@ -9,7 +9,6 @@ import { useEffect, useState } from "react";
 import { getConditionalClassName, handleClick } from "utils/utils";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import profileIcon from 'assets/icons/profile/profileIcon.png';
 import axios from "axios";
 import { useAuth } from "../../hook/AuthProvider";
 
@@ -241,9 +240,6 @@ export const EstoreHeader = ({title}) => {
                       <Link> View Profile </Link>
                     </li>
                     <li className="guest-link">
-                      <Link to={'/myshoppings'}> My Shoppings </Link>
-                    </li>
-                    <li className="guest-link">
                       <Link to={"/community"}> Community </Link>
                     </li>
                     <li className="guest-link">
@@ -252,24 +248,15 @@ export const EstoreHeader = ({title}) => {
                 </ul>
               </div>
           </>) : (<>
-              <div className="acctStuffs"> 
-                <button style={{ fontSize: '1.5rem', color: '#fff' }} onClick={ () => handleClick('/get-started', navigate) }> Get Started {" "} </button>
+                <div className="acctStuffs"> 
+                  <button style={{ fontSize: '1.5rem', color: '#fff' }} onClick={ () => handleClick('/get-started', navigate) }> Get Started {" "} </button>
 
-                <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
-                  <li className="guest-link">
-                    <img src={profileIcon} alt="User Icon" />
-                    <Link to="/register"> Register with PaySprint </Link>
-                  </li>
-                  <li className="guest-link">
-                    <img src={profileIcon} alt="User Icon" />
-                    <Link to="/login"> Login with PaySprint </Link>
-                  </li>
-                  <li className="guest-link">
-                    <img src={profileIcon} alt="User Icon" />
-                    <Link to="/merchant-register"> Create Merchant Account </Link>
-                  </li>
-                </ul>
-              </div>
+                  <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
+                    <li className="guest-link">
+                      <p> Please Login or <a href="/get-started"> Click here </a> to get started </p>
+                    </li>
+                  </ul>
+                </div>
             </>
           )}
 
