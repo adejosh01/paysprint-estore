@@ -243,13 +243,13 @@ export const EstoreHeader = ({title}) => {
               </div>
           </>) : (<>
                 <div className="acctStuffs"> 
-                  <button style={{ fontSize: '1.5rem', color: '#fff' }} onClick={ () => handleClick('/get-started', navigate) }> Get Started {" "} </button>
+                  <button style={{ fontSize: '1.5rem', color: '#fff' }} onClick={ () => handleClick('/get-started', navigate) }> Get Started </button>
 
-                  <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
+                  {/* <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
                     <li className="guest-link">
                       <p> Please Login or <a href="/get-started"> Click here </a> to get started </p>
                     </li>
-                  </ul>
+                  </ul> */}
                 </div>
             </>
           )}
