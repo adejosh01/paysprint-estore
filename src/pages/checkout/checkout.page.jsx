@@ -193,7 +193,7 @@ export const Checkout = ({title}) => {
                                         ))
                                     ) : ( <p style={{ textAlign: "center" }}> Loading ... </p> )
                                 }
-                          </table>
+                              </table>
                               </div>
 
                             </div>
