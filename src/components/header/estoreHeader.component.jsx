@@ -80,7 +80,7 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                {auth.token ? ( <> My aShopree {" "} </> ) : ( <> Categories {" "} </> )}
+                {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> My aShopree </a> {" "} </> ) : ( <> Categories {" "} </> )}
                 <button onClick={toggleIsSubmenuOpen}>
                   <FontAwesomeIcon
                     icon={isSubMenuOpen ? faAngleUp : faAngleDown}
@@ -129,13 +129,7 @@ export const EstoreHeader = ({title}) => {
               </li>
             ) : ( <>
               <li className="guest-link">
-                <Link to="/register"> Register with PaySprint </Link>
-              </li>
-              <li className="guest-link">
-                <Link to="/login"> Login with PaySprint </Link>
-              </li>
-              <li className="guest-link">
-                <Link to="/merchant-register"> Create Merchant Account </Link>
+                <Link to="/get-started"> Get Started </Link>
               </li>
             </>)}
           </ul>
@@ -243,7 +237,7 @@ export const EstoreHeader = ({title}) => {
               </div>
           </>) : (<>
                 <div className="acctStuffs"> 
-                  <button style={{ fontSize: '1.5rem', color: '#fff' }} onClick={ () => handleClick('/get-started', navigate) }> Get Started {" "} </button>
+                  <button style={{ fontSize: '1.5rem', color: '#fff' }} onClick={ () => handleClick('/get-started', navigate) }> Get Started </button>
 
                   <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
                     <li className="guest-link">
