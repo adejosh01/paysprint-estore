@@ -129,13 +129,7 @@ export const EstoreHeader = ({title}) => {
               </li>
             ) : ( <>
               <li className="guest-link">
-                <Link to="/register"> Register with PaySprint </Link>
-              </li>
-              <li className="guest-link">
-                <Link to="/login"> Login with PaySprint </Link>
-              </li>
-              <li className="guest-link">
-                <Link to="/merchant-register"> Create Merchant Account </Link>
+                <Link to="/get-started"> Get Started </Link>
               </li>
             </>)}
           </ul>
@@ -245,11 +239,11 @@ export const EstoreHeader = ({title}) => {
                 <div className="acctStuffs"> 
                   <button style={{ fontSize: '1.5rem', color: '#fff' }} onClick={ () => handleClick('/get-started', navigate) }> Get Started </button>
 
-                  {/* <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
+                  <ul className={getConditionalClassName(isAccountMenuOpen, "account", "active")}>
                     <li className="guest-link">
                       <p> Please Login or <a href="/get-started"> Click here </a> to get started </p>
                     </li>
-                  </ul> */}
+                  </ul>
                 </div>
             </>
           )}
