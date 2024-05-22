@@ -19,6 +19,7 @@ export const Checkout = ({title}) => {
     const [stateid, setStateid] = useState(0);
     const [cityid, setCityid] = useState(0);
     const [language, setLanguage] = useState(0);
+    const [merchantSecret, setMerchantSecret] = useState("");
 
     const [countriesList, setCountriesList] = useState([]);
     const [stateList, setStateList] = useState([]);
@@ -39,7 +40,58 @@ export const Checkout = ({title}) => {
         setSelectedCategory(selected);
     };
 
+    const makePayment = async () => {
+        try {
+
+            // Initialize Payment
+
+            const data = {
+                "amount": sumTotal,
+                "paymentToken": `${Date.now()}`,
+                "email": user.email,
+                "publicKey": merchantSecret,
+                "currency": merchantInfo.currencyCode,
+                "country": merchantInfo.country,
+                "mode": config().mode, // test or live
+                "callbackUrl": config().callbackUrl,
+                "metadata": [
+                    {
+                        "name": "Full Name",
+                        "value": user.name
+                    },
+                    {
+                        "name": "Description",
+                        "value": `${cartItem.length} Items purchased from ${merchantInfo.businessname}`
+                    }
+                ],
+                "platform": "ashopree"
+            };
+
+            const thisconfig = {
+                method: 'post',
+                url: `${apiUrl}/payment/initialize`,
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: 'Bearer ' + auth.token
+                },
+                data
+            }
+
+            const response = await axios(thisconfig);
+
+            if(response.data.status === 200) {
+                setTimeout(() => {
+                    window.location.href = response.data.data.authorization_link
+                }, 1000);
+            }
+            
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
     useEffect(() => {
+
         document.title = title;
         window.scrollTo(0, 0);
 
@@ -64,10 +116,10 @@ export const Checkout = ({title}) => {
 
             const response = await axios(thisconfig);
 
-            // console.log(response.data.data);
-
+            
             setCartItem(response.data.data);
             setMerchantInfo(response.data.merchant);
+            setMerchantSecret(response.data.api_secrete_key);
 
 
             if ((response.data.data).length > 0) {
@@ -233,10 +285,10 @@ export const Checkout = ({title}) => {
                                                               
                             </div>
                             
-                            <button type='button' name='submit'> 
-                                <Link to={'/payment'}>
+                          <button type='button' onClick={() => { makePayment() }}> 
+                                {/* <Link to={'/payment'}> */}
                                     <p> Proceed to Payment </p>
-                                </Link> 
+                                {/* </Link>  */}
                             </button>
                         </div>
                     </section>
