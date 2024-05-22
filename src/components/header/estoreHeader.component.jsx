@@ -104,8 +104,8 @@ export const EstoreHeader = ({title}) => {
                 )}
             </ul>
             <li>
-              <NavLink to="/onlinestore" onClick={() => setIsMenuOpen(false)}>
-                Online Store
+              <NavLink to="/stores" onClick={() => setIsMenuOpen(false)}>
+                Stores
               </NavLink>
             </li>
             <li>
@@ -147,12 +147,23 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> My aShopree </a> {" "} </> ) : ( <> Categories {" "} </> )}
+                {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> 
+                  My aShopree </a> {" "} 
+                  
+                </>) : ( <> 
+                  Categories {" "} 
+                  <button onClick={toggleIsSubmenuOpen}>
+                    <FontAwesomeIcon
+                      icon={isSubMenuOpen ? faAngleUp : faAngleDown}
+                    />
+                  </button> 
+                  </> )}
+                {/* {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> My aShopree </a> {" "} </> ) : ( <> Categories {" "} </> )}
                 <button onClick={toggleIsSubmenuOpen}>
                   <FontAwesomeIcon
                     icon={isSubMenuOpen ? faAngleUp : faAngleDown}
                   />
-                </button>
+                </button> */}
               </a>
               <ul className={getConditionalClassName( isSubMenuOpen, "submenu", "active" )}>
                 {categories.length !== 0 ? (
@@ -175,7 +186,7 @@ export const EstoreHeader = ({title}) => {
               <NavLink to="/pricing"> Pricing </NavLink>
             </li>
             <li>
-              <NavLink to="/onlinestore">Online Store</NavLink>
+              <NavLink to="/stores">Stores</NavLink>
             </li>
           </ul>
 

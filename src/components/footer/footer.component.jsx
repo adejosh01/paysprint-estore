@@ -32,11 +32,11 @@ export const EstoreFooter = () => {
             <h5> Products </h5>
             <div>
               <ul>
-                {/* <li> <a href="/onlinestore"> My Online Store </a> </li>
+                {/* <li> <a href="/stores"> My Online Store </a> </li>
                 <li> <a href="#"> My Store Front </a> </li>
                 <li> <a href="#"> My Social Setting </a> </li>
                 <li> <a href="#"> My Payment Hub </a> </li> */}
-                <li> <a href="/onlinestore"> My Online Store </a> </li>
+                <li> <a href="/stores"> My Online Store </a> </li>
                 <li> <p title="This Feature Coming Soon"> My Store Front </p> </li>
                 <li> <p title="This Feature Coming Soon"> My Social Setting </p> </li>
                 <li> <p title="This Feature Coming Soon"> My Payment Hub </p> </li>
@@ -58,7 +58,7 @@ export const EstoreFooter = () => {
             <h5> Support </h5>
             <ul>
               <li> <a href="/contact"> Global Support </a> </li>
-              <li> <a href="/askquestions"> Merchant Support </a> </li>
+              <li> <a href="/contact"> Merchant Support </a> </li>
               <li> <a href="/community"> aShopree Community </a> </li>
               <li> <a href="/merchant-register"> Create Merchant Account </a> </li>
             </ul>

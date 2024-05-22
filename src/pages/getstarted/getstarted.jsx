@@ -122,8 +122,8 @@ export const GetStarted = ({ title }) => {
 
                 <div className="externals">
                   <button type="button" onClick={ () => getStartedOption() }> <img src={paysprint} alt="paysprint_logo" /> <p> PaySprint </p> </button>
-                  <button type="button"> <img src={google} alt="google_logo" /> <p> Google </p> </button>
-                  <button type="button"> <img src={linkedln} alt="linkedln_logo" /> <p> Linkedln </p> </button>
+                  {/* <button type="button"> <img src={google} alt="google_logo" /> <p> Google </p> </button>
+                  <button type="button"> <img src={linkedln} alt="linkedln_logo" /> <p> Linkedln </p> </button> */}
                 </div>
               </div>
             </div>
@@ -153,7 +153,7 @@ export const GetStarted = ({ title }) => {
 
             <form action="#" className="paysprintSignin">
               <div className="requirements">
-                <p> <hr /> <span className="alt"> sign in with paySprint </span> </p>
+                <p> <hr /> <span className="alt"> sign in with PaySprint </span> </p>
                 <div>
                   <p> PaySprint Number <span> * </span> </p>
                   <input type="text" name="accountNumber" placeholder="123456789" required value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
