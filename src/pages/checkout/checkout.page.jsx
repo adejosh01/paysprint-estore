@@ -4,16 +4,7 @@ import { useEffect, useState } from 'react';
 import config from "../../config";
 import axios from "axios";
 import { useAuth } from "../../hook/AuthProvider";
-import {
-    GetCountries,
-    GetState,
-    GetCity,
-    GetLanguages, //async functions
-    CitySelect,
-    CountrySelect,
-    StateSelect,
-    LanguageSelect,
-} from "react-country-state-city";
+import { GetCountries, GetState, GetCity, GetLanguages, CitySelect, CountrySelect, StateSelect, LanguageSelect, } from "react-country-state-city";
 
 import "react-country-state-city/dist/react-country-state-city.css";
 
@@ -39,6 +30,14 @@ export const Checkout = ({title}) => {
     const [sumTotal, setSumTotal] = useState(0);
     const [taxValue, setTaxValue] = useState(0);
     const [deliveryValue, setDeliveryValue] = useState(0);
+
+    const homeDelivery = ["Home delivery", "Pick up station"];
+    const [selectedCategory, setSelectedCategory] = useState('');
+
+    const handleCategoryChange = (event) => {
+        const selected = event.target.value;
+        setSelectedCategory(selected);
+    };
 
     useEffect(() => {
         document.title = title;
@@ -122,46 +121,54 @@ export const Checkout = ({title}) => {
                                 <h4> Shipping Address </h4>
                                 <div className='descrip'>
                                     <p> Country </p>
-                                  <CountrySelect
-                                      onChange={(e) => {
-                                          setCountryid(e.id);
-                                      }}
-                                      placeHolder="Select Country"
-                                  />
+                                    <CountrySelect onChange={(e) => { setCountryid(e.id); }} placeHolder="Select Country" />
                                 </div>
                                 <div className='descrip'>
                                     <p> State </p>
-                                  <StateSelect
-                                      countryid={countryid}
-                                      onChange={(e) => {
-                                          setStateid(e.id);
-                                      }}
-                                      placeHolder="Select State"
-                                  />
+                                    <StateSelect countryid={countryid} onChange={(e) => { setStateid(e.id); }} placeHolder="Select State" />
                                 </div>
                                 <div className='descrip'>
                                     <p> City </p>
-                                  <CitySelect
-                                      countryid={countryid}
-                                      stateid={stateid}
-                                      onChange={(e) => {
-                                          console.log(e);
-                                      }}
-                                      placeHolder="Select City"
-                                  />
+                                    <CitySelect countryid={countryid} stateid={stateid} onChange={(e) => { console.log(e); }} placeHolder="Select City" />
                                 </div>
                                 <div className='descrip'>
                                     <p> Address </p>
                                     <input name='address' type="address" placeholder='Input delivery address' />
                                 </div>
                                 <div className='descrip'>
-                                    <p> Delivery Option </p>
-                                    <select>
-                                        <option value="">Select delivery option</option>
-                                        <option value="home_delivery">Home delivery</option>
-                                        <option value="pick_up">Pick up station</option>
-                                    </select>
+                                    <p>Delivery Option ** </p>
+                                    {homeDelivery.length !== 0 ? (
+                                        Array.isArray(homeDelivery) ? (
+                                            <select  value={selectedCategory} onChange={handleCategoryChange} name="deliveryOption" required>
+                                                <option value="">Select delivery option</option>
+                                                {homeDelivery.map((deliveryOption) => (
+                                                    <option key={deliveryOption} value={deliveryOption}>
+                                                        {deliveryOption}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        ) : (
+                                            <p>Sorry, an error occurred</p>
+                                        )
+                                    ) : (
+                                        <p> Loading Delivery Options</p>
+                                    )}
                                 </div>
+                                {selectedCategory && (<>
+                                    {selectedCategory === "Home delivery" && (
+                                        <div className='descrip'>
+                                            <p> This is your Home Delivery Address: </p>
+                                            <input type="text" value="124, busy road off Mainland" readOnly />
+                                            <p> Fee: <span> $35 </span> </p>
+                                        </div>
+                                    )}
+                                    {selectedCategory === "Pick up station" && (
+                                        <div className='descrip'>
+                                            <p> This is your Pick Up Station Address</p>
+                                            <input type="text" value="125, active road off Island" readOnly />
+                                        </div>
+                                    )}
+                                </>)}
                             </div>
                         </div>
 
