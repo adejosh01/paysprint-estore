@@ -46,10 +46,11 @@
                 .detailstitle {
                     display: flex;
                     justify-content: space-between;
+                    gap: 2rem;
                     padding: 0rem 1rem;
                     p {
                         &:first-child {
-                            flex: 0 0 35%;
+                            flex: 0 0 15%;
                         }
                         font: 600 15px 'Plus Jakarta Sans';
                         line-height: 18px;
@@ -95,6 +96,54 @@
                             margin-top: 2rem;
                         }
                     }
+                }
+                .table-container {
+                    width: 100%;
+                    overflow-x: auto;
+                    .custom-table {
+                        width: 100%;
+                        border-collapse: collapse;
+                            th {
+                                font: 600 15px 'Plus Jakarta Sans';
+                                line-height: 18px;
+                                color: #A0A2A7;
+                                text-transform: uppercase;
+                            }
+                    }
+                    .custom-table th, .custom-table td {
+                        padding: 5px;
+                        border: 1px solid #ddd;
+                        font-size: 18.5px;
+                        div.action {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+                            button {
+                                &:first-child {
+                                    padding: 1rem;
+                                    display: flex;
+                                    gap: 1rem;
+                                    align-items: center;
+                                    background: #4F0B92;
+                                    color: #fff;
+                                    border-radius: 1rem;  
+                                }                          
+                                &:last-child {
+                                    padding: 1rem;
+                                    display: flex;
+                                    gap: 1rem;
+                                    align-items: center;
+                                    background: rgb(238, 52, 52);
+                                    color: #fff;
+                                    border-radius: 1rem;  
+                                }                          
+                            }
+                        }
+                    }
+                    .custom-table tbody tr:nth-child(even) {
+                        background-color: #f2f2f2;
+                    }
+
                 }
             }
         }

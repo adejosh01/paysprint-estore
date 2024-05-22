@@ -110,6 +110,24 @@ export function getLoginScreen() {
   }
 }
 
+
+export function getStartedOption() {
+  const emailSignIn = document.getElementsByClassName("emailSignIn");
+  const paySprintSignin = document.getElementsByClassName("paysprintSignin");
+  let index = 0;
+  let index2 = 0;
+
+  for (index; index < emailSignIn.length; index++) {
+
+    emailSignIn[index].classList.remove("loginOption");
+  }
+
+  for (index2; index2 < paySprintSignin.length; index2++) {
+
+    paySprintSignin[index2].classList.add("loginOption");
+  }
+}
+
 export function toggleLoginScreen(accountType) {
   const personalForm = document.querySelector('.login_page_for_individual');
   const merchantForm = document.querySelector('.login_page_for_merchant');

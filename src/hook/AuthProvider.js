@@ -3,8 +3,10 @@ import { useNavigate } from "react-router-dom";
 import config from "../config";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { RESPONSE_STATES } from "utils/constants";
 
 const AuthContext = createContext();
+
 
 const AuthProvider = ({children}) => {
 
@@ -13,6 +15,8 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(localStorage.getItem("user") || null);
     const [token, setToken] = useState(localStorage.getItem("authtoken") || "");
     const navigate = useNavigate();
+    // const [setResponseState] = useState(RESPONSE_STATES.none);
+
 
     const loginAction = async (data) => {
         try {
@@ -39,19 +43,23 @@ const AuthProvider = ({children}) => {
                     text: 'Hi ' + getName + ', It\'s nice to have you back. ',
                   });
                 navigate("/");
-                return;
+                return RESPONSE_STATES.success;
 
-            } 
-
+            } else {
+                return RESPONSE_STATES.error;
+            }
 
         } catch (error) {
+            // setResponseState(RESPONSE_STATES.none);
+
             if (error.response) {
                 // alert(error.response.data.message);
                 Swal.fire({
                     icon: 'error',
                     title: 'Please, try again',
-                    text: 'Sorry one of your credentials was not correct',
+                    text: 'Incorrect Credentials',
                   });
+                return;
             } else {
                 // alert(error.message);
                 Swal.fire({

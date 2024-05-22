@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import config from "../../config";
 import axios from "axios";
 import { useAuth } from "../../hook/AuthProvider";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 export const MyCarts = ({ title }) => {
     const apiUrl = config().baseUrl;
@@ -60,7 +62,7 @@ export const MyCarts = ({ title }) => {
                         {cartItem.length > 0 ? (
                             <>
                                 <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                                    <img src={deleteIcon} alt="the trash bin" /> Remove
+                                    <img src={deleteIcon} alt="the trash bin" /> Remove All
                                 </button>
                             </>
                         ) : null}
@@ -68,41 +70,38 @@ export const MyCarts = ({ title }) => {
                     </div>
 
                     <div className='details'>
-
-                        <div className="detailstitle">
-                            <p> Product </p>
-                            <p> Quantity </p>
-                            <p> Price </p>
+                        <div className="table-container" >
+                            <table className="custom-table">
+                                <thead>
+                                    <th> Product</th>
+                                    <th> Description</th>
+                                    <th> Quantity </th>
+                                    <th> Price </th>
+                                    <th> Action </th>
+                                </thead>
+                            { cartItem.length > 0 ? (
+                                cartItem.map((item, index) => (
+                                                    
+                                    <tbody index={index}>
+                                        <td style={{ width: "15%" }}> <img src={item.productImage} alt={item.productName} /> </td>
+                                        <td style={{ textWrap: "pretty" }}> {item.productName} </td>
+                                        <td> {item.quantity} </td>
+                                        <td> {merchantInfo?.currencySymbol} {Number(item.price).toLocaleString()} </td>
+                                        <td style={{ width: "15%" }}> 
+                                            <div className="action">
+                                                <button type='button'> <FontAwesomeIcon icon={faEdit} /> Edit </button>
+                                                <button type='button'> <FontAwesomeIcon icon={faTrash} /> Delete </button>
+                                            </div>    
+                                        </td>
+                                    </tbody>
+                                ))
+                            ) : ( 
+                                <> 
+                                    <p style={{ textAlign: "center", fontSize: 20 }}>No item added to cart. Continue shopping</p>
+                                </> 
+                            )}
+                            </table>
                         </div>
-
-                        { cartItem.length > 0 ? (
-                            cartItem.map((item, index) => (
-                                <>
-                                    <div className="realdeals" index={index}>
-                                        <div>
-                                            <div>
-                                                <img src={item.productImage} alt="" />
-                                                <p> {item.productName}</p>
-                                            </div>
-                                            <div style={{ display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                                                <div>
-                                                    {/* <p onClick={handleSubtraction}> - </p> */}
-                                                    <p style={{ margin: '2rem 1rem' }}> {item.quantity} </p>
-                                                    {/* <p onClick={handleAddition}> + </p> */}
-                                                </div>
-                                                {/* <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                                                                <img src={deleteIcon} alt="the trash bin" /> Remove
-                                                            </button> */}
-                                            </div>
-                                            <p className='price'> {merchantInfo?.currencySymbol} {Number(item.price).toLocaleString()} </p>
-                                        </div> <br /> <hr />
-                                    </div>
-                                </>
-                            ))
-
-                        ) : (
-                            <p style={{ textAlign: "center", fontSize: 20 }}>No item added to cart. Continue shopping</p>
-                        )}
                     </div>
                 </div>
 
