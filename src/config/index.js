@@ -3,6 +3,8 @@ export default () => ({
     google: {
         apiKey: 'AIzaSyC4b_d3enQHEGQpGQ1WragPd0L89xG4vGA',
         mapUrl: 'https://maps.googleapis.com/maps/api'
-    }
+    },
+    mode: process.env.NODE_ENV === "development" ? "test" : "live",
+    callbackUrl: process.env.NODE_ENV === "development" ? "http://localhost:3000/success" : "https://ashopree.com/success",
 });
 
