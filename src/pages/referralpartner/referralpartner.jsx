@@ -177,7 +177,7 @@ export const ReferralPartner = ({ title }) => {
             <section className='loginScreen'>
                 <h4> Login into your account here </h4>
 
-                <form action="">
+                <form action="" id='loginForm'>
                     <div className="allForm">
                         <div className='largeDiv'>
                             <p> Username <span> * </span> </p>
@@ -196,6 +196,7 @@ export const ReferralPartner = ({ title }) => {
                     </div>
 
                     <button type='submit'> Submit </button>
+                    {/* <p> Don't have a referral account yet? <a href='#?' onClick={ () => showTheForm() }> Create an account here </a> </p> */}
                 </form>
             </section>
 
