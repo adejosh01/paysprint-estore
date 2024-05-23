@@ -67,7 +67,8 @@
   
     section.theNextToSee, section.theForm, .loginScreen {
         display: none;
-    } .active {
+    } 
+    .active {
         padding: 5rem 25rem;
         display: flex !important;
         flex-direction: column;
@@ -123,6 +124,12 @@
         h4 {
             font: 600 30px 'lato';
             line-height: 53px;
+        }
+        #loginForm {
+            .allForm {
+                grid-template-columns: repeat(1, 1fr);
+                width: 50%;
+            }
         }
         form {
             display: flex;

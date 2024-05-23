@@ -60,12 +60,12 @@ export const Community = ({ title }) => {
                     </div>
 
                     <div className="real-section">
-                        <p className="welcome"> Good day! Welcome to aShopree's Community.👏 </p>
+                        <p className="welcome"> Good day! <br /> Welcome to aShopree's Community.👏 </p>
 
                         <div className="tags">
                             <div className="mini-navs">
                                 <button type="button" className="buttons active-button" data-target="membersCategory" onClick={ (event) => communityTogglePages(event) }> Members Category </button>
-                                <button type="button" className="buttons" data-target="listedShops" onClick={ (event) => communityTogglePages(event) }> Listed Shops </button>
+                                <button type="button" className="buttons" data-target="listedShops" onClick={ (event) => communityTogglePages(event) }> Listed Stores </button>
                                 <button type="button" className="buttons" data-target="listedProducts" onClick={ (event) => communityTogglePages(event) }> Listed Products </button>
                                 <button type="button" className="buttons" data-target="listedPartners" onClick={ (event) => communityTogglePages(event) }> Listed Partners </button>
                             </div>

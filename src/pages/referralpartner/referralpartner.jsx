@@ -66,7 +66,7 @@ export const ReferralPartner = ({ title }) => {
 
             <section className="theNextToSee">
                 <div className="login-choice">
-                    <h4> Hi there, have you been here before?. If yes, please <a href="#?" onClick={ () => getLoginScreen() }> Login Here </a> </h4>
+                    <h4> Hi there <br /> Have you been here before?. If yes, please <a href="#?" onClick={ () => getLoginScreen() }> Login Here </a> </h4>
                 </div>
 
                 <h4> To become a referral partner for ashopree and start earning rewards while helping others boost their businesses and streamline their payments, follow these steps: </h4>
@@ -133,14 +133,6 @@ export const ReferralPartner = ({ title }) => {
                                 <p> State / Province <span> * </span> </p>
                                 <div className='bigDiv'>
                                     <img src="https://img.icons8.com/matisse/25/country.png" alt="" />
-                                    {/* <select>
-                                        <option value=""> Select State</option>
-                                        {states.map((state) => (
-                                            <option key={state} value={state}>
-                                            {state}
-                                            </option>
-                                        ))}
-                                    </select> */}
                                     <input type="text" name='state' placeholder='Add Province / State' required />
                                 </div>
                             </div>
@@ -185,38 +177,8 @@ export const ReferralPartner = ({ title }) => {
             <section className='loginScreen'>
                 <h4> Login into your account here </h4>
 
-                <form action="">
+                <form action="" id='loginForm'>
                     <div className="allForm">
-                        <div className='largeDiv'>
-                            <p> Organization Name (or business name) <span> * </span> </p>
-                            <div className='bigDiv'>
-                                {/* <span class="imgspan"> @ </span> */}
-                                <img src="https://img.icons8.com/stickers/25/briefcase--v1.png" alt="" />
-                                <input type="text" name="organisationName" placeholder='Organisation Name' required />
-                            </div>
-                        </div>
-                        <div className='largeDiv'>
-                            <p> Contact Name (Same as first and lastname)<span> * </span> </p>
-                            <div className='bigDiv'>
-                                <img src="https://img.icons8.com/glyph-neue/25/name.png" alt="" />
-                                <input type="text" name="contactName" placeholder='Contact Name' required />
-                            </div>
-                        </div>
-                        <div className='largeDiv'>
-                            <p> Official Email (Same as email address)<span> * </span> </p>
-                            <div className='bigDiv'>
-                                {/* <span class="imgspan"> @ </span> */}
-                                <img src="https://img.icons8.com/cotton/25/new-post.png" alt="" />
-                                <input type="text" name="email" placeholder='Email Address' required />
-                            </div>
-                        </div>
-                        <div className='largeDiv'>
-                            <p> Telephone <span> * </span> </p>
-                            <div className='bigDiv'>
-                                <img src="https://img.icons8.com/bubbles/25/phone--v2.png" alt="" />
-                                <input type="text" name="phone" placeholder='Telephone Number' required />
-                            </div>
-                        </div>
                         <div className='largeDiv'>
                             <p> Username <span> * </span> </p>
                             <div className='bigDiv'>
@@ -234,6 +196,7 @@ export const ReferralPartner = ({ title }) => {
                     </div>
 
                     <button type='submit'> Submit </button>
+                    {/* <p> Don't have a referral account yet? <a href='#?' onClick={ () => showTheForm() }> Create an account here </a> </p> */}
                 </form>
             </section>
 

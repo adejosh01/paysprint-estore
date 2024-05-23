@@ -1,7 +1,9 @@
 import './pricing.styles.scss';
 import { useEffect } from 'react';
-import purpleCheck from 'assets/svg/purpleGoodTick.svg';
+// import purpleCheck from 'assets/svg/purpleGoodTick.svg';
 import whiteCheck from 'assets/svg/whiteGoodTick.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
 
 export const Pricing = ({ title }) => {
     useEffect(() => {
@@ -20,15 +22,24 @@ export const Pricing = ({ title }) => {
                     <div className='singleItems'>
                         <h4> Freemium </h4>
                         <div className='describePlan'>
-                            <p className='title'> For businesses that need basic tool to build online and social presence at no extra cost to business </p>
+                            <p className='title'> (For businesses that need basic tool to grow and receive payments from customers at no extra cost to business) </p>
                             <div className='detailedplans'>
-                                <p> Include: </p>
+                                <p> Includes: </p>
+                                <em> Unlimited Transactions </em>
                                 <div>
-                                    <p> <img src={purpleCheck} alt="" /> Unlimited Transactions </p>
-                                    <p> <img src={purpleCheck} alt="" /> Online Store </p>
-                                    <p> <img src={purpleCheck} alt="" /> Unlimited Products </p>
-                                    <p> <img src={purpleCheck} alt="" /> Sell on Social Media </p>
-                                    <p> <img src={purpleCheck} alt="" /> Free Listing on Ashopree </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Receive in-Person payment using QR Code (Save of Hardware costs) </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Receive Online Payment on the business website </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Create and share payment link with remote customers </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Currency Conversion </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Local Payment Method </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Create and Send invoice to Customers </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Set installment Payment on invoice </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Digital Services to get things done faster </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Access to working Capital </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Wallet Balance Protection </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Unlimited Employee Accounts </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Lead Generation (Sell More with less efforts) </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Track Customers Ealance </p>
                                 </div>
                                 <button>
                                     Get plan
@@ -36,23 +47,32 @@ export const Pricing = ({ title }) => {
                             </div>
                         </div>
                     </div>
+
                     <div className='singleItems'>
                         <h4> Go eCommerce </h4>
                         <div className='describePlan'>
-                            <p className='title'> For businesses that need to sell more and improve cashflow at no cost to business </p>
+                            <p className='title'> (For business that need to grow faster by boosting online presence to sell more to customers at no cost to business) </p>
                             <div className='detailedplans'>
-                                <p> Include: </p>
+                                <p> Includes All features in Freemium Plan </p>
+                                <em> Unlimited Transactions </em>
                                 <div>
-                                    <p> <img src={whiteCheck} alt="" /> All features in Freemium Plan </p>
+                                    <p> <img src={whiteCheck} alt="" /> Online Store </p>
                                     <p> <img src={whiteCheck} alt="" /> Online Ordering </p>
+                                    <p> <img src={whiteCheck} alt="" /> Unlimited Products </p>
+                                    <p> <img src={whiteCheck} alt="" /> Sell on Social Media </p>
+                                    <p> <img src={whiteCheck} alt="" /> Tech Driven Delivery System </p>
+                                    <p> <img src={whiteCheck} alt="" /> Fulfillment Networks </p>
+                                    <p> <img src={whiteCheck} alt="" /> Free listing on Marketplace </p>
+                                    <p> <img src={whiteCheck} alt="" /> Offer Loyalty Program </p>
                                     <p> <img src={whiteCheck} alt="" /> Own Your Site Domain </p>
                                     <p> <img src={whiteCheck} alt="" /> Free SSL Certificate </p>
                                     <p> <img src={whiteCheck} alt="" /> Chat with Customers </p>
-                                    <p> <img src={whiteCheck} alt="" /> Basic Reports for Your Business </p>
+                                    <p> <img src={whiteCheck} alt="" /> Basic Reports for your Business </p>
                                     <p> <img src={whiteCheck} alt="" /> Language Translation </p>
-                                    <p> <img src={whiteCheck} alt="" /> Fulfilment Network </p>
                                     <p> <img src={whiteCheck} alt="" /> Multiple Sales Channel </p>
                                     <p> <img src={whiteCheck} alt="" /> Review and Feedback </p>
+                                    <p> <img src={whiteCheck} alt="" /> Offer Discount Codes </p>
+                                    <p> <img src={whiteCheck} alt="" /> Bulk Payments </p>
                                 </div>
                                 <button>
                                     Learn More
@@ -63,21 +83,21 @@ export const Pricing = ({ title }) => {
                     <div className='singleItems'>
                         <h4> Go 360 </h4>
                         <div className='describePlan'>
-                            <p className='title'> For businesses that need tool to compete and scale the business </p>
+                            <p className='title'> (For businesses that need tool to drive their sustainable strategy to compete and scale the business) </p>
                             <div className='detailedplans'>
-                                <p> Include: </p>
+                                <p> Includes All features in Freemium Go Commerce Plans </p>
+                                <em> Unlimited Transactions </em>
                                 <div>
-                                    <p> <img src={purpleCheck} alt="" /> All features in Freemium and eCommerce Plans </p>
-                                    <p> <img src={purpleCheck} alt="" /> Unlimited Transactions </p>
-                                    <p> <img src={purpleCheck} alt="" /> Retail(Store Front) Service on OWN Device(NO Hardware required) </p>
-                                    <p> <img src={purpleCheck} alt="" /> Inventory Management </p>
-                                    <p> <img src={purpleCheck} alt="" /> Customer Management </p>
-                                    <p> <img src={purpleCheck} alt="" /> Marketing Campaigns Management </p>
-                                    <p> <img src={purpleCheck} alt="" /> Bulk Payments </p>
-                                    <p> <img src={purpleCheck} alt="" /> Reporting and Analytics </p>
-                                    <p> <img src={purpleCheck} alt="" /> Omni-Sales Channel </p>
-                                    <p> <img src={purpleCheck} alt="" /> Single Back Office/Admin </p>
-                                    <p> <img src={purpleCheck} alt="" /> Integrate to favourite Accounting Software </p>
+                                    {/* <p> <FontAwesomeIcon icon={faCheckCircle} /> All features in Freemium and eCommerce Plans </p> */}
+                                    {/* <p> <FontAwesomeIcon icon={faCheckCircle} /> Unlimited Transactions </p> */}
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Retail(Store Front) Service on OWN Device(NO Hardware required) </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Inventory Management </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Customer Management </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Marketing Campaigns Management </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Reporting and Analytics </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Omni-Sales Channel </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Single Back Office/Admin </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Integrate to favourite Accounting Software </p>
                                 </div>
                                 <button>
                                     Get plan

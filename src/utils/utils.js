@@ -126,6 +126,12 @@ export function getStartedOption() {
 
     paySprintSignin[index2].classList.add("loginOption");
   }
+
+  Swal.fire({
+    icon: 'info',
+    title: 'PaySprint Authentication',
+    text: 'Please proceed to login with your PaySprint details',
+  });
 }
 
 export function toggleLoginScreen(accountType) {

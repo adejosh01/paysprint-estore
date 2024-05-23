@@ -15,7 +15,6 @@ const AuthProvider = ({children}) => {
     const [user, setUser] = useState(localStorage.getItem("user") || null);
     const [token, setToken] = useState(localStorage.getItem("authtoken") || "");
     const navigate = useNavigate();
-    // const [setResponseState] = useState(RESPONSE_STATES.none);
 
 
     const loginAction = async (data) => {
@@ -41,7 +40,7 @@ const AuthProvider = ({children}) => {
                     icon: 'success',
                     title: 'Welcome back',
                     text: 'Hi ' + getName + ', It\'s nice to have you back. ',
-                  });
+                });
                 navigate("/");
                 return RESPONSE_STATES.success;
 
@@ -50,7 +49,6 @@ const AuthProvider = ({children}) => {
             }
 
         } catch (error) {
-            // setResponseState(RESPONSE_STATES.none);
 
             if (error.response) {
                 // alert(error.response.data.message);

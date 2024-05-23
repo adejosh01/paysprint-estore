@@ -84,7 +84,7 @@ export const SuccessfulOrder = ({title}) => {
                                         <p> #12,000.00 </p>
                                     </div>
                                 </div>
-                                <button type='button' onClick={ () => handleClick('/onlinestore', navigate)}> 
+                                <button type='button' onClick={ () => handleClick('/stores', navigate)}> 
                                     <p> Continue Shopping </p>
                                 </button>
                             </div>
