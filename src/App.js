@@ -36,6 +36,7 @@ import { MyWishlist } from "pages/mywishlist/wishlist.page";
 import { Reward } from "pages/reward/reward.page";
 import { StoreLocation } from "pages/storeLocation/storeLocation.page";
 import { GetStarted } from "pages/getstarted/getstarted";
+import { CommunityPost } from "pages/community/commuinity-post";
 
 function App() {
 
@@ -58,6 +59,7 @@ function App() {
               <Route path="/payment" exact element={<Payment title="aShopree | Payments" />} />
               <Route path="/messages" exact element={<Messages title="aShopree | Messages" />} />
               <Route path="/community" exact element={<Community title="aShopree | Community " />} />
+              <Route path="/community/post" exact element={<CommunityPost title="aShopree | Community - Post Thread" />} />
               <Route path="/myorders" exact element={<MyOrders title="aShopree | My Orders " />} />
               <Route path="/mywishlist" exact element={<MyWishlist title="aShopree | My Wishlists " />} />
               <Route path="/myshoppings" exact element={<Reward title="aShopree | My Shoppings " />} />

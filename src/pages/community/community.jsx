@@ -98,7 +98,7 @@ export const Community = ({ title }) => {
                                     <button type="button" onClick={() => handleClick('/askquestions', navigate)}> Ask a Question </button>
                                 </div>
                                 <div className="each-content">
-                                    <a href="/"> Payment Issues </a>
+                                    <a href="community/post"> Payment Issues </a>
                                     <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
                                     <hr />
                                     <div>
@@ -107,7 +107,7 @@ export const Community = ({ title }) => {
                                     </div>
                                 </div>
                                 <div className="each-content">
-                                    <a href="/"> Payment Issues </a>
+                                    <a href="community/post"> Payment Issues </a>
                                     <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
                                     <hr />
                                     <div>
@@ -116,7 +116,7 @@ export const Community = ({ title }) => {
                                     </div>
                                 </div>
                                 <div className="each-content">
-                                    <a href="/"> Payment Issues </a>
+                                    <a href="community/post"> Payment Issues </a>
                                     <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
                                     <hr />
                                     <div>
@@ -125,7 +125,7 @@ export const Community = ({ title }) => {
                                     </div>
                                 </div>
                                 <div className="each-content">
-                                    <a href="/"> Payment Issues </a>
+                                    <a href="community/post"> Payment Issues </a>
                                     <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
                                     <hr />
                                     <div>
@@ -160,12 +160,10 @@ export const Community = ({ title }) => {
 
                             <div className="all-categories">
                                 <h4> Member Categories </h4>
-                                <p> Stores Available </p>
-                                <p> Inactive Store Owners </p>
-                                <p> Upcoming Stores </p>
-                                <p> Community Associates </p>
-                                {/* <p> Potential Store Owners </p> */}
-                                {/* <p> Store Under Construction </p> */}
+                                <a href={'/stores'}> Stores Available </a>
+                                <a href={'#?'}> Inactive Store Owners </a>
+                                <a href={'#?'}> Upcoming Stores </a>
+                                <a href={'#?'}> Community Associates </a>
                             </div>
                         </div>
 
@@ -203,7 +201,7 @@ export const Community = ({ title }) => {
                                     </div>
                                 </div>
                                 <div className="each-content">
-                                    <a href="/"> Payment Issues </a>
+                                    <a href="community/post"> Payment Issues </a>
                                     <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
                                     <hr />
                                     <div>
@@ -237,13 +235,7 @@ export const Community = ({ title }) => {
                             </div>
 
                             <div className="all-categories">
-                                {/* <h4> Listed Shop Categories </h4>
-                                <p> Community Associates </p>
-                                <p> Potential Store Owners </p>
-                                <p> Inactive Store Owners </p>
-                                <p> Store Under Construction </p>
-                                <p> Upcoming Stores </p>
-                                <p> Stores Available </p> */}
+                                 <h4> Listed Stores </h4>
                                 <CategoriesData />
                             </div>
                         </div>
@@ -273,7 +265,7 @@ export const Community = ({ title }) => {
                                     </div>
                                 </div>
                                 <div className="each-content">
-                                    <a href="/"> Payment Issues </a>
+                                    <a href="community/post"> Payment Issues </a>
                                     <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
                                     <hr />
                                     <div>
@@ -317,12 +309,6 @@ export const Community = ({ title }) => {
 
                             <div className="all-categories">
                                 <h4> Listed Product Categories </h4>
-                                {/* <p> Community Associates </p>
-                                <p> Potential Store Owners </p>
-                                <p> Inactive Store Owners </p>
-                                <p> Store Under Construction </p>
-                                <p> Upcoming Stores </p>
-                                <p> Stores Available </p> */}
                                 <CategoriesData />
                             </div>
                         </div>
@@ -361,7 +347,7 @@ export const Community = ({ title }) => {
                                     </div>
                                 </div>
                                 <div className="each-content">
-                                    <a href="/"> Payment Issues </a>
+                                    <a href="community/post"> Payment Issues </a>
                                     <p> My costumers paid money into my paystrint account details and uptill now I have not been credited, what's is wrong. </p>
                                     <hr />
                                     <div>
@@ -396,13 +382,12 @@ export const Community = ({ title }) => {
 
                             <div className="all-categories">
                                 <h4> Listed Partner Categories </h4>
-                                <p> Community Associates </p>
-                                <p> Potential Store Owners </p>
-                                <p> Inactive Store Owners </p>
-                                <p> Store Under Construction </p>
-                                <p> Upcoming Stores </p>
-                                <p> Stores Available </p>
-                                {/* <CategoriesData /> */}
+                                <a href={'#?'}> Community Associates </a>
+                                <a href={'#?'}> Potential Store Owners </a>
+                                <a href={'#?'}> Inactive Store Owners </a>
+                                <a href={'#?'}> Store Under Construction </a>
+                                <a href={'#?'}> Upcoming Stores </a>
+                                <a href={'/stores'}> Stores Available </a>
                             </div>
                         </div>
 
