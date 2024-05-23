@@ -2,10 +2,10 @@ import { useAuth } from "hook/AuthProvider";
 import "./getstarted.scss";
 import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
-import google from 'assets/updatedAshopree/google_logo.png';
+// import google from 'assets/updatedAshopree/google_logo.png';
 import paysprint from 'assets/updatedAshopree/paysprint.png';
-import linkedln from 'assets/svg/linkedin_icon_white.svg';
-import ashopree from 'assets/updatedAshopree/edited_ashopree_header_logo.jpg';
+// import linkedln from 'assets/svg/linkedin_icon_white.svg';
+// import ashopree from 'assets/updatedAshopree/edited_ashopree_header_logo.jpg';
 import { getStartedOption } from "utils/utils";
 import { RESPONSE_STATES } from "utils/constants";
 import { Loader } from "components/loader/loader.component";
@@ -110,9 +110,9 @@ export const GetStarted = ({ title }) => {
           <div className="main">
             <div className="header">
 
-              <div className="ashopree">
+              {/* <div className="ashopree">
                 <img src={ashopree} alt="" />
-              </div>
+              </div> */}
  
               <div className="body">
                 <div className="head">
