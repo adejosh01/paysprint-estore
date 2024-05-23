@@ -157,8 +157,8 @@ export const Checkout = ({title}) => {
                                 {selectedCategory && (<>
                                     {selectedCategory === "Home delivery" && (
                                         <div className='descrip'>
-                                            <p> This is your Home Delivery Address: </p>
-                                            <input type="text" value="124, busy road off Mainland" readOnly />
+                                            {/* <p> This is your Home Delivery Address: </p>
+                                            <input type="text" value="124, busy road off Mainland" readOnly /> */}
                                             <p> Fee: <span> $35 </span> </p>
                                         </div>
                                     )}
@@ -166,6 +166,7 @@ export const Checkout = ({title}) => {
                                         <div className='descrip'>
                                             <p> This is your Pick Up Station Address</p>
                                             <input type="text" value="125, active road off Island" readOnly />
+                                            <p> Fee: <span> $5 </span> </p>
                                         </div>
                                     )}
                                 </>)}
