@@ -62,7 +62,7 @@ function App() {
               <Route path="/community/post" exact element={<CommunityPost title="aShopree | Community - Post Thread" />} />
               <Route path="/myorders" exact element={<MyOrders title="aShopree | My Orders " />} />
               <Route path="/mywishlist" exact element={<MyWishlist title="aShopree | My Wishlists " />} />
-              <Route path="/myshoppings" exact element={<Reward title="aShopree | My Shoppings " />} />
+              <Route path="/myashopree" exact element={<Reward title="aShopree | My aShopree " />} />
               <Route path="/store-location" exact element={<StoreLocation title="aShopree | My Shoppings " />} />
             </Route>
 

@@ -22,7 +22,7 @@ const RewardSideBar = () => {
         <>
             <div className="left-side">
                 <ul className="side-menu">
-                    <NavLink to={'/myshoppings'}> <p> {pathname === '/myshoppings' ? ( <img src={graph_metric} alt='graphImg' /> ) : ( <img src={graph_metric2} alt="graphImg" /> )}  Reward Metrics </p> </NavLink>
+                    <NavLink to={'/myashopree'}> <p> {pathname === '/myashopree' ? ( <img src={graph_metric} alt='graphImg' /> ) : ( <img src={graph_metric2} alt="graphImg" /> )}  Reward Metrics </p> </NavLink>
                     <NavLink to={'/recent-stores'}> <p> <FontAwesomeIcon icon={faCartShopping} /> Favourite Stores </p> </NavLink>
                     <NavLink to={'/mywishlist'}> <p> <FontAwesomeIcon icon={faGift} /> My Wishlist </p> </NavLink>
                     <NavLink to={'/myorders'}> <p> <img src={product_icon} alt="productImg" /> Track Orders </p> </NavLink>
