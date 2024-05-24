@@ -80,7 +80,7 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> 
+                {auth.token ? ( <> <a href="/myashopree" style={{ top: 'unset' }}> 
                   My aShopree </a> {" "} 
                     
                 </>) : ( <> 
@@ -149,23 +149,20 @@ export const EstoreHeader = ({title}) => {
               <NavLink to="/"> Home </NavLink>
             </li>
             <li>
-              <a>
-                {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> 
-                  My aShopree </a> {" "} 
-                  
-                </>) : ( <> 
-                  Categories {" "} 
-                  <button onClick={toggleIsSubmenuOpen}>
-                    <FontAwesomeIcon icon={isSubMenuOpen ? faAngleUp : faAngleDown} />
-                  </button> 
-                  </> )}
-                {/* {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> My aShopree </a> {" "} </> ) : ( <> Categories {" "} </> )}
+              {auth.token ? (
+                <NavLink to="/myashopree"> My aShopree </NavLink>
+              ) : ( <> 
+                <a> Categories {" "} 
                 <button onClick={toggleIsSubmenuOpen}>
-                  <FontAwesomeIcon
-                    icon={isSubMenuOpen ? faAngleUp : faAngleDown}
+                  <FontAwesomeIcon icon={isSubMenuOpen ? faAngleUp : faAngleDown} />
+                </button>  </a>
+                </> )}
+              {/* {auth.token ? ( <> <a href="/myashopree" style={{ top: 'unset' }}> My aShopree </a> {" "} </> ) : ( <> Categories {" "} </> )}
+              <button onClick={toggleIsSubmenuOpen}>
+                <FontAwesomeIcon
+                  icon={isSubMenuOpen ? faAngleUp : faAngleDown}
                   />
-                </button> */}
-              </a>
+              </button> */}
               <ul className={getConditionalClassName( isSubMenuOpen, "submenu", "active" )}>
                 {categories.length !== 0 ? (
                     Array.isArray(categories) && categories.map((item, index) => (

@@ -10,7 +10,7 @@ import { confirmationOfAction } from "utils/utils";
 import { useAuth } from "hook/AuthProvider";
 
 
-const RewardSideBar = () => {
+const MyashopreeSidePage = () => {
 
     const location = useLocation();
     const pathname = location.pathname;
@@ -22,10 +22,10 @@ const RewardSideBar = () => {
         <>
             <div className="left-side">
                 <ul className="side-menu">
-                    <NavLink to={'/myshoppings'}> <p> {pathname === '/myshoppings' ? ( <img src={graph_metric} alt='graphImg' /> ) : ( <img src={graph_metric2} alt="graphImg" /> )}  Reward Metrics </p> </NavLink>
+                    <NavLink to={'/myashopree'}> <p> {pathname === '/myashopree' ? ( <img src={graph_metric} alt='graphImg' /> ) : ( <img src={graph_metric2} alt="graphImg" /> )}  Reward Metrics </p> </NavLink>
                     <NavLink to={'/recent-stores'}> <p> <FontAwesomeIcon icon={faCartShopping} /> Favourite Stores </p> </NavLink>
                     <NavLink to={'/mywishlist'}> <p> <FontAwesomeIcon icon={faGift} /> My Wishlist </p> </NavLink>
-                    <NavLink to={'/myorders'}> <p> <img src={product_icon} alt="productImg" /> Track Orders </p> </NavLink>
+                    <NavLink to={'/track-orders'}> <p> <img src={product_icon} alt="productImg" /> Track Orders </p> </NavLink>
                     <NavLink to={'/purchase-history'}> <p> <FontAwesomeIcon icon={faArrowTrendUp} /> Purchase History </p> </NavLink>
                     <NavLink to={'/store-location'}> <p> <FontAwesomeIcon icon={faGlobe} /> Store Locations </p> </NavLink>
                     <NavLink to={'/messages'}> <p> <FontAwesomeIcon icon={faMessage} /> Messages </p> </NavLink>
@@ -41,4 +41,4 @@ const RewardSideBar = () => {
 };
 
 
-export default RewardSideBar;
+export default MyashopreeSidePage;

@@ -1,6 +1,6 @@
 import './storeLocation.styles.scss';
 import { useEffect } from 'react';
-import RewardSideBar from 'components/myRewards/side.page';
+import MyashopreeSidePage from 'components/Myashopree/side.page';
 import { Link } from 'react-router-dom';
 import first_store from 'assets/svg/reward_page/first_store.png';
 import second_store from 'assets/svg/reward_page/second_store.png';
@@ -25,7 +25,7 @@ export const StoreLocation = ({ title }) => {
             <section className="location">
                 
                 <section className="all-items">
-                    <RewardSideBar />
+                    <MyashopreeSidePage />
                     <main>
                         <div className="first">
                             <h4> Store Location </h4>
