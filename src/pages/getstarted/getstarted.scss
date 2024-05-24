@@ -209,6 +209,7 @@
             padding: 0% 25%;
           }
           div.body {
+            gap: 4rem;
             div.head {
               h1 {
                 font-size: 23px;
@@ -232,7 +233,7 @@
             }
           } 
         }
-        form {
+        form.emailSignIn.loginOption, form.paysprintSignin.loginOption {
           width: 100%;
           div.requirements {
             p span.alt {

@@ -24,12 +24,12 @@ export const CommunityPost = ({ title }) => {
          
         <section className="community">
             <div className="big-title">
-                <h2> Community </h2>
+                <h2> Community Post Thread </h2>
             </div>
             <div className="before-the-row">
                 <div className="row">
                     <div className="home">
-                        <button type="button" onClick={() => handleClick('/', navigate)}> <FontAwesomeIcon icon={faHome} /> Goto Homepage </button>
+                        <button type="button" onClick={() => handleClick('/community', navigate)}> <FontAwesomeIcon icon={faHome} /> Goto Community </button>
                     </div>
 
                     <div className="real-section">
@@ -57,6 +57,17 @@ export const CommunityPost = ({ title }) => {
                                         <p> <small> 6 months ago </small> </p>
                                     </div>
                                 </div>
+
+                                <h4 className="ans"> Your Answer </h4>
+                                <form action="#">
+                                    <div className="submit-answers">
+                                        <p> Name <span> * </span> </p>
+                                        <input type="text" name="fullname" placeholder="Enter your name" required />
+                                        <textarea name="message" id="" placeholder="Your thoughts..." required></textarea>
+                                    </div>
+
+                                    <button type="submit"> Post Answer </button>
+                                </form>
                             </div>
 
                             <div className="all-categories">
