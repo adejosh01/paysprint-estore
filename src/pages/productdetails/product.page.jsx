@@ -14,9 +14,10 @@ export const ProductDetails = ({ title }) => {
     const { productCode } = useParams();
     const [specificProduct, setData] = useState([]);
     const [similarProduct, setSimilarProduct] = useState([]);
-    const [error, setError] = useState(null);
+    const [ setError] = useState(null);
     const { count, increment, decrement } = useCounter();
     const navigate = useNavigate();
+    const [myProduct, setSingleItemCartCount] = useState([]);
 
     const addToCart = async (productId) => {
         try {
@@ -53,9 +54,36 @@ export const ProductDetails = ({ title }) => {
     });
 
 
-    }, [apiUrl, productCode, title]);
+    const getCartItems = async () => {
+        try {
+            const thisconfig = {
+                method: 'get',
+                url: `${apiUrl}/shop/product/loadmycart`,
+                headers: {
+                    Authorization: 'Bearer ' + user.token
+                }
+            };
+    
+            const response = await axios(thisconfig);
+            const cartItems = response.data.data;
+    
+            // Get the specificProduct in cartItems based on productName
+            const specificCartItem = cartItems.find(item => item.productName === specificProduct.productName);
+    
+            // Update the set state with the specific product
+            setSingleItemCartCount(specificCartItem);
+            
+        } catch (error) {
+            console.error('Error fetching cart items:', error);
+        }
+    };
 
-    // console.log(specificProduct);
+    getCartItems();
+
+
+    }, [setError, apiUrl, productCode, title]);
+
+    // console.log(myProduct.productName, specificProduct.productName);  
 
     return (
         <div className="estore-container">
@@ -92,7 +120,47 @@ export const ProductDetails = ({ title }) => {
                         <p className='amount'> {specificProduct.currencySymbol + Number(specificProduct.amount).toFixed(2)} </p>
                         <form className='justbuttons'>
                             <div>
-                                <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
+                                {myProduct !== 0 ? ( <>
+                                    <h5> Quantity: <input type="number" name='quantity' value={myProduct.quantity} /> </h5>
+                                    <div>
+                                        <button type='button' onClick={increment}> + </button>
+                                        <button type='button' onClick={decrement}> - </button>
+                                    </div>
+                                    {count <= 0 ? (
+                                        <button type='button' onClick={() => alertMsg() }>
+                                            Add to cart
+                                        </button>
+                                    ) : (
+                                        <button type='submit' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
+                                            Add to cart
+                                        </button>
+                                    )}
+
+                                </>) : (<> 
+                                    <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
+                                    <div>
+                                        <button type='button' onClick={increment}> + </button>
+                                        <button type='button' onClick={decrement}> - </button>
+                                    </div>
+                                    {count <= 0 ? (
+                                        <button type='button' onClick={() => alertMsg() }>
+                                            Add to cart
+                                        </button>
+                                    ) : (
+                                        <button type='submit' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
+                                            Add to cart
+                                        </button>
+                                    )}
+
+                                </>)}
+                            </div>
+                            {/* <div>
+                                {myProduct !== 0 ? (
+                                    <h5> Quantity: <input type="number" name='quantity' value={myProduct.quantity} /> </h5>
+                                ) : (
+                                    <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
+                                )}
+
                                 <div>
                                     <button type='button' onClick={increment}> + </button>
                                     <button type='button' onClick={decrement}> - </button>
@@ -106,7 +174,7 @@ export const ProductDetails = ({ title }) => {
                                 <button type='submit' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
                                     Add to cart
                                 </button>
-                            )}
+                            )} */}
                             <button type='button' onClick={ () => handleClick('/messages', navigate) }>
                                 Buy now
                             </button>

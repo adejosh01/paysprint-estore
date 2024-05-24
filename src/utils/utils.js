@@ -216,7 +216,6 @@ export function useCounter(initialValue = 0) {
 }
 
 export function alertMsg () {
-  // alert("Sorry you need to add a quantity that is greater than zero");
   Swal.fire({
     icon: 'error',
     title: 'Oops...',
