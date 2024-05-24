@@ -20,7 +20,7 @@
       margin-bottom: 3.2rem;
     }
 
-    section.reward {
+    section.myashopree {
         padding: 4rem 3rem;
         h2 {
             font: 600 45px 'Plus jakarta sans';
@@ -209,7 +209,7 @@
 
 @media screen and (max-width: 1300px) {
     .estore-container { 
-        section.reward {
+        section.myashopree {
             div.plans {
                 // display: grid;
                 // grid-template-columns: repeat(3, 1fr);
@@ -221,7 +221,7 @@
 
 @media screen and (max-width: 1200px) {
     .estore-container { 
-        section.reward {
+        section.myashopree {
             section.all-items {
                 div.left-side {
                     flex: 0 0 260px;
@@ -234,7 +234,7 @@
 
 @media screen and (max-width: 1123px) {
     .estore-container { 
-        section.reward {
+        section.myashopree {
             section.all-items {
                 main {
                     flex-direction: column;
@@ -250,7 +250,7 @@
 
 @media screen and (max-width: 800px) {
     .estore-container { 
-        section.reward {
+        section.myashopree {
             section.all-items {
                 div.left-side {
                     display: none;
@@ -263,7 +263,7 @@
 
 @media screen and (max-width: 600px) {
     .estore-container { 
-        section.reward {
+        section.myashopree {
             padding: 2rem;
             section.all-items {
                 main {
@@ -285,7 +285,7 @@
 
 @media screen and (min-width: 1218px) {
     .estore-container {
-        section.reward {
+        section.myashopree {
             padding: 8.6rem 0.5rem;
         }
     }

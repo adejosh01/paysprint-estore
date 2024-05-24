@@ -1,6 +1,6 @@
-import './reward.styles.scss';
+import './myashopree.styles.scss';
 import { useEffect } from 'react';
-import RewardSideBar from 'components/myRewards/side.page';
+import MyashopreeSidePage from 'components/Myashopree/side.page';
 import exchange_icon from 'assets/svg/reward_page/exchange.png';
 import cashback from 'assets/svg/reward_page/cash_back.png';
 import review from 'assets/svg/reward_page/review_points.png';
@@ -9,7 +9,7 @@ import ProgressBar from 'components/loader/progress.bar.component';
 
 
 
-export const Reward = ({ title }) => {
+export const Myashopree = ({ title }) => {
 
     useEffect(() => {
       document.title = title;
@@ -20,10 +20,10 @@ export const Reward = ({ title }) => {
     return (
         <div className="estore-container">
 
-            <section className="reward">
+            <section className="myashopree">
                 
                 <section className="all-items">
-                    <RewardSideBar />
+                    <MyashopreeSidePage />
 
                     <main>
                         <div className="main-element">
