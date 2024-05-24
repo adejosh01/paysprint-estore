@@ -50,6 +50,7 @@ export const Pricing = ({ title }) => {
                                 <div>
                                     <p> <img src={whiteCheck} alt="" /> All features in Freemium Plan </p>
                                     <p> <img src={whiteCheck} alt="" /> Online Ordering </p>
+                                    <p> <img src={whiteCheck} alt="" /> Tech Driven Delivery System </p>
                                     <p> <img src={whiteCheck} alt="" /> Own Your Site Domain </p>
                                     <p> <img src={whiteCheck} alt="" /> Free SSL Certificate </p>
                                     <p> <img src={whiteCheck} alt="" /> Chat with Customers </p>
