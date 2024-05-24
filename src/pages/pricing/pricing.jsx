@@ -27,19 +27,11 @@ export const Pricing = ({ title }) => {
                                 <p> Includes: </p>
                                 <em> Unlimited Transactions </em>
                                 <div>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Receive in-Person payment using QR Code (Save of Hardware costs) </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Receive Online Payment on the business website </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Create and share payment link with remote customers </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Currency Conversion </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Local Payment Method </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Create and Send invoice to Customers </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Set installment Payment on invoice </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Digital Services to get things done faster </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Access to working Capital </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Wallet Balance Protection </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Unlimited Employee Accounts </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Lead Generation (Sell More with less efforts) </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} />  Track Customers Ealance </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Unlimited Transactions </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Online Store </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Unlimited Products </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Sell on Social Media </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Free Listing on Ashopree </p>
                                 </div>
                                 <button>
                                     Get plan
@@ -56,23 +48,16 @@ export const Pricing = ({ title }) => {
                                 <p> Includes All features in Freemium Plan </p>
                                 <em> Unlimited Transactions </em>
                                 <div>
-                                    <p> <img src={whiteCheck} alt="" /> Online Store </p>
+                                    <p> <img src={whiteCheck} alt="" /> All features in Freemium Plan </p>
                                     <p> <img src={whiteCheck} alt="" /> Online Ordering </p>
-                                    <p> <img src={whiteCheck} alt="" /> Unlimited Products </p>
-                                    <p> <img src={whiteCheck} alt="" /> Sell on Social Media </p>
-                                    <p> <img src={whiteCheck} alt="" /> Tech Driven Delivery System </p>
-                                    <p> <img src={whiteCheck} alt="" /> Fulfillment Networks </p>
-                                    <p> <img src={whiteCheck} alt="" /> Free listing on Marketplace </p>
-                                    <p> <img src={whiteCheck} alt="" /> Offer Loyalty Program </p>
                                     <p> <img src={whiteCheck} alt="" /> Own Your Site Domain </p>
                                     <p> <img src={whiteCheck} alt="" /> Free SSL Certificate </p>
                                     <p> <img src={whiteCheck} alt="" /> Chat with Customers </p>
-                                    <p> <img src={whiteCheck} alt="" /> Basic Reports for your Business </p>
+                                    <p> <img src={whiteCheck} alt="" /> Basic Reports for Your Business </p>
                                     <p> <img src={whiteCheck} alt="" /> Language Translation </p>
+                                    <p> <img src={whiteCheck} alt="" /> Fulfilment Network </p>
                                     <p> <img src={whiteCheck} alt="" /> Multiple Sales Channel </p>
                                     <p> <img src={whiteCheck} alt="" /> Review and Feedback </p>
-                                    <p> <img src={whiteCheck} alt="" /> Offer Discount Codes </p>
-                                    <p> <img src={whiteCheck} alt="" /> Bulk Payments </p>
                                 </div>
                                 <button>
                                     Learn More
@@ -88,12 +73,13 @@ export const Pricing = ({ title }) => {
                                 <p> Includes All features in Freemium Go Commerce Plans </p>
                                 <em> Unlimited Transactions </em>
                                 <div>
-                                    {/* <p> <FontAwesomeIcon icon={faCheckCircle} /> All features in Freemium and eCommerce Plans </p> */}
-                                    {/* <p> <FontAwesomeIcon icon={faCheckCircle} /> Unlimited Transactions </p> */}
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> All features in Freemium and eCommerce Plans </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Unlimited Transactions </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Retail(Store Front) Service on OWN Device(NO Hardware required) </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Inventory Management </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Customer Management </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Marketing Campaigns Management </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Bulk Payments </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Reporting and Analytics </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Omni-Sales Channel </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Single Back Office/Admin </p>
