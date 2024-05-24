@@ -3,6 +3,8 @@ import "./login.scss";
 import { useEffect, useState } from "react";
 import { useAuth } from "../../hook/AuthProvider";
 import Swal from "sweetalert2";
+import { RESPONSE_STATES } from "utils/constants";
+import { Loader } from "components/loader/loader.component";
 
 export const Login = ({ title }) => {
   const auth = useAuth();
@@ -14,32 +16,72 @@ export const Login = ({ title }) => {
 
   const [accountNumber, setAccountNumber] = useState("");
   const [transactionPin, settransactionPin] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [responseState, setResponseState] = useState(RESPONSE_STATES.none);
 
 
-  const submitLogin = () => {
-      try {
-        
-        if (accountNumber !== "" && transactionPin !== "") {
-          auth.loginAction({ accountNumber, transactionPin});
-          return;
-          
-        } else {
-          Swal.fire({
+  const submitLogin = async () => {
+    if (!accountNumber || !transactionPin) { 
+        return setErrorMessage("All fields must be filled.");
+    }
+
+    if (accountNumber.length < 4) {
+        return setErrorMessage("PaySprint Number cannot be less than 4 characters.");
+    }
+
+    if (transactionPin.length < 4) {
+        return setErrorMessage("Transaction Pin cannot be less than 4 characters.");
+    }
+
+    if (!/^\d+$/.test(accountNumber)) {
+        return setErrorMessage("PaySprint Number must contain only numbers.");
+    }
+
+    try {
+        setResponseState(RESPONSE_STATES.loading);
+        setErrorMessage("");
+
+        const responseState = await auth.loginAction({ accountNumber, transactionPin });
+        setResponseState(responseState);
+
+        if (responseState === RESPONSE_STATES.error) {
+            setErrorMessage("Invalid Credentials");
+        }
+    } catch (error) {
+        setResponseState(RESPONSE_STATES.none);
+        const errorMessage = error.response ? error.response.data.message : error.message;
+        Swal.fire({
             icon: 'error',
-            title: 'Please try again',
-            text: 'Sorry one of your credentials was not correct'
-          });
-        }
+            title: 'Error',
+            text: errorMessage,
+        });
+    }
+  };
+
+  // const submitLogin = () => {
+  //     try {
+        
+  //       if (accountNumber !== "" && transactionPin !== "") {
+  //         auth.loginAction({ accountNumber, transactionPin});
+  //         return;
+          
+  //       } else {
+  //         Swal.fire({
+  //           icon: 'error',
+  //           title: 'Please try again',
+  //           text: 'Sorry one of your credentials was not correct'
+  //         });
+  //       }
 
         
-      } catch (error) {
-        if(error.response) {
-          alert(error.response.data.message);
-        } else {
-          alert(error.message);
-        }
-      }
-  }
+  //     } catch (error) {
+  //       if(error.response) {
+  //         alert(error.response.data.message);
+  //       } else {
+  //         alert(error.message);
+  //       }
+  //     }
+  // }
 
 
   return (
@@ -61,18 +103,23 @@ export const Login = ({ title }) => {
               <div className="requirements">
                 <div>
                   <p> PaySprint Number <span> * </span> </p>
-                <input type="text" name="accountNumber" placeholder="123456789" required value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
+                  <input type="text" name="accountNumber" placeholder="123456789" required value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
                 </div>
                 <div>
                   <p> Transaction Pin <span> * </span> </p>
-                <input type="password" name="transactionPin" placeholder="****" autoComplete="" required value={transactionPin} onChange={e => settransactionPin(e.target.value)} />
+                  <input type="password" name="transactionPin" placeholder="****" autoComplete="" required value={transactionPin} onChange={e => settransactionPin(e.target.value)} />
                 </div>
+                
+                {errorMessage &&  <em className="error">*{errorMessage}</em> }
               </div>
 
               <div className="other-details">
                 <button type="button" onClick={() => submitLogin()}>
-                  Proceed
+                  {responseState === RESPONSE_STATES.loading ? <Loader /> : "Proceed"}
                 </button>
+                {/* <button type="button" onClick={() => submitLogin()}>
+                  Proceed
+                </button> */}
                 <p> Don't have an account? <a href="/register"> Create Account </a> </p>
               </div>
             </form>

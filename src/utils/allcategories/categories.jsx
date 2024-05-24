@@ -34,14 +34,14 @@ const CategoriesData = ({ title }) => {
   if (categories.length === 0) {
     return <p>No categories data available.</p>;
   }
-  // console.log(categories);
+  console.log(categories);
 
   return (
-    <div>
+    <>
       {categories.map((item, index) => (
-        <p key={index} > {item.category} </p>
+        <a href={`/allcategories?categoryname=${item.category}`} key={index} > {item.category} </a>
       ))}
-    </div>
+    </>
   );
 };
 

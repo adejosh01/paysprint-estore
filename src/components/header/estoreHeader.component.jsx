@@ -80,12 +80,15 @@ export const EstoreHeader = ({title}) => {
             </li>
             <li>
               <a>
-                {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> My aShopree </a> {" "} </> ) : ( <> Categories {" "} </> )}
-                <button onClick={toggleIsSubmenuOpen}>
-                  <FontAwesomeIcon
-                    icon={isSubMenuOpen ? faAngleUp : faAngleDown}
-                  />
-                </button>
+                {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> 
+                  My aShopree </a> {" "} 
+                    
+                </>) : ( <> 
+                  Categories {" "} 
+                  <button onClick={toggleIsSubmenuOpen}>
+                    <FontAwesomeIcon icon={isSubMenuOpen ? faAngleUp : faAngleDown} />
+                  </button> 
+                  </> )}
               </a>
             </li>
             <ul className={getConditionalClassName( isSubMenuOpen, "submenu", "active" )}>
@@ -153,9 +156,7 @@ export const EstoreHeader = ({title}) => {
                 </>) : ( <> 
                   Categories {" "} 
                   <button onClick={toggleIsSubmenuOpen}>
-                    <FontAwesomeIcon
-                      icon={isSubMenuOpen ? faAngleUp : faAngleDown}
-                    />
+                    <FontAwesomeIcon icon={isSubMenuOpen ? faAngleUp : faAngleDown} />
                   </button> 
                   </> )}
                 {/* {auth.token ? ( <> <a href="/myshoppings" style={{ top: 'unset' }}> My aShopree </a> {" "} </> ) : ( <> Categories {" "} </> )}
