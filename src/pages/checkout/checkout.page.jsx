@@ -188,13 +188,13 @@ export const Checkout = ({title}) => {
                                     <input name='address' type="address" placeholder='Input delivery address' />
                                 </div>
                                 <div className='descrip'>
-                                    <p>Delivery Option ** </p>
+                                    <p>Delivery Option <span> * </span> </p>
                                     {homeDelivery.length !== 0 ? (
                                         Array.isArray(homeDelivery) ? (
                                             <select  value={selectedCategory} onChange={handleCategoryChange} name="deliveryOption" required>
                                                 <option value="">Select delivery option</option>
                                                 {homeDelivery.map((deliveryOption) => (
-                                                    <option key={deliveryOption} value={deliveryOption}>
+                                                    <option key={deliveryOption} value={deliveryOption} required>
                                                         {deliveryOption}
                                                     </option>
                                                 ))}

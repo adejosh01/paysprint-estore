@@ -66,6 +66,9 @@
                         line-height: 20.16px;
                         color: #5B5D64;
                         margin-bottom: 1rem;
+                        span {
+                            color: red;
+                        }
                     }
                     input, select {
                         width: 100%;
