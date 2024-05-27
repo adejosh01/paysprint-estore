@@ -1,37 +1,71 @@
 import './pricing.styles.scss';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 // import purpleCheck from 'assets/svg/purpleGoodTick.svg';
 import whiteCheck from 'assets/svg/whiteGoodTick.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import countries from '../../utils/dummyCountriesDatas/countries.js';
+import { useLocation } from 'react-router-dom';
+
+
 
 export const Pricing = ({ title }) => {
+    const location = useLocation();
+    const pathname = new URLSearchParams(location.search);
+    const getCountryFromUrl = pathname.get('country');
+    const [selectedCountry, setSelectedCountry] = useState('');
+    
+
+    const handleCountryChange = (event) => {
+        const selectedCountry = event.target.value;
+        setSelectedCountry(selectedCountry);
+        if (selectedCountry) {
+            window.location.href = `?country=${selectedCountry}`;
+        } 
+    };
+
     useEffect(() => {
       document.title = title;
       window.scrollTo(0, 0);
       // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+
+      if (getCountryFromUrl) {
+        setSelectedCountry(getCountryFromUrl);
+      }
+    }, [getCountryFromUrl, title]);
 
     return (
         <div className="estore-container">
 
             <section className="pricing">
                 <h2> Plans & Pricing </h2>
+
+                <div className='choose-country'>
+                    <h5> Select Country </h5>
+                    
+                    <select value={selectedCountry} onChange={handleCountryChange}>
+                        <option value="">Select Country</option>
+                        {countries.map((country) => (
+                            <option key={country} value={country}>
+                                {country}
+                            </option>
+                        ))}
+                    </select>
+                </div>
                 
                 <div className='plans'>
                     <div className='singleItems'>
-                        <h4> Freemium </h4>
+                        <h4> Freemium <p> #0.00 </p> </h4>
                         <div className='describePlan'>
-                            <p className='title'> (For businesses that need basic tool to grow and receive payments from customers at no extra cost to business) </p>
+                            <p className='title'> For businesses that need basic tool to build online and social presence at no extra cost to business </p>
                             <div className='detailedplans'>
                                 <p> Includes: </p>
                                 <em> Unlimited Transactions </em>
                                 <div>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Unlimited Transactions </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Online Store </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Unlimited Products </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Sell on Social Media </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Free Listing on Ashopree </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Share link to store on social media </p>
+                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Free Listing on aShopree </p>
                                 </div>
                                 <button>
                                     Get plan
@@ -41,14 +75,13 @@ export const Pricing = ({ title }) => {
                     </div>
 
                     <div className='singleItems'>
-                        <h4> Go eCommerce </h4>
+                        <h4> Go eCommerce <p> #100.00 </p> </h4>
                         <div className='describePlan'>
-                            <p className='title'> (For business that need to grow faster by boosting online presence to sell more to customers at no cost to business) </p>
+                            <p className='title'> For businesses that need to sell more and improve cashflow at no cost to business </p>
                             <div className='detailedplans'>
                                 <p> Includes All features in Freemium Plan </p>
                                 <em> Unlimited Transactions </em>
                                 <div>
-                                    <p> <img src={whiteCheck} alt="" /> All features in Freemium Plan </p>
                                     <p> <img src={whiteCheck} alt="" /> Online Ordering </p>
                                     <p> <img src={whiteCheck} alt="" /> Tech Driven Delivery System </p>
                                     <p> <img src={whiteCheck} alt="" /> Own Your Site Domain </p>
@@ -67,15 +100,13 @@ export const Pricing = ({ title }) => {
                         </div>
                     </div>
                     <div className='singleItems'>
-                        <h4> Go 360 </h4>
+                        <h4> Go 360 <p> #300.00 </p> </h4>
                         <div className='describePlan'>
-                            <p className='title'> (For businesses that need tool to drive their sustainable strategy to compete and scale the business) </p>
+                            <p className='title'> For businesses that need tool to compete and scale the business </p>
                             <div className='detailedplans'>
                                 <p> Includes All features in Freemium Go Commerce Plans </p>
                                 <em> Unlimited Transactions </em>
                                 <div>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> All features in Freemium and eCommerce Plans </p>
-                                    <p> <FontAwesomeIcon icon={faCheckCircle} /> Unlimited Transactions </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Retail(Store Front) Service on OWN Device(NO Hardware required) </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Inventory Management </p>
                                     <p> <FontAwesomeIcon icon={faCheckCircle} /> Customer Management </p>
