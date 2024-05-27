@@ -81,7 +81,7 @@ export const EstoreFooter = () => {
                 <a href="https://twitter.com/ashopree"> <img src={twitterIconWhite} alt="Twitte'sr Icon" /> </a> 
                 <a href="https://www.instagram.com/ashopree"> <img src={igIconWhite} alt="Instagram's Icon" /> </a> 
                 <a href="#"> <img src={fbIconWhite} alt="Facebook's Icon" /> </a> 
-                <a href="#"> <img src={linkedinIconWhite} alt="LinkedIn's Icon" /> </a> 
+                <a href="https://www.linkedin.com/showcase/paysprint"> <img src={linkedinIconWhite} alt="LinkedIn's Icon" /> </a> 
               </li>
             </ul>
           </div>
