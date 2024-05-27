@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 // import starimage from "assets/images/star.png";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'; 
-import { alertMsg, handleClick, stripHtmlTags, useCounter } from 'utils/utils';
+import { handleClick, stripHtmlTags, useCounter, notificationAlert } from 'utils/utils';
 import { useAuth } from 'hook/AuthProvider';
 import config from '../../config';
 
@@ -15,15 +15,18 @@ export const ProductDetails = ({ title }) => {
     const [specificProduct, setData] = useState([]);
     const [similarProduct, setSimilarProduct] = useState([]);
     const [ setError] = useState(null);
-    const { count, increment, decrement } = useCounter();
+    const { count, increment, decrement } = useCounter(1);
     const navigate = useNavigate();
-    const [myProduct, setSingleItemCartCount] = useState([]);
+    const [myProduct, setSingleItemCartCount] = useState({});
 
     const addToCart = async (productId) => {
         try {
+
+            if (count < 1) return notificationAlert('error', 'Oops!', 'Quantity must be greater than zero.');
+            
             const data = {
                 productId,
-                quantity: 1
+                quantity: count
             }
             const configuration = {
                 method: "POST",
@@ -35,9 +38,17 @@ export const ProductDetails = ({ title }) => {
             }
 
             const response = await axios(configuration);
-            alert(response.data.message);
+            notificationAlert('success', 'Cart!', response.data.message);
         } catch (error) {
-            console.log(error);
+            if(error.response) {
+                if (error.response.status === 401) {
+                    setTimeout(() => window.location.href = '/login', 1000);
+                } else {
+                    notificationAlert('error', 'Oops!', error.response.data.message);
+                }
+            } else {
+                notificationAlert('error', 'Oops!', error.message);
+            }
         }
     }
 
@@ -66,9 +77,10 @@ export const ProductDetails = ({ title }) => {
     
             const response = await axios(thisconfig);
             const cartItems = response.data.data;
-    
             // Get the specificProduct in cartItems based on productName
-            const specificCartItem = cartItems.find(item => item.productName === specificProduct.productName);
+            const specificCartItem = cartItems.filter(item => item.productName === specificProduct.productName);
+            
+
     
             // Update the set state with the specific product
             setSingleItemCartCount(specificCartItem);
@@ -120,34 +132,34 @@ export const ProductDetails = ({ title }) => {
                         <p className='amount'> {specificProduct.currencySymbol + Number(specificProduct.amount).toFixed(2)} </p>
                         <form className='justbuttons'>
                             <div>
-                                {myProduct !== 0 ? ( <>
-                                    <h5> Quantity: <input type="number" name='quantity' value={myProduct.quantity} /> </h5>
+                                {Object.values(myProduct).length > 0 ? ( <>
+                                    <h5> Quantity: <input type="number" name='quantity' value={myProduct?.quantity} /> </h5>
                                     <div>
                                         <button type='button' onClick={increment}> + </button>
                                         <button type='button' onClick={decrement}> - </button>
                                     </div>
                                     {count <= 0 ? (
-                                        <button type='button' onClick={() => alertMsg() }>
+                                        <button type='button' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
                                             Add to cart
                                         </button>
                                     ) : (
-                                        <button type='submit' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
+                                            <button type='button' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
                                             Add to cart
                                         </button>
                                     )}
 
                                 </>) : (<> 
-                                    <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
+                                        <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
                                     <div>
                                         <button type='button' onClick={increment}> + </button>
                                         <button type='button' onClick={decrement}> - </button>
                                     </div>
                                     {count <= 0 ? (
-                                        <button type='button' onClick={() => alertMsg() }>
+                                            <button type='button' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
                                             Add to cart
                                         </button>
                                     ) : (
-                                        <button type='submit' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
+                                        <button type='button' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
                                             Add to cart
                                         </button>
                                     )}

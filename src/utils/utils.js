@@ -223,6 +223,14 @@ export function alertMsg () {
   });
 }
 
+export function notificationAlert(icon, title, text) {
+  Swal.fire({
+    icon,
+    title,
+    text
+  });
+}
+
 export function confirmationOfAction(auth) {
   
   Swal.fire({

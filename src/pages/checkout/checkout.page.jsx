@@ -5,6 +5,7 @@ import config from "../../config";
 import axios from "axios";
 import { useAuth } from "../../hook/AuthProvider";
 import { GetCountries, GetState, GetCity, GetLanguages, CitySelect, CountrySelect, StateSelect, LanguageSelect, } from "react-country-state-city";
+import { notificationAlert } from 'utils/utils';
 
 import "react-country-state-city/dist/react-country-state-city.css";
 
@@ -86,7 +87,15 @@ export const Checkout = ({title}) => {
             }
             
         } catch (error) {
-            console.log(error);
+            if (error.response) {
+                if (error.response.status === 401) {
+                    setTimeout(() => window.location.href = '/login', 1000);
+                } else {
+                    notificationAlert('error', 'Oops!', error.response.data.message);
+                }
+            } else {
+                notificationAlert('error', 'Oops!', error.message);
+            }
         }
     }
 
