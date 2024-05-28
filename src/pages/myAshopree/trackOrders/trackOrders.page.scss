@@ -35,7 +35,7 @@
             main {
                 width: 100%;
                 display: flex;
-                gap: 20px;
+                gap: 10px;
                 flex-direction: column;
                 h4 {
                     color: #05004E;
@@ -79,6 +79,54 @@
                                 flex: 0 0 80%;
                             }
                           }
+                    }
+                }
+                div.body-sec {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 2rem 3rem;
+                    div.title {
+                        padding: 1rem 2rem;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        background-color: #f5f5f5;
+                        p {
+                            color: #4F0B92;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                    }
+                    main {
+                        display: flex;
+                        justify-content: space-between;
+                        flex-direction: row;
+                        padding: 1rem 2rem;
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+                            div.doubleImage {
+                                display: flex;
+                                gap: 1rem
+                            }
+                        }
+                        div.minor-btns {
+                            flex: 0 0 30%;
+                            .button {
+                                padding: 1rem 0.5rem;
+                                border-radius: 2rem;
+                                &.active-side {
+                                    background: #4F0B92;
+                                    color: #fff;
+                                }
+                            }
+                            .button:hover {
+                                background-color: #4F0B92;
+                                color: #fff;
+                            }
+                        }
                     }
                 }
             }
