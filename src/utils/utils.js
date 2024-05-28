@@ -248,3 +248,29 @@ export function confirmationOfAction(auth) {
   });
   
 }
+
+
+export function dynamicDisplayEffects(elementToHide, activeDivId, activeButtonClass) {
+  if (!elementToHide || !activeDivId || !activeButtonClass) {
+    console.error("Required parameters are missing.");
+    return;
+  }
+
+  const previouslyActiveButton = document.querySelector('.' + activeButtonClass);
+  if (previouslyActiveButton) {
+    previouslyActiveButton.classList.remove(activeButtonClass);
+  }
+
+  const divsToHide = document.querySelectorAll(elementToHide);
+  divsToHide.forEach(div => div.style.display = 'none');
+
+  const targetDiv = document.getElementById(activeDivId);
+  if (!targetDiv) {
+    console.error("Active div not found.");
+    return;
+  }
+
+  targetDiv.style.display = 'flex';
+  targetDiv.classList.add(activeButtonClass);
+}
+

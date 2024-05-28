@@ -55,7 +55,7 @@ const AuthProvider = ({children}) => {
                 Swal.fire({
                     icon: 'error',
                     title: 'Please, try again',
-                    text: 'Incorrect Credentials',
+                    text: error.message,
                   });
                 return;
             } else {

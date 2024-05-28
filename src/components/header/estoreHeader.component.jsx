@@ -11,6 +11,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { useAuth } from "../../hook/AuthProvider";
+import MyashopreeSidePage from "components/Myashopree/side.page";
 
 
 export const EstoreHeader = ({title}) => {
@@ -40,6 +41,7 @@ export const EstoreHeader = ({title}) => {
   const [value, setValue] = useState(''); // State variable to hold the search query
   const navigate  = useNavigate();
 
+  console.log(pathname);
 
   useEffect(() => {
     document.title = title;
@@ -72,70 +74,74 @@ export const EstoreHeader = ({title}) => {
           <button onClick={() => setIsMenuOpen(false)}>
             <FontAwesomeIcon icon={faXmark} />
           </button>
-          <ul>
-            <li>
-              <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <a>
-                {auth.token ? ( <> <a href="/myashopree" style={{ top: 'unset' }}> 
-                  My aShopree </a> {" "} 
-                    
-                </>) : ( <> 
-                  Categories {" "} 
-                  <button onClick={toggleIsSubmenuOpen}>
-                    <FontAwesomeIcon icon={isSubMenuOpen ? faAngleUp : faAngleDown} />
-                  </button> 
-                  </> )}
-              </a>
-            </li>
-            <ul className={getConditionalClassName( isSubMenuOpen, "submenu", "active" )}>
-                {categories.length !== 0 ? (
-                    Array.isArray(categories) && categories.map((item, index) => (
-                        <li key={index}>
-                          <a href={`/allcategories?categoryname=${item.category}`} key={index}> {item.category} </a>
-                        </li>
-                    ))
-                ) : (
-                    !Array.isArray(categories) && <a href="#"> Sorry, an error occurred</a>
-                )}
-
-                {categories.length === 0 && !Array.isArray(categories) && (
-                    <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading... </p>
-                )}
-            </ul>
-            <li>
-              <NavLink to="/stores" onClick={() => setIsMenuOpen(false)}>
-                Stores
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/pricing" onClick={() => setIsMenuOpen(false)}>
-                Plan & Pricing
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>
-                About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
-                Contact Us
-              </NavLink>
-            </li>
-            { auth.token ? ( 
-              <li className="guest-link">
-                <Link onClick={() => auth.logOut()}> Logout </Link>
-              </li>
-            ) : ( <>
-              <li className="guest-link">
-                <Link to="/get-started"> Get Started </Link>
-              </li>
-            </>)}
-          </ul>
+            { (pathname === '/myashopree' || pathname === '/track-orders' || pathname === '/store-location' ) ? (
+                <MyashopreeSidePage />
+              ) : (
+                <ul>
+                  <li>
+                    <NavLink to="/" onClick={() => setIsMenuOpen(false)}>
+                      Home
+                    </NavLink>
+                  </li>
+                  <li>
+                    <a>
+                      {auth.token ? ( <> <a href="/myashopree" style={{ top: 'unset' }}> 
+                        My aShopree </a> {" "} 
+                          
+                      </>) : ( <> 
+                        Categories {" "} 
+                        <button onClick={toggleIsSubmenuOpen}>
+                          <FontAwesomeIcon icon={isSubMenuOpen ? faAngleUp : faAngleDown} />
+                        </button> 
+                        </> )}
+                    </a>
+                  </li>
+                  <ul className={getConditionalClassName( isSubMenuOpen, "submenu", "active" )}>
+                      {categories.length !== 0 ? (
+                          Array.isArray(categories) && categories.map((item, index) => (
+                              <li key={index}>
+                                <a href={`/allcategories?categoryname=${item.category}`} key={index}> {item.category} </a>
+                              </li>
+                          ))
+                      ) : (
+                          !Array.isArray(categories) && <a href="#"> Sorry, an error occurred</a>
+                      )}
+    
+                      {categories.length === 0 && !Array.isArray(categories) && (
+                          <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading... </p>
+                      )}
+                  </ul>
+                  <li>
+                    <NavLink to="/stores" onClick={() => setIsMenuOpen(false)}>
+                      Stores
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/pricing" onClick={() => setIsMenuOpen(false)}>
+                      Plan & Pricing
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/about" onClick={() => setIsMenuOpen(false)}>
+                      About
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="/contact" onClick={() => setIsMenuOpen(false)}>
+                      Contact Us
+                    </NavLink>
+                  </li>
+                  { auth.token ? ( 
+                    <li className="guest-link">
+                      <Link onClick={() => auth.logOut()}> Logout </Link>
+                    </li>
+                  ) : ( <>
+                    <li className="guest-link">
+                      <Link to="/get-started"> Get Started </Link>
+                    </li>
+                  </>)}
+                </ul>
+              )}
         </div>
       </nav>
       
@@ -167,8 +173,7 @@ export const EstoreHeader = ({title}) => {
                 {categories.length !== 0 ? (
                     Array.isArray(categories) && categories.map((item, index) => (
                         <li key={index}>
-                        
-                        <a href={`/allcategories?categoryname=${item.category}`} key={index}> {item.category} </a>
+                          <a href={`/allcategories?categoryname=${item.category}`} key={index}> {item.category} </a>
                         </li>
                     ))
                 ) : (

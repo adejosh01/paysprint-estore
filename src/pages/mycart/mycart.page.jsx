@@ -1,6 +1,6 @@
 import './mycart.styles.scss';
 import { useEffect, useState } from 'react';
-import deleteIcon from 'assets/icons/trashcan.png';
+// import deleteIcon from 'assets/icons/trashcan.png';
 import { Link } from 'react-router-dom';
 // import { performOperation } from 'components/randomFunctions/counter';
 import config from "../../config";
@@ -59,13 +59,13 @@ export const MyCarts = ({ title }) => {
                     <div className='titlesandall'>
                         <h1> My Cart <span> ({cartItem.length}) </span> </h1>
 
-                        {cartItem.length > 0 ? (
+                        {/* {cartItem.length > 0 ? (
                             <>
                                 <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                                     <img src={deleteIcon} alt="the trash bin" /> Remove All
                                 </button>
                             </>
-                        ) : null}
+                        ) : null} */}
 
                     </div>
 
