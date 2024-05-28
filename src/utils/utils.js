@@ -274,5 +274,3 @@ export function dynamicDisplayEffects(elementToHide, activeDivId, activeButtonCl
   targetDiv.classList.add(activeButtonClass);
 }
 
-
-// dynamicDisplayEffects('.split-to-two', '#targetDivId', 'my-active-button-class');
