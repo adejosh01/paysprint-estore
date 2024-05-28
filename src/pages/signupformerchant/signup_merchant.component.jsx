@@ -310,8 +310,8 @@ export const SignupMerchantPage = ({ title }) => {
       <section>
         <main>
           <div className="acct-type-merchant">
-            <div className="personal" type="button" onClick={ () => handleClick('/register', navigate) }> <p> Personal Account </p> </div>
-            <div className="merchant" type="button" onClick={ () => handleClick('#', navigate) }> <p> Merchant Account </p> </div>
+            <div className="personal" type="button" onClick={ () => handleClick('/register', navigate) }> <p> Buyer Account </p> </div>
+            <div className="merchant" type="button" onClick={ () => handleClick('#', navigate) }> <p> Seller Account </p> </div>
           </div>
           {showSignupPageMerchant()}
           {errorMessage && <em className="error">*{errorMessage}</em>}
