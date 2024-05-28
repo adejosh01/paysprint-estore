@@ -21,7 +21,7 @@
     }
 
     section.track-orders {
-        padding: 4rem 3rem;
+        padding: 4rem 3rem; 
         h2 {
             font: 600 45px 'Plus jakarta sans';
             text-align: center;
@@ -36,75 +36,50 @@
                 width: 100%;
                 display: flex;
                 gap: 20px;
-                div.first {
-                    flex: 0 0 50%;
+                flex-direction: column;
+                h4 {
+                    color: #05004E;
+                    font: 700 30px 'circular std';
+                }
+                div.title-sec {
                     display: flex;
-                    flex-direction: column;
-                    gap: 40px;
-                    h4 {
-                        color: #05004E;
-                        font: 700 30px 'circular std';
-                    }
-                    div.grouped-companies {
-                        display: grid;
-                        grid-template-columns: repeat(2, 1fr);
-                        gap: 30px;
-                        div.each-comp {
-                            padding: 15px;
-                            border: 1px solid #F8F9FA;
-                            box-shadow: 5px 10px 20px 10px #EEEEEE;
-                            border-radius: 15px;
-                            display: flex;
-                            flex-direction: column;
-                            gap: 15px;
-                            div.head {
-                                display: flex;
-                                flex-direction: column;
-                                gap: 5px;
-                                p {
-                                    &:first-child {
-                                        color: #212121;
-                                        font: 700 24px 'circular std';
-                                    }
-                                    &:last-child {
-                                        color: #737791;
-                                        font: 400 20px 'circular std';
-                                    }
-                                }
-                                small {
-                                    display: flex;
-                                    width: 100%;
-                                    justify-content: space-between;
-                                    align-items: center;
-                                    margin-top: 1rem;
-                                    button {
-                                        border-radius: 3px;
-                                        background-color: #F5ECFE;
-                                        color: #737791;
-                                        padding: 5px 15px;
-                                    }
-                                }
-                            }
-                            div.img-sec {
-                                display: flex;
-                                gap: 8px;
-                            }
-                            a {
-                                text-align: center;
-                                border: 1px solid #737791;
-                                padding: 7.95px 15.9px 7.95px 15.9px;
-                                border-radius: 10px;
-                            }
-                            a:hover {
-                                background-color: #4F0B92;
-                                color: #fff;
+                    justify-content: space-between;
+                    align-items: center;
+                    div.nav-btns {
+                        display: flex;
+                        gap: 2rem;
+                        padding: 1.5rem 3rem;
+                        .button {
+                            font: 700 23px 'circular std';
+                            color: #d2d2d2;
+                            &.active-nav-btn {
+                                color: #000;
+                                border-bottom: 2px solid #4F0B92;
+                                padding-bottom: 3px;
                             }
                         }
                     }
-                }
-                div.second {
-                    padding: 1.5rem;
-                    width: 100%;
+                    form {
+                        flex: 0 0 37%;
+                        div.searching {
+                            font-size: 2rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 1.5rem 3rem !important;
+                            border: 2px solid #EAEAEA;
+                            border-radius: 2rem;
+                            background-color: #fff;
+                            box-shadow: 5px 20px 10px 0px #EEEEEE;
+                            svg {
+                              padding-right: 1rem;
+                              color: #d2d2d2;
+                            }
+                            input {
+                                flex: 0 0 80%;
+                            }
+                          }
+                    }
                 }
             }
         }
