@@ -41,8 +41,6 @@ export const EstoreHeader = ({title}) => {
   const [value, setValue] = useState(''); // State variable to hold the search query
   const navigate  = useNavigate();
 
-  console.log(pathname);
-
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
