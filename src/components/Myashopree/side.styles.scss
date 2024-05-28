@@ -50,3 +50,30 @@ div.left-side {
         }
     }
 }
+
+
+@media screen and (max-width: 900px) {
+    div.left-side {
+        padding: 10px;
+        ul.side-menu { 
+            gap: 3rem;
+            .active {
+                height: 45px;
+            }
+            a {
+                padding: 2px;
+                height: 30px;
+                p {
+                    font-weight: 600;
+                    font-size: 16px;
+                    line-height: 20px;
+                    color: #272343;
+                    text-decoration: none;
+                    img {
+                        width: auto;
+                    }
+                }
+            }
+        }
+    }
+}

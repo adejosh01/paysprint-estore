@@ -45,6 +45,7 @@
                     display: flex;
                     justify-content: space-between;
                     align-items: center;
+                    width: 100%;
                     div.nav-btns {
                         display: flex;
                         gap: 2rem;
@@ -217,35 +218,21 @@
 @media screen and (max-width: 1300px) {
     .estore-container { 
         section.track-orders {
-            div.plans {
-                gap: 25px;
-            }
-        }    
-    }
-}
-
-@media screen and (max-width: 1200px) {
-    .estore-container { 
-        section.track-orders {
-            section.all-items {
-                div.left-side {
-                    flex: 0 0 260px;
-                    padding: 0px 2px;
-                }
-            }
-        }    
-    }
-}
-
-@media screen and (max-width: 1123px) {
-    .estore-container { 
-        section.track-orders {
             section.all-items {
                 main {
-                    flex-direction: column;
-                    gap: 0px;
-                    div.main-element {
-                        flex: 0 0 50%;
+                    div.title-sec {
+                        width: 100%;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        div.nav-btns {
+                            width: 100%;
+                            gap: unset;
+                            justify-content: space-between;
+                        }
+                        form {
+                            flex: unset;
+                            width: 60%;
+                        }
                     }
                 }
             }
@@ -253,12 +240,22 @@
     }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 900px) {
     .estore-container { 
         section.track-orders {
             section.all-items {
                 div.left-side {
                     display: none;
+                }
+                main {
+                    div.title-sec {
+                        div.nav-btns {
+                            padding: 1.5rem;
+                        }
+                    }
+                    div.body-sec.active-order {
+                        padding: 2rem 0rem;
+                    }
                 }
             }
         }    
@@ -270,21 +267,6 @@
     .estore-container { 
         section.track-orders {
             padding: 2rem;
-            section.all-items {
-                main {
-                // gap: 30px;
-                    div.first {
-                        padding: 15px;
-                        div.grouped-companies {
-                            grid-template-columns: repeat(1, 1fr);
-                        }
-                    }
-                    div.second {
-                        padding: 15px;
-                        height: 50vh;
-                    }
-                }
-            }
         }    
     }
 }
