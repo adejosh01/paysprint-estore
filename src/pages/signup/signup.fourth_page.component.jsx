@@ -1,9 +1,13 @@
-import notARobot from "assets/images/not_a_robot.png";
+// import notARobot from "assets/images/not_a_robot.png";
 import shield from "assets/svg/shield.svg";
 import { useContext } from "react";
 import { SignupFormContext } from "context/signup-form.context";
+import config from "../../config";
 
 export const SignupFourthPage = () => {
+
+  const recaptcha_site_key = config().recaptcha.site_key;
+  // const recaptcha_secret_key = config().recaptcha.secret_key;
 
   const {
     hearAboutUs,
@@ -72,7 +76,8 @@ export const SignupFourthPage = () => {
         </label>
 
         <div className="verification">
-          <img src={notARobot} alt="" />
+          {/* <img src={notARobot} alt="" /> */}
+          <div class="g-recaptcha" data-sitekey={recaptcha_site_key}></div>
           <em>
             <img src={shield} alt="" />
             Protected by bank-level security

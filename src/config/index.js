@@ -6,5 +6,9 @@ export default () => ({
     },
     mode: process.env.NODE_ENV === "development" ? "test" : "live",
     callbackUrl: process.env.NODE_ENV === "development" ? "http://localhost:3000/success" : "https://ashopree.com/success",
+    recaptcha: {
+        site_key: "6LfL6-opAAAAAEWHiWnTGqthfzHmoNw60j2yRj9G",
+        secret_key: "6LfL6-opAAAAAE9Z6Q6n1J75qlNuZQI5ZGjoHonX"
+    },
 });
 
