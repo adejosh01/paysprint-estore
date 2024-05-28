@@ -1,16 +1,25 @@
 import './trackOrders.page.scss';
 import { useEffect, useState } from 'react';
 import MyashopreeSidePage from 'components/Myashopree/side.page';
-// import { NavLink } from 'react-router-dom';
-// import first_store from 'assets/svg/reward_page/first_store.png';
-// import second_store from 'assets/svg/reward_page/second_store.png';
+import product1 from 'assets/images/estore/products/product1.png';
+import product2 from 'assets/images/estore/products/product2.png';
+import google from 'assets/updatedAshopree/google_logo.png';
+import paysprint from 'assets/updatedAshopree/paysprint_backgroundBlack.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleRight, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faAngleRight, faEnvelopeOpenText, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { dynamicDisplayEffects } from 'utils/utils';
 
 
 
 export const TrackOrders = ({ title }) => {
     const [value, setValue] = useState(''); 
+
+    const [activeDivId, setActiveDivId] = useState('allorders'); // Initial active div ID
+
+    const handleButtonClick = (divId) => {
+      setActiveDivId(divId);
+      dynamicDisplayEffects('.body-sec', divId, 'active-order');
+    };
 
 
     useEffect(() => {
@@ -31,11 +40,11 @@ export const TrackOrders = ({ title }) => {
 
                         <div className="title-sec"> 
                             <div className='nav-btns'>
-                                <button type='button' className='button active-nav-btn'> All Orders </button>
-                                <button type='button' className='button '> Processing </button>
-                                <button type='button' className='button '> Shipped </button>
-                                <button type='button' className='button '> Delivered </button>
-                                <button type='button' className='button '> Returns </button>
+                                <button type='button' className='button active-nav-btn' onClick={() => handleButtonClick('allorders')}> All Orders </button>
+                                <button type='button' className='button' onClick={() => handleButtonClick('processing')}> Processing </button>
+                                <button type='button' className='button' onClick={() => handleButtonClick('shipped')}> Shipped </button>
+                                <button type='button' className='button' onClick={() => handleButtonClick('delivered')}> Delivered </button>
+                                <button type='button' className='button' onClick={() => handleButtonClick('returns')}> Returns </button>
                             </div>
                             <form action={`/search?${value}`}>
                                 <div className="searching">
@@ -45,10 +54,9 @@ export const TrackOrders = ({ title }) => {
                             </form>
                         </div>
 
-                        <div className="body-sec">
+                        <div className="body-sec active-order" id='allorders'>
                             <div className="title">
                                 <h5> Shipped </h5>
-
                                 <p> View order details <FontAwesomeIcon icon={faAngleRight} />  </p>
                             </div>
 
@@ -56,7 +64,8 @@ export const TrackOrders = ({ title }) => {
                                 <div>
                                     <p> Delivery May 22-29 </p>
                                     <div className="doubleImage">
-                                        <img src="" alt="" />
+                                        <img src={product1} alt="store productImg" />
+                                        <img src={product2} alt="store productImg" />
                                     </div>
                                 </div>
                                 <div className='minor-btns'>
@@ -68,6 +77,112 @@ export const TrackOrders = ({ title }) => {
                                 </div>
                             </main>
                         </div>
+
+                        <div className="body-sec" id='processing'>
+                            <div className='process-all'>
+                                <h4> You don't have any processing orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
+
+                                <div>
+                                    <p> Can't find your order? </p>
+                                    <div>
+                                        <div>
+                                            <a href="#?"> Try signing in with another account </a>
+                                            <p> <img src={google} alt="" /> <img style={{ background: '#000' }} src={paysprint} alt="" />  <FontAwesomeIcon icon={faAngleRight} /> </p>
+                                        </div>
+                                        <div>
+                                            <a href="#?"> Self service to find order  </a>
+                                            <p> <FontAwesomeIcon icon={faAngleRight} /> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="body-sec" id='shipped'>
+                            <div className="title">
+                                <h5> Shipped </h5>
+                                <p> View order details <FontAwesomeIcon icon={faAngleRight} />  </p>
+                            </div>
+
+                            <main>
+                                <div>
+                                    <p> Delivery May 22-29 </p>
+                                    <div className="doubleImage">
+                                        <img src={product1} alt="store productImg" />
+                                        <img src={product2} alt="store productImg" />
+                                    </div>
+                                </div>
+                                <div className='minor-btns'>
+                                    <button type='button' className='button active-side'> Track </button>
+                                    <button type='button' className='button ' > Buy this again </button>
+                                    <button type='button' className='button ' > Return/Refund </button>
+                                    <button type='button' className='button ' > Leave a review </button>
+                                    <button type='button' className='button ' > Change address </button>
+                                </div>
+                            </main>
+                            
+                            <hr />
+                                <div className='last'>
+                                    <p> 2 items: <span> CA$47.57 </span> </p>
+                                    <p> Order Time: <span> May 16 2024 </span> </p>
+                                    <p> Order ID: <span> PO-037-202327342194552982 </span> </p>
+                                </div>
+                            <hr />
+
+                        </div>
+
+                        <div className="body-sec" id='delivered'>
+                            <div className="title">
+                                <h5> Delivered </h5>
+                                <p> View order details <FontAwesomeIcon icon={faAngleRight} />  </p>
+                            </div>
+
+                            <main>
+                                <div>
+                                    <p> Delivered on May 6, 2024 </p>
+                                    <div className="doubleImage">
+                                        <img src={product1} alt="store productImg" />
+                                        <img src={product2} alt="store productImg" />
+                                    </div>
+                                </div>
+                                <div className='minor-btns'>
+                                    <button type='button' className='button active-side'> Track </button>
+                                    <button type='button' className='button ' > Leave a review </button>
+                                    <button type='button' className='button ' > Return/Refund </button>
+                                    <button type='button' className='button ' > Buy this again </button>
+                                </div>
+                            </main>
+                            
+                            <hr />
+                                <div className='last'>
+                                    <p> 2 items: <span> CA$54.98 </span> </p>
+                                    <p> Order Time: <span> April 30 2024 </span> </p>
+                                    <p> Order ID: <span> PO-037-202327342194552982 </span> </p>
+                                </div>
+                            <hr />
+
+                        </div>
+
+                        <div className="body-sec" id='returns'>
+                            <div className='process-all'>
+                                <h4> You don't have any processing orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
+
+                                <div>
+                                    <p> Can't find your order? </p>
+                                    <div>
+                                        <div>
+                                            <a href="#?"> Try signing in with another account </a>
+                                            <p> <img src={google} alt="" /> <img style={{ background: '#000' }} src={paysprint} alt="" />  <FontAwesomeIcon icon={faAngleRight} /> </p>
+                                        </div>
+                                        <div>
+                                            <a href="#?"> Self service to find order  </a>
+                                            <p> <FontAwesomeIcon icon={faAngleRight} /> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </main>
                 </section>
 

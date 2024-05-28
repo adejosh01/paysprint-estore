@@ -250,53 +250,29 @@ export function confirmationOfAction(auth) {
 }
 
 
-// export function (elementToHide, elementToAddActiveButtonTo) {
-//   if (!elementToHide || !elementToAddActiveButtonTo) {
-//     console.error("Required elements are missing.");
-//     return;
-//   }
+export function dynamicDisplayEffects(elementToHide, activeDivId, activeButtonClass) {
+  if (!elementToHide || !activeDivId || !activeButtonClass) {
+    console.error("Required parameters are missing.");
+    return;
+  }
 
-//   const previouslyActiveButton = document.querySelector('.active-button');
-//   if (previouslyActiveButton) {
-//     previouslyActiveButton.classList.remove('active-button');
-//   }
+  const previouslyActiveButton = document.querySelector('.' + activeButtonClass);
+  if (previouslyActiveButton) {
+    previouslyActiveButton.classList.remove(activeButtonClass);
+  }
 
-//   const divsToHide = document.querySelectorAll(elementToHide);
-//   divsToHide.forEach(div => div.style.display = 'none');
+  const divsToHide = document.querySelectorAll(elementToHide);
+  divsToHide.forEach(div => div.style.display = 'none');
 
-//   const targetDiv = document.querySelector(elementToAddActiveButtonTo);
-//   if (!targetDiv) {
-//     console.error("Element to add 'active-button' class to not found.");
-//     return;
-//   }
+  const targetDiv = document.getElementById(activeDivId);
+  if (!targetDiv) {
+    console.error("Active div not found.");
+    return;
+  }
 
-//   targetDiv.style.display = 'flex';
-//   targetDiv.classList.add('active-button');
-// }
+  targetDiv.style.display = 'flex';
+  targetDiv.classList.add(activeButtonClass);
+}
 
-
-// export function dynamicDisplayEffects(elementToHide, elementToAddActiveButtonTo, activeButtonClass) {
-//   if (!elementToHide || !elementToAddActiveButtonTo || !activeButtonClass) {
-//     console.error("Required parameters are missing.");
-//     return;
-//   }
-
-//   const previouslyActiveButton = document.querySelector('.' + activeButtonClass);
-//   if (previouslyActiveButton) {
-//     previouslyActiveButton.classList.remove(activeButtonClass);
-//   }
-
-//   const divsToHide = document.querySelectorAll(elementToHide);
-//   divsToHide.forEach(div => div.style.display = 'none');
-
-//   const targetDiv = document.querySelector(elementToAddActiveButtonTo);
-//   if (!targetDiv) {
-//     console.error("Element to add active button class to not found.");
-//     return;
-//   }
-
-//   targetDiv.style.display = 'flex';
-//   targetDiv.classList.add(activeButtonClass);
-// }
 
 // dynamicDisplayEffects('.split-to-two', '#targetDivId', 'my-active-button-class');
