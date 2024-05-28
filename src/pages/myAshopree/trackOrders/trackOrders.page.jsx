@@ -14,11 +14,22 @@ import { dynamicDisplayEffects } from 'utils/utils';
 export const TrackOrders = ({ title }) => {
     const [value, setValue] = useState(''); 
 
-    const [activeDivId, setActiveDivId] = useState('allorders'); // Initial active div ID
+    // Initial active div id is set here
+    const [activeButton, setActiveButton] = useState('allorders');
 
-    const handleButtonClick = (divId) => {
-      setActiveDivId(divId);
-      dynamicDisplayEffects('.body-sec', divId, 'active-order');
+    const handleButtonClick = (buttonId) => {
+        setActiveButton(buttonId);
+        dynamicDisplayEffects('.body-sec', buttonId, 'active-order');
+
+        // Remove active class from all buttons once not in motion :)
+        const buttons = document.querySelectorAll('.button');
+        buttons.forEach(button => button.classList.remove('active-nav-btn'));
+
+        // Add active class to the clicked button here
+        const clickedButton = document.getElementById(buttonId);
+        if (clickedButton) {
+        clickedButton.classList.add('active-nav-btn');
+        }
     };
 
 
@@ -40,11 +51,11 @@ export const TrackOrders = ({ title }) => {
 
                         <div className="title-sec"> 
                             <div className='nav-btns'>
-                                <button type='button' className='button active-nav-btn' onClick={() => handleButtonClick('allorders')}> All Orders </button>
-                                <button type='button' className='button' onClick={() => handleButtonClick('processing')}> Processing </button>
-                                <button type='button' className='button' onClick={() => handleButtonClick('shipped')}> Shipped </button>
-                                <button type='button' className='button' onClick={() => handleButtonClick('delivered')}> Delivered </button>
-                                <button type='button' className='button' onClick={() => handleButtonClick('returns')}> Returns </button>
+                                <button type='button' className={`button ${activeButton === 'allorders' ? 'active-nav-btn' : ''}`} onClick={() => handleButtonClick('allorders')}> All Orders </button>
+                                <button type='button' className={`button ${activeButton === 'processing' ? 'active-nav-btn' : ''}`} onClick={() => handleButtonClick('processing')}> Processing </button>
+                                <button type='button' className={`button ${activeButton === 'shipped' ? 'active-nav-btn' : ''}`} onClick={() => handleButtonClick('shipped')}> Shipped </button>
+                                <button type='button' className={`button ${activeButton === 'delivered' ? 'active-nav-btn' : ''}`} onClick={() => handleButtonClick('delivered')}> Delivered </button>
+                                <button type='button' className={`button ${activeButton === 'returns' ? 'active-nav-btn' : ''}`} onClick={() => handleButtonClick('returns')}> Returns </button>
                             </div>
                             <form action={`/search?${value}`}>
                                 <div className="searching">
