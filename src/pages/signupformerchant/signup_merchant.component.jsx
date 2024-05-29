@@ -24,6 +24,7 @@ export const SignupMerchantPage = ({ title }) => {
     business_phone,
     industry,
     website,
+    operate_sfs,
     email,
     confirmEmail,
     password,
@@ -71,6 +72,7 @@ export const SignupMerchantPage = ({ title }) => {
       business_phone,
       industry,
       website,
+      operate_sfs,
       email,
       password,
       telephone: phone,
@@ -114,7 +116,7 @@ export const SignupMerchantPage = ({ title }) => {
 
   const validateInputs = (page) => {
     if (page === 1) {
-      if (!legal_name || !business_phone || !industry || !email || !confirmEmail || !password || !confirmPassword)
+      if (!legal_name || !business_phone || !industry || !operate_sfs || !email || !confirmEmail || !password || !confirmPassword)
         return setErrorMessage("All fields must be filled.");
 
       const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
@@ -131,6 +133,8 @@ export const SignupMerchantPage = ({ title }) => {
         return setErrorMessage(
           "Password and Confirm Password fields must match."
         );
+
+      if (operate_sfs !== "yes" && operate_sfs !== "no") return setErrorMessage("Please Select a valid response for question 5");
         
     } else if (page === 2) {
       if (

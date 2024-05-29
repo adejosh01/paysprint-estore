@@ -8,6 +8,7 @@ export const SignupMerchantFirstPage = () => {
     business_phone,
     industry,
     website,
+    operate_sfs,
     email,
     confirmEmail,
     password,
@@ -16,6 +17,7 @@ export const SignupMerchantFirstPage = () => {
     setBusinessPhone,
     setIndustry,
     setWebsite,
+    setOperateStoreFront,
     setEmail,
     setConfirmEmail,
     setPassword,
@@ -80,6 +82,15 @@ export const SignupMerchantFirstPage = () => {
             />
           </label>
         </div>
+        <label htmlFor="operate_sfs">
+          Do you operate a Store-front?<span>*</span>
+          <select id="operate_sfs" value={operate_sfs} onChange={(e) => setOperateStoreFront(e.target.value)}>
+            <option value="biased" defaultChecked> -- Choose an Option -- </option>
+            <option value="yes"> Yes </option>
+            <option value="no"> No </option>
+          </select>
+        </label>
+
         <div className="emails">
           <label htmlFor="email">
             Email Address<span>*</span>
