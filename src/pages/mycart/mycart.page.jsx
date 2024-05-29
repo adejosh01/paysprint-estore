@@ -1,7 +1,7 @@
 import './mycart.styles.scss';
 import { useEffect, useState } from 'react';
 // import deleteIcon from 'assets/icons/trashcan.png';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import { performOperation } from 'components/randomFunctions/counter';
 import config from "../../config";
 import axios from "axios";
@@ -9,10 +9,12 @@ import { useAuth } from "../../hook/AuthProvider";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
 import countries from '../../utils/dummyCountriesDatas/countries.js';
+import { handleClick } from 'utils/utils';
 
 
 
 export const MyCarts = ({ title }) => {
+    const navigate = useNavigate();
     const apiUrl = config().baseUrl;
     const auth = useAuth();
     const [cartItem, setCartItem] = useState([]);
@@ -75,6 +77,8 @@ export const MyCarts = ({ title }) => {
 
     }, [title, apiUrl, auth.token, getCountryFromUrl]);
 
+    console.log(cartItem);
+
     return (
         <div className="estore-container">
             <section className="maincontent">
@@ -125,7 +129,7 @@ export const MyCarts = ({ title }) => {
                                         <td> {merchantInfo?.currencySymbol} {Number(item.price).toLocaleString()} </td>
                                         <td style={{ width: "15%" }}> 
                                             <div className="action">
-                                                <button type='button'> <FontAwesomeIcon icon={faEdit} /> Edit </button>
+                                                <button type='button' onClick={() => handleClick(`/productdetails/${item.productCode}`, navigate)} > <FontAwesomeIcon icon={faEdit} /> Edit </button>
                                                 <button type='button'> <FontAwesomeIcon icon={faTrash} /> Delete </button>
                                             </div>    
                                         </td>
