@@ -20,6 +20,10 @@ export const SignupMerchantPage = ({ title }) => {
   const [responseState, setResponseState] = useState(RESPONSE_STATES.none);
 
   const {
+    legal_name,
+    business_phone,
+    industry,
+    website,
     email,
     confirmEmail,
     password,
@@ -63,6 +67,10 @@ export const SignupMerchantPage = ({ title }) => {
     const body = {
       firstname: firstName,
       lastname: lastName,
+      legal_name,
+      business_phone,
+      industry,
+      website,
       email,
       password,
       telephone: phone,
@@ -106,7 +114,7 @@ export const SignupMerchantPage = ({ title }) => {
 
   const validateInputs = (page) => {
     if (page === 1) {
-      if (!email || !confirmEmail || !password || !confirmPassword)
+      if (!legal_name || !business_phone || !industry || !email || !confirmEmail || !password || !confirmPassword)
         return setErrorMessage("All fields must be filled.");
 
       const emailRegex = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/g;
