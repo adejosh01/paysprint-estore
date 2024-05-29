@@ -90,7 +90,6 @@ export const ProductDetails = ({ title }) => {
             const cartItems = response.data.data;
             // Get the specificProduct in cartItems based on productName
             const specificCartItem = cartItems.find(item => item.productName === specificProduct.productName);
-            // const myProductQuantity = cartItems[0].quantity
             
             // console.log("My quantity is: " + cartItems[0].quantity); 
     
