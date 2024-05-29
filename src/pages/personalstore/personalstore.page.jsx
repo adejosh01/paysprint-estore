@@ -21,9 +21,9 @@ export const Personalstore = ({ title }) => {
     axios.get(`${apiUrl}/ashopree/stores/specific/${merchantId}`)
       .then(response => {
         setMerchantStore(response.data.data);
-      }).catch(error => {
+    }).catch(error => {
         console.error(error);
-      });
+    });
 
   }, [apiUrl, title, merchantId]);
 
@@ -56,7 +56,7 @@ export const Personalstore = ({ title }) => {
                   
                   </div>
               </div>
-        </section>
+            </section>
 
           </>
         ) : (

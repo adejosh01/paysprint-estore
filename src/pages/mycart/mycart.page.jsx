@@ -1,20 +1,41 @@
 import './mycart.styles.scss';
 import { useEffect, useState } from 'react';
 // import deleteIcon from 'assets/icons/trashcan.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 // import { performOperation } from 'components/randomFunctions/counter';
 import config from "../../config";
 import axios from "axios";
 import { useAuth } from "../../hook/AuthProvider";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import countries from '../../utils/dummyCountriesDatas/countries.js';
+import { handleClick } from 'utils/utils';
+
+
 
 export const MyCarts = ({ title }) => {
+    const navigate = useNavigate();
     const apiUrl = config().baseUrl;
     const auth = useAuth();
     const [cartItem, setCartItem] = useState([]);
     const [merchantInfo, setMerchantInfo] = useState();
     const [sumTotal, setSumTotal] = useState(0);
+    const [selectedCountry, setSelectedCountry] = useState('');
+    const location = useLocation();
+    const pathname = new URLSearchParams(location.search);
+    const getCountryFromUrl = pathname.get('country');
+
+    
+
+    const handleCountryChange = (event) => {
+        const selectedCountry = event.target.value;
+        setSelectedCountry(selectedCountry);
+        if (selectedCountry) {
+            window.location.href = `?country=${selectedCountry}`;
+        } 
+    };
+
+
     useEffect(() => {
         document.title = title;
         window.scrollTo(0, 0);
@@ -50,7 +71,13 @@ export const MyCarts = ({ title }) => {
 
         getCartItems();
 
-    }, [title, apiUrl, auth.token]);
+        if (getCountryFromUrl) {
+            setSelectedCountry(getCountryFromUrl);
+          }
+
+    }, [title, apiUrl, auth.token, getCountryFromUrl]);
+
+    // console.log(cartItem);
 
     return (
         <div className="estore-container">
@@ -67,6 +94,19 @@ export const MyCarts = ({ title }) => {
                             </>
                         ) : null} */}
 
+                    </div>
+
+                    <div className='sortby'>
+                        <h5> Sort items by country </h5>
+                        
+                        <select value={selectedCountry} onChange={handleCountryChange}>
+                            <option value="">Select Country</option>
+                            {countries.map((country) => (
+                                <option key={country} value={country}>
+                                    {country}
+                                </option>
+                            ))}
+                        </select>
                     </div>
 
                     <div className='details'>
@@ -89,7 +129,7 @@ export const MyCarts = ({ title }) => {
                                         <td> {merchantInfo?.currencySymbol} {Number(item.price).toLocaleString()} </td>
                                         <td style={{ width: "15%" }}> 
                                             <div className="action">
-                                                <button type='button'> <FontAwesomeIcon icon={faEdit} /> Edit </button>
+                                                <button type='button' onClick={() => handleClick(`/productdetails/${item.productCode}`, navigate)} > <FontAwesomeIcon icon={faEdit} /> Edit </button>
                                                 <button type='button'> <FontAwesomeIcon icon={faTrash} /> Delete </button>
                                             </div>    
                                         </td>

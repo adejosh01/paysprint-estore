@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 export const getConditionalClassName = (
@@ -214,6 +214,36 @@ export function useCounter(initialValue = 0) {
 
   return { count, increment, decrement };
 }
+
+export function useCounterForEdit(initialValue) {
+  const [countForEdit, setCount] = useState(initialValue);
+
+  // Ensuring that the initialValue is defined before using it
+  useEffect(() => {
+    if (initialValue !== undefined) {
+      setCount(initialValue);
+    }
+  }, [initialValue]);
+
+  // const incrementForEdit = () => {
+  //   setCount(prevCount => prevCount + 1);
+  // };
+
+  const incrementForEdit = () => {
+    setCount(countForEdit + 1);
+  };
+
+  const decrementForEdit = () => {
+    setCount(countForEdit - 1);
+  };
+
+  // const decrementForEdit = () => {
+  //   setCount(prevCount => prevCount - 1);
+  // };
+
+  return { countForEdit, incrementForEdit, decrementForEdit };
+}
+
 
 export function alertMsg () {
   Swal.fire({
