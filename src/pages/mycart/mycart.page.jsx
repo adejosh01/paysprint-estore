@@ -1,13 +1,16 @@
 import './mycart.styles.scss';
 import { useEffect, useState } from 'react';
 // import deleteIcon from 'assets/icons/trashcan.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 // import { performOperation } from 'components/randomFunctions/counter';
 import config from "../../config";
 import axios from "axios";
 import { useAuth } from "../../hook/AuthProvider";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons';
+import countries from '../../utils/dummyCountriesDatas/countries.js';
+
+
 
 export const MyCarts = ({ title }) => {
     const apiUrl = config().baseUrl;
@@ -15,6 +18,22 @@ export const MyCarts = ({ title }) => {
     const [cartItem, setCartItem] = useState([]);
     const [merchantInfo, setMerchantInfo] = useState();
     const [sumTotal, setSumTotal] = useState(0);
+    const [selectedCountry, setSelectedCountry] = useState('');
+    const location = useLocation();
+    const pathname = new URLSearchParams(location.search);
+    const getCountryFromUrl = pathname.get('country');
+
+    
+
+    const handleCountryChange = (event) => {
+        const selectedCountry = event.target.value;
+        setSelectedCountry(selectedCountry);
+        if (selectedCountry) {
+            window.location.href = `?country=${selectedCountry}`;
+        } 
+    };
+
+
     useEffect(() => {
         document.title = title;
         window.scrollTo(0, 0);
@@ -50,7 +69,11 @@ export const MyCarts = ({ title }) => {
 
         getCartItems();
 
-    }, [title, apiUrl, auth.token]);
+        if (getCountryFromUrl) {
+            setSelectedCountry(getCountryFromUrl);
+          }
+
+    }, [title, apiUrl, auth.token, getCountryFromUrl]);
 
     return (
         <div className="estore-container">
@@ -67,6 +90,19 @@ export const MyCarts = ({ title }) => {
                             </>
                         ) : null} */}
 
+                    </div>
+
+                    <div className='sortby'>
+                        <h5> Sort items by country </h5>
+                        
+                        <select value={selectedCountry} onChange={handleCountryChange}>
+                            <option value="">Select Country</option>
+                            {countries.map((country) => (
+                                <option key={country} value={country}>
+                                    {country}
+                                </option>
+                            ))}
+                        </select>
                     </div>
 
                     <div className='details'>
