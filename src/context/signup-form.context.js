@@ -6,6 +6,7 @@ export const SignupFormContext = createContext({
   business_phone: "",
   industry: "",
   website: "",
+  operate_sfs: "",
   email: "",
   confirmEmail: "",
   password: "",
@@ -34,6 +35,7 @@ export const SignupFormContext = createContext({
   setBusinessPhone: () => null,
   setIndustry: () => null,
   setWebsite: () => null,
+  setOperateStoreFront: () => null,
   setEmail: () => null,
   setConfirmEmail: () => null,
   setPassword: () => null,
@@ -66,6 +68,7 @@ export const SignupFormContextProvider = ({ children }) => {
   const [business_phone, setBusinessPhone] = useState("");
   const [industry, setIndustry] = useState("");
   const [website, setWebsite] = useState("");
+  const [operate_sfs, setOperateStoreFront] = useState("");
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -98,6 +101,7 @@ export const SignupFormContextProvider = ({ children }) => {
         business_phone,
         industry,
         website,
+        operate_sfs,
         email,
         confirmEmail,
         password,
@@ -136,6 +140,7 @@ export const SignupFormContextProvider = ({ children }) => {
         setBusinessPhone,
         setIndustry,
         setWebsite,
+        setOperateStoreFront,
         setEmail,
         setConfirmEmail,
         setPassword,
