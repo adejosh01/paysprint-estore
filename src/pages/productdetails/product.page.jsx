@@ -21,7 +21,7 @@ export const ProductDetails = ({ title }) => {
     const { count, increment, decrement } = useCounter(1);
     const navigate = useNavigate();
     const [myProduct, setSingleItemCartCount] = useState({});
-    const {  incrementForEdit, decrementForEdit } = useCounterForEdit(myProduct.quantity);
+    const { countForEdit, incrementForEdit, decrementForEdit } = useCounterForEdit(myProduct.quantity);
 
 
     const addToCart = async (productId) => {
@@ -87,11 +87,12 @@ export const ProductDetails = ({ title }) => {
             };
     
             const response = await axios(thisconfig);
-            const cartItems = response.data.data[0];
+            const cartItems = response.data.data;
             // Get the specificProduct in cartItems based on productName
             const specificCartItem = cartItems.find(item => item.productName === specificProduct.productName);
+            // const myProductQuantity = cartItems[0].quantity
             
-            // console.log("My quantity is: " + cartItems[0].quantity);
+            // console.log("My quantity is: " + cartItems[0].quantity); 
     
             // Update the set state with the specific product
             setSingleItemCartCount(specificCartItem);
@@ -106,7 +107,7 @@ export const ProductDetails = ({ title }) => {
 
     }, [setError, apiUrl, productCode, title, specificProduct.productName, user.token]);
 
-    console.log(myProduct.quantity);  
+    console.log(myProduct);  
 
     return (
         <div className="estore-container">
@@ -144,20 +145,23 @@ export const ProductDetails = ({ title }) => {
                         <form className='justbuttons'>
                             <div>
                                 {Object.values(myProduct).length !== 0 ? ( <>
-                                    <h5> Quantity: <input type="number" name='quantity' value={myProduct.quantity} /> </h5>
+                                    <h5> Quantity: <input type="number" name='quantity' value={countForEdit} /> </h5>
                                     <div>
                                         <button type='button' onClick={incrementForEdit}> + </button>
                                         <button type='button' onClick={decrementForEdit}> - </button>
                                     </div>
-                                    {myProduct.quantity <= 0 ? (
-                                        <button type='button' className='add2cart' onClick={() => notificationAlert("error", "Try Again", "Sorry, your updated quantity cannot be less than zero")}>
-                                            Add to cart
-                                        </button>
-                                    ) : (
-                                        <button type='button' className='add2cart' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
-                                            {responseState === RESPONSE_STATES.loading ? <Loader /> : "Add to cart"}
-                                        </button>
-                                    )}
+                                    <button type='button' className='add2cart' id={`${specificProduct.id}`} disabled={countForEdit <= 0}
+                                        // The disable param is to disable the button if countForEdit is less than or equal to 0
+                                        onClick={() => {
+                                            if (countForEdit <= 0) {
+                                                notificationAlert("error", "Try Again", "Sorry, your updated quantity cannot be less than zero");
+                                            } else {
+                                                addToCart(specificProduct.id);
+                                            }
+                                        }}>
+                                        {responseState === RESPONSE_STATES.loading ? <Loader /> : "Add to cart"}
+                                    </button>
+
 
                                 </>) : (<> 
                                         <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
