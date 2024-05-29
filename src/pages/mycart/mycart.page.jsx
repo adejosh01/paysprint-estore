@@ -77,7 +77,7 @@ export const MyCarts = ({ title }) => {
 
     }, [title, apiUrl, auth.token, getCountryFromUrl]);
 
-    console.log(cartItem);
+    // console.log(cartItem);
 
     return (
         <div className="estore-container">

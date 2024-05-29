@@ -3,13 +3,16 @@ import React, { useEffect, useState } from 'react';
 // import starimage from "assets/images/star.png";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'; 
-import { handleClick, stripHtmlTags, useCounter, notificationAlert } from 'utils/utils';
+import { handleClick, stripHtmlTags, useCounter, notificationAlert, useCounterForEdit } from 'utils/utils';
 import { useAuth } from 'hook/AuthProvider';
 import config from '../../config';
+import { Loader } from 'components/loader/loader.component';
+import { RESPONSE_STATES } from 'utils/constants';
 
 
 export const ProductDetails = ({ title }) => {
     const apiUrl = config().baseUrl;
+    const [responseState, setResponseState] = useState(RESPONSE_STATES.none);
     const user = useAuth();
     const { productCode } = useParams();
     const [specificProduct, setData] = useState([]);
@@ -18,9 +21,13 @@ export const ProductDetails = ({ title }) => {
     const { count, increment, decrement } = useCounter(1);
     const navigate = useNavigate();
     const [myProduct, setSingleItemCartCount] = useState({});
+    const {  incrementForEdit, decrementForEdit } = useCounterForEdit(myProduct.quantity);
+
 
     const addToCart = async (productId) => {
         try {
+            
+            setResponseState(RESPONSE_STATES.loading);
 
             if (count < 1) return notificationAlert('error', 'Oops!', 'Quantity must be greater than zero.');
             
@@ -39,7 +46,11 @@ export const ProductDetails = ({ title }) => {
 
             const response = await axios(configuration);
             notificationAlert('success', 'Cart!', response.data.message);
+            setResponseState(RESPONSE_STATES.none);
+
         } catch (error) {
+            setResponseState(RESPONSE_STATES.error);
+
             if(error.response) {
                 if (error.response.status === 401) {
                     setTimeout(() => window.location.href = '/login', 1000);
@@ -76,11 +87,11 @@ export const ProductDetails = ({ title }) => {
             };
     
             const response = await axios(thisconfig);
-            const cartItems = response.data.data;
+            const cartItems = response.data.data[0];
             // Get the specificProduct in cartItems based on productName
-            const specificCartItem = cartItems.filter(item => item.productName === specificProduct.productName);
+            const specificCartItem = cartItems.find(item => item.productName === specificProduct.productName);
             
-
+            // console.log("My quantity is: " + cartItems[0].quantity);
     
             // Update the set state with the specific product
             setSingleItemCartCount(specificCartItem);
@@ -93,9 +104,9 @@ export const ProductDetails = ({ title }) => {
     getCartItems();
 
 
-    }, [setError, apiUrl, productCode, title]);
+    }, [setError, apiUrl, productCode, title, specificProduct.productName, user.token]);
 
-    // console.log(myProduct.productName, specificProduct.productName);  
+    console.log(myProduct.quantity);  
 
     return (
         <div className="estore-container">
@@ -132,19 +143,19 @@ export const ProductDetails = ({ title }) => {
                         <p className='amount'> {specificProduct.currencySymbol + Number(specificProduct.amount).toFixed(2)} </p>
                         <form className='justbuttons'>
                             <div>
-                                {Object.values(myProduct).length > 0 ? ( <>
-                                    <h5> Quantity: <input type="number" name='quantity' value={myProduct?.quantity} /> </h5>
+                                {Object.values(myProduct).length !== 0 ? ( <>
+                                    <h5> Quantity: <input type="number" name='quantity' value={myProduct.quantity} /> </h5>
                                     <div>
-                                        <button type='button' onClick={increment}> + </button>
-                                        <button type='button' onClick={decrement}> - </button>
+                                        <button type='button' onClick={incrementForEdit}> + </button>
+                                        <button type='button' onClick={decrementForEdit}> - </button>
                                     </div>
-                                    {count <= 0 ? (
-                                        <button type='button' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
+                                    {myProduct.quantity <= 0 ? (
+                                        <button type='button' className='add2cart' onClick={() => notificationAlert("error", "Try Again", "Sorry, your updated quantity cannot be less than zero")}>
                                             Add to cart
                                         </button>
                                     ) : (
-                                            <button type='button' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
-                                            Add to cart
+                                        <button type='button' className='add2cart' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
+                                            {responseState === RESPONSE_STATES.loading ? <Loader /> : "Add to cart"}
                                         </button>
                                     )}
 
@@ -155,38 +166,17 @@ export const ProductDetails = ({ title }) => {
                                         <button type='button' onClick={decrement}> - </button>
                                     </div>
                                     {count <= 0 ? (
-                                            <button type='button' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
+                                        <button type='button' className='add2cart' onClick={() => notificationAlert("error", "Try Again", "Sorry, your quantity cannot be less than zero")}>
                                             Add to cart
                                         </button>
                                     ) : (
-                                        <button type='button' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
-                                            Add to cart
+                                        <button type='button' className='add2cart' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
+                                            {responseState === RESPONSE_STATES.loading ? <Loader /> : "Add to cart"}
                                         </button>
                                     )}
 
                                 </>)}
                             </div>
-                            {/* <div>
-                                {myProduct !== 0 ? (
-                                    <h5> Quantity: <input type="number" name='quantity' value={myProduct.quantity} /> </h5>
-                                ) : (
-                                    <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
-                                )}
-
-                                <div>
-                                    <button type='button' onClick={increment}> + </button>
-                                    <button type='button' onClick={decrement}> - </button>
-                                </div>
-                            </div>
-                            {count <= 0 ? (
-                                <button type='button' onClick={() => alertMsg() }>
-                                    Add to cart
-                                </button>
-                            ) : (
-                                <button type='submit' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
-                                    Add to cart
-                                </button>
-                            )} */}
                             <button type='button' onClick={ () => handleClick('/messages', navigate) }>
                                 Buy now
                             </button>

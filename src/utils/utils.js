@@ -215,6 +215,21 @@ export function useCounter(initialValue = 0) {
   return { count, increment, decrement };
 }
 
+
+export function useCounterForEdit(initialValue) {
+  const [countForEdit, setCount] = useState(initialValue);
+
+  const incrementForEdit = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  const decrementForEdit = () => {
+    setCount(prevCount => prevCount - 1);
+  };
+
+  return { countForEdit, incrementForEdit, decrementForEdit };
+}
+
 export function alertMsg () {
   Swal.fire({
     icon: 'error',
