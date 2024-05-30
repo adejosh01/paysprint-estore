@@ -1,6 +1,6 @@
 import './product.styles.scss';
 import React, { useEffect, useState } from 'react';  
-// import starimage from "assets/images/star.png";
+import starimage from "assets/images/star.png";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'; 
 import { handleClick, stripHtmlTags, useCounter, notificationAlert, useCounterForEdit } from 'utils/utils';
@@ -127,16 +127,16 @@ export const ProductDetails = ({ title }) => {
                         <div className='longpiece'>
                             <h4> Description</h4>
                             <p> {typeof specificProduct.description === 'string' ? stripHtmlTags(specificProduct.description) : specificProduct.description} </p>
-                            {/* <div className='ratings'>
-                                        <span>
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                        </span>
-                                        <p className="initialprice"> 4.56 (132 reviews) </p>
-                                    </div> */}
+                            <div className='ratings'>
+                                <span>
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                </span>
+                                <p className="initialprice"> 4.56 (132 reviews) </p>
+                            </div>
                         </div>
 
                         <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {specificProduct.businessname} </span> </p>
