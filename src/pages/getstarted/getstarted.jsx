@@ -153,7 +153,7 @@ export const GetStarted = ({ title }) => {
 
             <form action="#" className="paysprintSignin">
               <div className="requirements">
-                <p> <hr /> <span className="alt"> sign in with PaySprint </span> </p>
+                <p> <hr /> <span className="alt"> sign in with <span style={{ color: '#4F0B92', textDecoration: 'underline' }}> PAYSPRINT </span> </span> </p>
                 <div>
                   <p> PaySprint Number <span> * </span> </p>
                   <input type="text" name="accountNumber" placeholder="123456789" required value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
