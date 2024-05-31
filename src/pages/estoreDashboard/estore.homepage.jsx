@@ -6,6 +6,8 @@ import axios from "axios";
 import { getConditionalClassName, handleClick } from "utils/utils";
 import { Card } from "antd";
 import config from "../../config";
+import starimage from "assets/images/star.png";
+
 
 export const EstoreDashboard = ({ title }) => {
   const apiUrl = config().baseUrl;
@@ -130,7 +132,18 @@ export const EstoreDashboard = ({ title }) => {
                         <p className="nameofitem">{item.productName}</p>
                           <p className="priceofitem">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
                           <p className="initialprice">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')}</p>
+                          <div className='ratings'>
+                              <span>
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                              </span>
+                              <p className="initialprice"> 4.56 (132 reviews) </p>
+                          </div>
                       </div>
+                      
                     </Card>
                   </Link>
                   ))
