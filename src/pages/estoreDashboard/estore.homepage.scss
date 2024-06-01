@@ -197,6 +197,18 @@
               font-size: 14.5px;
               color: #C6C6C6;
             }
+            div.ratings {
+              display: flex;
+              gap: 1rem;
+              span {
+                  display: flex;
+                  gap: 0.2rem;
+                  img {
+                      width: 2rem;
+                      height: 2rem;
+                  }
+              }
+            }
           }
         }
       }
