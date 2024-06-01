@@ -160,8 +160,6 @@ export const ProductDetails = ({ title }) => {
                                         }}>
                                         {responseState === RESPONSE_STATES.loading ? <Loader /> : "Add to cart"}
                                     </button>
-
-
                                 </>) : (<> 
                                         <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
                                     <div>
