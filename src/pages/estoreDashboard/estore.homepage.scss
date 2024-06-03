@@ -181,32 +181,96 @@
             height: 25rem;
             border-radius: 12px;
           }
+          div.banner {
+            background-image: url("../../assets/updatedAshopree/single_product_banner.png");
+            background-repeat: round;
+            position: absolute;
+            margin-top: -6.8rem;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 6px 24px;
+            left: 0;
+            border-radius: 12px;
+            div {
+              p {
+                &:first-child {
+                  font: 200 20px "Bella Script";
+                  line-height: 20px;
+                  color: #000;
+                }
+                &:last-child {
+                  font: 800 13px "plus jakarta sans";
+                  color: #000;
+                  text-transform: uppercase;
+                }
+              }
+            }
+            p {
+              font: 500 15px "plus jakarta sans";
+              color: #000;
+            }
+          }
           .imgdescription {
             margin: 4% auto;
-            .nameofitem {
-              font-weight: 500;
-              font-size: 23px;
-              line-height: 25.2px;
-            }
-            .priceofitem {
-              font-weight: 600;
-              font-size: 20px;
-            }
-            .initialprice {
-              font-weight: 500;
-              font-size: 14.5px;
-              color: #C6C6C6;
-            }
-            div.ratings {
-              display: flex;
-              gap: 1rem;
-              span {
-                  display: flex;
-                  gap: 0.2rem;
-                  img {
-                      width: 2rem;
-                      height: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            div.first {
+              .nameofitem {
+                font-weight: 500;
+                font-size: 23px;
+                line-height: 25.2px;
+              }
+              .priceofitem {
+                font-weight: 600;
+                font-size: 20px;
+              }
+              div {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p.initialprice {
+                  font-weight: 500;
+                  font-size: 14.5px;
+                  color: #C6C6C6;
+                  text-decoration: line-through;
+                }
+                p {
+                  svg {
+                    color: #FF6D01;
+                    margin-right: 3px;
                   }
+                }
+                button {
+                  svg {
+                    width: 24px;
+                    height: 24px;
+                    color: #4F0B92;
+                  }
+                }
+              }
+            }
+            div.second {
+              display: flex;
+              flex-direction: column;
+              p.items-left {
+                color: #FC9B67;
+                font: 400 16px 'plus jarkata sans';
+                line-height: 23px;
+              }
+              div.ratings {
+                display: flex;
+                gap: 1rem;
+                span {
+                    display: flex;
+                    gap: 0.2rem;
+                    img {
+                        width: 2rem;
+                        height: 2rem;
+                    }
+                }
               }
             }
           }
@@ -235,32 +299,34 @@
           }
           .imgdescription {
             margin: 4% auto;
-            .nameofitem {
-              font-weight: 500;
-              font-size: 23px;
-              line-height: 25.2px;
-            }
-            .priceofitem {
-              font-weight: 600;
-              font-size: 20px;
-            }
-            .initialprice {
-              font-weight: 500;
-              font-size: 14.5px;
-              color: #C6C6C6;
-            }
-            div {
-              display: flex;
-              margin: 1rem auto;
-              span {
-                display: grid;
-                grid-template-columns: repeat(5, 1fr);
-                column-gap: 0.5rem;
+            // div.first {
+              .nameofitem {
+                font-weight: 500;
+                font-size: 23px;
+                line-height: 25.2px;
               }
-              p {
-                margin-left: 1rem;
+              .priceofitem {
+                font-weight: 600;
+                font-size: 20px;
               }
-            }
+              .initialprice {
+                font-weight: 500;
+                font-size: 14.5px;
+                color: #C6C6C6;
+              }
+              div {
+                display: flex;
+                margin: 1rem auto;
+                span {
+                  display: grid;
+                  grid-template-columns: repeat(5, 1fr);
+                  column-gap: 0.5rem;
+                }
+                p {
+                  margin-left: 1rem;
+                }
+              }
+            // }
           }
         }
       }

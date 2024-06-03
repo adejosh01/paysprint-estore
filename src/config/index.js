@@ -13,4 +13,3 @@ export default () => ({
         secret_key: "6LfL6-opAAAAAE9Z6Q6n1J75qlNuZQI5ZGjoHonX"
     },
 });
-

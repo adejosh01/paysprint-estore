@@ -29,7 +29,7 @@ const MyashopreeSidePage = () => {
                     <NavLink to={'/purchase-history'}> <p> <FontAwesomeIcon icon={faArrowTrendUp} /> Purchase History </p> </NavLink>
                     <NavLink to={'/store-location'}> <p> <FontAwesomeIcon icon={faGlobe} /> Store Locations </p> </NavLink>
                     <NavLink to={'/messages'}> <p> <FontAwesomeIcon icon={faMessage} /> Messages </p> </NavLink>
-                    <NavLink to={'/review'}> <p> <FontAwesomeIcon icon={faStarHalfStroke} /> My Reviews </p> </NavLink>
+                    <NavLink to={'/reviews'}> <p> <FontAwesomeIcon icon={faStarHalfStroke} /> My Reviews </p> </NavLink>
                     <NavLink to={'/profile'}> <p> <FontAwesomeIcon icon={faUser} /> Profile </p> </NavLink>
                     <NavLink to={'/community'}> <p> <FontAwesomeIcon icon={faPeopleGroup} /> Community </p> </NavLink>
                     <NavLink to={'/settings'}> <p> <FontAwesomeIcon icon={faGear} /> Settings </p> </NavLink>

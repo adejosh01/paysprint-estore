@@ -1,0 +1,249 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    font: 500 20px 'Plus Jakarta Sans';
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+
+    section.my-reviews {
+        padding: 4rem 3rem; 
+        h2 {
+            font: 600 45px 'Plus jakarta sans';
+            text-align: center;
+            line-height: 28px;
+            padding-left: 33px;
+        }  
+        section.all-items {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            main {
+                width: 100%;
+                display: flex;
+                gap: 10px;
+                flex-direction: column;
+                h4 {
+                    color: #05004E;
+                    font: 700 30px 'circular std';
+                }
+                div.title-sec {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    div.nav-btns {
+                        display: flex;
+                        gap: 2rem;
+                        padding: 1.5rem 3rem;
+                        .button {
+                            font: 700 23px 'circular std';
+                            color: #d2d2d2;
+                            &.active-nav-btn {
+                                color: #000;
+                                border-bottom: 2px solid #4F0B92;
+                                padding-bottom: 3px;
+                            }
+                        }
+                    }
+                    form {
+                        flex: 0 0 37%;
+                        div.searching {
+                            font-size: 2rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 1.5rem 3rem !important;
+                            border: 2px solid #EAEAEA;
+                            border-radius: 2rem;
+                            background-color: #fff;
+                            box-shadow: 5px 20px 10px 0px #EEEEEE;
+                            svg {
+                              padding-right: 1rem;
+                              color: #d2d2d2;
+                            }
+                            input {
+                                flex: 0 0 80%;
+                            }
+                          }
+                    }
+                }
+                .body-sec {
+                    display: none;
+                }
+                div.body-sec.active-order {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 2rem 3rem;
+                    gap: 2rem;
+                    background-color: rgb(241, 245, 249);
+                    div.title {
+                        padding: 1rem 2rem;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        background-color: #f5f5f5;
+                        p {
+                            color: #4F0B92;
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+                        }
+                    }
+                    main {
+                        
+                    }
+                    div.all-flaggedreviews {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5rem;
+                        padding: 2rem 1rem;
+                        h4 {
+                            display: flex;
+                            align-items: center;
+                            flex-direction: column-reverse;
+                            gap: 1rem;
+                            svg {
+                                &:first-child {
+                                    height: 70px;
+                                    color: red;
+                                }
+                            }
+                        }
+                        div {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2rem;
+                            p {
+                                font-weight: 700;
+                            }
+                            div {
+                                display: flex;
+                                width: 100%;
+                                flex-direction: row;
+                                gap: 2rem;
+                                div {
+                                    display: flex;
+                                    justify-content: space-between;
+                                    padding: 2rem;
+                                    border: 1px solid #4F0B92;
+                                    flex-direction: row;
+                                    border-radius: 15px;
+                                    a:hover {
+                                        border-bottom: 2px solid #4F0B92;
+                                        padding-bottom: 3px;
+                                    }
+                                    p {
+                                        display: flex;
+                                        gap: 0.5rem;
+                                        img {
+                                            width: 20px;
+                                            height: 20px;
+                                            border-radius: 10px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    hr {
+                        border: 0;
+                        border-top: 3px solid rgba(0, 0, 0, .1);
+                    }
+                    div.last {
+                        display: flex;
+                        justify-content: end;
+                        gap: 2rem;
+                        p {
+                            color: #A0A2A7;
+                            span {
+                                color: #000;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+    .estore-container { 
+        section.my-reviews {
+            section.all-items {
+                main {
+                    div.title-sec {
+                        width: 100%;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        div.nav-btns {
+                            width: 100%;
+                            gap: unset;
+                            justify-content: space-between;
+                        }
+                        form {
+                            flex: unset;
+                            width: 60%;
+                        }
+                    }
+                }
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .estore-container { 
+        section.my-reviews {
+            section.all-items {
+                div.left-side {
+                    display: none;
+                }
+                main {
+                    div.title-sec {
+                        div.nav-btns {
+                            padding: 1.5rem;
+                        }
+                    }
+                    div.body-sec.active-order {
+                        padding: 2rem 0rem;
+                    }
+                }
+            }
+        }    
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .estore-container { 
+        section.my-reviews {
+            padding: 2rem;
+        }    
+    }
+}
+
+
+@media screen and (min-width: 1218px) {
+    .estore-container {
+        section.my-reviews {
+            padding: 8.6rem 0.5rem;
+        }
+    }
+}

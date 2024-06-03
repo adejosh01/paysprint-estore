@@ -1,12 +1,14 @@
 import "./estore.homepage.scss";
 import { useEffect, useState } from "react";
-// import others from "assets/images/estore/topCategories/others.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { getConditionalClassName, handleClick } from "utils/utils";
 import { Card } from "antd";
 import config from "../../config";
 import starimage from "assets/images/star.png";
+// import banner_image from "assets/updatedAshopree/single_product_banner.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCartPlus, faFireFlameCurved } from "@fortawesome/free-solid-svg-icons";
 
 
 export const EstoreDashboard = ({ title }) => {
@@ -128,19 +130,32 @@ export const EstoreDashboard = ({ title }) => {
                   hotDeals.map((item, index) => (
                     <Link to={`/productdetails/${item.productCode}`} key={index}>
                     <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt={item.productName} src={item.image} />} >
+                      <div className="banner"> 
+                        <div> <p> Semi - Annual </p> <p> Savings </p> </div> 
+                        <p> 20% off discount </p>
+                      </div>
                       <div className="imgdescription">
-                        <p className="nameofitem">{item.productName}</p>
-                          <p className="priceofitem">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
-                          <p className="initialprice">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')}</p>
-                          <div className='ratings'>
-                              <span>
-                                  <img src={starimage} alt="justtheIconOfAStar" />
-                                  <img src={starimage} alt="justtheIconOfAStar" />
-                                  <img src={starimage} alt="justtheIconOfAStar" />
-                                  <img src={starimage} alt="justtheIconOfAStar" />
-                                  <img src={starimage} alt="justtheIconOfAStar" />
-                              </span>
-                              <p className="initialprice"> 4.56 (132 reviews) </p>
+                          <div className="first">
+                            <p className="nameofitem">{item.productName}</p>
+                            <p className="priceofitem">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
+                            <div>
+                              <p className="initialprice">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')}</p>
+                              <p title="We've sold 100 pieces already!"> <FontAwesomeIcon icon={faFireFlameCurved} /> 100 sold </p>
+                              <button type="button"> <FontAwesomeIcon icon={faCartPlus} /> </button>
+                            </div>
+                          </div>
+                          <div className="second">
+                            <p className="items-left"> Only 3 left </p>
+                            <div className='ratings'>
+                                <span>
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                </span>
+                                <p className="initialprice"> 4.56 (132 reviews) </p>
+                            </div>
                           </div>
                       </div>
                       

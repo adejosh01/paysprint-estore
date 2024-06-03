@@ -7,12 +7,14 @@ import google from 'assets/updatedAshopree/google_logo.png';
 import paysprint from 'assets/updatedAshopree/paysprint_backgroundBlack.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faEnvelopeOpenText, faSearch } from '@fortawesome/free-solid-svg-icons';
-import { dynamicDisplayEffects } from 'utils/utils';
+import { dynamicDisplayEffects, handleClick } from 'utils/utils';
+import { useNavigate } from 'react-router-dom';
 
 
 
 export const TrackOrders = ({ title }) => {
     const [value, setValue] = useState(''); 
+    const navigate = useNavigate();
 
     // Initial active div id is set here
     const [activeButton, setActiveButton] = useState('allorders');
@@ -83,7 +85,7 @@ export const TrackOrders = ({ title }) => {
                                     <button type='button' className='button active-side'> Track </button>
                                     <button type='button' className='button ' > Buy this again </button>
                                     <button type='button' className='button ' > Return/Refund </button>
-                                    <button type='button' className='button ' > Leave a review </button>
+                                    <button type='button' className='button ' onClick={() => handleClick('/reviews', navigate)}> Leave a review </button>
                                     <button type='button' className='button ' > Change address </button>
                                 </div>
                             </main>
@@ -127,7 +129,7 @@ export const TrackOrders = ({ title }) => {
                                     <button type='button' className='button active-side'> Track </button>
                                     <button type='button' className='button ' > Buy this again </button>
                                     <button type='button' className='button ' > Return/Refund </button>
-                                    <button type='button' className='button ' > Leave a review </button>
+                                    <button type='button' className='button ' onClick={() => handleClick('/reviews', navigate)}> Leave a review </button>
                                     <button type='button' className='button ' > Change address </button>
                                 </div>
                             </main>
@@ -158,7 +160,7 @@ export const TrackOrders = ({ title }) => {
                                 </div>
                                 <div className='minor-btns'>
                                     <button type='button' className='button active-side'> Track </button>
-                                    <button type='button' className='button ' > Leave a review </button>
+                                    <button type='button' className='button ' onClick={() => handleClick('/reviews', navigate)}> Leave a review </button>
                                     <button type='button' className='button ' > Return/Refund </button>
                                     <button type='button' className='button ' > Buy this again </button>
                                 </div>
