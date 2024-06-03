@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import paysprintNewLogo from "assets/updatedAshopree/footer_logo.png";
+import paysprintNewLogo from "assets/updatedAshopree/edited_ashopree_footer.png";
 import fbIconWhite from "assets/svg/fb_icon_white.svg";
 import igIconWhite from "assets/svg/ig_icon_white.svg";
 import linkedinIconWhite from "assets/svg/linkedin_icon_white.svg";
@@ -60,7 +60,7 @@ export const EstoreFooter = () => {
               <li> <a href="/contact"> Global Support </a> </li>
               <li> <a href="/contact"> Merchant Support </a> </li>
               <li> <a href="/community"> aShopree Community </a> </li>
-              <li> <a href="/merchant-register"> Create Merchant Account </a> </li>
+              <li> <a href="/merchant-register"> Create Seller Account </a> </li>
             </ul>
           </div>
 

@@ -58,39 +58,14 @@ export const Login = ({ title }) => {
     }
   };
 
-  // const submitLogin = () => {
-  //     try {
-        
-  //       if (accountNumber !== "" && transactionPin !== "") {
-  //         auth.loginAction({ accountNumber, transactionPin});
-  //         return;
-          
-  //       } else {
-  //         Swal.fire({
-  //           icon: 'error',
-  //           title: 'Please try again',
-  //           text: 'Sorry one of your credentials was not correct'
-  //         });
-  //       }
-
-        
-  //     } catch (error) {
-  //       if(error.response) {
-  //         alert(error.response.data.message);
-  //       } else {
-  //         alert(error.message);
-  //       }
-  //     }
-  // }
-
 
   return (
     <div className="estore-container">
         
         <section className="login_page_for_individual current_screen">
           <div className="acct-type">
-            <div className="personal" type="button" onClick={ () => toggleLoginScreen('personal-acct') }> <p> Personal Account </p> </div>
-            <div className="merchant" type="button" onClick={ () => toggleLoginScreen('merchant-acct') }> <p> Merchant Account </p> </div>
+            <div className="personal" type="button" onClick={ () => toggleLoginScreen('personal-acct') }> <p> Buyer Account </p> </div>
+            <div className="merchant" type="button" onClick={ () => toggleLoginScreen('merchant-acct') }> <p> Seller Account </p> </div>
           </div>
 
           <div className="personal-acct-form">
@@ -129,8 +104,8 @@ export const Login = ({ title }) => {
         
         <section className="login_page_for_merchant">
           <div className="acct-type">
-            <div className="personal" type="button" onClick={ () => toggleLoginScreen('personal-acct') }> <p> Personal Account </p> </div>
-            <div className="merchant" type="button" onClick={ () => toggleLoginScreen('merchant-acct') }> <p> Merchant Account </p> </div>
+            <div className="personal" type="button" onClick={ () => toggleLoginScreen('personal-acct') }> <p> Buyer Account </p> </div>
+            <div className="merchant" type="button" onClick={ () => toggleLoginScreen('merchant-acct') }> <p> Seller Account </p> </div>
           </div>
 
           <div className="merchant-acct-form">

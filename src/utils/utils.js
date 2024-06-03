@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 
 export const getConditionalClassName = (
@@ -110,29 +110,27 @@ export function getLoginScreen() {
   }
 }
 
-
-export function getStartedOption() {
-  const emailSignIn = document.getElementsByClassName("emailSignIn");
-  const paySprintSignin = document.getElementsByClassName("paysprintSignin");
+export function handleLoginOption(emailSignInClass, paySprintSignInClass, infoTitle, infoText) {
+  const emailSignIn = document.getElementsByClassName(emailSignInClass);
+  const paySprintSignIn = document.getElementsByClassName(paySprintSignInClass);
   let index = 0;
   let index2 = 0;
 
   for (index; index < emailSignIn.length; index++) {
-
     emailSignIn[index].classList.remove("loginOption");
   }
 
-  for (index2; index2 < paySprintSignin.length; index2++) {
-
-    paySprintSignin[index2].classList.add("loginOption");
+  for (index2; index2 < paySprintSignIn.length; index2++) {
+    paySprintSignIn[index2].classList.add("loginOption");
   }
 
   Swal.fire({
     icon: 'info',
-    title: 'PaySprint Authentication',
-    text: 'Please proceed to login with your PaySprint details',
+    title: infoTitle,
+    text: infoText,
   });
 }
+
 
 export function toggleLoginScreen(accountType) {
   const personalForm = document.querySelector('.login_page_for_individual');
@@ -215,6 +213,36 @@ export function useCounter(initialValue = 0) {
   return { count, increment, decrement };
 }
 
+export function useCounterForEdit(initialValue) {
+  const [countForEdit, setCount] = useState(initialValue);
+
+  // Ensuring that the initialValue is defined before using it
+  useEffect(() => {
+    if (initialValue !== undefined) {
+      setCount(initialValue);
+    }
+  }, [initialValue]);
+
+  // const incrementForEdit = () => {
+  //   setCount(prevCount => prevCount + 1);
+  // };
+
+  const incrementForEdit = () => {
+    setCount(countForEdit + 1);
+  };
+
+  const decrementForEdit = () => {
+    setCount(countForEdit - 1);
+  };
+
+  // const decrementForEdit = () => {
+  //   setCount(prevCount => prevCount - 1);
+  // };
+
+  return { countForEdit, incrementForEdit, decrementForEdit };
+}
+
+
 export function alertMsg () {
   Swal.fire({
     icon: 'error',
@@ -248,3 +276,29 @@ export function confirmationOfAction(auth) {
   });
   
 }
+
+
+export function dynamicDisplayEffects(elementToHide, activeDivId, activeButtonClass) {
+  if (!elementToHide || !activeDivId || !activeButtonClass) {
+    console.error("Required parameters are missing.");
+    return;
+  }
+
+  const previouslyActiveButton = document.querySelector('.' + activeButtonClass);
+  if (previouslyActiveButton) {
+    previouslyActiveButton.classList.remove(activeButtonClass);
+  }
+
+  const divsToHide = document.querySelectorAll(elementToHide);
+  divsToHide.forEach(div => div.style.display = 'none');
+
+  const targetDiv = document.getElementById(activeDivId);
+  if (!targetDiv) {
+    console.error("Active div not found.");
+    return;
+  }
+
+  targetDiv.style.display = 'flex';
+  targetDiv.classList.add(activeButtonClass);
+}
+

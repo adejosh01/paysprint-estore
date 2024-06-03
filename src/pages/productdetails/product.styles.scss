@@ -41,7 +41,7 @@
                     width: 13rem;
                     height: 9rem;
                     border-radius: 10px;
-                    border: 1px solid #E7AA07;
+                    border: 1px solid #4F0B92;
                     cursor: pointer;
                 }
             }
@@ -155,21 +155,32 @@
                         color: #2D334A;
                     }
                     &:not(:first-child) {
-                        background-color: #E7AA07;
+                        background-color: #4F0B92;
+                    }
+                    &:not(:last-child) {
+                        background-color: peru;
                     }
                     &:last-child {
                         background-color: #fff;
-                        border: 1px solid #E7AA07;
+                        border: 1px solid #4F0B92;
                     }
                 }
                 button:hover {
                     &:first-child {
                         background-color: #fff;
-                        border: 1px solid #E7AA07;
+                        border: 1px solid #4F0B92;
                     }
                     &:last-child {
-                        background-color: #E7AA07;
+                        color: #fff;
+                        background-color: #4F0B92;
                     }
+                }
+                .add2cart {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #4F0B92 !important;
+                    color: #fff;
                 }
             }
         }

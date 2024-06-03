@@ -1,9 +1,19 @@
-import notARobot from "assets/images/not_a_robot.png";
+// import notARobot from "assets/images/not_a_robot.png";
 import shield from "assets/svg/shield.svg";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { SignupFormContext } from "context/signup-form.context";
+import config from "../../config";
+import ReCAPTCHA from "react-google-recaptcha";
 
 export const SignupFourthPage = () => {
+
+  const recaptcha_site_key = config().recaptcha.site_key;
+  const [token, setToken] = useState('');
+  // console.log("My recaptcha token is: " + token);
+
+  const handleTokenChange = (newToken) => {
+    setToken(newToken);
+  };
 
   const {
     hearAboutUs,
@@ -61,7 +71,7 @@ export const SignupFourthPage = () => {
           />
         </label>
         <label htmlFor="accept">
-          I accept the <a href="www.google.com">Terms and Conditions</a>
+          I accept the <a href="/terms-of-use">Terms and Conditions</a>
           <span>*</span>
           <input
             type="checkbox"
@@ -72,7 +82,8 @@ export const SignupFourthPage = () => {
         </label>
 
         <div className="verification">
-          <img src={notARobot} alt="" />
+          {/* <img src={notARobot} alt="" /> */}
+          <ReCAPTCHA sitekey={recaptcha_site_key} onChange={handleTokenChange}/>
           <em>
             <img src={shield} alt="" />
             Protected by bank-level security

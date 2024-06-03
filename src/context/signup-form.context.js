@@ -2,6 +2,11 @@ import { createContext, useState } from "react";
 import { getMaxDOBForAdult } from "utils/utils";
 
 export const SignupFormContext = createContext({
+  legal_name: "",
+  business_phone: "",
+  industry: "",
+  website: "",
+  operate_sfs: "",
   email: "",
   confirmEmail: "",
   password: "",
@@ -26,6 +31,11 @@ export const SignupFormContext = createContext({
   acceptTandC: null,
   specifyHeardAboutUs: "",
   specifySourceOfFunds: "",
+  setLegalName: () => null,
+  setBusinessPhone: () => null,
+  setIndustry: () => null,
+  setWebsite: () => null,
+  setOperateStoreFront: () => null,
   setEmail: () => null,
   setConfirmEmail: () => null,
   setPassword: () => null,
@@ -54,6 +64,11 @@ export const SignupFormContext = createContext({
 
 
 export const SignupFormContextProvider = ({ children }) => {
+  const [legal_name, setLegalName] = useState("");
+  const [business_phone, setBusinessPhone] = useState("");
+  const [industry, setIndustry] = useState("");
+  const [website, setWebsite] = useState("");
+  const [operate_sfs, setOperateStoreFront] = useState("");
   const [email, setEmail] = useState("");
   const [confirmEmail, setConfirmEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -82,6 +97,11 @@ export const SignupFormContextProvider = ({ children }) => {
   return (
     <SignupFormContext.Provider
       value={{
+        legal_name,
+        business_phone,
+        industry,
+        website,
+        operate_sfs,
         email,
         confirmEmail,
         password,
@@ -116,6 +136,11 @@ export const SignupFormContextProvider = ({ children }) => {
         setStreetName,
         setPostalCode,
         setState,
+        setLegalName,
+        setBusinessPhone,
+        setIndustry,
+        setWebsite,
+        setOperateStoreFront,
         setEmail,
         setConfirmEmail,
         setPassword,

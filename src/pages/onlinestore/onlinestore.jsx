@@ -122,7 +122,7 @@ export const OnlineStore = ({ title }) => {
                 </div>
 
                 <button type="button" onClick={ () => handleClick('/merchant-register', navigate) }>
-                  Create Merchant account
+                  Create Seller's account
                 </button>
               </div>
             </div>

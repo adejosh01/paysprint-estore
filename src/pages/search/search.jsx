@@ -112,7 +112,7 @@ export const Search = ({ title }) => {
                 </div>
 
                 <button type="button">
-                   Create Merchant account 
+                   Create Seller's account 
                 </button>
               </div>
 
