@@ -182,8 +182,9 @@
             border-radius: 12px;
           }
           div.banner {
-            background-image: url("../../assets/updatedAshopree/single_product_banner.png");
-            background-repeat: round;
+            // background-image: url("../../assets/updatedAshopree/single_product_banner.png");
+            // background-repeat: round;
+            background-color: #4F0B92;
             position: absolute;
             margin-top: -6.8rem;
             width: 100%;
@@ -198,18 +199,18 @@
                 &:first-child {
                   font: 200 20px "Bella Script";
                   line-height: 20px;
-                  color: #000;
+                  color: #fff;
                 }
                 &:last-child {
                   font: 800 13px "plus jakarta sans";
-                  color: #000;
+                  color: #fff;
                   text-transform: uppercase;
                 }
               }
             }
             p {
               font: 500 15px "plus jakarta sans";
-              color: #000;
+              color: #fff;
             }
           }
           .imgdescription {

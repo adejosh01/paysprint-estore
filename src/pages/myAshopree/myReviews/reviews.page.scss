@@ -105,7 +105,176 @@
                         }
                     }
                     main {
-                        
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4rem;
+                        padding: 0rem 6rem;
+                        .one-thread {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 1rem;
+                            .user-comment::before {
+                                height: 20%;
+                                left: 50rem;
+                                top: 40rem;
+                                width: 2px;
+                                background: #c7cacb;
+                                content: "";
+                                position: absolute;
+                            }
+                            div.user-comment {
+                                display: flex;
+                                gap: 3rem;
+                                div.avatar {
+                                    border: 3px solid #fff;
+                                    border-radius: 4px;
+                                    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+                                    float: left;
+                                    height: 65px;
+                                    overflow: hidden;
+                                    position: relative;
+                                    width: 65px;
+                                    z-index: 99;
+                                }
+                                .comment-box::before {
+                                    border-color: transparent rgba(0, 0, 0, .05);
+                                    border-width: 11px 13px 11px 0;
+                                    left: -12px;
+                                }
+                                .comment-box {
+                                    width: 100%;
+                                    .comment-head {
+                                        background: #fcfcfc;
+                                        border-bottom: 1px solid #e5e5e5;
+                                        border-radius: 4px 4px 0 0;
+                                        overflow: hidden;
+                                        padding: 10px 12px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 5px;
+                                        h6 {
+                                            color: #4F0B92;
+                                            span {
+                                                color: #999;
+                                                left: 15px;
+                                                font-size: 13px;
+                                                position: relative;
+                                                top: 1px;
+                                            }
+                                        }
+                                        hr {
+                                            border: 2px solid rgba(0, 0, 0, .1);
+                                        }
+                                        .comment-content {
+                                            background: #fff;
+                                            border-radius: 0 0 4px 4px;
+                                            color: #595959;
+                                            font-size: 20px;
+                                            padding: 12px;
+                                        }
+                                    }
+                                }
+                                .comment-box::after {
+                                    border-color: transparent #fcfcfc;
+                                    border-style: solid;
+                                    border-width: 10px 25px 10px 0;
+                                    content: "";
+                                    display: block;
+                                    height: 0;
+                                    left: 54rem;
+                                    position: absolute;
+                                    top: 36rem;
+                                    width: 0;
+                                }
+                            }
+                            .my-reply::before {
+                                background: #c7cacb;
+                                content: "";
+                                height: 2px;
+                                left: 50rem;
+                                position: absolute;
+                                top: 52.5rem;
+                                width: 60px;
+                            }
+                            div.my-reply {
+                                display: flex;
+                                gap: 3rem;
+                                clear: both;
+                                margin-top: 15px;
+                                padding-left: 88px;
+                                div.avatar {
+                                    border: 3px solid #fff;
+                                    border-radius: 4px;
+                                    box-shadow: 0 1px 2px rgba(0, 0, 0, .2);
+                                    float: left;
+                                    height: 65px;
+                                    overflow: hidden;
+                                    position: relative;
+                                    width: 65px;
+                                    z-index: 99;
+                                }
+                                div.reply-box::before {
+                                    border-color: transparent rgba(0, 0, 0, .05);
+                                    border-width: 11px 13px 11px 0;
+                                    left: -12px;
+                                }
+                                .reply-box {
+                                    width: 100%;
+                                    .comment-head {
+                                        background: #fcfcfc;
+                                        border-bottom: 1px solid #e5e5e5;
+                                        border-radius: 4px 4px 0 0;
+                                        overflow: hidden;
+                                        padding: 10px 12px;
+                                        display: flex;
+                                        flex-direction: column;
+                                        gap: 5px;
+                                        h6 {
+                                            color: #000;
+                                            font-weight: 700;
+                                            span {
+                                                color: #999;
+                                                left: 15px;
+                                                font-size: 13px;
+                                                position: relative;
+                                                top: 1px;
+                                                font-weight: 500;
+                                            }
+                                        }
+                                        hr {
+                                            border: 2px solid rgba(0, 0, 0, .1);
+                                        }
+                                        .comment-content {
+                                            background: #fff;
+                                            border-radius: 0 0 4px 4px;
+                                            color: #595959;
+                                            font-size: 20px;
+                                            padding: 12px;
+                                        }
+                                    }
+                                }
+                                .reply-box::after {
+                                    border-color: transparent #fcfcfc;
+                                    border-style: solid;
+                                    border-width: 10px 25px 10px 0;
+                                    content: "";
+                                    display: block;
+                                    height: 0;
+                                    left: 62.5rem;
+                                    position: absolute;
+                                    top: 49.5rem;
+                                    width: 0;
+                                }
+                            }
+                            .my-reply::after {
+                                clear: both;
+                                content: "";
+                                display: block;
+                                height: 0;
+                                width: 0;
+                            }
+                        }
                     }
                     div.all-flaggedreviews {
                         display: flex;
