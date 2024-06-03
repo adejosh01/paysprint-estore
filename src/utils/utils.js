@@ -111,28 +111,50 @@ export function getLoginScreen() {
 }
 
 
-export function getStartedOption() {
-  const emailSignIn = document.getElementsByClassName("emailSignIn");
-  const paySprintSignin = document.getElementsByClassName("paysprintSignin");
+// export function getStartedOption() {
+//   const emailSignIn = document.getElementsByClassName("emailSignIn");
+//   const paySprintSignin = document.getElementsByClassName("paysprintSignin");
+//   let index = 0;
+//   let index2 = 0;
+
+//   for (index; index < emailSignIn.length; index++) {
+
+//     emailSignIn[index].classList.remove("loginOption");
+//   }
+
+//   for (index2; index2 < paySprintSignin.length; index2++) {
+
+//     paySprintSignin[index2].classList.add("loginOption");
+//   }
+
+//   Swal.fire({
+//     icon: 'info',
+//     title: 'PaySprint Authentication',
+//     text: 'Please proceed to login with your PaySprint details',
+//   });
+// }
+
+export function handleLoginOption(emailSignInClass, paySprintSignInClass, infoTitle, infoText) {
+  const emailSignIn = document.getElementsByClassName(emailSignInClass);
+  const paySprintSignIn = document.getElementsByClassName(paySprintSignInClass);
   let index = 0;
   let index2 = 0;
 
   for (index; index < emailSignIn.length; index++) {
-
     emailSignIn[index].classList.remove("loginOption");
   }
 
-  for (index2; index2 < paySprintSignin.length; index2++) {
-
-    paySprintSignin[index2].classList.add("loginOption");
+  for (index2; index2 < paySprintSignIn.length; index2++) {
+    paySprintSignIn[index2].classList.add("loginOption");
   }
 
-  Swal.fire({
-    icon: 'info',
-    title: 'PaySprint Authentication',
-    text: 'Please proceed to login with your PaySprint details',
-  });
+  // Swal.fire({
+  //   icon: 'info',
+  //   title: infoTitle,
+  //   text: infoText,
+  // });
 }
+
 
 export function toggleLoginScreen(accountType) {
   const personalForm = document.querySelector('.login_page_for_individual');
