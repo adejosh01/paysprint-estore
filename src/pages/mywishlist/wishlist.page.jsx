@@ -5,13 +5,53 @@ import itemimage from 'assets/images/estore/productDetails/cokesecond.png';
 import washingMachine from 'assets/images/estore/rectangle-22.png';
 import sneakers from 'assets/images/estore/rectangle-23.png';
 import { performOperation } from 'components/randomFunctions/counter';
-
+import config from "../../config";
+import { useAuth } from "../../hook/AuthProvider";
+import axios from "axios";
 
 export const MyWishlist = ({title}) => {
+
+    const apiUrl = config().baseUrl;
+    const auth = useAuth();
+    const [wishListItem, setWishListItem] = useState([]);
+
     useEffect(() => {
         document.title = title;
         window.scrollTo(0, 0);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+
+        // Get My Wishlist ...
+        const getWishListItems = async () => {
+
+            try {
+
+                const thisconfig = {
+                    method: 'get',
+                    url: `${apiUrl}/shop/product/mywishlist`,
+                    headers: {
+                        Authorization: 'Bearer ' + auth.token
+                    }
+                }
+
+                const response = await axios(thisconfig);
+
+                setWishListItem(response.data.data);
+
+            } catch (error) {
+                if (error.response) {
+                    if (error.response.status === 401) {
+                        setTimeout(() => window.location.href = '/login', 1000);
+                    }
+                }
+            }
+
+
+
+        }
+
+        getWishListItems();
+
+
+
       }, []);    
     
     let currentNumber = 1;
@@ -35,73 +75,45 @@ return (
         <section className="wishlist">
             <div className="relevantstuffs">
                 <div className='titlesandall'>
-                    <h1> My Wishlist <span> (3) </span> </h1>
-                    <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
-                        <img src={deleteIcon} alt="the trash bin" /> Remove    
-                    </button>
+                    <h1> My Wishlist <span> ({wishListItem.length}) </span> </h1>
                 </div>
 
                 <div className='details'>
                     <div className="detailstitle">
                         <p> Product </p>
-                        <p> Quantity </p>
+                        <p> In Stock </p>
                         <p> Price </p>
                     </div>
 
                     <div className="realdeals">
-                        <div>
-                            <div>
-                                <img src={itemimage} alt="" />
-                                <p> Coca cola 60cl * 12</p>
-                            </div>
-                            <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                                <div>
-                                    <p onClick={ handleSubtraction }> - </p>
-                                    <p style={{ margin: '2rem 1rem' }}> { number} </p>
-                                    <p onClick={handleAddition}> + </p>
-                                </div>
-                                <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
-                                    <img src={deleteIcon} alt="the trash bin" /> Remove    
-                                </button>
-                            </div>
-                            <p className='price'> #1200.00 </p>
-                        </div> <br /> <hr />
-
-                        <div>
-                            <div>
-                                <img src={sneakers} alt="" />
-                                <p> White Sneakers</p>
-                            </div>
-                            <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                                <div>
-                                    <p onClick={handleSubtraction}> - </p>
-                                    <p style={{ margin: '2rem 1rem' }}> {number} </p>
-                                    <p onClick={handleAddition}> + </p>
-                                </div>
-                                <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
-                                    <img src={deleteIcon} alt="the trash bin" /> Remove    
-                                </button>
-                            </div>
-                            <p className='price'> #1200.00 </p>
-                        </div> <br /> <hr />
-
-                        <div>
-                            <div>
-                                <img src={washingMachine} alt="" />
-                                <p> Washing Machine</p>
-                            </div>
-                            <div style={{  display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                                <div>
-                                    <p> - </p>
-                                    <p style={{ margin: '2rem 1rem' }}> 1 </p>
-                                    <p> + </p>
-                                </div>
-                                <button type='button' style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}> 
-                                    <img src={deleteIcon} alt="the trash bin" /> Remove    
-                                </button>
-                            </div>
-                            <p className='price'> #1200.00 </p>
-                        </div> <br /> <hr />
+                    {
+                        wishListItem.length > 0 ? (
+                                wishListItem.map((item, index) => (
+                                    <>
+                                        <div key={index}>
+                                            <div>
+                                                <img src={item.product.image} alt="" />
+                                                <p> {item.product.productName}</p>
+                                            </div>
+                                            <div style={{ display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                                                <div>
+                                                    <p style={{ margin: '2rem 1rem' }}> {item.product.stock} </p>
+                                                </div>
+                                            </div>
+                                            <p className='price'> {item.currencySymbol}{item.product.amount} </p>
+                                        </div> <br /> <hr />
+                                    </>
+                                ))
+                            
+                        ) : (
+                                <>
+                                        <div>
+                                            <p>No product added to wishlist yet</p>
+                                        </div> <br /> <hr />
+                                </>
+                        )
+                    }
+                        
                     </div>
                 </div>
             </div>

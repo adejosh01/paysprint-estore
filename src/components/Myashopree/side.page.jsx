@@ -23,16 +23,16 @@ const MyashopreeSidePage = () => {
             <div className="left-side">
                 <ul className="side-menu">
                     <NavLink to={'/myashopree'}> <p> {pathname === '/myashopree' ? ( <img src={graph_metric} alt='graphImg' /> ) : ( <img src={graph_metric2} alt="graphImg" /> )}  Reward Metrics </p> </NavLink>
-                    <NavLink to={'/recent-stores'}> <p> <FontAwesomeIcon icon={faCartShopping} /> Favourite Stores </p> </NavLink>
-                    <NavLink to={'/mywishlist'}> <p> <FontAwesomeIcon icon={faGift} /> My Wishlist </p> </NavLink>
-                    <NavLink to={'/track-orders'}> <p> <img src={product_icon} alt="productImg" /> Track Orders </p> </NavLink>
-                    <NavLink to={'/purchase-history'}> <p> <FontAwesomeIcon icon={faArrowTrendUp} /> Purchase History </p> </NavLink>
-                    <NavLink to={'/store-location'}> <p> <FontAwesomeIcon icon={faGlobe} /> Store Locations </p> </NavLink>
+                    <NavLink to={'/myashopree/recent-stores'}> <p> <FontAwesomeIcon icon={faCartShopping} /> Favourite Stores </p> </NavLink>
+                    <NavLink to={'/myashopree/wishlist'}> <p> <FontAwesomeIcon icon={faGift} /> My Wishlist </p> </NavLink>
+                    <NavLink to={'/myashopree/track-orders'}> <p> <img src={product_icon} alt="productImg" /> Track Orders </p> </NavLink>
+                    <NavLink to={'/myashopree/purchase-history'}> <p> <FontAwesomeIcon icon={faArrowTrendUp} /> Purchase History </p> </NavLink>
+                    <NavLink to={'/myashopree/store-location'}> <p> <FontAwesomeIcon icon={faGlobe} /> Store Locations </p> </NavLink>
                     <NavLink to={'/messages'}> <p> <FontAwesomeIcon icon={faMessage} /> Messages </p> </NavLink>
-                    <NavLink to={'/reviews'}> <p> <FontAwesomeIcon icon={faStarHalfStroke} /> My Reviews </p> </NavLink>
-                    <NavLink to={'/profile'}> <p> <FontAwesomeIcon icon={faUser} /> Profile </p> </NavLink>
+                    <NavLink to={'/myashopree/reviews'}> <p> <FontAwesomeIcon icon={faStarHalfStroke} /> My Reviews </p> </NavLink>
+                    <NavLink to={'/myashopree/profile'}> <p> <FontAwesomeIcon icon={faUser} /> Profile </p> </NavLink>
                     <NavLink to={'/community'}> <p> <FontAwesomeIcon icon={faPeopleGroup} /> Community </p> </NavLink>
-                    <NavLink to={'/settings'}> <p> <FontAwesomeIcon icon={faGear} /> Settings </p> </NavLink>
+                    <NavLink to={'/myashopree/settings'}> <p> <FontAwesomeIcon icon={faGear} /> Settings </p> </NavLink>
                     <NavLink to={'logout'}> <p onClick={ () => confirmationOfAction(auth) }> <img src={logout} alt="logoutImg" /> Sign Out </p> </NavLink>
                 </ul>    
             </div>
