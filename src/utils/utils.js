@@ -110,7 +110,7 @@ export function getLoginScreen() {
   }
 }
 
-export function handleLoginOption(emailSignInClass, paySprintSignInClass, infoTitle, infoText) {
+export function handleLoginOption(emailSignInClass, paySprintSignInClass) {
   const emailSignIn = document.getElementsByClassName(emailSignInClass);
   const paySprintSignIn = document.getElementsByClassName(paySprintSignInClass);
   let index = 0;
@@ -124,11 +124,6 @@ export function handleLoginOption(emailSignInClass, paySprintSignInClass, infoTi
     paySprintSignIn[index2].classList.add("loginOption");
   }
 
-  Swal.fire({
-    icon: 'info',
-    title: infoTitle,
-    text: infoText,
-  });
 }
 
 
