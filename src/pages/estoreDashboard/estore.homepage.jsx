@@ -183,19 +183,33 @@ export const EstoreDashboard = ({ title }) => {
                       <Link to={`/productdetails/${item.productCode}`} key={index}>
                       <div className="eachItem" key={index}>
                         <img className="prodImage" src={item.image} alt={item.productName} />
+                        <div className="banner"> 
+                          <div> <p> Semi - Annual </p> <p> Savings </p> </div> 
+                          <p> 20% off discount </p>
+                        </div>
                         <div className="imgdescription">
-                          <p className="nameofitem">{item.productName}</p>
+                          <div className="first">
+                            <p className="nameofitem">{item.productName}</p>
                             <p className="priceofitem">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
-                          {/* <div>
-                            <span>
-                              <img src={starimage} alt="justtheIconOfAStar" />
-                              <img src={starimage} alt="justtheIconOfAStar" />
-                              <img src={starimage} alt="justtheIconOfAStar" />
-                              <img src={starimage} alt="justtheIconOfAStar" />
-                              <img src={starimage} alt="justtheIconOfAStar" />
-                            </span>
-                            <p className="initialprice"> 4.56 (132 reviews) </p>
-                          </div> */}
+                            <div>
+                              <p className="initialprice">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')}</p>
+                              <p title="We've sold 100 pieces already!"> <FontAwesomeIcon icon={faFireFlameCurved} /> 100 sold </p>
+                              <button type="button"> <FontAwesomeIcon icon={faCartPlus} /> </button>
+                            </div>
+                          </div>
+                          <div className="second">
+                            <p className="items-left"> Only 3 left </p>
+                            <div className='ratings'>
+                                <span>
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                    <img src={starimage} alt="justtheIconOfAStar" />
+                                </span>
+                                <p className="initialprice"> 4.56 (132 reviews) </p>
+                            </div>
+                          </div>
                         </div>
                       </div>
                       </Link>

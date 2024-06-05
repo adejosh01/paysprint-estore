@@ -10,7 +10,7 @@ import { handleLoginOption } from "utils/utils";
 import { RESPONSE_STATES } from "utils/constants";
 import { Loader } from "components/loader/loader.component";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMailBulk } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle, faMailBulk } from "@fortawesome/free-solid-svg-icons";
 
 
 export const GetStarted = ({ title }) => {
@@ -123,8 +123,8 @@ export const GetStarted = ({ title }) => {
                 </div>
 
                 <div className="externals">
-                  <button type="button" onClick={ () => handleLoginOption("emailSignIn", "paysprintSignin", "PaySprint Authentication", "Please proceed to login with your PaySprint details")}> <img src={paysprint} alt="paysprint_logo" /> <p> PaySprint </p> </button>
-                  <button type="button" onClick={ () => handleLoginOption("paysprintSignin", "emailSignIn", "Email Address Authentication", "Please proceed to login with your Email details")} style={{ fontSize: '25px' }}> <FontAwesomeIcon icon={faMailBulk} /> <p> Use Email Address </p> </button>
+                  <button type="button" onClick={ () => handleLoginOption("emailSignIn", "paysprintSignin")}> <img src={paysprint} alt="paysprint_logo" /> <p> PaySprint </p> </button>
+                  <button type="button" onClick={ () => handleLoginOption("paysprintSignin", "emailSignIn")} style={{ fontSize: '25px' }}> <FontAwesomeIcon icon={faMailBulk} /> <p> Use Email Address </p> </button>
                   {/* <button type="button"> <img src={linkedln} alt="linkedln_logo" /> <p> Linkedln </p> </button> */}
                 </div>
               </div>
@@ -133,6 +133,10 @@ export const GetStarted = ({ title }) => {
             <form action="#" className="emailSignIn loginOption">
               <div className="requirements">
                 <p> <hr /> <span className="alt"> or sign in with email </span> </p>
+                <div className="info-session">
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  <p> Please proceed to login with your Email details </p>
+                </div>
                 <div>
                   <p> Email Address <span> * </span> </p>
                   <input type="email" name="email" placeholder="john.doe@example.com" required value={email} onChange={e => setEmail(e.target.value)} />
@@ -156,6 +160,10 @@ export const GetStarted = ({ title }) => {
             <form action="#" className="paysprintSignin">
               <div className="requirements">
                 <p> <hr /> <span className="alt"> sign in with <span style={{ color: '#4F0B92', textDecoration: 'underline' }}> PAYSPRINT </span> </span> </p>
+                <div className="info-session">
+                  <FontAwesomeIcon icon={faInfoCircle} />
+                  <p> Please proceed to login with your PaySprint details </p>
+                </div>
                 <div>
                   <p> PaySprint Number <span> * </span> </p>
                   <input type="text" name="accountNumber" placeholder="123456789" required value={accountNumber} onChange={e => setAccountNumber(e.target.value)} />
