@@ -1,10 +1,6 @@
 import './trackOrders.page.scss';
 import { useEffect, useState } from 'react';
 import MyashopreeSidePage from 'components/Myashopree/side.page';
-import product1 from 'assets/images/estore/products/product1.png';
-import product2 from 'assets/images/estore/products/product2.png';
-import google from 'assets/updatedAshopree/google_logo.png';
-import paysprint from 'assets/updatedAshopree/paysprint_backgroundBlack.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleRight, faEnvelopeOpenText, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { dynamicDisplayEffects, handleClick } from 'utils/utils';
@@ -39,50 +35,62 @@ export const TrackOrders = ({ title }) => {
         if (clickedButton) {
         clickedButton.classList.add('active-nav-btn');
         }
+
+
+        
     };
+
+    const getOrderListItems = async () => {
+
+        try {
+
+            var status = "";
+            if (activeButton === "processing") {
+                status = "pending";
+            }
+            else if (activeButton === "shipped") {
+                status = "delivered";
+            }
+            else if (activeButton === "delivered") {
+                status = "delivered";
+            }
+            else if (activeButton === "returns") {
+                status = "declined";
+            }
+
+            const thisconfig = {
+                method: 'get',
+                url: `${apiUrl}/shop/product/myorders?status=${status}`,
+                headers: {
+                    Authorization: 'Bearer ' + auth.token
+                }
+            }
+
+            const response = await axios(thisconfig);
+
+            setOrderListItem(response.data.data);
+
+        } catch (error) {
+            if (error.response) {
+                if (error.response.status === 401) {
+                    setTimeout(() => window.location.href = '/login', 1000);
+                }
+            }
+        }
+
+
+
+    }
 
 
     useEffect(() => {
       document.title = title;
       window.scrollTo(0, 0);
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      
-
-        const getOrderListItems = async () => {
-
-            try {
-
-                console.log(123);
-
-                const thisconfig = {
-                    method: 'get',
-                    url: `${apiUrl}/shop/product/myorders?status=`,
-                    headers: {
-                        Authorization: 'Bearer ' + auth.token
-                    }
-                }
-
-                const response = await axios(thisconfig);
-
-                console.log(response.data);
-
-                setOrderListItem(response.data.data);
-
-            } catch (error) {
-                if (error.response) {
-                    if (error.response.status === 401) {
-                        setTimeout(() => window.location.href = '/login', 1000);
-                    }
-                }
-            }
-
-
-
-        }
 
         getOrderListItems();
 
-    }, [apiUrl]);
+    }, [apiUrl, activeButton]);
 
     return (
         <div className="estore-container">
@@ -133,7 +141,7 @@ export const TrackOrders = ({ title }) => {
 
                                     ) : (
                                          <>
-                                            <h4> You don't have any processing orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
+                                            <h4> You don't have any orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
                                         </>
                                     ) 
                             }
@@ -209,7 +217,7 @@ export const TrackOrders = ({ title }) => {
 
                                     ) : (
                                             <>
-                                                <h4> You don't have any processing orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
+                                                <h4> You don't have any shipped orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
                                             </>
                                     )
                                 }
@@ -255,7 +263,7 @@ export const TrackOrders = ({ title }) => {
 
                                     ) : (
                                             <>
-                                                <h4> You don't have any processing orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
+                                                <h4> You don't have any delivered orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
                                             </>
                                     )
                                 }
@@ -300,7 +308,7 @@ export const TrackOrders = ({ title }) => {
 
                                     ) : (
                                         <>
-                                            <h4> You don't have any processing orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
+                                            <h4> You don't have any returned orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
                                         </>
                                     )
                                 }
