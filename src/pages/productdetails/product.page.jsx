@@ -21,7 +21,7 @@ export const ProductDetails = ({ title }) => {
     const { count, increment, decrement } = useCounter(1);
     const navigate = useNavigate();
     const [myProduct, setSingleItemCartCount] = useState({});
-    const { countForEdit, incrementForEdit, decrementForEdit } = useCounterForEdit(myProduct.quantity);
+    const { countForEdit, incrementForEdit, decrementForEdit } = useCounterForEdit(myProduct ? myProduct.quantity : 1 );
 
 
     const addToCart = async (productId) => {
@@ -90,11 +90,15 @@ export const ProductDetails = ({ title }) => {
             const cartItems = response.data.data;
             // Get the specificProduct in cartItems based on productName
             const specificCartItem = cartItems.find(item => item.productName === specificProduct.productName);
+
+            if (specificCartItem) {
+                setSingleItemCartCount(specificCartItem);
+
+            }
             
             // console.log("My quantity is: " + cartItems[0].quantity); 
     
             // Update the set state with the specific product
-            setSingleItemCartCount(specificCartItem);
             
         } catch (error) {
             console.error('Error fetching cart items:', error);
@@ -105,8 +109,6 @@ export const ProductDetails = ({ title }) => {
 
 
     }, [setError, apiUrl, productCode, title, specificProduct.productName, user.token]);
-
-    console.log(myProduct);  
 
     return (
         <div className="estore-container">
