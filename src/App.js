@@ -31,7 +31,7 @@ import { SignupMerchantPage } from "pages/signupformerchant/signup_merchant.comp
 import PrivateRoute from "router/route";
 import { PrivacyPolicy } from "pages/privacyPolicy/privacy";
 import { RegisteredStore } from "pages/registeredStore/registered.page";
-import { MyWishlist } from "pages/mywishlist/wishlist.page";
+import { MyWishlist } from "pages/myAshopree/mywishlist/wishlist.page";
 import { Myashopree } from "pages/myAshopree/myashopree.page";
 import { StoreLocation } from "pages/myAshopree/storeLocation/storeLocation.page";
 import { GetStarted } from "pages/getstarted/getstarted";
