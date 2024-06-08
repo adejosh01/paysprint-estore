@@ -24,7 +24,7 @@ const MyashopreeSidePage = () => {
                 <ul className="side-menu">
                     <NavLink to={'/myashopree'}> <p> {pathname === '/myashopree' ? ( <img src={graph_metric} alt='graphImg' /> ) : ( <img src={graph_metric2} alt="graphImg" /> )}  Reward Metrics </p> </NavLink>
                     <NavLink to={'/favourite-stores'}> <p> <FontAwesomeIcon icon={faCartShopping} /> Favourite Stores </p> </NavLink>
-                    <NavLink to={'/#'}> <p> <FontAwesomeIcon icon={faGift} /> My Wishlist </p> </NavLink>
+                    <NavLink to={'/wishlist'}> <p> <FontAwesomeIcon icon={faGift} /> My Wishlist </p> </NavLink>
                     <NavLink to={'/track-orders'}> <p> <img src={product_icon} alt="productImg" /> Track Orders </p> </NavLink>
                     <NavLink to={'/purchase-history'}> <p> <FontAwesomeIcon icon={faArrowTrendUp} /> Purchase History </p> </NavLink>
                     <NavLink to={'/store-location'}> <p> <FontAwesomeIcon icon={faGlobe} /> Store Locations </p> </NavLink>

@@ -28,7 +28,7 @@ return (
 
                 <main>
                     <div className="first">
-                        <h4> My Favourite Store </h4>
+                        <h4> My Favourite Stores </h4>
                         <div className='grouped-companies'>
                             <div className="each-comp">
                                 <div className="head">
