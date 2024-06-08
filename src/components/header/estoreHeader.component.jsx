@@ -72,7 +72,7 @@ export const EstoreHeader = ({title}) => {
           <button onClick={() => setIsMenuOpen(false)}>
             <FontAwesomeIcon icon={faXmark} />
           </button>
-            { (pathname === '/myashopree' || pathname === '/track-orders' || pathname === '/store-location' || pathname === '/messages' || pathname === '/community' || pathname === '/reviews' ) ? (
+            { (pathname === '/myashopree' || pathname === '/track-orders' || pathname === '/store-location' || pathname === '/messages' || pathname === '/community' || pathname === '/reviews' || pathname === '/mywishlist' || pathname === '/purchase-history' ) ? (
                 <MyashopreeSidePage />
               ) : (
                 <ul>

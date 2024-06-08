@@ -38,6 +38,7 @@ import { GetStarted } from "pages/getstarted/getstarted";
 import { CommunityPost } from "pages/community/commuinity-post";
 import { TrackOrders } from "pages/myAshopree/trackOrders/trackOrders.page";
 import { MyReviews } from "pages/myAshopree/myReviews/reviews.page";
+import { MyPurchaseHistory } from "pages/myAshopree/purchaseHistory/purchasehistory";
 
 function App() {
 
@@ -66,6 +67,7 @@ function App() {
               <Route path="/store-location" exact element={<StoreLocation title="aShopree | My Shoppings " />} />
               <Route path="/track-orders" exact element={<TrackOrders title="aShopree | Track Orders " />} />
               <Route path="/reviews" exact element={<MyReviews title="aShopree | My Reviews " />} />
+              <Route path="/purchase-history" exact element={<MyPurchaseHistory title="aShopree | My Purchase History " />} />
             </Route>
 
             
