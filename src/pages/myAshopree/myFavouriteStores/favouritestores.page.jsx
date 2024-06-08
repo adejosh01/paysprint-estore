@@ -33,80 +33,124 @@ return (
                             <div className="each-comp">
                                 <div className="head">
                                     <p> PaySprint Inc. </p>
-                                    <p> Sans Fransisco </p>
-                                    <small> <button> ag </button> <button> ag </button> <button> ag </button> <button> ag </button> </small>
+                                    <p> Location: <span> Sans Fransisco </span> </p>
+                                    <p> Store Description: <span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta ipsam itaque rerum in optio recusandae non minus </span> </p>
                                 </div>
                                 <div className="img-sec">
                                     <img src={first_store} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'#'}> View Profile </Link>
+                                <Link to={'/messages'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
-                                    <p> PaySprint Inc. </p>
-                                    <p> Sans Fransisco </p>
-                                    <small> <button> ag </button> <button> ag </button> <button> ag </button> <button> ag </button> </small>
+                                    <p> Grace Furniture. </p>
+                                    <p> Location: <span> Sans Fransisco </span> </p>
+                                    <p> Store Description: <span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta ipsam itaque rerum in optio recusandae non minus </span> </p>
                                 </div>
                                 <div className="img-sec">
                                     <img src={second_store} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'#'}> View Profile </Link>
+                                <Link to={'/messages'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
-                                    <p> PaySprint Inc. </p>
-                                    <p> Sans Fransisco </p>
-                                    <small> <button> ag </button> <button> ag </button> <button> ag </button> <button> ag </button> </small>
+                                    <p> JSC Globals </p>
+                                    <p> Location: <span> Sans Fransisco </span> </p>
+                                    <p> Store Description: <span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta ipsam itaque rerum in optio recusandae non minus </span> </p>
                                 </div>
                                 <div className="img-sec">
                                     <img src={third} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'#'}> View Profile </Link>
+                                <Link to={'/messages'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
-                                    <p> PaySprint Inc. </p>
-                                    <p> Sans Fransisco </p>
-                                    <small> <button> ag </button> <button> ag </button> <button> ag </button> <button> ag </button> </small>
+                                    <p> Snapi </p>
+                                    <p> Location: <span> Sans Fransisco </span> </p>
+                                    <p> Store Description: <span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta ipsam itaque rerum in optio recusandae non minus </span> </p>
                                 </div>
                                 <div className="img-sec">
                                     <img src={fourth} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'#'}> View Profile </Link>
+                                <Link to={'/messages'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
                                     <p> PaySprint Inc. </p>
-                                    <p> Sans Fransisco </p>
-                                    <small> <button> ag </button> <button> ag </button> <button> ag </button> <button> ag </button> </small>
+                                    <p> Location: <span> Sans Fransisco </span> </p>
+                                    <p> Store Description: <span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta ipsam itaque rerum in optio recusandae non minus </span> </p>
                                 </div>
                                 <div className="img-sec">
                                     <img src={fifth} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'#'}> View Profile </Link>
+                                <Link to={'/messages'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
-                                    <p> PaySprint Inc. </p>
-                                    <p> Sans Fransisco </p>
-                                    <small> <button> ag </button> <button> ag </button> <button> ag </button> <button> ag </button> </small>
+                                    <p> Bemint </p>
+                                    <p> Location: <span> Sans Fransisco </span> </p>
+                                    <p> Store Description: <span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta ipsam itaque rerum in optio recusandae non minus </span> </p>
                                 </div>
                                 <div className="img-sec">
                                     <img src={six} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'#'}> View Profile </Link>
+                                <Link to={'/messages'}> Visit Store </Link>
+                            </div>
+                            <div className="each-comp">
+                                <div className="head">
+                                    <p> Gidicodes </p>
+                                    <p> Location: <span> Sans Fransisco </span> </p>
+                                    <p> Store Description: <span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta ipsam itaque rerum in optio recusandae non minus </span> </p>
+                                </div>
+                                <div className="img-sec">
+                                    <img src={first_store} alt="" />
+                                    <em> <p> Olusegun </p> <p> Founder </p> </em>
+                                </div>
+                                <Link to={'/messages'}> Visit Store </Link>
+                            </div>
+                            <div className="each-comp">
+                                <div className="head">
+                                    <p> PaySprint Inc. </p>
+                                    <p> Location: <span> Sans Fransisco </span> </p>
+                                    <p> Store Description: <span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta ipsam itaque rerum in optio recusandae non minus </span> </p>
+                                </div>
+                                <div className="img-sec">
+                                    <img src={second_store} alt="" />
+                                    <em> <p> Olusegun </p> <p> Founder </p> </em>
+                                </div>
+                                <Link to={'/messages'}> Visit Store </Link>
+                            </div>
+                            <div className="each-comp">
+                                <div className="head">
+                                    <p> PaySprint Inc. </p>
+                                    <p> Location: <span> Sans Fransisco </span> </p>
+                                    <p> Store Description: <span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta ipsam itaque rerum in optio recusandae non minus </span> </p>
+                                </div>
+                                <div className="img-sec">
+                                    <img src={third} alt="" />
+                                    <em> <p> Olusegun </p> <p> Founder </p> </em>
+                                </div>
+                                <Link to={'/messages'}> Visit Store </Link>
+                            </div>
+                            <div className="each-comp">
+                                <div className="head">
+                                    <p> GreenMarket </p>
+                                    <p> Location: <span> Sans Fransisco </span> </p>
+                                    <p> Store Description: <span> Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dicta ipsam itaque rerum in optio recusandae non minus </span> </p>
+                                </div>
+                                <div className="img-sec">
+                                    <img src={fourth} alt="" />
+                                    <em> <p> Olusegun </p> <p> Founder </p> </em>
+                                </div>
+                                <Link to={'/messages'}> Visit Store </Link>
                             </div>
                         </div>
-                    </div>
-                    <div className="second">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11582.683237685028!2d-79.77424329338455!3d43.75170639916074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882b52b7a5e6b8ad%3A0x1ebe29ba0f3e0e4d!2s2250%20Bovaird%20Dr%20E%20%23304%2C%20Brampton%2C%20ON%20L6R%200W3%2C%20Canada!5e0!3m2!1sen!2sid!4v1701869472878!5m2!1sen!2sid" title="304-2250 Bovaird Drive East, Brampton. ON L6R 0W3, Canada" width="100%" height="100%" frameborder="0" style={{ border: '0' }} allowfullscreen="">
-                        </iframe>
                     </div>
                 </main>
             </section>
