@@ -31,7 +31,7 @@ import { SignupMerchantPage } from "pages/signupformerchant/signup_merchant.comp
 import PrivateRoute from "router/route";
 import { PrivacyPolicy } from "pages/privacyPolicy/privacy";
 import { RegisteredStore } from "pages/registeredStore/registered.page";
-import { MyWishlist } from "pages/myAshopree/mywishlist/wishlist.page";
+import { MyFavouriteStores } from "pages/myAshopree/myFavouriteStores/favouritestores.page";
 import { Myashopree } from "pages/myAshopree/myashopree.page";
 import { StoreLocation } from "pages/myAshopree/storeLocation/storeLocation.page";
 import { GetStarted } from "pages/getstarted/getstarted";
@@ -62,7 +62,7 @@ function App() {
               <Route path="/messages" exact element={<Messages title="aShopree | Messages" />} />
               <Route path="/community" exact element={<Community title="aShopree | Community " />} />
               <Route path="/community/post" exact element={<CommunityPost title="aShopree | Community - Post Thread" />} />
-              <Route path="/mywishlist" exact element={<MyWishlist title="aShopree | My Wishlists " />} />
+              <Route path="/favourite-stores" exact element={<MyFavouriteStores title="aShopree | My Favourite Stores " />} />
               <Route path="/myashopree" exact element={<Myashopree title="aShopree | My aShopree " />} />
               <Route path="/store-location" exact element={<StoreLocation title="aShopree | My Shoppings " />} />
               <Route path="/track-orders" exact element={<TrackOrders title="aShopree | Track Orders " />} />

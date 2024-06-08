@@ -29,7 +29,7 @@ export const MyPurchaseHistory = ({ title }) => {
                         <div className="main-element">
                             <div className='first'>
                                 <div className='head'>
-                                    <h4> Purchase History </h4>
+                                    <h4> My Purchase History </h4>
                                     <div>
                                         <img src={exchange_icon} alt="" />
                                         <p> Point exchange </p>
