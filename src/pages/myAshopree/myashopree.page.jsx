@@ -148,30 +148,6 @@ export const Myashopree = ({ title }) => {
                         </div>
 
                         <AshopreePromos />
-                        <div className="promos">
-                            <h4> Promos </h4>
-                            <div className='parent'>
-
-                                {
-                                    rewardMetrics ? (
-                                        rewardMetrics.promos?.length > 0 ? (
-                                            rewardMetrics.promos.map((item, index) => (
-                                                <div key={index}>
-                                                    <div> <p> {index + 1} </p> <p> {item.name} </p> </div>
-                                                    <button> Get </button>
-                                                </div>
-                                            ))
-                                        ) : (
-                                            <div>
-                                                <div style={{ textAlign: "center" }}> No available promo </div>
-                                            </div>
-                                        )
-                                    ) : (<p>Loading ...</p>)
-                                }
-
-                                
-                            </div>
-                        </div>
                     </main>
                 </section>
 
