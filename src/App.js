@@ -31,13 +31,14 @@ import { SignupMerchantPage } from "pages/signupformerchant/signup_merchant.comp
 import PrivateRoute from "router/route";
 import { PrivacyPolicy } from "pages/privacyPolicy/privacy";
 import { RegisteredStore } from "pages/registeredStore/registered.page";
-import { MyWishlist } from "pages/mywishlist/wishlist.page";
+import { MyFavouriteStores } from "pages/myAshopree/myFavouriteStores/favouritestores.page";
 import { Myashopree } from "pages/myAshopree/myashopree.page";
 import { StoreLocation } from "pages/myAshopree/storeLocation/storeLocation.page";
 import { GetStarted } from "pages/getstarted/getstarted";
 import { CommunityPost } from "pages/community/commuinity-post";
 import { TrackOrders } from "pages/myAshopree/trackOrders/trackOrders.page";
 import { MyReviews } from "pages/myAshopree/myReviews/reviews.page";
+import { MyPurchaseHistory } from "pages/myAshopree/purchaseHistory/purchasehistory";
 
 function App() {
 
@@ -61,12 +62,12 @@ function App() {
               <Route path="/messages" exact element={<Messages title="aShopree | Messages" />} />
               <Route path="/community" exact element={<Community title="aShopree | Community " />} />
               <Route path="/community/post" exact element={<CommunityPost title="aShopree | Community - Post Thread" />} />
-
-              <Route path="/myashopree/wishlist" exact element={<MyWishlist title="aShopree | My Wishlists " />} />
+              <Route path="/favourite-stores" exact element={<MyFavouriteStores title="aShopree | My Favourite Stores " />} />
               <Route path="/myashopree" exact element={<Myashopree title="aShopree | My aShopree " />} />
-              <Route path="/myashopree/store-location" exact element={<StoreLocation title="aShopree | My Shoppings " />} />
-              <Route path="/myashopree/track-orders" exact element={<TrackOrders title="aShopree | Track Orders " />} />
-              <Route path="/myashopree/reviews" exact element={<MyReviews title="aShopree | My Reviews " />} />
+              <Route path="/store-location" exact element={<StoreLocation title="aShopree | My Shoppings " />} />
+              <Route path="/track-orders" exact element={<TrackOrders title="aShopree | Track Orders " />} />
+              <Route path="/reviews" exact element={<MyReviews title="aShopree | My Reviews " />} />
+              <Route path="/purchase-history" exact element={<MyPurchaseHistory title="aShopree | My Purchase History " />} />
             </Route>
 
             

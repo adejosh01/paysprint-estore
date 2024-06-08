@@ -6,6 +6,7 @@ import cashback from 'assets/svg/reward_page/cash_back.png';
 import review from 'assets/svg/reward_page/review_points.png';
 import ref from 'assets/svg/reward_page/referral_points.png';
 import ProgressBar from 'components/loader/progress.bar.component';
+import AshopreePromos from 'components/Myashopree/promos';
 import { useAuth } from 'hook/AuthProvider';
 import config from '../../config';
 import axios from 'axios'; 
@@ -146,30 +147,7 @@ export const Myashopree = ({ title }) => {
                             </div>
                         </div>
 
-                        <div className="promos">
-                            <h4> Promos </h4>
-                            <div className='parent'>
-
-                                {
-                                    rewardMetrics ? (
-                                        rewardMetrics.promos?.length > 0 ? (
-                                            rewardMetrics.promos.map((item, index) => (
-                                                <div key={index}>
-                                                    <div> <p> {index + 1} </p> <p> {item.name} </p> </div>
-                                                    <button> Get </button>
-                                                </div>
-                                            ))
-                                        ) : (
-                                            <div>
-                                                <div style={{ textAlign: "center" }}> No available promo </div>
-                                            </div>
-                                        )
-                                    ) : (<p>Loading ...</p>)
-                                }
-
-                                
-                            </div>
-                        </div>
+                        <AshopreePromos />
                     </main>
                 </section>
 
