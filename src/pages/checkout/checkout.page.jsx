@@ -99,6 +99,8 @@ export const Checkout = ({title}) => {
         }
     }
 
+    
+
     useEffect(() => {
 
         document.title = title;

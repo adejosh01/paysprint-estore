@@ -223,11 +223,11 @@ export function useCounterForEdit(initialValue) {
   // };
 
   const incrementForEdit = () => {
-    setCount(countForEdit + 1);
+    setCount(Number(countForEdit) + 1);
   };
 
   const decrementForEdit = () => {
-    setCount(countForEdit - 1);
+    setCount(Number(countForEdit) - 1);
   };
 
   // const decrementForEdit = () => {
