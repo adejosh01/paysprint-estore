@@ -34,8 +34,8 @@
             width: 100%;
             main {
                 width: 100%;
-                display: flex;
-                gap: 20px;
+                // display: flex;
+                // gap: 20px;
                 div.first {
                     flex: 0 0 50%;
                     display: flex;
@@ -47,7 +47,7 @@
                     }
                     div.grouped-companies {
                         display: grid;
-                        grid-template-columns: repeat(2, 1fr);
+                        grid-template-columns: repeat(3, 1fr);
                         gap: 30px;
                         div.each-comp {
                             padding: 15px;
@@ -69,6 +69,10 @@
                                     &:last-child {
                                         color: #737791;
                                         font: 400 20px 'circular std';
+                                        span {
+                                            font-size: 17px;
+                                            font-style: italic;
+                                        }
                                     }
                                 }
                                 small {
@@ -101,10 +105,6 @@
                             }
                         }
                     }
-                }
-                div.second {
-                    padding: 1.5rem;
-                    width: 100%;
                 }
             }
         }
@@ -147,6 +147,12 @@
                     gap: 0px;
                     div.main-element {
                         flex: 0 0 50%;
+                    }
+                    div.first {
+                        padding: 15px;
+                        div.grouped-companies {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
                     }
                 }
             }

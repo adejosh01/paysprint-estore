@@ -1,11 +1,9 @@
 import './purchasehistory.styles.scss';
 import { useEffect } from 'react';
 import MyashopreeSidePage from 'components/Myashopree/side.page';
-import exchange_icon from 'assets/svg/reward_page/exchange.png';
-import cashback from 'assets/svg/reward_page/cash_back.png';
-import review from 'assets/svg/reward_page/review_points.png';
-import ref from 'assets/svg/reward_page/referral_points.png';
 import AshopreePromos from 'components/Myashopree/promos';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
 
 
 
@@ -29,36 +27,82 @@ export const MyPurchaseHistory = ({ title }) => {
                         <div className="main-element">
                             <div className='first'>
                                 <div className='head'>
-                                    <h4> My Purchase History </h4>
-                                    <div>
-                                        <img src={exchange_icon} alt="" />
-                                        <p> Point exchange </p>
-                                    </div>
+                                    <h4> My Purchase Histories </h4>
                                 </div>
                                 <div className='stats'>
-                                    <div className="single">
-                                        <img src={cashback} alt="" />
-                                        <div>
-                                            <p> $1k </p>
-                                            <p> Cashback </p>
-                                            <p> +8% from yesterday </p>
-                                        </div>
-                                    </div>
-                                    <div className="single">
-                                        <img src={review} alt="" />
-                                        <div>
-                                            <p> 300 </p>
-                                            <p> Review Points </p>
-                                            <p> +5% from yesterday </p>
-                                        </div>
-                                    </div>
-                                    <div className="single">
-                                        <img src={ref} alt="" />
-                                        <div>
-                                            <p> 8 </p>
-                                            <p> Referral Points </p>
-                                            <p> 0.5% from yesterday </p>
-                                        </div>
+                                    <div class="table-container" >
+                                        <table class="custom-table">
+                                            <thead>
+                                                <th> # </th>
+                                                <th style={{ width: '40rem' }}> Description </th>
+                                                <th> Amount </th>
+                                            </thead>    
+                                            <tbody>
+                                                <tr>
+                                                    <td> <FontAwesomeIcon icon={faCircle} /> </td>
+                                                    <td> 
+                                                        Consumer Monthly Subscription of NGN0.00 charged from your Wallet. Your current plan is FREE FOREVER 
+                                                        <p> wallet-280220241709114880 </p>
+                                                        <p> 28/02/2024 11:08 am </p>
+                                                    </td>
+                                                    <td className='amount'> -#0.00 <p> <span> Delivered</span> </p> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <FontAwesomeIcon icon={faCircle} /> </td>
+                                                    <td> 
+                                                        Consumer Monthly Subscription of NGN0.00 charged from your Wallet. Your current plan is FREE FOREVER 
+                                                        <p> wallet-280220241709114880 </p>
+                                                        <p> 28/02/2024 11:08 am </p>
+                                                    </td>
+                                                    <td className='amount'> -#0.00 <p> <span> Delivered</span> </p> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <FontAwesomeIcon icon={faCircle} /> </td>
+                                                    <td> 
+                                                        Consumer Monthly Subscription of NGN0.00 charged from your Wallet. Your current plan is FREE FOREVER 
+                                                        <p> wallet-280220241709114880 </p>
+                                                        <p> 28/02/2024 11:08 am </p>
+                                                    </td>
+                                                    <td className='amount'> -#0.00 <p> <span> Delivered</span> </p> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <FontAwesomeIcon icon={faCircle} /> </td>
+                                                    <td> 
+                                                        Consumer Monthly Subscription of NGN0.00 charged from your Wallet. Your current plan is FREE FOREVER 
+                                                        <p> wallet-280220241709114880 </p>
+                                                        <p> 28/02/2024 11:08 am </p>
+                                                    </td>
+                                                    <td className='amount'> -#0.00 <p> <span> Delivered</span> </p> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <FontAwesomeIcon icon={faCircle} /> </td>
+                                                    <td> 
+                                                        Consumer Monthly Subscription of NGN0.00 charged from your Wallet. Your current plan is FREE FOREVER 
+                                                        <p> wallet-280220241709114880 </p>
+                                                        <p> 28/02/2024 11:08 am </p>
+                                                    </td>
+                                                    <td className='amount'> -#0.00 <p> <span> Delivered</span> </p> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <FontAwesomeIcon icon={faCircle} /> </td>
+                                                    <td> 
+                                                        Consumer Monthly Subscription of NGN0.00 charged from your Wallet. Your current plan is FREE FOREVER 
+                                                        <p> wallet-280220241709114880 </p>
+                                                        <p> 28/02/2024 11:08 am </p>
+                                                    </td>
+                                                    <td className='amount'> -#0.00 <p> <span> Delivered</span> </p> </td>
+                                                </tr>
+                                                <tr>
+                                                    <td> <FontAwesomeIcon icon={faCircle} /> </td>
+                                                    <td> 
+                                                        Consumer Monthly Subscription of NGN0.00 charged from your Wallet. Your current plan is FREE FOREVER 
+                                                        <p> wallet-280220241709114880 </p>
+                                                        <p> 28/02/2024 11:08 am </p>
+                                                    </td>
+                                                    <td className='amount'> -#0.00 <p> <span> Delivered</span> </p> </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
