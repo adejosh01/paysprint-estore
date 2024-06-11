@@ -775,6 +775,33 @@
   @media screen and (max-width: 600px) {
     .estore-container {
       padding-top: 0rem;
+      section.getallprods {
+        height: 30vh;
+        .allprodsImage {
+          img {
+            max-width: 25%;
+            height: auto;
+          }
+        }
+
+        div.describeProds {
+          .b4Title {
+            .searchIt {
+              form {
+                .searchbtn {
+                  width: 30px;
+                  height: 30px;
+                  svg {
+                    width: 15px;
+                    // margin-left: 0.8rem !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
       section.topdeals {
         padding: 1rem;
       }
@@ -791,7 +818,7 @@
             max-width: 25%;
             height: auto;
           }
-         }
+        }
 
         div.describeProds {
           gap: 1rem;
@@ -829,8 +856,6 @@
                   font-size: 14px;
                 }
                 .searchbtn {
-                  width: 40px;
-                  height: 40px;
                   svg {
                     margin-left: 0.8rem !important;
                   }
