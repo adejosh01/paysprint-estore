@@ -105,8 +105,6 @@ export const OnlineStore = ({ title }) => {
                       ))
                     }
 
-                    
-
                   </div>
 
                 </div>
