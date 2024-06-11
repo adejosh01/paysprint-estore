@@ -39,6 +39,7 @@ import { CommunityPost } from "pages/community/commuinity-post";
 import { TrackOrders } from "pages/myAshopree/trackOrders/trackOrders.page";
 import { MyReviews } from "pages/myAshopree/myReviews/reviews.page";
 import { MyPurchaseHistory } from "pages/myAshopree/purchaseHistory/purchasehistory";
+import { MyWishlist } from "pages/mywishlist/wishlist.page";
 
 function App() {
 
@@ -63,6 +64,7 @@ function App() {
               <Route path="/community" exact element={<Community title="aShopree | Community " />} />
               <Route path="/community/post" exact element={<CommunityPost title="aShopree | Community - Post Thread" />} />
               <Route path="/favourite-stores" exact element={<MyFavouriteStores title="aShopree | My Favourite Stores " />} />
+              <Route path="/wishlist" exact element={<MyWishlist title="aShopree | My Wishlists " />} />
               <Route path="/myashopree" exact element={<Myashopree title="aShopree | My aShopree " />} />
               <Route path="/store-location" exact element={<StoreLocation title="aShopree | My Shoppings " />} />
               <Route path="/track-orders" exact element={<TrackOrders title="aShopree | Track Orders " />} />
