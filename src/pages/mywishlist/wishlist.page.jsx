@@ -1,10 +1,10 @@
 import './wishlist.styles.scss';
 import { useEffect, useState } from 'react';
-import deleteIcon from 'assets/icons/trashcan.png';
-import itemimage from 'assets/images/estore/productDetails/cokesecond.png';
-import washingMachine from 'assets/images/estore/rectangle-22.png';
-import sneakers from 'assets/images/estore/rectangle-23.png';
-import { performOperation } from 'components/randomFunctions/counter';
+// import deleteIcon from 'assets/icons/trashcan.png';
+// import itemimage from 'assets/images/estore/productDetails/cokesecond.png';
+// import washingMachine from 'assets/images/estore/rectangle-22.png';
+// import sneakers from 'assets/images/estore/rectangle-23.png';
+// import { performOperation } from 'components/randomFunctions/counter';
 import config from "../../config";
 import { useAuth } from "../../hook/AuthProvider";
 import axios from "axios";
@@ -43,32 +43,28 @@ export const MyWishlist = ({title}) => {
                     }
                 }
             }
-
-
-
         }
 
         getWishListItems();
-
-
-
-      }, []);    
+      }, [title, apiUrl, auth.token]);    
     
-    let currentNumber = 1;
+    // let currentNumber = 1;
 
-    const [number, setNumber] = useState(currentNumber);
+    // const [number, setNumber] = useState(currentNumber);
 
-    // Function to handle the click event and perform the subtraction operation
-    const handleSubtraction = () => {
-        const newNumber = performOperation(number, '-');
-        setNumber(newNumber);
-    };
+    // // Function to handle the click event and perform the subtraction operation
+    // const handleSubtraction = () => {
+    //     const newNumber = performOperation(number, '-');
+    //     setNumber(newNumber);
+    // };
 
-    // Function to handle the click event and perform the addition operation
-    const handleAddition = () => {
-        const newNumber = performOperation(number, '+');
-        setNumber(newNumber);
-    };
+    // // Function to handle the click event and perform the addition operation
+    // const handleAddition = () => {
+    //     const newNumber = performOperation(number, '+');
+    //     setNumber(newNumber);
+    // };
+
+    // console.log(wishListItem);
 
 return (
     <div className="estore-container">
@@ -88,29 +84,29 @@ return (
                     <div className="realdeals">
                     {
                         wishListItem.length > 0 ? (
-                                wishListItem.map((item, index) => (
-                                    <>
-                                        <div key={index}>
+                            wishListItem.map((item, index) => (
+                                <>
+                                    <div key={index}>
+                                        <div>
+                                            <img src={item.product.image} alt="" />
+                                            <p> {item.product.productName}</p>
+                                        </div>
+                                        <div style={{ display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
                                             <div>
-                                                <img src={item.product.image} alt="" />
-                                                <p> {item.product.productName}</p>
+                                                <p style={{ margin: '2rem 1rem' }}> {item.product.stock} </p>
                                             </div>
-                                            <div style={{ display: 'flex', gap: '0.5rem', flexDirection: 'column', justifyContent: 'flex-start' }}>
-                                                <div>
-                                                    <p style={{ margin: '2rem 1rem' }}> {item.product.stock} </p>
-                                                </div>
-                                            </div>
-                                            <p className='price'> {item.currencySymbol}{item.product.amount} </p>
-                                        </div> <br /> <hr />
-                                    </>
-                                ))
+                                        </div>
+                                        <p className='price'> {item.currencySymbol}{item.product.amount} </p>
+                                    </div> <br /> <hr />
+                                </>
+                            ))
                             
                         ) : (
-                                <>
-                                        <div>
-                                            <p>No product added to wishlist yet</p>
-                                        </div> <br /> <hr />
-                                </>
+                            <>
+                                <div>
+                                    <p>No product added to wishlist yet</p>
+                                </div> <br /> <hr />
+                            </>
                         )
                     }
                         
@@ -119,6 +115,7 @@ return (
             </div>
         </section>
     </div>
-      );
+    
+);
 
 };

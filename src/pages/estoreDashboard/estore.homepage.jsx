@@ -215,7 +215,7 @@ export const EstoreDashboard = ({ title }) => {
                       </Link>
                     ))
                   ) : (
-                    <div>Error: {error} </div>
+                    <div> Error: {error} </div>
                   )}
             </div>
           </section>
