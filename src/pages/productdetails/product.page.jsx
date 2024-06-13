@@ -1,6 +1,7 @@
 import './product.styles.scss';
 import React, { useEffect, useState } from 'react';  
 import starimage from "assets/images/star.png";
+import starimage_with_noBg from "assets/images/star_with_null_bg.png";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'; 
 import { handleClick, stripHtmlTags, useCounter, notificationAlert, useCounterForEdit } from 'utils/utils';
@@ -8,6 +9,16 @@ import { useAuth } from 'hook/AuthProvider';
 import config from '../../config';
 import { Loader } from 'components/loader/loader.component';
 import { RESPONSE_STATES } from 'utils/constants';
+import productstuff from 'assets/images/estore/personalStore/prod2.png';
+import similiarOne from 'assets/images/estore/productDetails/pepsi.png';
+import sevenUp from 'assets/images/estore/productDetails/7up.png';
+import cokeAndFanta from 'assets/images/estore/productDetails/fantaandcoke.png';
+import cannedPepsi from 'assets/images/estore/productDetails/cannedpepsi.png';
+import profile_photo from 'assets/images/estore/rectangle-20.png';
+import profile_photo2 from 'assets/images/estore/rectangle-27.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import ProgressBarForProduct from 'components/loader/progressBarForProduct.component';
 
 
 export const ProductDetails = ({ title }) => {
@@ -97,8 +108,6 @@ export const ProductDetails = ({ title }) => {
             }
             
             // console.log("My quantity is: " + cartItems[0].quantity); 
-    
-            // Update the set state with the specific product
             
         } catch (error) {
             console.error('Error fetching cart items:', error);
@@ -112,111 +121,285 @@ export const ProductDetails = ({ title }) => {
 
     return (
         <div className="estore-container">
-            {Object.keys(specificProduct).length > 0 ? (
+            
                 <section className='oneproduct'>
                     <div className='imagessection'>
                         <div className="themainimage">
-                            <img src={specificProduct.image} alt="myStoreImage" />
+                            <img src={productstuff} alt="myStoreImage" />
                         </div>
 
                         <div className="otherimages">
-                            <img src={specificProduct.image} alt="myStoreImage" />
+                            <img src={productstuff} alt="myStoreImage" />
                         </div>
                     </div>
 
                     <div className="describingtheimages">
-                        <h2> {specificProduct.productName}</h2>
+                        <h2> IAV Quality Slide With Double Sole And Thick Bottom </h2>
                         <div className='longpiece'>
                             <h4> Description</h4>
-                            <p> {typeof specificProduct.description === 'string' ? stripHtmlTags(specificProduct.description) : specificProduct.description} </p>
-                            <div className='ratings'>
-                                <span>
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                </span>
-                                <p className="initialprice"> 4.56 (132 reviews) </p>
+                            <p> This item is Every fashionable man's dream. Made to last a lifetime from high-quality materials. It is simple to clean, maintain, and very durable, allowing the product to retain its luster for years. The shoes are made in Ghana, so the size is African Size. You can choose the shoe size according to your foot length. Note: If your feet are slightly wider than usual, we recommend choosing one size larger. Attention. The packaging is in a shoe box with our brand name iav. Dear Customer, please choose the item according to your foot length. Happy Shopping </p>
+                            <div className='dynamic'>
+                                <div>
+                                    <p className='choose'> Choose a color </p>
+                                    <div className="checkbtns">
+                                        <button type='button' className='first'> <FontAwesomeIcon icon={faCheck} /> </button>
+                                        <button type='button' className='second'>  </button>
+                                        <button type='button' className='third'>  </button>
+                                        <button type='button' className='fourth'>  </button>
+                                        <button type='button' className='fifth'>  </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className='choose'> Choose a size </p>
+                                    <div className="checkinputs">
+                                        <p className='active'> <input type="radio" name="" id="" /> Small </p>
+                                        <p className=''> <input type="radio" name="" id="" /> Medium </p>
+                                        <p className=''> <input type="radio" name="" id="" /> Large </p>
+                                        <p className=''> <input type="radio" name="" id="" /> Extra Large </p>
+                                        <p className=''> <input type="radio" name="" id="" /> XXL </p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className='choose'> Quantity </p>
+                                    <div className="quantity">
+                                        <button type='button'> - </button>
+                                        <p> 2 </p>
+                                        <button type='button'> + </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {specificProduct.businessname} </span> </p>
-                        <p className='amount'> {specificProduct.currencySymbol + Number(specificProduct.amount).toFixed(2)} </p>
+                        <p className='storedealer' style={{ marginBottom: '-1rem' }} >Store: <span> Ibrahim Aminu Ventures </span> </p>
+                        <div className='ratings'>
+                            <span>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                            </span>
+                            <p className="initialprice"> 4.56 (132 reviews) </p>
+                        </div>
+                        <p className='amount'> $450.00 </p>
                         <form className='justbuttons'>
-                            <div>
-                                {Object.values(myProduct).length !== 0 ? ( <>
-                                    <h5> Quantity: <input type="number" name='quantity' value={countForEdit} /> </h5>
-                                    <div>
-                                        <button type='button' onClick={incrementForEdit}> + </button>
-                                        <button type='button' onClick={decrementForEdit}> - </button>
-                                    </div>
-                                    <button type='button' className='add2cart' id={`${specificProduct.id}`} disabled={countForEdit <= 0}
-                                        // The disable param is to disable the button if countForEdit is less than or equal to 0
-                                        onClick={() => {
-                                            if (countForEdit <= 0) {
-                                                notificationAlert("error", "Try Again", "Sorry, your updated quantity cannot be less than zero");
-                                            } else {
-                                                addToCart(specificProduct.id);
-                                            }
-                                        }}>
-                                        {responseState === RESPONSE_STATES.loading ? <Loader /> : "Add to cart"}
-                                    </button>
-                                </>) : (<> 
-                                        <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
-                                    <div>
-                                        <button type='button' onClick={increment}> + </button>
-                                        <button type='button' onClick={decrement}> - </button>
-                                    </div>
-                                    {count <= 0 ? (
-                                        <button type='button' className='add2cart' onClick={() => notificationAlert("error", "Try Again", "Sorry, your quantity cannot be less than zero")}>
-                                            Add to cart
-                                        </button>
-                                    ) : (
-                                        <button type='button' className='add2cart' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
-                                            {responseState === RESPONSE_STATES.loading ? <Loader /> : "Add to cart"}
-                                        </button>
-                                    )}
-
-                                </>)}
-                            </div>
-                            <button type='button' onClick={ () => handleClick('/messages', navigate) }>
-                                Buy now
-                            </button>
+                            <button type='button'> Add to cart </button>
+                            <button type='button'> Buy now </button>
                         </form>
                     </div>
                 </section>
-            ) : (
-                <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading.... </p>
-            )}
 
 
-            {similarProduct.length > 0 ? (
                 <section className='similarproducts'>
                     <div className="producttitle">
                         <p> Similar Products </p>
                     </div>
 
                     <div className="items">
-                        {similarProduct.map((item, index) => (
-                            <>
-                                <Link to={`/productdetails/${item.productCode}`}>
-                                    <div className="eachItem" key={index}>
-                                        <img className='fortheimages' src={item.image} alt="eachImage" />
-                                        <div className="imgdescription">
-                                            <p className="nameofitem">{item.productName}</p>
-                                            <p className="priceofitem">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion?.mycurrencysymbol + Number(item.myCountryConversion?.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)}</p>
-
-                                        </div>
+                        <Link to={`/productdetails/`}>
+                            <div className="eachItem">
+                                <img className='fortheimages' src={similiarOne} alt="eachImage" />
+                                <div className="imgdescription">
+                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
+                                    <p className="priceofitem"> ₦1200.00 </p>
+                                    <div className='ratings'>
+                                        <span>
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                        </span>
+                                        <p className="initialprice"> 4.56 (132 reviews) </p>
                                     </div>
-                                </Link>
-                            </>
-                        ))}
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link to={`/productdetails/`}>
+                            <div className="eachItem">
+                                <img className='fortheimages' src={sevenUp} alt="eachImage" />
+                                <div className="imgdescription">
+                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
+                                    <p className="priceofitem"> ₦1200.00 </p>
+                                    <div className='ratings'>
+                                        <span>
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                        </span>
+                                        <p className="initialprice"> 4.56 (132 reviews) </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link to={`/productdetails/`}>
+                            <div className="eachItem">
+                                <img className='fortheimages' src={cokeAndFanta} alt="eachImage" />
+                                <div className="imgdescription">
+                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
+                                    <p className="priceofitem"> ₦1200.00 </p>
+                                    <div className='ratings'>
+                                        <span>
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                        </span>
+                                        <p className="initialprice"> 4.56 (132 reviews) </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link to={`/productdetails/`}>
+                            <div className="eachItem">
+                                <img className='fortheimages' src={cannedPepsi} alt="eachImage" />
+                                <div className="imgdescription">
+                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
+                                    <p className="priceofitem"> ₦1200.00 </p>
+                                    <div className='ratings'>
+                                        <span>
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                        </span>
+                                        <p className="initialprice"> 4.56 (132 reviews) </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
                     </div>
                 </section>
-            ) : (
-                <div>Loading ... </div>
-            )}
+
+                <section className="feedbacks">
+                    <div className="feeds">
+                        <h5> Customers Feedback </h5>
+                        <div className='all'>
+                            <h3> 4.5 </h3>
+                            <div>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                            </div>
+                            <p className="initialprice"> 132 product reviews and rating </p>
+                        </div>
+                    </div>
+
+                    <div className="detailed-ratings">
+                        <div className='together'>
+                            <div className='progress'> <ProgressBarForProduct width={90} /> </div>
+                            <div className='stars'>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                            </div>
+                            <p> 70% </p>
+                        </div>
+                        <div className='together'>
+                            <div className='progress'> <ProgressBarForProduct width={40} /> </div>
+                            <div className='stars'>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                            </div>
+                            <p> 15% </p>
+                        </div>
+                        <div className='together'>
+                            <div className='progress'> <ProgressBarForProduct width={30} /> </div>
+                            <div className='stars'>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                            </div>
+                            <p> 10% </p>
+                        </div>
+                        <div className='together'>
+                            <div className='progress'> <ProgressBarForProduct width={20} /> </div>
+                            <div className='stars'>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                            </div>
+                            <p> 3% </p>
+                        </div>
+                        <div className='together'>
+                            <div className='progress'> <ProgressBarForProduct width={10} /> </div>
+                            <div className='stars'>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                            </div>
+                            <p> 2% </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="reviews">
+                    <h5> Reviews </h5>
+
+                    <div className="contents">
+                        <div className="each">
+                            <img src={profile_photo} alt="username comes here" />
+                            <div className='combine'>
+                                <div className='head'>
+                                    <h6> Nicolas cage <span> 3 Days ago </span> </h6>
+                                    <div className='ratings'>
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                    </div>
+                                </div>
+                                <div className='body'>
+                                    <h6> Great Product </h6>
+                                    <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour </p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div className="each">
+                            <img src={profile_photo2} alt="username comes here" />
+                            <div className='combine'>
+                                <div className='head'>
+                                    <h6> Sr.Robert Downey <span> 3 Days ago </span> </h6>
+                                    <div className='ratings'>
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                    </div>
+                                </div>
+                                <div className='body'>
+                                    <h6> The best product In Market </h6>
+                                    <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <a href='#?' className='view-all-reviews'> View All Reviews </a>
+                </section>
         </div>
     );
 

@@ -106,7 +106,7 @@ export const OnlineStore = ({ title }) => {
                     }
 
                   </div>
-
+  
                 </div>
                   </>
                 ) : (<p> No available store yet </p>)
