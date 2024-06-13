@@ -397,9 +397,9 @@ export const ProductDetails = ({ title }) => {
                             </div>
                         </div>
                     </div>
+                
+                    <a href='#?' className='view-all-reviews'> View All Reviews </a>
                 </section>
-
-                <p className='view-all-reviews'> View All Reviews </p>
         </div>
     );
 
