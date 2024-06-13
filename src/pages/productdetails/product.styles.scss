@@ -254,7 +254,149 @@
         
     }
 
+    section.feedbacks {
+        padding: 5rem 5.6rem;
+        display: flex;
+        gap: 10px;
+        div.feeds {
+            display: flex;
+            flex-direction: column;
+            border-radius: 8px;
+            background-color: #F9FAFB;
+            flex: 0 0 30%;
+            h5 {
+                padding: 14px;
+                font: 600 24px 'Plus Jakarta Sans';
+                line-height: 30.24px;
+                color: #344054;
+            }
+            .all {
+                padding: 35px;
+                align-items: center;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                h3 {
+                    font: 800 60px 'Plus Jakarta Sans';
+                    line-height: 75.6px;
+                    color: #164C96;
+                }
+                div {
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    column-gap: 10px;
+                }
+                p {
+                    font: 400 16px 'Plus Jakarta Sans';
+                    line-height: 26px;
+                    color: #4F547B;
+                }
+            }
+        }
+
+        div.detailed-ratings {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            border-radius: 8px;
+            background-color: #F9FAFB;
+            padding: 15px 30px;
+            flex: 0 0 50%;
+            width: 100%;
+            .together {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                div.progress {
+                    flex: 0 0 65%;
+                }
+                div.stars {
+                    display: grid;
+                    grid-template-columns: repeat(5, 1fr);
+                    column-gap: 10px;
+                    img.with-no-bg {
+                        width: 94%;
+                    }
+                }
+                p {
+                    font: 400 16px 'Plus Jakarta Sans';
+                    line-height: 30px;
+                    color: #164C96;
+                }
+            }
+        }
+    }
+
+    section.reviews {
+        padding: 3rem 5.6rem;
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+        h5 {
+            font: 600 24px 'Plus Jakarta Sans';
+            line-height: 30.24px;
+            color: #1D2939;
+        }
+        div.contents {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            .each {
+                display: flex;
+                flex-direction: row;
+                gap: 24.43px;
+                img {
+                    width: 51.13px;
+                    height: 51.13px;
+                    border-radius: 50%;
+                }
+                div.combine {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+                    .head {
+                        h6 {
+                            font: 550 17px 'Plus Jakarta Sans';
+                            line-height: 26px;
+                            color: #1D2939;
+                            span {
+                                font: 400 13px 'Plus Jakarta Sans';
+                                line-height: 16.4px;
+                                color: #4F547B;
+                                padding-left: 7px;
+                            }
+                        }
+                        .ratings {
+                            display: flex;
+                            gap: 5px;
+                            padding-top: 5px;
+                            img {
+                                width: 10px;
+                                height: 10px;
+                            }
+                        }
+                    }
+                    .body {
+                        h6 {
+                            font: 400 15px 'Plus Jakarta Sans';
+                            line-height: 19px;
+                            color: #1D2939;
+                        }
+                        p {
+                            font: 400 15px 'Plus Jakarta Sans';
+                            line-height: 26px;
+                            color: #667085;
+                        }
+                    }
+                }
+            }
+            hr {
+                border: 1px solid #EDEDED;
+            }
+        }
+    }
   
+    
 }
 
 
@@ -280,6 +422,15 @@
             .items {
                 grid-template-columns: repeat(3, 1fr);
             }
+        }
+
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .estore-container {
+        section.similarproducts {
+            padding: 3rem 2.6rem;
         }
 
     }

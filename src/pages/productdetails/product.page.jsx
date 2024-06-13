@@ -1,6 +1,7 @@
 import './product.styles.scss';
 import React, { useEffect, useState } from 'react';  
 import starimage from "assets/images/star.png";
+import starimage_with_noBg from "assets/images/star_with_null_bg.png";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'; 
 import { handleClick, stripHtmlTags, useCounter, notificationAlert, useCounterForEdit } from 'utils/utils';
@@ -9,8 +10,15 @@ import config from '../../config';
 import { Loader } from 'components/loader/loader.component';
 import { RESPONSE_STATES } from 'utils/constants';
 import productstuff from 'assets/images/estore/personalStore/prod2.png';
+import similiarOne from 'assets/images/estore/productDetails/pepsi.png';
+import sevenUp from 'assets/images/estore/productDetails/7up.png';
+import cokeAndFanta from 'assets/images/estore/productDetails/fantaandcoke.png';
+import cannedPepsi from 'assets/images/estore/productDetails/cannedpepsi.png';
+import profile_photo from 'assets/images/estore/rectangle-20.png';
+import profile_photo2 from 'assets/images/estore/rectangle-27.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import ProgressBarForProduct from 'components/loader/progressBarForProduct.component';
 
 
 export const ProductDetails = ({ title }) => {
@@ -182,32 +190,216 @@ export const ProductDetails = ({ title }) => {
                 </section>
 
 
-            {/* {similarProduct.length > 0 ? (
                 <section className='similarproducts'>
                     <div className="producttitle">
                         <p> Similar Products </p>
                     </div>
 
                     <div className="items">
-                        {similarProduct.map((item, index) => (
-                            <>
-                                <Link to={`/productdetails/${item.productCode}`}>
-                                    <div className="eachItem" key={index}>
-                                        <img className='fortheimages' src={item.image} alt="eachImage" />
-                                        <div className="imgdescription">
-                                            <p className="nameofitem">{item.productName}</p>
-                                            <p className="priceofitem">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion?.mycurrencysymbol + Number(item.myCountryConversion?.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)}</p>
-
-                                        </div>
+                        <Link to={`/productdetails/`}>
+                            <div className="eachItem">
+                                <img className='fortheimages' src={similiarOne} alt="eachImage" />
+                                <div className="imgdescription">
+                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
+                                    <p className="priceofitem"> ₦1200.00 </p>
+                                    <div className='ratings'>
+                                        <span>
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                        </span>
+                                        <p className="initialprice"> 4.56 (132 reviews) </p>
                                     </div>
-                                </Link>
-                            </>
-                        ))}
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link to={`/productdetails/`}>
+                            <div className="eachItem">
+                                <img className='fortheimages' src={sevenUp} alt="eachImage" />
+                                <div className="imgdescription">
+                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
+                                    <p className="priceofitem"> ₦1200.00 </p>
+                                    <div className='ratings'>
+                                        <span>
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                        </span>
+                                        <p className="initialprice"> 4.56 (132 reviews) </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link to={`/productdetails/`}>
+                            <div className="eachItem">
+                                <img className='fortheimages' src={cokeAndFanta} alt="eachImage" />
+                                <div className="imgdescription">
+                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
+                                    <p className="priceofitem"> ₦1200.00 </p>
+                                    <div className='ratings'>
+                                        <span>
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                        </span>
+                                        <p className="initialprice"> 4.56 (132 reviews) </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+
+                        <Link to={`/productdetails/`}>
+                            <div className="eachItem">
+                                <img className='fortheimages' src={cannedPepsi} alt="eachImage" />
+                                <div className="imgdescription">
+                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
+                                    <p className="priceofitem"> ₦1200.00 </p>
+                                    <div className='ratings'>
+                                        <span>
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                        </span>
+                                        <p className="initialprice"> 4.56 (132 reviews) </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
                     </div>
                 </section>
-            ) : (
-                <div>Loading ... </div>
-            )} */}
+
+                <section className="feedbacks">
+                    <div className="feeds">
+                        <h5> Customers Feedback </h5>
+                        <div className='all'>
+                            <h3> 4.5 </h3>
+                            <div>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                            </div>
+                            <p className="initialprice"> 132 product reviews and rating </p>
+                        </div>
+                    </div>
+
+                    <div className="detailed-ratings">
+                        <div className='together'>
+                            <div className='progress'> <ProgressBarForProduct width={90} /> </div>
+                            <div className='stars'>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                            </div>
+                            <p> 70% </p>
+                        </div>
+                        <div className='together'>
+                            <div className='progress'> <ProgressBarForProduct width={40} /> </div>
+                            <div className='stars'>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                            </div>
+                            <p> 15% </p>
+                        </div>
+                        <div className='together'>
+                            <div className='progress'> <ProgressBarForProduct width={30} /> </div>
+                            <div className='stars'>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                            </div>
+                            <p> 10% </p>
+                        </div>
+                        <div className='together'>
+                            <div className='progress'> <ProgressBarForProduct width={20} /> </div>
+                            <div className='stars'>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                            </div>
+                            <p> 3% </p>
+                        </div>
+                        <div className='together'>
+                            <div className='progress'> <ProgressBarForProduct width={10} /> </div>
+                            <div className='stars'>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                                <img src={starimage_with_noBg} className='with-no-bg' alt="justtheIconOfAStar" />
+                            </div>
+                            <p> 2% </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section className="reviews">
+                    <h5> Reviews </h5>
+
+                    <div className="contents">
+                        <div className="each">
+                            <img src={profile_photo} alt="username comes here" />
+                            <div className='combine'>
+                                <div className='head'>
+                                    <h6> Nicolas cage <span> 3 Days ago </span> </h6>
+                                    <div className='ratings'>
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                    </div>
+                                </div>
+                                <div className='body'>
+                                    <h6> Great Product </h6>
+                                    <p> There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour </p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr />
+                        <div className="each">
+                            <img src={profile_photo2} alt="username comes here" />
+                            <div className='combine'>
+                                <div className='head'>
+                                    <h6> Sr.Robert Downey <span> 3 Days ago </span> </h6>
+                                    <div className='ratings'>
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                        <img src={starimage} alt="justtheIconOfAStar" />
+                                    </div>
+                                </div>
+                                <div className='body'>
+                                    <h6> The best product In Market </h6>
+                                    <p> Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <p className='view-all-reviews'> View All Reviews </p>
         </div>
     );
 
