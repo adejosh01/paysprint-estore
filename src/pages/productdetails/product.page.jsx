@@ -8,6 +8,9 @@ import { useAuth } from 'hook/AuthProvider';
 import config from '../../config';
 import { Loader } from 'components/loader/loader.component';
 import { RESPONSE_STATES } from 'utils/constants';
+import productstuff from 'assets/images/estore/personalStore/prod2.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
 
 
 export const ProductDetails = ({ title }) => {
@@ -97,8 +100,6 @@ export const ProductDetails = ({ title }) => {
             }
             
             // console.log("My quantity is: " + cartItems[0].quantity); 
-    
-            // Update the set state with the specific product
             
         } catch (error) {
             console.error('Error fetching cart items:', error);
@@ -112,86 +113,76 @@ export const ProductDetails = ({ title }) => {
 
     return (
         <div className="estore-container">
-            {Object.keys(specificProduct).length > 0 ? (
+            
                 <section className='oneproduct'>
                     <div className='imagessection'>
                         <div className="themainimage">
-                            <img src={specificProduct.image} alt="myStoreImage" />
+                            <img src={productstuff} alt="myStoreImage" />
                         </div>
 
                         <div className="otherimages">
-                            <img src={specificProduct.image} alt="myStoreImage" />
+                            <img src={productstuff} alt="myStoreImage" />
                         </div>
                     </div>
 
                     <div className="describingtheimages">
-                        <h2> {specificProduct.productName}</h2>
+                        <h2> IAV Quality Slide With Double Sole And Thick Bottom </h2>
                         <div className='longpiece'>
                             <h4> Description</h4>
-                            <p> {typeof specificProduct.description === 'string' ? stripHtmlTags(specificProduct.description) : specificProduct.description} </p>
-                            <div className='ratings'>
-                                <span>
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                </span>
-                                <p className="initialprice"> 4.56 (132 reviews) </p>
+                            <p> This item is Every fashionable man's dream. Made to last a lifetime from high-quality materials. It is simple to clean, maintain, and very durable, allowing the product to retain its luster for years. The shoes are made in Ghana, so the size is African Size. You can choose the shoe size according to your foot length. Note: If your feet are slightly wider than usual, we recommend choosing one size larger. Attention. The packaging is in a shoe box with our brand name iav. Dear Customer, please choose the item according to your foot length. Happy Shopping </p>
+                            <div className='dynamic'>
+                                <div>
+                                    <p className='choose'> Choose a color </p>
+                                    <div className="checkbtns">
+                                        <button type='button' className='first'> <FontAwesomeIcon icon={faCheck} /> </button>
+                                        <button type='button' className='second'>  </button>
+                                        <button type='button' className='third'>  </button>
+                                        <button type='button' className='fourth'>  </button>
+                                        <button type='button' className='fifth'>  </button>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className='choose'> Choose a size </p>
+                                    <div className="checkinputs">
+                                        <p className='active'> <input type="radio" name="" id="" /> Small </p>
+                                        <p className=''> <input type="radio" name="" id="" /> Medium </p>
+                                        <p className=''> <input type="radio" name="" id="" /> Large </p>
+                                        <p className=''> <input type="radio" name="" id="" /> Extra Large </p>
+                                        <p className=''> <input type="radio" name="" id="" /> XXL </p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p className='choose'> Quantity </p>
+                                    <div className="quantity">
+                                        <button type='button'> - </button>
+                                        <p> 2 </p>
+                                        <button type='button'> + </button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <p className='storedealer'>Store: <span style={{ color: '#2D334A' }}> {specificProduct.businessname} </span> </p>
-                        <p className='amount'> {specificProduct.currencySymbol + Number(specificProduct.amount).toFixed(2)} </p>
+                        <p className='storedealer' style={{ marginBottom: '-1rem' }} >Store: <span> Ibrahim Aminu Ventures </span> </p>
+                        <div className='ratings'>
+                            <span>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                            </span>
+                            <p className="initialprice"> 4.56 (132 reviews) </p>
+                        </div>
+                        <p className='amount'> $450.00 </p>
                         <form className='justbuttons'>
-                            <div>
-                                {Object.values(myProduct).length !== 0 ? ( <>
-                                    <h5> Quantity: <input type="number" name='quantity' value={countForEdit} /> </h5>
-                                    <div>
-                                        <button type='button' onClick={incrementForEdit}> + </button>
-                                        <button type='button' onClick={decrementForEdit}> - </button>
-                                    </div>
-                                    <button type='button' className='add2cart' id={`${specificProduct.id}`} disabled={countForEdit <= 0}
-                                        // The disable param is to disable the button if countForEdit is less than or equal to 0
-                                        onClick={() => {
-                                            if (countForEdit <= 0) {
-                                                notificationAlert("error", "Try Again", "Sorry, your updated quantity cannot be less than zero");
-                                            } else {
-                                                addToCart(specificProduct.id);
-                                            }
-                                        }}>
-                                        {responseState === RESPONSE_STATES.loading ? <Loader /> : "Add to cart"}
-                                    </button>
-                                </>) : (<> 
-                                        <h5> Quantity: <input type="number" name='quantity' value={count} /> </h5>
-                                    <div>
-                                        <button type='button' onClick={increment}> + </button>
-                                        <button type='button' onClick={decrement}> - </button>
-                                    </div>
-                                    {count <= 0 ? (
-                                        <button type='button' className='add2cart' onClick={() => notificationAlert("error", "Try Again", "Sorry, your quantity cannot be less than zero")}>
-                                            Add to cart
-                                        </button>
-                                    ) : (
-                                        <button type='button' className='add2cart' onClick={() => addToCart(specificProduct.id)} id={`${specificProduct.id}`}>
-                                            {responseState === RESPONSE_STATES.loading ? <Loader /> : "Add to cart"}
-                                        </button>
-                                    )}
-
-                                </>)}
-                            </div>
-                            <button type='button' onClick={ () => handleClick('/messages', navigate) }>
-                                Buy now
-                            </button>
+                            <button type='button'> Add to cart </button>
+                            <button type='button'> Buy now </button>
                         </form>
                     </div>
                 </section>
-            ) : (
-                <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading.... </p>
-            )}
 
 
-            {similarProduct.length > 0 ? (
+            {/* {similarProduct.length > 0 ? (
                 <section className='similarproducts'>
                     <div className="producttitle">
                         <p> Similar Products </p>
@@ -216,7 +207,7 @@ export const ProductDetails = ({ title }) => {
                 </section>
             ) : (
                 <div>Loading ... </div>
-            )}
+            )} */}
         </div>
     );
 
