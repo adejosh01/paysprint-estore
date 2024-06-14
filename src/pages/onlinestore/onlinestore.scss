@@ -78,7 +78,8 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-          } .searchItstore {
+          } 
+          .searchItstore {
             background: #fff;
             border-radius: 16px;
             border: 1px solid #eaeaea;
@@ -356,8 +357,34 @@
 
   }
 
+  @media screen and (max-width: 700px) {
+    .estore-container {
+      section.getallprods {
+        div.describeProds {
+          .b4Title {
+            .searchItstore {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+
+  }
+
 @media screen and (max-width: 600px) {
   .estore-container {
+    section.getallprods {
+      div.allestoreprodsImage {
+        img {
+          height: 25rem;
+        }
+      }
+      div.describeProds {
+        height: 25rem;
+      }
+    }
+
     section.nextup {
       padding: 9rem 1rem;
       .sidebar {
@@ -394,8 +421,49 @@
 
 @media screen and (max-width: 500px) {
   .estore-container {
-    section.nextup {
+    section.getallprods {
+      div.describeProds {
+        .b4Title {
+          .title {
+            h2 {
+              font-size: 30px;
+              line-height: 35px;
+            }
+            p {
+              font-size: 23px;
+              line-height: 25px;
+              text-align: left;
+            }
+          }
+          .searchItstore {
+            height: 50px;
+            div {
+              p {
+                font: 500 16px PlusJakartaSans-Medium,sans-serif;
+              }
+              border: solid #eaeaea;
+              border-width: 0 1px 0 0;
+              padding: 0 10px;
+              gap: 8px;
+            } input {
+              text-align: left;
+              font: 500 16px PlusJakartaSans-Medium,sans-serif;
+              color: var(--text-3, #a0a2a7);
+              width: 375px;
+              margin-left: 2rem;
+            } .searchbtnstore {
+              width: 30px;
+              height: 30px;
+              svg {
+                margin-left: 0.4rem !important;
+              }
+            }
+          }
+        }
+      }
+    }
 
+    section.nextup {
       .maincontent {
         .submain {
           padding: unset;
