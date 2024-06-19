@@ -28,7 +28,7 @@ export const ProductDetails = ({ title }) => {
     const { productCode } = useParams();
     const [specificProduct, setData] = useState([]);
     const [similarProduct, setSimilarProduct] = useState([]);
-    const [ setError] = useState(null);
+    const [ error, setError ] = useState(null);
     const { count, increment, decrement } = useCounter(1);
     const navigate = useNavigate();
     const [myProduct, setSingleItemCartCount] = useState({});
@@ -118,6 +118,8 @@ export const ProductDetails = ({ title }) => {
 
 
     }, [setError, apiUrl, productCode, title, specificProduct.productName, user.token]);
+
+    console.log("Error Message => " + error);
 
     return (
         <div className="estore-container">
