@@ -398,7 +398,7 @@ export const ProductDetails = ({ title }) => {
                         </div>
                     </div>
                 
-                    <a href='#?' className='view-all-reviews'> View All Reviews </a>
+                    <a href='/reviews' className='view-all-reviews'> View All Reviews </a>
                 </section>
         </div>
     );
