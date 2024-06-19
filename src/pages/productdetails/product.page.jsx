@@ -123,18 +123,18 @@ export const ProductDetails = ({ title }) => {
 
     const scrollLeft = () => {
         if (itemsRef.current) {
-        itemsRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+            itemsRef.current.scrollBy({ left: -300, behavior: 'smooth' });
         }
     };
 
     const scrollRight = () => {
         if (itemsRef.current) {
-        itemsRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+            itemsRef.current.scrollBy({ left: 300, behavior: 'smooth' });
         }
     };
   
     console.log("Error Message => " + error);
-    console.log(similarProduct);
+    // console.log(similarProduct);
 
     return (
         <div className="estore-container">
@@ -238,7 +238,7 @@ export const ProductDetails = ({ title }) => {
                             <button type='button' onClick={scrollRight} > <FontAwesomeIcon icon={faAngleRight} /> </button>
                         </div>
                     </section>
-                 ) : (
+                ) : (
                     <div style={{ textAlign: 'center' }}> <Loader /> </div>
                 )}
 
