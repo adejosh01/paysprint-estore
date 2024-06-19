@@ -54,7 +54,7 @@ function App() {
             <Route path="/stores" exact element={<OnlineStore title="aShopree | Online Store" />} />
             <Route path="/allcategories" exact element={<AllCategories title="aShopree | All Categories" />} />
             <Route path="/merchant-store/:id" exact element={<Personalstore title="aShopree | Merchant Store" />} />
-            {/* <Route path="/productdetails/:productCode" exact element={<ProductDetails title="aShopree | Product Details" />} /> */}
+            <Route path="/productdetails/:productCode" exact element={<ProductDetails title="aShopree | Product Details" />} />
             <Route path="/productdetails" exact element={<ProductDetails title="aShopree | Product Details" />} />
 
             <Route element={<PrivateRoute />}>

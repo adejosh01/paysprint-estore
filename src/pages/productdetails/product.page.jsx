@@ -1,5 +1,5 @@
 import './product.styles.scss';
-import React, { useEffect, useState } from 'react';  
+import React, { useEffect, useRef, useState } from 'react';  
 import starimage from "assets/images/star.png";
 import starimage_with_noBg from "assets/images/star_with_null_bg.png";
 import { Link, useNavigate, useParams } from 'react-router-dom';
@@ -119,7 +119,22 @@ export const ProductDetails = ({ title }) => {
 
     }, [setError, apiUrl, productCode, title, specificProduct.productName, user.token]);
 
+    const itemsRef = useRef(null);
+
+    const scrollLeft = () => {
+        if (itemsRef.current) {
+        itemsRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+    };
+
+    const scrollRight = () => {
+        if (itemsRef.current) {
+        itemsRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    };
+  
     console.log("Error Message => " + error);
+    console.log(similarProduct);
 
     return (
         <div className="estore-container">
@@ -192,82 +207,40 @@ export const ProductDetails = ({ title }) => {
                 </section>
 
 
-                <section className='similarproducts'>
-                    <div className="producttitle">
-                        <p> Similar Products </p>
-                    </div>
+                {similarProduct.length > 0 ? (
+                    <section className='similarproducts'>
+                        <div className="producttitle">
+                            <p> Similar Products </p>
+                        </div>
 
-                    <div className="items">
-                        <Link to={`/productdetails/`}>
-                            <div className="eachItem">
-                                <img className='fortheimages' src={similiarOne} alt="eachImage" />
-                                <div className="imgdescription">
-                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
-                                    <p className="priceofitem"> ₦1200.00 </p>
-                                    <div className='ratings'>
-                                        <span>
-                                            {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
-                                        </span>
-                                        <p className="initialprice"> 4.56 (132 reviews) </p>
+                        <div className="items" ref={itemsRef}>
+                            {similarProduct.map((item, index) => ( <>
+                                <Link to={`/productdetails/${item.productCode}`}>
+                                    <div className="eachItem" key={index}>
+                                        <img className='fortheimages' src={item.image} alt="eachImage" />
+                                        <div className="imgdescription">
+                                            <p className="nameofitem"> {item.productName} </p>
+                                            <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion?.mycurrencysymbol + Number(item.myCountryConversion?.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)} </p>
+                                            <div className='ratings'>
+                                                <span>
+                                                    {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
+                                                </span>
+                                                <p className="initialprice"> 4.56 (132 reviews) </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </Link>
+                                </Link>
+                            </>))}
+                        </div>
 
-                        <Link to={`/productdetails/`}>
-                            <div className="eachItem">
-                                <img className='fortheimages' src={sevenUp} alt="eachImage" />
-                                <div className="imgdescription">
-                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
-                                    <p className="priceofitem"> ₦1200.00 </p>
-                                    <div className='ratings'>
-                                        <span>
-                                            {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
-                                        </span>
-                                        <p className="initialprice"> 4.56 (132 reviews) </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to={`/productdetails/`}>
-                            <div className="eachItem">
-                                <img className='fortheimages' src={cokeAndFanta} alt="eachImage" />
-                                <div className="imgdescription">
-                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
-                                    <p className="priceofitem"> ₦1200.00 </p>
-                                    <div className='ratings'>
-                                        <span>
-                                            {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
-                                        </span>
-                                        <p className="initialprice"> 4.56 (132 reviews) </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to={`/productdetails/`}>
-                            <div className="eachItem">
-                                <img className='fortheimages' src={cannedPepsi} alt="eachImage" />
-                                <div className="imgdescription">
-                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
-                                    <p className="priceofitem"> ₦1200.00 </p>
-                                    <div className='ratings'>
-                                        <span>
-                                            {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
-                                        </span>
-                                        <p className="initialprice"> 4.56 (132 reviews) </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-                    </div>
-
-                    <div className="scroll-effects">
-                        <button type='button' onClick={ () => scrollLeft() } > <FontAwesomeIcon icon={faAngleLeft} /> </button>
-                        <button type='button'> <FontAwesomeIcon icon={faAngleRight} /> </button>
-                    </div>
-                </section>
+                        <div className="scroll-effects">
+                            <button type='button' onClick={scrollLeft} > <FontAwesomeIcon icon={faAngleLeft} /> </button>
+                            <button type='button' onClick={scrollRight} > <FontAwesomeIcon icon={faAngleRight} /> </button>
+                        </div>
+                    </section>
+                 ) : (
+                    <div style={{ textAlign: 'center' }}> <Loader /> </div>
+                )}
 
                 <section className="feedbacks">
                     <div className="feeds">

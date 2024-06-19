@@ -297,15 +297,3 @@ export function dynamicDisplayEffects(elementToHide, activeDivId, activeButtonCl
   targetDiv.classList.add(activeButtonClass);
 }
 
-
-
-export function scrollLeft () {
-  Swal.fire({
-    icon: 'Success',
-    title: 'Really Nigga',
-    text: 'Are you really sure you want to move left?',
-    showCancelButton: true,
-    confirmButtonText: 'Yes, log me out',
-    cancelButtonText: 'No, please dont',
-  });
-}
