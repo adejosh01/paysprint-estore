@@ -209,11 +209,11 @@
               line-height: 30.24px;
               color: #5B5D64;
             }
-          }
+        }
         .items {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 2rem;
+          gap: 3rem;
           .eachItem {
             .fortheimages {
                 width: 306px;
@@ -251,7 +251,19 @@
             }
           }
         }
-        
+        .scroll-effects {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            bottom: 23rem;
+            padding: 0rem 2rem;
+            button {
+                background-color: #fff;
+                padding: 12.25px 18.37px;
+                border-radius: 30px;
+            }
+        }
     }
 
     section.feedbacks {
@@ -429,6 +441,9 @@
         section.similarproducts {
             .items {
                 grid-template-columns: repeat(3, 1fr);
+            }
+            .scroll-effects {
+                display: none;
             }
         }
 
