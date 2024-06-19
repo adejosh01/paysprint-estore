@@ -4,7 +4,7 @@ import starimage from "assets/images/star.png";
 import starimage_with_noBg from "assets/images/star_with_null_bg.png";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'; 
-import { handleClick, stripHtmlTags, useCounter, notificationAlert, useCounterForEdit } from 'utils/utils';
+import { handleClick, stripHtmlTags, useCounter, notificationAlert, useCounterForEdit, scrollLeft } from 'utils/utils';
 import { useAuth } from 'hook/AuthProvider';
 import config from '../../config';
 import { Loader } from 'components/loader/loader.component';
@@ -17,7 +17,7 @@ import cannedPepsi from 'assets/images/estore/productDetails/cannedpepsi.png';
 import profile_photo from 'assets/images/estore/rectangle-20.png';
 import profile_photo2 from 'assets/images/estore/rectangle-27.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 import ProgressBarForProduct from 'components/loader/progressBarForProduct.component';
 
 
@@ -206,11 +206,7 @@ export const ProductDetails = ({ title }) => {
                                     <p className="priceofitem"> ₦1200.00 </p>
                                     <div className='ratings'>
                                         <span>
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
                                         </span>
                                         <p className="initialprice"> 4.56 (132 reviews) </p>
                                     </div>
@@ -226,11 +222,7 @@ export const ProductDetails = ({ title }) => {
                                     <p className="priceofitem"> ₦1200.00 </p>
                                     <div className='ratings'>
                                         <span>
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
                                         </span>
                                         <p className="initialprice"> 4.56 (132 reviews) </p>
                                     </div>
@@ -246,11 +238,7 @@ export const ProductDetails = ({ title }) => {
                                     <p className="priceofitem"> ₦1200.00 </p>
                                     <div className='ratings'>
                                         <span>
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
                                         </span>
                                         <p className="initialprice"> 4.56 (132 reviews) </p>
                                     </div>
@@ -266,17 +254,18 @@ export const ProductDetails = ({ title }) => {
                                     <p className="priceofitem"> ₦1200.00 </p>
                                     <div className='ratings'>
                                         <span>
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
+                                            {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
                                         </span>
                                         <p className="initialprice"> 4.56 (132 reviews) </p>
                                     </div>
                                 </div>
                             </div>
                         </Link>
+                    </div>
+
+                    <div className="scroll-effects">
+                        <button type='button' onClick={ () => scrollLeft() } > <FontAwesomeIcon icon={faAngleLeft} /> </button>
+                        <button type='button'> <FontAwesomeIcon icon={faAngleRight} /> </button>
                     </div>
                 </section>
 
