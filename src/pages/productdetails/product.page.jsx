@@ -1,24 +1,20 @@
 import './product.styles.scss';
-import React, { useEffect, useState } from 'react';  
+import React, { useEffect, useRef, useState } from 'react';  
 import starimage from "assets/images/star.png";
 import starimage_with_noBg from "assets/images/star_with_null_bg.png";
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios'; 
-import { handleClick, stripHtmlTags, useCounter, notificationAlert, useCounterForEdit } from 'utils/utils';
+import { stripHtmlTags, useCounter, notificationAlert, useCounterForEdit } from 'utils/utils';
 import { useAuth } from 'hook/AuthProvider';
 import config from '../../config';
 import { Loader } from 'components/loader/loader.component';
 import { RESPONSE_STATES } from 'utils/constants';
-import productstuff from 'assets/images/estore/personalStore/prod2.png';
-import similiarOne from 'assets/images/estore/productDetails/pepsi.png';
-import sevenUp from 'assets/images/estore/productDetails/7up.png';
-import cokeAndFanta from 'assets/images/estore/productDetails/fantaandcoke.png';
-import cannedPepsi from 'assets/images/estore/productDetails/cannedpepsi.png';
 import profile_photo from 'assets/images/estore/rectangle-20.png';
 import profile_photo2 from 'assets/images/estore/rectangle-27.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faAngleLeft, faAngleRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 import ProgressBarForProduct from 'components/loader/progressBarForProduct.component';
+import { LoaderVTwo } from 'components/loader/loader.component.version-two';
 
 
 export const ProductDetails = ({ title }) => {
@@ -28,7 +24,7 @@ export const ProductDetails = ({ title }) => {
     const { productCode } = useParams();
     const [specificProduct, setData] = useState([]);
     const [similarProduct, setSimilarProduct] = useState([]);
-    const [ setError] = useState(null);
+    const [ error, setError ] = useState(null);
     const { count, increment, decrement } = useCounter(1);
     const navigate = useNavigate();
     const [myProduct, setSingleItemCartCount] = useState({});
@@ -78,66 +74,82 @@ export const ProductDetails = ({ title }) => {
       document.title = title;
       window.scrollTo(0, 0);
 
-    axios.get(`${apiUrl}/ashopree/product/specific/${productCode}`) 
-    .then(response => {
-        setData(response.data.data[0].product);
-        setSimilarProduct(response.data.data[0].similarProduct);
-    }).catch(error => {
-      setError('Error fetching product using a specific product code: ' + error.message);
-    });
+        axios.get(`${apiUrl}/ashopree/product/specific/${productCode}`) 
+        .then(response => {
+            setData(response.data.data[0].product);
+            setSimilarProduct(response.data.data[0].similarProduct);
+        }).catch(error => {
+        setError('Error fetching product using a specific product code: ' + error.message);
+        });
 
+        const getCartItems = async () => {
+            try {
+                const thisconfig = {
+                    method: 'get',
+                    url: `${apiUrl}/shop/product/loadmycart`,
+                    headers: {
+                        Authorization: 'Bearer ' + user.token
+                    }
+                };
+        
+                const response = await axios(thisconfig);
+                const cartItems = response.data.data;
+                // Get the specificProduct in cartItems based on productName
+                const specificCartItem = cartItems.find(item => item.productName === specificProduct.productName);
 
-    const getCartItems = async () => {
-        try {
-            const thisconfig = {
-                method: 'get',
-                url: `${apiUrl}/shop/product/loadmycart`,
-                headers: {
-                    Authorization: 'Bearer ' + user.token
+                if (specificCartItem) {
+                    setSingleItemCartCount(specificCartItem);
+
                 }
-            };
-    
-            const response = await axios(thisconfig);
-            const cartItems = response.data.data;
-            // Get the specificProduct in cartItems based on productName
-            const specificCartItem = cartItems.find(item => item.productName === specificProduct.productName);
-
-            if (specificCartItem) {
-                setSingleItemCartCount(specificCartItem);
-
+                
+                // console.log("My quantity is: " + cartItems[0].quantity); 
+                
+            } catch (error) {
+                console.error('Error fetching cart items:', error);
             }
-            
-            // console.log("My quantity is: " + cartItems[0].quantity); 
-            
-        } catch (error) {
-            console.error('Error fetching cart items:', error);
+        };
+
+        getCartItems();
+
+    }, [setError, apiUrl, productCode, title, specificProduct.productName, user.token]);
+
+    const itemsRef = useRef(null);
+
+    const scrollLeft = () => {
+        if (itemsRef.current) {
+            itemsRef.current.scrollBy({ left: -300, behavior: 'smooth' });
         }
     };
 
-    getCartItems();
-
-
-    }, [setError, apiUrl, productCode, title, specificProduct.productName, user.token]);
+    const scrollRight = () => {
+        if (itemsRef.current) {
+            itemsRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    };
+  
+    console.log("Error Message => " + error);
+    // console.log(specificProduct);
 
     return (
         <div className="estore-container">
             
+            {Object.keys(specificProduct).length > 0 ? (
                 <section className='oneproduct'>
                     <div className='imagessection'>
                         <div className="themainimage">
-                            <img src={productstuff} alt="myStoreImage" />
+                            <img src={specificProduct.image} alt="myStoreImage" />
                         </div>
 
                         <div className="otherimages">
-                            <img src={productstuff} alt="myStoreImage" />
+                            <img src={specificProduct.image} alt="myStoreImage" />
                         </div>
                     </div>
 
                     <div className="describingtheimages">
-                        <h2> IAV Quality Slide With Double Sole And Thick Bottom </h2>
+                        <h2> {specificProduct.productName} </h2>
                         <div className='longpiece'>
                             <h4> Description</h4>
-                            <p> This item is Every fashionable man's dream. Made to last a lifetime from high-quality materials. It is simple to clean, maintain, and very durable, allowing the product to retain its luster for years. The shoes are made in Ghana, so the size is African Size. You can choose the shoe size according to your foot length. Note: If your feet are slightly wider than usual, we recommend choosing one size larger. Attention. The packaging is in a shoe box with our brand name iav. Dear Customer, please choose the item according to your foot length. Happy Shopping </p>
+                            <p> {typeof specificProduct.description === 'string' ? stripHtmlTags(specificProduct.description) : specificProduct.description} </p>
                             <div className='dynamic'>
                                 <div>
                                     <p className='choose'> Choose a color </p>
@@ -170,7 +182,7 @@ export const ProductDetails = ({ title }) => {
                             </div>
                         </div>
 
-                        <p className='storedealer' style={{ marginBottom: '-1rem' }} >Store: <span> Ibrahim Aminu Ventures </span> </p>
+                        <p className='storedealer' style={{ marginBottom: '-1rem' }} >Store: <span> {specificProduct.businessname} </span> </p>
                         <div className='ratings'>
                             <span>
                                 <img src={starimage} alt="justtheIconOfAStar" />
@@ -181,102 +193,52 @@ export const ProductDetails = ({ title }) => {
                             </span>
                             <p className="initialprice"> 4.56 (132 reviews) </p>
                         </div>
-                        <p className='amount'> $450.00 </p>
+                        <p className='amount'> {specificProduct.currencySymbol + Number(specificProduct.amount).toFixed(2)} </p>
                         <form className='justbuttons'>
                             <button type='button'> Add to cart </button>
                             <button type='button'> Buy now </button>
                         </form>
                     </div>
                 </section>
+            ) : (
+                <LoaderVTwo />
+            )}
 
 
-                <section className='similarproducts'>
-                    <div className="producttitle">
-                        <p> Similar Products </p>
-                    </div>
+                {similarProduct.length > 0 ? (
+                    <section className='similarproducts'>
+                        <div className="producttitle">
+                            <p> Similar Products </p>
+                        </div>
 
-                    <div className="items">
-                        <Link to={`/productdetails/`}>
-                            <div className="eachItem">
-                                <img className='fortheimages' src={similiarOne} alt="eachImage" />
-                                <div className="imgdescription">
-                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
-                                    <p className="priceofitem"> ₦1200.00 </p>
-                                    <div className='ratings'>
-                                        <span>
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                        </span>
-                                        <p className="initialprice"> 4.56 (132 reviews) </p>
+                        <div className="items" ref={itemsRef}>
+                            {similarProduct.map((item, index) => ( <>
+                                <Link to={`/productdetails/${item.productCode}`}>
+                                    <div className="eachItem" key={index}>
+                                        <img className='fortheimages' src={item.image} alt="eachImage" />
+                                        <div className="imgdescription">
+                                            <p className="nameofitem"> {item.productName} </p>
+                                            <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion?.mycurrencysymbol + Number(item.myCountryConversion?.myamount).toFixed(2) : item.currencySymbol + Number(item.amount).toFixed(2)} </p>
+                                            <div className='ratings'>
+                                                <span>
+                                                    {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
+                                                </span>
+                                                <p className="initialprice"> 4.56 (132 reviews) </p>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </Link>
+                                </Link>
+                            </>))}
+                        </div>
 
-                        <Link to={`/productdetails/`}>
-                            <div className="eachItem">
-                                <img className='fortheimages' src={sevenUp} alt="eachImage" />
-                                <div className="imgdescription">
-                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
-                                    <p className="priceofitem"> ₦1200.00 </p>
-                                    <div className='ratings'>
-                                        <span>
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                        </span>
-                                        <p className="initialprice"> 4.56 (132 reviews) </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to={`/productdetails/`}>
-                            <div className="eachItem">
-                                <img className='fortheimages' src={cokeAndFanta} alt="eachImage" />
-                                <div className="imgdescription">
-                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
-                                    <p className="priceofitem"> ₦1200.00 </p>
-                                    <div className='ratings'>
-                                        <span>
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                        </span>
-                                        <p className="initialprice"> 4.56 (132 reviews) </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-
-                        <Link to={`/productdetails/`}>
-                            <div className="eachItem">
-                                <img className='fortheimages' src={cannedPepsi} alt="eachImage" />
-                                <div className="imgdescription">
-                                    <p className="nameofitem"> Coca cola 60cl -  1 crate  </p>
-                                    <p className="priceofitem"> ₦1200.00 </p>
-                                    <div className='ratings'>
-                                        <span>
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                            <img src={starimage} alt="justtheIconOfAStar" />
-                                        </span>
-                                        <p className="initialprice"> 4.56 (132 reviews) </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </Link>
-                    </div>
-                </section>
+                        <div className="scroll-effects">
+                            <button type='button' onClick={scrollLeft} > <FontAwesomeIcon icon={faAngleLeft} /> </button>
+                            <button type='button' onClick={scrollRight} > <FontAwesomeIcon icon={faAngleRight} /> </button>
+                        </div>
+                    </section>
+                ) : (
+                    <div style={{ textAlign: 'center' }}> <Loader /> </div>
+                )}
 
                 <section className="feedbacks">
                     <div className="feeds">
@@ -398,7 +360,7 @@ export const ProductDetails = ({ title }) => {
                         </div>
                     </div>
                 
-                    <a href='#?' className='view-all-reviews'> View All Reviews </a>
+                    <a href='/reviews' className='view-all-reviews'> View All Reviews </a>
                 </section>
         </div>
     );

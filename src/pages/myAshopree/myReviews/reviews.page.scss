@@ -133,9 +133,9 @@
                                     float: left;
                                     height: 65px;
                                     overflow: hidden;
-                                    position: relative;
+                                    // position: relative;
                                     width: 65px;
-                                    z-index: 99;
+                                    // z-index: 99;
                                 }
                                 .comment-box::before {
                                     border-color: transparent rgba(0, 0, 0, .05);
@@ -210,9 +210,9 @@
                                     float: left;
                                     height: 65px;
                                     overflow: hidden;
-                                    position: relative;
+                                    // position: relative;
                                     width: 65px;
-                                    z-index: 99;
+                                    // z-index: 99;
                                 }
                                 div.reply-box::before {
                                     border-color: transparent rgba(0, 0, 0, .05);
