@@ -204,7 +204,6 @@ export const ProductDetails = ({ title }) => {
                 <LoaderVTwo />
             )}
 
-
                 {similarProduct.length > 0 ? (
                     <section className='similarproducts'>
                         <div className="producttitle">
