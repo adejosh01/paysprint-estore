@@ -26,8 +26,8 @@ export const ProductDetails = ({ title }) => {
     const [similarProduct, setSimilarProduct] = useState([]);
     const [ error, setError ] = useState(null);
     const { count, increment, decrement } = useCounter(1);
-    const navigate = useNavigate();
-    const [myProduct, setSingleItemCartCount] = useState({});
+    const navigate = useNavigate(); 
+    const [myProduct, setSingleItemCartCount] = useState({}); 
     const { countForEdit, incrementForEdit, decrementForEdit } = useCounterForEdit(myProduct ? myProduct.quantity : 1 );
 
 
