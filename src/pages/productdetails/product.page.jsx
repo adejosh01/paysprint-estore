@@ -16,7 +16,7 @@ import { faAngleLeft, faAngleRight, faCheck } from '@fortawesome/free-solid-svg-
 import ProgressBarForProduct from 'components/loader/progressBarForProduct.component';
 import { LoaderVTwo } from 'components/loader/loader.component.version-two';
 
-
+ 
 export const ProductDetails = ({ title }) => {
     const apiUrl = config().baseUrl;  
     const [responseState, setResponseState] = useState(RESPONSE_STATES.none);
