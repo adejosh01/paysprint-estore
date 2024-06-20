@@ -21,7 +21,7 @@ export const ProductDetails = ({ title }) => {
     const apiUrl = config().baseUrl;  
     const [responseState, setResponseState] = useState(RESPONSE_STATES.none);
     const user = useAuth();
-    const { productCode } = useParams();  
+    const { productCode } = useParams();
     const [specificProduct, setData] = useState([]);
     const [similarProduct, setSimilarProduct] = useState([]);
     const [ error, setError ] = useState(null);
