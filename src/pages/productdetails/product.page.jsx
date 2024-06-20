@@ -72,7 +72,7 @@ export const ProductDetails = ({ title }) => {
 
     useEffect(() => {
       document.title = title;
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 0);  
 
         axios.get(`${apiUrl}/ashopree/product/specific/${productCode}`) 
         .then(response => {
