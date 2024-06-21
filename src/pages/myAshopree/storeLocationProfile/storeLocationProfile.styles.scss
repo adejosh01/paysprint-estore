@@ -1,0 +1,139 @@
+.estore-container {
+    // padding: 4rem 1.6rem;
+    font: 500 20px 'Plus Jakarta Sans';
+    
+    h1 {
+      font-weight: 700;
+      font-size: 32px;
+      line-height: 40px;
+      text-align: center;
+      text-transform: capitalize;
+      color: #272343;
+      margin-bottom: 0.8rem;
+    }
+    & > p {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 24px;
+      text-align: center;
+      color: #2d334a;
+      margin-bottom: 3.2rem;
+    }
+
+    section.store-profile {
+        padding: 4rem 3rem;
+        h2 {
+            font: 600 45px 'Plus jakarta sans';
+            text-align: center;
+            line-height: 28px;
+            padding-left: 33px;
+        }  
+        section.all-items {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+            main {
+                width: 100%;
+                display: flex;
+                gap: 20px;
+                div.first {
+                    flex: 0 0 65%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 40px;
+                    h4 {
+                        color: #05004E;
+                        font: 700 30px 'circular std';
+                    }
+                }
+                div.second {
+                    padding: 1.5rem;
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+
+}
+
+@media screen and (max-width: 1300px) {
+    .estore-container { 
+        section.store-profile {
+            div.plans {
+                gap: 25px;
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .estore-container { 
+        section.store-profile {
+            section.all-items {
+                div.left-side {
+                    flex: 0 0 260px;
+                    padding: 0px 2px;
+                }
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 1123px) {
+    .estore-container { 
+        section.store-profile {
+            section.all-items {
+                main {
+                    flex-direction: column;
+                    gap: 0px;
+                    div.main-element {
+                        flex: 0 0 50%;
+                    }
+                }
+            }
+        }    
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .estore-container { 
+        section.store-profile {
+            section.all-items {
+                div.left-side {
+                    display: none;
+                }
+            }
+        }    
+    }
+}
+
+
+@media screen and (max-width: 600px) {
+    .estore-container { 
+        section.store-profile {
+            padding: 2rem;
+            section.all-items {
+                main {
+                // gap: 30px;
+                    div.first {
+                        padding: 15px;
+                    }
+                    div.second {
+                        padding: 15px;
+                        height: 50vh;
+                    }
+                }
+            }
+        }    
+    }
+}
+
+
+@media screen and (min-width: 1218px) {
+    .estore-container {
+        section.store-profile {
+            padding: 8.6rem 0.5rem;
+        }
+    }
+}

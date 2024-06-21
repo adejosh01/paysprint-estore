@@ -31,7 +31,7 @@ const MyashopreeSidePage = () => {
                     <NavLink to={'/messages'}> <p> <FontAwesomeIcon icon={faMessage} /> Messages </p> </NavLink>
                     <NavLink to={'/reviews'}> <p> <FontAwesomeIcon icon={faStarHalfStroke} /> My Reviews </p> </NavLink>
                     <NavLink to={'/myashopree/profile'}> <p> <FontAwesomeIcon icon={faUser} /> Profile </p> </NavLink>
-                    <NavLink to={'/community'}> <p> <FontAwesomeIcon icon={faPeopleGroup} /> Community </p> </NavLink>
+                    {/* <NavLink to={'/community'}> <p> <FontAwesomeIcon icon={faPeopleGroup} /> Community </p> </NavLink> */}
                     <NavLink to={'/myashopree/settings'}> <p> <FontAwesomeIcon icon={faGear} /> Settings </p> </NavLink>
                     <NavLink to={'logout'}> <p onClick={ () => confirmationOfAction(auth) }> <img src={logout} alt="logoutImg" /> Sign Out </p> </NavLink>
                 </ul>    

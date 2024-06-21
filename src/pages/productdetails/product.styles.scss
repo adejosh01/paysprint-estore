@@ -450,32 +450,34 @@
             gap: 3rem;
             align-items: center;
         }
-        section.similarproducts {
-            .items {
-                grid-template-columns: repeat(3, 1fr);
-            }
-            // .scroll-effects {
-            //     display: none;
-            // }
-        }
 
+        section.feedbacks {
+            div.feeds {
+                flex: 0 0 50%;
+            }
+        }
     }
 }
 
 @media screen and (max-width: 800px) {
     .estore-container {
-        section.similarproducts {
-            padding: 3rem 2.6rem;
+        section.oneproduct, section.similarproducts, section.feedbacks, section.reviews {
+            padding: 2rem;
         }
 
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     .estore-container {
-        section.similarproducts {
-            .items {
-                grid-template-columns: repeat(2, 1fr);
+        section.oneproduct {
+            .describingtheimages {
+                form.justbuttons {
+                    justify-content: space-evenly;
+                    button {
+                        padding: 20px 60px;
+                    }
+                }
             }
         }
     }
@@ -500,11 +502,27 @@
                 }
             }
             .describingtheimages {
-                padding: 0rem;
+                width: 100%;
                 h2 {
                     font: 600 25px 'Plus Jakarta Sans';
                     line-height: 40.4px;
-                    text-align: left;
+                    text-align: left; 
+                }
+                form.justbuttons {
+                    justify-content: space-between;
+                    button {
+                        padding: 15px 30px;
+                    }
+                }
+                .longpiece {
+                    div.dynamic {
+                        div {
+                            .checkinputs {
+                                grid-template-columns: repeat(3, 1fr);
+                                width: 100%;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -512,12 +530,12 @@
         section.similarproducts {
             padding: 2rem;
             .items {
-                grid-template-columns: repeat(2, 1fr);
                 a { 
                     .eachItem {
                         .fortheimages {
                             width: 100%;
-                            height: unset;
+                            // height: unset;
+                            height: 22rem;
                         }
                         .imgdescription {
                             margin: 4% auto;
@@ -530,6 +548,22 @@
                         }
                     }
                 }
+            }
+        }
+
+        section.feedbacks {
+            div.feeds {
+                flex: 0 0 40%;
+                h5 {
+                    padding: 4px 14px;
+                }
+                .all {
+                    padding: 0px 10px;
+                }
+            }
+            div.detailed-ratings {
+                flex: unset;
+                padding: 10px 15px;
             }
         }
     }

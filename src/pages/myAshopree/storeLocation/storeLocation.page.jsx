@@ -73,7 +73,7 @@ export const StoreLocation = ({ title }) => {
                                                             <img src={ashopree} alt={item.id} style={{ width: "60px", height: "60px" }} />
                                                             <em><p> {item.title} </p><p><small>{(item.address).toLowerCase()}</small></p></em>
                                                         </div>
-                                                        <Link to={'#'}> View Profile </Link>
+                                                        <Link to={'/store-location-profile'}> View Profile </Link>
                                                     </div>
                                                 ))
                                             }
@@ -91,7 +91,7 @@ export const StoreLocation = ({ title }) => {
                             </main>
                         )
                     }
-                        
+                    
                 </section>
 
             </section>
