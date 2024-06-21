@@ -40,6 +40,7 @@ import { TrackOrders } from "pages/myAshopree/trackOrders/trackOrders.page";
 import { MyReviews } from "pages/myAshopree/myReviews/reviews.page";
 import { MyPurchaseHistory } from "pages/myAshopree/purchaseHistory/purchasehistory";
 import { MyWishlist } from "pages/mywishlist/wishlist.page";
+import { StoreLocationProfile } from "pages/myAshopree/storeLocationProfile/storeLocationProfile.page";
 
 function App() {
 
@@ -66,10 +67,11 @@ function App() {
               <Route path="/favourite-stores" exact element={<MyFavouriteStores title="aShopree | My Favourite Stores " />} />
               <Route path="/wishlist" exact element={<MyWishlist title="aShopree | My Wishlists " />} />
               <Route path="/myashopree" exact element={<Myashopree title="aShopree | My aShopree " />} />
-              <Route path="/store-location" exact element={<StoreLocation title="aShopree | My Shoppings " />} />
+              <Route path="/store-location" exact element={<StoreLocation title="aShopree | My Stores Location " />} />
               <Route path="/track-orders" exact element={<TrackOrders title="aShopree | Track Orders " />} />
               <Route path="/reviews" exact element={<MyReviews title="aShopree | My Reviews " />} />
               <Route path="/purchase-history" exact element={<MyPurchaseHistory title="aShopree | My Purchase History " />} />
+              <Route path="/store-location-profile" exact element={<StoreLocationProfile title="aShopree | My Stores Location Profile " />} />
             </Route>
 
             

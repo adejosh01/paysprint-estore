@@ -17,8 +17,6 @@ import MyashopreeSidePage from "components/Myashopree/side.page";
 export const EstoreHeader = ({title}) => {
   const auth = useAuth();
 
-  // console.log(auth);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(false);
@@ -56,12 +54,11 @@ export const EstoreHeader = ({title}) => {
 
   }, [apiUrl, title]);
 
-  // console.log(categories);
 
   return (
     <>
       <nav className="mobile-nav">
-        <img src={moblieLogo} alt="" style={{ width: '25%' }} />  {/* Instead  of width: 150px*/}
+        <img src={moblieLogo} alt="" style={{ width: '25%' }} />  
         <div className="buttons">
           <Link to="/"> Home </Link>
           <button onClick={() => setIsMenuOpen(true)}>
@@ -72,7 +69,7 @@ export const EstoreHeader = ({title}) => {
           <button onClick={() => setIsMenuOpen(false)}>
             <FontAwesomeIcon icon={faXmark} />
           </button>
-            { (pathname === '/myashopree' || pathname === '/track-orders' || pathname === '/store-location' || pathname === '/messages' || pathname === '/community' || pathname === '/reviews' || pathname === '/favourite-stores' || pathname === '/purchase-history' || pathname === '/wishlist' ) ? (
+            { (pathname === '/myashopree' || pathname === '/track-orders' || pathname === '/store-location' || pathname === '/messages' || pathname === '/community' || pathname === '/reviews' || pathname === '/favourite-stores' || pathname === '/purchase-history' || pathname === '/wishlist' || pathname === '/store-location-profile' ) ? (
                 <MyashopreeSidePage />
               ) : (
                 <ul>
