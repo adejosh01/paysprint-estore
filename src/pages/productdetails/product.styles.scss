@@ -450,6 +450,12 @@
             gap: 3rem;
             align-items: center;
         }
+
+        section.feedbacks {
+            div.feeds {
+                flex: 0 0 50%;
+            }
+        }
     }
 }
 
@@ -500,7 +506,7 @@
                 h2 {
                     font: 600 25px 'Plus Jakarta Sans';
                     line-height: 40.4px;
-                    text-align: left;
+                    text-align: left; 
                 }
                 form.justbuttons {
                     justify-content: space-between;
@@ -542,6 +548,22 @@
                         }
                     }
                 }
+            }
+        }
+
+        section.feedbacks {
+            div.feeds {
+                flex: 0 0 40%;
+                h5 {
+                    padding: 4px 14px;
+                }
+                .all {
+                    padding: 0px 10px;
+                }
+            }
+            div.detailed-ratings {
+                flex: unset;
+                padding: 10px 15px;
             }
         }
     }
