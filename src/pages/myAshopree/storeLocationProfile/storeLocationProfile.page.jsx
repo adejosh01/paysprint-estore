@@ -37,7 +37,7 @@ export const StoreLocationProfile = ({ title }) => {
                 
                 </section>
 
-            </section>
+            </section>  
 
         </div>
     );
