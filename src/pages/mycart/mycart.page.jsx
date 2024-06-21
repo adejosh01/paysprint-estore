@@ -120,8 +120,7 @@ export const MyCarts = ({ title }) => {
                                     <th> Action </th>
                                 </thead>
                             { cartItem.length > 0 ? (
-                                cartItem.map((item, index) => (
-                                                    
+                                cartItem.map((item, index) => (          
                                     <tbody index={index}>
                                         <td style={{ width: "15%" }}> <img src={item.productImage} alt={item.productName} /> </td>
                                         <td style={{ textWrap: "pretty" }}> {item.productName} </td>

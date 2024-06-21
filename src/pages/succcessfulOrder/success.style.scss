@@ -90,7 +90,6 @@
                         p:not(:last-child) {
                             flex: 0 0 50%;
                         }
-                        // p &
                     }
                 }
                 .grped {
@@ -132,20 +131,19 @@
 @media screen and (max-width: 900px) {
     .estore-container {
         section.successfulorder {
-            flex-direction: column;
+            padding: 2rem;
             .shouldnotbeeditable {
                 .thedetails {
                     width: 100%;
+                    .descrip {
+                        .theorder {
+                            p:not(:last-child) {
+                                flex: unset;
+                            }
+                        }
+                    }
                 }
             }
-        }
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .estore-container {
-        section.successfulorder {
-            flex-direction: column;
         }
     }
 }
