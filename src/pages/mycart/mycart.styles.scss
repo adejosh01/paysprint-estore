@@ -217,10 +217,24 @@
     }
 }
 
+@media screen and (max-width: 1100px) {
+    .estore-container {
+        section.maincontent {
+            .relevantstuffs {
+                flex: 0 0 60%;
+            }
+        }
+    }
+}
+
 @media screen and (max-width: 900px) {
     .estore-container {
         section.maincontent {
             flex-direction: column;
+            padding: 2rem;
+            .relevantstuffs {
+                width: 100%;
+            }
         }
     }
 }

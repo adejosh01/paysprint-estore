@@ -16,9 +16,9 @@ import { faAngleLeft, faAngleRight, faCheck } from '@fortawesome/free-solid-svg-
 import ProgressBarForProduct from 'components/loader/progressBarForProduct.component';
 import { LoaderVTwo } from 'components/loader/loader.component.version-two';
 
-
+ 
 export const ProductDetails = ({ title }) => {
-    const apiUrl = config().baseUrl;
+    const apiUrl = config().baseUrl;  
     const [responseState, setResponseState] = useState(RESPONSE_STATES.none);
     const user = useAuth();
     const { productCode } = useParams();
@@ -26,8 +26,8 @@ export const ProductDetails = ({ title }) => {
     const [similarProduct, setSimilarProduct] = useState([]);
     const [ error, setError ] = useState(null);
     const { count, increment, decrement } = useCounter(1);
-    const navigate = useNavigate();
-    const [myProduct, setSingleItemCartCount] = useState({});
+    const navigate = useNavigate(); 
+    const [myProduct, setSingleItemCartCount] = useState({}); 
     const { countForEdit, incrementForEdit, decrementForEdit } = useCounterForEdit(myProduct ? myProduct.quantity : 1 );
 
 
@@ -72,7 +72,7 @@ export const ProductDetails = ({ title }) => {
 
     useEffect(() => {
       document.title = title;
-      window.scrollTo(0, 0);
+      window.scrollTo(0, 0);  
 
         axios.get(`${apiUrl}/ashopree/product/specific/${productCode}`) 
         .then(response => {
@@ -203,7 +203,7 @@ export const ProductDetails = ({ title }) => {
             ) : (
                 <LoaderVTwo />
             )}
-
+   
                 {similarProduct.length > 0 ? (
                     <section className='similarproducts'>
                         <div className="producttitle">
