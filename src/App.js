@@ -62,8 +62,8 @@ function App() {
               <Route path="/checkout" exact element={<Checkout title="aShopree | Checkout" />} />
               <Route path="/payment" exact element={<Payment title="aShopree | Payments" />} />
               <Route path="/messages" exact element={<Messages title="aShopree | Messages" />} />
-              <Route path="/community" exact element={<Community title="aShopree | Community " />} />
-              <Route path="/community/post" exact element={<CommunityPost title="aShopree | Community - Post Thread" />} />
+              {/* <Route path="/community" exact element={<Community title="aShopree | Community " />} />
+              <Route path="/community/post" exact element={<CommunityPost title="aShopree | Community - Post Thread" />} /> */}
               <Route path="/favourite-stores" exact element={<MyFavouriteStores title="aShopree | My Favourite Stores " />} />
               <Route path="/wishlist" exact element={<MyWishlist title="aShopree | My Wishlists " />} />
               <Route path="/myashopree" exact element={<Myashopree title="aShopree | My aShopree " />} />
