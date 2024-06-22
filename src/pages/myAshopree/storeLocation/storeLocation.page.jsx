@@ -58,7 +58,7 @@ export const StoreLocation = ({ title }) => {
                     <MyashopreeSidePage />
 
                     { storeLocationList.length > 0 ? (
-                            <main>
+                            <main>  
                                 <div className="first">
                                     <h4> Store Location </h4>
                                     <div className='grouped-companies'>
@@ -91,7 +91,7 @@ export const StoreLocation = ({ title }) => {
                             </main>
                         )
                     }
-                    
+
                 </section>
 
             </section>
