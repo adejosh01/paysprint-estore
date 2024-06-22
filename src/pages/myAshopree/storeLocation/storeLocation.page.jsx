@@ -48,7 +48,7 @@ export const StoreLocation = ({ title }) => {
         getStoreLocationList();
     }, [apiUrl, title]);
 
-    return (
+    return (   
         <div className="estore-container">
 
             <section className="location">
