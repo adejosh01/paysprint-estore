@@ -39,7 +39,6 @@ export const StoreLocation = ({ title }) => {
                 }
             }
         }
-
     }
 
     useEffect(() => {
