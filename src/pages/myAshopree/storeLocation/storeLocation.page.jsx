@@ -9,9 +9,9 @@ import axios from "axios";
 import { LoaderVTwo } from 'components/loader/loader.component.version-two';
 
 
-export const StoreLocation = ({ title }) => {
+export const StoreLocation = ({ title }) => { 
     const apiUrl = config().baseUrl;
-    const auth = useAuth();
+    const auth = useAuth(); 
     const [storeLocationList, setStoreLocationList] = useState([]);
 
     const getStoreLocationList = async () => {
