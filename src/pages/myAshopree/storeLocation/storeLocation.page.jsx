@@ -9,9 +9,9 @@ import axios from "axios";
 import { LoaderVTwo } from 'components/loader/loader.component.version-two';
 
 
-export const StoreLocation = ({ title }) => {
+export const StoreLocation = ({ title }) => { 
     const apiUrl = config().baseUrl;
-    const auth = useAuth();
+    const auth = useAuth(); 
     const [storeLocationList, setStoreLocationList] = useState([]);
 
     const getStoreLocationList = async () => {
@@ -39,7 +39,6 @@ export const StoreLocation = ({ title }) => {
                 }
             }
         }
-
     }
 
     useEffect(() => {
@@ -49,7 +48,7 @@ export const StoreLocation = ({ title }) => {
         getStoreLocationList();
     }, [apiUrl, title]);
 
-    return (
+    return (   
         <div className="estore-container">
 
             <section className="location">
@@ -58,7 +57,7 @@ export const StoreLocation = ({ title }) => {
                     <MyashopreeSidePage />
 
                     { storeLocationList.length > 0 ? (
-                            <main>
+                            <main>  
                                 <div className="first">
                                     <h4> Store Location </h4>
                                     <div className='grouped-companies'>
@@ -91,7 +90,7 @@ export const StoreLocation = ({ title }) => {
                             </main>
                         )
                     }
-                    
+
                 </section>
 
             </section>
