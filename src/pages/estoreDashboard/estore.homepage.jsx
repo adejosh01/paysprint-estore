@@ -137,16 +137,18 @@ export const EstoreDashboard = ({ title }) => {
                         <div className="imgdescription">
                             <div className="first">
                               <p className="nameofitem" onClick={ () => handleClick(`/productdetails/${item.productCode}`, navigate)}> {item.productName} </p>
-                              <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US') }</p>
                               <div>
+                                <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US') }</p>
                                 <p className="initialprice"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')} </p>
-                                <p title="We've sold 100 pieces already!"> <FontAwesomeIcon icon={faFireFlameCurved} /> 100 sold </p>
                                 <button type="button"> <FontAwesomeIcon icon={faCartPlus} /> </button>
                               </div>
                             </div>
 
                             <div className="second">
-                              <p className="items-left"> Only 3 left </p>
+                              <div className="both">
+                                <p className="items-left"> Only 3 left </p>
+                                <p title="We've sold 100 pieces already!"> <FontAwesomeIcon icon={faFireFlameCurved} /> 100 sold </p>
+                              </div>
                               <div className='ratings'>
                                   <span>
                                     {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
@@ -185,15 +187,17 @@ export const EstoreDashboard = ({ title }) => {
                           <div className="imgdescription">
                             <div className="first">
                               <p className="nameofitem" onClick={ () => handleClick(`/productdetails/${item.productCode}`, navigate)}> {item.productName} </p>
-                              <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')} </p>
                               <div>
+                                <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')} </p>
                                 <p className="initialprice"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')} </p>
-                                <p title="We've sold 100 pieces already!"> <FontAwesomeIcon icon={faFireFlameCurved} /> 100 sold </p>
                                 <button type="button"> <FontAwesomeIcon icon={faCartPlus} /> </button>
                               </div>
                             </div>
                             <div className="second">
-                              <p className="items-left"> Only 3 left </p>
+                              <div className="both">
+                                <p className="items-left"> Only 3 left </p>
+                                <p title="We've sold 100 pieces already!"> <FontAwesomeIcon icon={faFireFlameCurved} /> 100 sold </p>
+                              </div>
                               <div className='ratings'>
                                   <span>
                                     {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}

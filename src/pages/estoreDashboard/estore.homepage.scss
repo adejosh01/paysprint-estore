@@ -259,13 +259,27 @@
             div.second {
               display: flex;
               flex-direction: column;
-              p.items-left {
-                color: #FC9B67;
-                font: 400 16px 'plus jarkata sans';
-                line-height: 23px;
+              .both {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p.items-left {
+                  color: #FC9B67 !important;
+                  font: 400 16px 'plus jarkata sans';
+                  line-height: 23px;
+                  
+                }
+                p {
+                  color: #2D334A;
+                  svg {
+                    color: #FF6D01;
+                  }
+                }
               }
               div.ratings {
                 display: flex;
+                justify-content: space-between;
+                align-items: center;
                 gap: 1rem;
                 span {
                     display: flex;
@@ -340,6 +354,7 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            padding: 20px;
             div.first {
               .nameofitem {
                 font-weight: 500;
@@ -379,13 +394,27 @@
             div.second {
               display: flex;
               flex-direction: column;
-              p.items-left {
-                color: #FC9B67;
-                font: 400 16px 'plus jarkata sans';
-                line-height: 23px;
+              .both {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p.items-left {
+                  color: #FC9B67 !important;
+                  font: 400 16px 'plus jarkata sans';
+                  line-height: 23px;
+                }
+                p {
+                  color: #2D334A;
+                  font-size: 14px;
+                  svg {
+                    color: #FF6D01;
+                  }
+                }
               }
               div.ratings {
                 display: flex;
+                justify-content: space-between;
+                align-items: center;
                 gap: 1rem;
                 span {
                     display: flex;
@@ -394,6 +423,9 @@
                         width: 2rem;
                         height: 2rem;
                     }
+                }
+                p {
+                  font-size: 15px;
                 }
               }
             }
