@@ -128,45 +128,40 @@ export const EstoreDashboard = ({ title }) => {
             <div className="items">
                 {Array.isArray(hotDeals) ? (
                   hotDeals.map((item, index) => (
-                    <Link to={`/productdetails/${item.productCode}`} key={index}>
-                    <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt={item.productName} src={item.image} />} >
-                      <div className="banner"> 
-                        <div> <p> Semi - Annual </p> <p> Savings </p> </div> 
-                        <p> 20% off discount </p>
-                      </div>
-                      <div className="imgdescription">
-                          <div className="first">
-                            <p className="nameofitem">{item.productName}</p>
-                            <p className="priceofitem">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
-                            <div>
-                              <p className="initialprice">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')}</p>
-                              <p title="We've sold 100 pieces already!"> <FontAwesomeIcon icon={faFireFlameCurved} /> 100 sold </p>
-                              <button type="button"> <FontAwesomeIcon icon={faCartPlus} /> </button>
+                    <div key={index}>
+                      <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img alt={item.productName} src={item.image} onClick={ () => handleClick(`/productdetails/${item.productCode}`, navigate)} />} >
+                        <div className="banner"> 
+                          <div> <p> Semi - Annual </p> <p> Savings </p> </div> 
+                          <p> 20% off discount </p>
+                        </div>
+                        <div className="imgdescription">
+                            <div className="first">
+                              <p className="nameofitem" onClick={ () => handleClick(`/productdetails/${item.productCode}`, navigate)}> {item.productName} </p>
+                              <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US') }</p>
+                              <div>
+                                <p className="initialprice"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')} </p>
+                                <p title="We've sold 100 pieces already!"> <FontAwesomeIcon icon={faFireFlameCurved} /> 100 sold </p>
+                                <button type="button"> <FontAwesomeIcon icon={faCartPlus} /> </button>
+                              </div>
                             </div>
-                          </div>
-                          <div className="second">
-                            <p className="items-left"> Only 3 left </p>
-                            <div className='ratings'>
-                                <span>
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                </span>
-                                <p className="initialprice"> 4.56 (132 reviews) </p>
+
+                            <div className="second">
+                              <p className="items-left"> Only 3 left </p>
+                              <div className='ratings'>
+                                  <span>
+                                    {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
+                                  </span>
+                                  <p className="initialprice"> 4.56 (132 reviews) </p>
+                              </div>
                             </div>
-                          </div>
-                      </div>
-                      
-                    </Card>
-                  </Link>
+                        </div>
+                      </Card>
+                    </div>
                   ))
                 ) : (
                   <div>Error: Sorry, Please check your network connection and try again</div>
                 )}
             </div>
-            
           </section>
         )}
 
@@ -180,39 +175,35 @@ export const EstoreDashboard = ({ title }) => {
             <div className="items">
                 {Array.isArray(topProducts) ? (
                     topProducts.map((item, index) => (
-                      <Link to={`/productdetails/${item.productCode}`} key={index}>
-                      <div className="eachItem" key={index}>
-                        <img className="prodImage" src={item.image} alt={item.productName} />
-                        <div className="banner"> 
-                          <div> <p> Semi - Annual </p> <p> Savings </p> </div> 
-                          <p> 20% off discount </p>
-                        </div>
-                        <div className="imgdescription">
-                          <div className="first">
-                            <p className="nameofitem">{item.productName}</p>
-                            <p className="priceofitem">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')}</p>
-                            <div>
-                              <p className="initialprice">{Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')}</p>
-                              <p title="We've sold 100 pieces already!"> <FontAwesomeIcon icon={faFireFlameCurved} /> 100 sold </p>
-                              <button type="button"> <FontAwesomeIcon icon={faCartPlus} /> </button>
-                            </div>
+                      <div key={index}>
+                        <div className="eachItem" key={index}>
+                          <img className="prodImage" onClick={ () => handleClick(`/productdetails/${item.productCode}`, navigate)} src={item.image} alt={item.productName} />
+                          <div className="banner"> 
+                            <div> <p> Semi - Annual </p> <p> Savings </p> </div> 
+                            <p> 20% off discount </p>
                           </div>
-                          <div className="second">
-                            <p className="items-left"> Only 3 left </p>
-                            <div className='ratings'>
-                                <span>
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                    <img src={starimage} alt="justtheIconOfAStar" />
-                                </span>
-                                <p className="initialprice"> 4.56 (132 reviews) </p>
+                          <div className="imgdescription">
+                            <div className="first">
+                              <p className="nameofitem" onClick={ () => handleClick(`/productdetails/${item.productCode}`, navigate)}> {item.productName} </p>
+                              <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')} </p>
+                              <div>
+                                <p className="initialprice"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')} </p>
+                                <p title="We've sold 100 pieces already!"> <FontAwesomeIcon icon={faFireFlameCurved} /> 100 sold </p>
+                                <button type="button"> <FontAwesomeIcon icon={faCartPlus} /> </button>
+                              </div>
+                            </div>
+                            <div className="second">
+                              <p className="items-left"> Only 3 left </p>
+                              <div className='ratings'>
+                                  <span>
+                                    {Array(5).fill(1).map(() => ( <img src={starimage} alt="justtheIconOfAStar" /> ))}
+                                  </span>
+                                  <p className="initialprice"> 4.56 (132 reviews) </p>
+                              </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                      </Link>
                     ))
                   ) : (
                     <div> Error: {error} </div>
@@ -292,7 +283,6 @@ export const EstoreDashboard = ({ title }) => {
                 </div>
               )}
             </div>
-
 
             <div className="thebutton">
               <Link to={`/allcategories?categoryname=${categories[0].category}`}>
