@@ -45,6 +45,27 @@
                         color: #05004E;
                         font: 700 30px 'circular std';
                     }
+                    form {
+                        // flex: 0 0 37%;
+                        div.searching {
+                            font-size: 2rem;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            padding: 1.5rem 3rem !important;
+                            border: 2px solid #EAEAEA;
+                            border-radius: 2rem;
+                            background-color: #fff;
+                            box-shadow: 5px 20px 10px 0px #EEEEEE;
+                            svg {
+                              padding-right: 1rem;
+                              color: #d2d2d2;
+                            }
+                            input {
+                                flex: 0 0 80%;
+                            }
+                        }
+                    }
                     div.grouped-companies {
                         display: grid;
                         grid-template-columns: repeat(2, 1fr);

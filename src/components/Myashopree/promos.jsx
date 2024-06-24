@@ -23,7 +23,7 @@ const AshopreePromos = ({ title }) => {
 
             const response = await axios(thisconfig);
 
-            console.log(response.data);
+            // console.log(response.data);
 
             setRewardMetrics(response.data.data);
 

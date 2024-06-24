@@ -78,8 +78,6 @@ export const TrackOrders = ({ title }) => {
             }
         }
 
-
-
     }
 
 
@@ -90,7 +88,7 @@ export const TrackOrders = ({ title }) => {
 
         getOrderListItems();
 
-    }, [apiUrl, activeButton]);
+    }, [apiUrl, title, activeButton]);
 
     return (
         <div className="estore-container">
@@ -125,26 +123,25 @@ export const TrackOrders = ({ title }) => {
                             </div>
 
                             <main>
-                            {
-                                    orderListItem.length > 0 ? (
-                                        orderListItem.map((item, index) => (
-                                            <div key={index}>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Payment status: {item.orders.paymentStatus === "paid" ? <span style={{ color: 'green' }}>paid</span> : <span style={{ color: 'red' }}>{item.orders.paymentStatus}</span>} </p> <hr/>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Date ordered: {new Date(item.orders.created_at).toLocaleString()} </p> <hr/>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Delivery days: {item.orders.deliveryDate} </p> <hr/>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Status: {item.orders.deliveryStatus === "off" ? <span style={{ color: 'orange' }}>pending</span> : (item.orders.deliveryStatus === "in-progress") ? <span style={{ color: 'blue' }}>out for delivery</span> : <span style={{ color: 'green' }}>{item.orders.deliveryStatus}</span>} </p> <hr/>
-                                                <div>
-                                                    <img style={{ width: "300px", height: "300px" }} src={item.product.image} alt="store productImg" />
-                                                </div>
+                                { orderListItem.length > 0 ? (
+                                    orderListItem.map((item, index) => (
+                                        <div key={index}>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Payment status: {item.orders.paymentStatus === "paid" ? <span style={{ color: 'green' }}>paid</span> : <span style={{ color: 'red' }}>{item.orders.paymentStatus}</span>} </p> <hr/>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Date ordered: {new Date(item.orders.created_at).toLocaleString()} </p> <hr/>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Delivery days: {item.orders.deliveryDate} </p> <hr/>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Status: {item.orders.deliveryStatus === "off" ? <span style={{ color: 'orange' }}>pending</span> : (item.orders.deliveryStatus === "in-progress") ? <span style={{ color: 'blue' }}>out for delivery</span> : <span style={{ color: 'green' }}>{item.orders.deliveryStatus}</span>} </p> <hr/>
+                                            <div>
+                                                <img style={{ width: "300px", height: "300px" }} src={item.product.image} alt="store productImg" />
                                             </div>
-                                        ))
+                                        </div>
+                                    ))
 
-                                    ) : (
-                                         <>
-                                            <h4> You don't have any orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
-                                        </>
-                                    ) 
-                            }
+                                ) : (
+                                        <>
+                                        <h4> You don't have any orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
+                                    </>
+                                ) 
+                                }
                                 
                                 <div className='minor-btns'>
                                     <button type='button' className='button active-side'> Track </button>
@@ -163,26 +160,25 @@ export const TrackOrders = ({ title }) => {
                             </div>
 
                             <main>
-                            {
-                                    orderListItem.length > 0 ? (
-                                        orderListItem.map((item, index) => (
-                                            <div key={index}>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Payment status: {item.orders.paymentStatus === "paid" ? <span style={{ color: 'green' }}>paid</span> : <span style={{ color: 'red' }}>{item.orders.paymentStatus}</span>} </p> <hr/>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Date ordered: {new Date(item.orders.created_at).toLocaleString()} </p> <hr/>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Delivery days: {item.orders.deliveryDate} </p> <hr/>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Status: {item.orders.deliveryStatus === "off" ? <span style={{ color: 'orange' }}>pending</span> : (item.orders.deliveryStatus === "in-progress") ? <span style={{ color: 'blue' }}>out for delivery</span> : <span style={{ color: 'green' }}>{item.orders.deliveryStatus}</span>} </p> <hr/>
-                                                <div>
-                                                    <img style={{ width: "300px", height: "300px" }} src={item.product.image} alt="store productImg" />
-                                                </div>
+                                { orderListItem.length > 0 ? (
+                                    orderListItem.map((item, index) => (
+                                        <div key={index}>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Payment status: {item.orders.paymentStatus === "paid" ? <span style={{ color: 'green' }}>paid</span> : <span style={{ color: 'red' }}>{item.orders.paymentStatus}</span>} </p> <hr/>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Date ordered: {new Date(item.orders.created_at).toLocaleString()} </p> <hr/>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Delivery days: {item.orders.deliveryDate} </p> <hr/>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Status: {item.orders.deliveryStatus === "off" ? <span style={{ color: 'orange' }}>pending</span> : (item.orders.deliveryStatus === "in-progress") ? <span style={{ color: 'blue' }}>out for delivery</span> : <span style={{ color: 'green' }}>{item.orders.deliveryStatus}</span>} </p> <hr/>
+                                            <div>
+                                                <img style={{ width: "300px", height: "300px" }} src={item.product.image} alt="store productImg" />
                                             </div>
-                                        ))
+                                        </div>
+                                    ))
 
                                     ) : (
-                                         <>
+                                        <>
                                             <h4> You don't have any processing orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
                                         </>
                                     ) 
-                            }
+                                }
                                 
                                 <div className='minor-btns'>
                                     <button type='button' className='button active-side'> Track </button>
@@ -201,24 +197,23 @@ export const TrackOrders = ({ title }) => {
                             </div>
 
                             <main>
-                                {
-                                    orderListItem.length > 0 ? (
-                                        orderListItem.map((item, index) => (
-                                            <div key={index}>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Payment status: {item.orders.paymentStatus === "paid" ? <span style={{ color: 'green' }}>paid</span> : <span style={{ color: 'red' }}>{item.orders.paymentStatus}</span>} </p> <hr />
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Date ordered: {new Date(item.orders.created_at).toLocaleString()} </p> <hr />
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Delivery days: {item.orders.deliveryDate} </p> <hr />
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Status: {item.orders.deliveryStatus === "off" ? <span style={{ color: 'orange' }}>pending</span> : (item.orders.deliveryStatus === "in-progress") ? <span style={{ color: 'blue' }}>out for delivery</span> : <span style={{ color: 'green' }}>{item.orders.deliveryStatus}</span>} </p> <hr />
-                                                <div>
-                                                    <img style={{ width: "300px", height: "300px" }} src={item.product.image} alt="store productImg" />
-                                                </div>
+                                { orderListItem.length > 0 ? (
+                                    orderListItem.map((item, index) => (
+                                        <div key={index}>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Payment status: {item.orders.paymentStatus === "paid" ? <span style={{ color: 'green' }}>paid</span> : <span style={{ color: 'red' }}>{item.orders.paymentStatus}</span>} </p> <hr />
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Date ordered: {new Date(item.orders.created_at).toLocaleString()} </p> <hr />
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Delivery days: {item.orders.deliveryDate} </p> <hr />
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Status: {item.orders.deliveryStatus === "off" ? <span style={{ color: 'orange' }}>pending</span> : (item.orders.deliveryStatus === "in-progress") ? <span style={{ color: 'blue' }}>out for delivery</span> : <span style={{ color: 'green' }}>{item.orders.deliveryStatus}</span>} </p> <hr />
+                                            <div>
+                                                <img style={{ width: "300px", height: "300px" }} src={item.product.image} alt="store productImg" />
                                             </div>
-                                        ))
+                                        </div>
+                                    ))
 
                                     ) : (
-                                            <>
-                                                <h4> You don't have any shipped orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
-                                            </>
+                                        <>
+                                            <h4> You don't have any shipped orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
+                                        </>
                                     )
                                 }
                                 <div className='minor-btns'>
@@ -247,25 +242,24 @@ export const TrackOrders = ({ title }) => {
                             </div>
 
                             <main>
-                                {
-                                    orderListItem.length > 0 ? (
-                                        orderListItem.map((item, index) => (
-                                            <div key={index}>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Payment status: {item.orders.paymentStatus === "paid" ? <span style={{ color: 'green' }}>paid</span> : <span style={{ color: 'red' }}>{item.orders.paymentStatus}</span>} </p> <hr />
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Date ordered: {new Date(item.orders.created_at).toLocaleString()} </p> <hr />
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Delivery days: {item.orders.deliveryDate} </p> <hr />
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Status: {item.orders.deliveryStatus === "off" ? <span style={{ color: 'orange' }}>pending</span> : (item.orders.deliveryStatus === "in-progress") ? <span style={{ color: 'blue' }}>out for delivery</span> : <span style={{ color: 'green' }}>{item.orders.deliveryStatus}</span>} </p> <hr />
-                                                <div>
-                                                    <img style={{ width: "300px", height: "300px" }} src={item.product.image} alt="store productImg" />
-                                                </div>
+                                { orderListItem.length > 0 ? (
+                                    orderListItem.map((item, index) => (
+                                        <div key={index}>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Payment status: {item.orders.paymentStatus === "paid" ? <span style={{ color: 'green' }}>paid</span> : <span style={{ color: 'red' }}>{item.orders.paymentStatus}</span>} </p> <hr />
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Date ordered: {new Date(item.orders.created_at).toLocaleString()} </p> <hr />
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Delivery days: {item.orders.deliveryDate} </p> <hr />
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Status: {item.orders.deliveryStatus === "off" ? <span style={{ color: 'orange' }}>pending</span> : (item.orders.deliveryStatus === "in-progress") ? <span style={{ color: 'blue' }}>out for delivery</span> : <span style={{ color: 'green' }}>{item.orders.deliveryStatus}</span>} </p> <hr />
+                                            <div>
+                                                <img style={{ width: "300px", height: "300px" }} src={item.product.image} alt="store productImg" />
                                             </div>
-                                        ))
+                                        </div>
+                                    ))
 
-                                    ) : (
-                                            <>
-                                                <h4> You don't have any delivered orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
-                                            </>
-                                    )
+                                ) : (
+                                        <>
+                                            <h4> You don't have any delivered orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
+                                        </>
+                                )
                                 }
                                 <div className='minor-btns'>
                                     <button type='button' className='button active-side'> Track </button>
@@ -292,25 +286,24 @@ export const TrackOrders = ({ title }) => {
                             </div>
 
                             <main>
-                                {
-                                    orderListItem.length > 0 ? (
-                                        orderListItem.map((item, index) => (
-                                            <div key={index}>
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Payment status: {item.orders.paymentStatus === "paid" ? <span style={{ color: 'green' }}>paid</span> : <span style={{ color: 'red' }}>{item.orders.paymentStatus}</span>} </p> <hr />
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Date ordered: {new Date(item.orders.created_at).toLocaleString()} </p> <hr />
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Delivery days: {item.orders.deliveryDate} </p> <hr />
-                                                <p style={{ fontSize: '14px', fontWeight: '600' }}> Status: {item.orders.deliveryStatus === "off" ? <span style={{ color: 'orange' }}>pending</span> : (item.orders.deliveryStatus === "in-progress") ? <span style={{ color: 'blue' }}>out for delivery</span> : <span style={{ color: 'green' }}>{item.orders.deliveryStatus}</span>} </p> <hr />
-                                                <div>
-                                                    <img style={{ width: "300px", height: "300px" }} src={item.product.image} alt="store productImg" />
-                                                </div>
+                                { orderListItem.length > 0 ? (
+                                    orderListItem.map((item, index) => (
+                                        <div key={index}>
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Payment status: {item.orders.paymentStatus === "paid" ? <span style={{ color: 'green' }}>paid</span> : <span style={{ color: 'red' }}>{item.orders.paymentStatus}</span>} </p> <hr />
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Date ordered: {new Date(item.orders.created_at).toLocaleString()} </p> <hr />
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Delivery days: {item.orders.deliveryDate} </p> <hr />
+                                            <p style={{ fontSize: '14px', fontWeight: '600' }}> Status: {item.orders.deliveryStatus === "off" ? <span style={{ color: 'orange' }}>pending</span> : (item.orders.deliveryStatus === "in-progress") ? <span style={{ color: 'blue' }}>out for delivery</span> : <span style={{ color: 'green' }}>{item.orders.deliveryStatus}</span>} </p> <hr />
+                                            <div>
+                                                <img style={{ width: "300px", height: "300px" }} src={item.product.image} alt="store productImg" />
                                             </div>
-                                        ))
+                                        </div>
+                                    ))
 
-                                    ) : (
-                                        <>
-                                            <h4> You don't have any returned orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
-                                        </>
-                                    )
+                                ) : (
+                                    <>
+                                        <h4> You don't have any returned orders <FontAwesomeIcon icon={faEnvelopeOpenText} /> </h4>
+                                    </>
+                                )
                                 }
                                 <div className='minor-btns'>
                                     <button type='button' className='button active-side'> Track </button>
