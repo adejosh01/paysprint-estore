@@ -176,10 +176,12 @@
         gap: 2rem;
         
         .eachItem {
+          cursor: unset;
           img {
             width: 100%;
             height: 25rem;
             border-radius: 12px;
+            cursor: pointer;
           }
           div.banner {
             // background-image: url("../../assets/updatedAshopree/single_product_banner.png");
@@ -223,6 +225,7 @@
                 font-weight: 500;
                 font-size: 23px;
                 line-height: 25.2px;
+                cursor: pointer;
               }
               .priceofitem {
                 font-weight: 600;
@@ -256,13 +259,27 @@
             div.second {
               display: flex;
               flex-direction: column;
-              p.items-left {
-                color: #FC9B67;
-                font: 400 16px 'plus jarkata sans';
-                line-height: 23px;
+              .both {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p.items-left {
+                  color: #FC9B67 !important;
+                  font: 400 16px 'plus jarkata sans';
+                  line-height: 23px;
+                  
+                }
+                p {
+                  color: #2D334A;
+                  svg {
+                    color: #FF6D01;
+                  }
+                }
               }
               div.ratings {
                 display: flex;
+                justify-content: space-between;
+                align-items: center;
                 gap: 1rem;
                 span {
                     display: flex;
@@ -293,10 +310,12 @@
         grid-template-columns: repeat(4, 1fr);
         gap: 2rem;
         .eachItem {
+          cursor: unset;
           .prodImage {
             width: 100%;
             height: 240px;
             border-radius: 15px;
+            cursor: pointer;
           }
           div.banner {
             // background-image: url("../../assets/updatedAshopree/single_product_banner.png");
@@ -335,11 +354,13 @@
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
+            padding: 20px;
             div.first {
               .nameofitem {
                 font-weight: 500;
                 font-size: 23px;
                 line-height: 25.2px;
+                cursor: pointer;
               }
               .priceofitem {
                 font-weight: 600;
@@ -373,13 +394,27 @@
             div.second {
               display: flex;
               flex-direction: column;
-              p.items-left {
-                color: #FC9B67;
-                font: 400 16px 'plus jarkata sans';
-                line-height: 23px;
+              .both {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                p.items-left {
+                  color: #FC9B67 !important;
+                  font: 400 16px 'plus jarkata sans';
+                  line-height: 23px;
+                }
+                p {
+                  color: #2D334A;
+                  font-size: 14px;
+                  svg {
+                    color: #FF6D01;
+                  }
+                }
               }
               div.ratings {
                 display: flex;
+                justify-content: space-between;
+                align-items: center;
                 gap: 1rem;
                 span {
                     display: flex;
@@ -388,6 +423,9 @@
                         width: 2rem;
                         height: 2rem;
                     }
+                }
+                p {
+                  font-size: 15px;
                 }
               }
             }
