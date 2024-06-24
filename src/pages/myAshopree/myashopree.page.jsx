@@ -10,6 +10,7 @@ import AshopreePromos from 'components/Myashopree/promos';
 import { useAuth } from 'hook/AuthProvider';
 import config from '../../config';
 import axios from 'axios'; 
+import { notificationAlert } from 'utils/utils';
 
 export const Myashopree = ({ title }) => {
     const apiUrl = config().baseUrl;
@@ -30,7 +31,7 @@ export const Myashopree = ({ title }) => {
 
             const response = await axios(thisconfig);
 
-            console.log(response.data);
+            // console.log(response.data);
 
             setRewardMetrics(response.data.data);
 
@@ -82,7 +83,7 @@ export const Myashopree = ({ title }) => {
                                             <p> {user.user.currencySymbol}{Number(rewardMetrics.cashback).toFixed(2)} </p>
                                             <p> Cashback </p>
                                             <p className='coloured-text'> +8% from yesterday </p>
-                                            <button type='button'> Redeem </button>
+                                            <button type='button' onClick={ () => notificationAlert('success', 'Redeemed successfully' ,'This wil be triggered once clicked') } > Redeem </button>
                                         </div>
                                     </div>
                                     <div className="single">
@@ -91,6 +92,7 @@ export const Myashopree = ({ title }) => {
                                             <p> {rewardMetrics.review_point} </p>
                                             <p> Review Points </p>
                                             <p className='coloured-text'> +5% from yesterday </p>
+                                            <button type='button' onClick={ () => notificationAlert('success', 'Redeemed successfully' ,'This wil be triggered once clicked') } > Redeem </button>
                                         </div>
                                     </div>
                                     <div className="single">
@@ -99,6 +101,7 @@ export const Myashopree = ({ title }) => {
                                             <p> {rewardMetrics.refer_point} </p>
                                             <p> Referral Points </p>
                                             <p className='coloured-text'> 0.5% from yesterday </p>
+                                            <button type='button' onClick={ () => notificationAlert('success', 'Redeemed successfully' ,'This wil be triggered once clicked') } > Redeem </button>
                                         </div>
                                     </div>
                                 </div>
