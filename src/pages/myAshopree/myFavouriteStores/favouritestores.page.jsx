@@ -40,7 +40,7 @@ return (
                                     <img src={first_store} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'/messages'}> Visit Store </Link>
+                                <Link to={'/merchant-store/15499'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
@@ -52,7 +52,7 @@ return (
                                     <img src={second_store} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'/messages'}> Visit Store </Link>
+                                <Link to={'/merchant-store/15499'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
@@ -64,7 +64,7 @@ return (
                                     <img src={third} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'/messages'}> Visit Store </Link>
+                                <Link to={'/merchant-store/15499'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
@@ -76,7 +76,7 @@ return (
                                     <img src={fourth} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'/messages'}> Visit Store </Link>
+                                <Link to={'/merchant-store/15499'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
@@ -100,7 +100,7 @@ return (
                                     <img src={six} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'/messages'}> Visit Store </Link>
+                                <Link to={'/merchant-store/15499'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
@@ -112,7 +112,7 @@ return (
                                     <img src={first_store} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'/messages'}> Visit Store </Link>
+                                <Link to={'/merchant-store/15499'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
@@ -124,7 +124,7 @@ return (
                                     <img src={second_store} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'/messages'}> Visit Store </Link>
+                                <Link to={'/merchant-store/15499'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
@@ -136,7 +136,7 @@ return (
                                     <img src={third} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'/messages'}> Visit Store </Link>
+                                <Link to={'/merchant-store/15499'}> Visit Store </Link>
                             </div>
                             <div className="each-comp">
                                 <div className="head">
@@ -148,7 +148,7 @@ return (
                                     <img src={fourth} alt="" />
                                     <em> <p> Olusegun </p> <p> Founder </p> </em>
                                 </div>
-                                <Link to={'/messages'}> Visit Store </Link>
+                                <Link to={'/merchant-store/15499'}> Visit Store </Link>
                             </div>
                         </div>
                     </div>
