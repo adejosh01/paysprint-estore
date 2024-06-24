@@ -81,7 +81,8 @@ export const Myashopree = ({ title }) => {
                                         <div>
                                             <p> {user.user.currencySymbol}{Number(rewardMetrics.cashback).toFixed(2)} </p>
                                             <p> Cashback </p>
-                                            <p> +8% from yesterday </p>
+                                            <p className='coloured-text'> +8% from yesterday </p>
+                                            <button type='button'> Redeem </button>
                                         </div>
                                     </div>
                                     <div className="single">
@@ -89,7 +90,7 @@ export const Myashopree = ({ title }) => {
                                         <div>
                                             <p> {rewardMetrics.review_point} </p>
                                             <p> Review Points </p>
-                                            <p> +5% from yesterday </p>
+                                            <p className='coloured-text'> +5% from yesterday </p>
                                         </div>
                                     </div>
                                     <div className="single">
@@ -97,7 +98,7 @@ export const Myashopree = ({ title }) => {
                                         <div>
                                             <p> {rewardMetrics.refer_point} </p>
                                             <p> Referral Points </p>
-                                            <p> 0.5% from yesterday </p>
+                                            <p className='coloured-text'> 0.5% from yesterday </p>
                                         </div>
                                     </div>
                                 </div>

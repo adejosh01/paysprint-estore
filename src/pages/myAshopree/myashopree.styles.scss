@@ -95,13 +95,22 @@
                                             color: #151D48;
                                         }
                                         &:not(:first-child) {
-                                            font: 500 15px 'circular std';
+                                            font: 550 15px 'circular std';
                                             color: #425166;
                                         }
-                                        &:last-child {
-                                            font: 500 12px 'circular std';
-                                            color: #4079ED;
-                                        }
+                                    }
+                                    .coloured-text {
+                                        font: 550 14px 'circular std' !important;
+                                        color: #4079ED !important;
+                                    }
+                                    button {
+                                        background-color: #BF83FF;
+                                        font: 500 12px 'circular std';
+                                        line-height: 16px;
+                                        color: #fff;
+                                        padding: 4px 8px;
+                                        border-radius: 5px;
+                                        margin-top: 0.5rem;
                                     }
                                 }
                             }
