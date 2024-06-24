@@ -238,20 +238,20 @@ export function useCounterForEdit(initialValue) {
 }
 
 
-export function alertMsg () {
-  Swal.fire({
-    icon: 'error',
-    title: 'Oops...',
-    text: 'Sorry, you need to add a quantity that is greater than zero',
-  });
-}
-
 export function notificationAlert(icon, title, text) {
+
   Swal.fire({
     icon,
     title,
     text
   });
+
+
+  if (!icon || !title || !text) {
+    Swal.fire({ icon: 'error', title: 'Try Again', text: 'Required params not found'});
+    console.log("Required params not found");
+  }
+
 }
 
 export function confirmationOfAction(auth) {
