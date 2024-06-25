@@ -240,6 +240,7 @@
                   font-size: 14.5px;
                   color: #C6C6C6;
                   text-decoration: line-through;
+                  flex: 0 0 40%;
                 }
                 p {
                   svg {
@@ -375,6 +376,7 @@
                   font-size: 14.5px;
                   color: #C6C6C6;
                   text-decoration: line-through;
+                  flex: 0 0 40%;
                 }
                 p {
                   svg {
@@ -604,6 +606,11 @@
   @media screen and (max-width: 900px) {
     .estore-container {
       padding-top: 2rem;
+
+      p.initialprice {
+        flex: unset !important;
+      }
+
       section.getallprods {
         div.describeProds {
           gap: 1rem;
