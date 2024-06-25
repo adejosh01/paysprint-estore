@@ -40,10 +40,98 @@
                     flex: 0 0 65%;
                     display: flex;
                     flex-direction: column;
-                    gap: 40px;
-                    h4 {
-                        color: #05004E;
-                        font: 700 30px 'circular std';
+                    gap: 25px;
+                    .both-pictures {
+                        width: 100%;
+                        img.background {
+                            background-size: cover;
+                            width: 100%;
+                            height: 210px;
+                        }
+                        img.profile {
+                            position: relative;
+                            bottom: 17%;
+                            margin-left: 35px;
+                            width: 15%;
+                            border-radius: 30rem;
+                            border: 5px solid #fff;
+                        }
+                    }
+                    .mobile-details {
+                        .title-and-location {
+                            h4 {
+                                font-weight: 700;
+                                line-height: 24px;
+                                color: #212121;
+                                display: flex;
+                                align-items: center;
+                                gap: 1rem;
+                                span {
+                                    img {
+                                        width: 40px;
+                                    }
+                                }
+                            }
+                            p {
+                                color: #737791;
+                                font-size: 16px;
+                                font-weight: 450;
+                                line-height: 20px;
+                            }
+                        }
+                        .other-items {
+                            display: flex;
+                            align-items: center;
+                            padding: 5px 0px;
+                            gap: 2rem;
+                            // margin-top: 1rem;
+                            p {
+                                button {color: #212121; padding: unset; border: unset;}
+                                span { color: #479BE9; }
+                            }
+                            button {
+                                padding: 7px 15px;
+                                border: 1px solid #9699AC;
+                                border-radius: 10px;
+                            }
+                        }
+                    }
+                    .posts {
+                        display: flex;
+                        flex-direction: column;
+                        gap: 2rem;
+                        .head {
+                            display: flex;
+                            gap: 8px;
+                            width: 50%;
+                            box-shadow: 5px 5px 10px 5px #EEEEEE;
+                            padding: 1rem;
+                            img {
+                                width: 48px;
+                                height: 48px;
+                                border-radius: 50%;
+                            }
+                            h5 {
+                                font-size: 16px;
+                                font-weight: 450;
+                                line-height: 22px;
+                            }
+                            p {
+                                font-size: 14px;
+                                font-weight: 450;
+                                line-height: 20px;
+                                color: #7B7F98;
+                            }
+                        }
+                        .texts {
+                            p {
+                                font-size: 14px;
+                                font-weight: 450;
+                                line-height: 20px;
+                                color: #5B5D60;
+                                margin-bottom: 0.2rem;
+                            }
+                        }
                     }
                 }
                 div.second {

@@ -2,6 +2,15 @@ import './storeLocationProfile.styles.scss';
 import { useEffect } from 'react';
 import MyashopreeSidePage from 'components/Myashopree/side.page';
 import config from "../../../config";
+import random_cover_photo from 'assets/images/estore/frame-4091.png';
+import profile_photo from 'assets/images/estore/allcategories/category3.png';
+import post_photo from 'assets/images/estore/personalStore/prod7.png';
+import verify from 'assets/ashopree/verify_badge.png';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faLink } from '@fortawesome/free-solid-svg-icons';
+import { copyToClipboard } from 'utils/utils';
+
+
 
 
 export const StoreLocationProfile = ({ title }) => {
@@ -25,7 +34,38 @@ export const StoreLocationProfile = ({ title }) => {
 
                     <main>
                         <div className="first">
-                            <h4> Adebambo's Store Profile </h4>
+                            <div className="both-pictures">
+                                <img className='background' src={random_cover_photo} alt="user's name" />
+                                <img className='profile' src={profile_photo} alt="user's profile name" />
+                            </div>
+
+                            <div className="mobile-details">
+                                <div className="title-and-location">
+                                    <h4> Paysprint Inc. <span> <img src={verify} alt="verified badge" /> </span> </h4>
+                                    <p> San Francisco </p>
+                                </div>
+                                <div className="other-items">
+                                    <p> <button type='button' onClick={ () => copyToClipboard('item-to-copy') } > <FontAwesomeIcon icon={faLink} /> </button> <span id='item-to-copy'> www.https://paysprint.com </span> </p>
+                                    <button> Ecommerce </button>
+                                    <button> Tech </button>
+                                    <button> Sass </button>
+                                </div>
+                            </div>
+
+                            <div className="posts">
+                                <div className="head">
+                                    <img src={post_photo} alt="profile icon" />
+                                    <div>
+                                        <h5> Olusegun Adebiyi </h5>
+                                        <p> Founder </p>
+                                    </div>
+                                </div>
+
+                                <div className="texts">
+                                    <p> Login to account to set up Online Store. </p>
+                                    <p> Click on Manage online store, select either Online Store for Goods or services and complete the forms. Provide the name of the store, upload good quality business logo, fill out the return and refund   policies, preview and save your work or publish your store. Click on Manage online store, select either Online Store for Goods or services and complete the forms. Provide the name of the store, upload good quality business logo, fill out the return and refund   policies, preview and save your work or publish your store. </p>
+                                </div>
+                            </div>
                             
                         </div>                                    
 
