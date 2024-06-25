@@ -297,3 +297,29 @@ export function dynamicDisplayEffects(elementToHide, activeDivId, activeButtonCl
   targetDiv.classList.add(activeButtonClass);
 }
 
+
+
+export function copyToClipboard(itemCopied) {
+  try {
+    const textToCopy = document.getElementById(itemCopied).innerText;
+    const temporaryInput = document.createElement('input');
+    
+    temporaryInput.value = textToCopy;
+    document.body.appendChild(temporaryInput);
+    temporaryInput.select();
+
+    const successful = document.execCommand('copy');
+    document.body.removeChild(temporaryInput);
+
+    if (successful) {
+        Swal.fire({  icon: 'success', title: 'Copied', text: 'We have copied *' + textToCopy + '* to your clipboard successfully'});
+    } else {
+        Swal.fire({ icon: 'error', title: 'Sorry, try again', text: 'We could not copy the item to your clipboard'});
+    }
+
+  } catch (err) {
+      console.error('Error copying text to clipboard: ', err);
+      Swal.fire({ icon: 'error', title: 'Error', text: 'Error copying text to clipboard: ' + err});
+  }
+
+}
