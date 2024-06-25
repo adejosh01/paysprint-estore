@@ -44,7 +44,7 @@ export const StoreLocationProfile = ({ title }) => {
                                     <p> San Francisco </p>
                                 </div>
                                 <div className="other-items">
-                                    <p> <button type='button'> <FontAwesomeIcon icon={faLink} /> </button> www.https://paysprint.com </p>
+                                    <p> <button type='button'> <FontAwesomeIcon icon={faLink} /> </button> <span id='item-to-copy'> www.https://paysprint.com </span> </p>
                                     <button> Ecommerce </button>
                                     <button> Tech </button>
                                     <button> Sass </button>
