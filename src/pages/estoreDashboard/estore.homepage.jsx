@@ -171,7 +171,6 @@ export const EstoreDashboard = ({ title }) => {
           <section className="topproducts">
             <div className="producttitle">
               <p className="realtitle"> Top Products </p>
-              {/* <p className="secondtitle"> See all Products </p> */}
             </div>
 
             <div className="items">
