@@ -3,14 +3,18 @@ import axios from "axios";
 import config from "../../config";
 import "./allcategories.scss";
 
+
 export const Categories = (prop) => {
     const [data, setData] = useState([]);
     const apiUrl = config().baseUrl;
 
 
+
+
     useEffect(() => {
         // document.title = title;
         window.scrollTo(0, 0);
+
 
         axios.get(`${apiUrl}/ashopree/product/category`)
             .then(response => {
@@ -19,7 +23,9 @@ export const Categories = (prop) => {
                 console.error('Error fetching data:', error);
             });
 
+
     }, [apiUrl]);
+
 
     return (
             <div className="sidebar">
@@ -34,13 +40,16 @@ export const Categories = (prop) => {
                             </a>
                         ))}
 
+
                         {!Array.isArray(data) && <div>Error: Sorry, Please check your network connection and try again</div>}
                     </div>
                 ) : (
 
+
                     <p style={{ textAlign: 'center', fontSize: '2rem' }}> Loading... </p>
                 )}
             </div>
-            
+           
     )
 }
+
