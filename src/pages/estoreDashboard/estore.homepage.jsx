@@ -163,10 +163,23 @@ export const EstoreDashboard = ({ title }) => {
                       <div className="imgdescription">
                         <p className="nameofitem" onClick={() => handleClick(`/productdetails/${item.productCode}`, navigate)}> {item.productName} </p>
                         <div>
-                          <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')} </p>
-                          <p className="initialprice"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')} </p>
+                           <div className="prices">
+                                <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')} </p>
+                                <p className="initialprice"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')} </p>
+                           </div>
                           <button type="button"> <FontAwesomeIcon icon={faCartPlus} /> </button>
                         </div>
+                        <div>
+                              <span>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                              </span>
+                              <p className="reviews"> 4.56 (132 reviews) </p>
+                          </div>
+                        
                       </div>
                     </Card>
                   </div>
@@ -200,22 +213,35 @@ export const EstoreDashboard = ({ title }) => {
         </section>
       ) : (
         topProducts.length !== 0 && (
-          <section className="topproducts">
-            <div className="producttitle">
-              <p className="realtitle"> Top Products </p>
-            </div>
+          <section className="topdeals">
+            
+              <p className="dealtitle"> Top Products </p>
+            
             <div className="items">
               {topProducts.map((item, index) => (
                 <div key={index}>
-                  <Card className="eachItem" hoverable style={{ width: '100%' }}>
-                  <img src={item.image} alt={item.productName} onClick={() => handleClick(`/productdetails/${item.productCode}`, navigate)} />
+                  <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img src={item.image} alt={item.productName} onClick={() => handleClick(`/productdetails/${item.productCode}`, navigate)} />}>
+                  
                   <div className="imgdescription">
                     <p className="nameofitem" onClick={() => handleClick(`/productdetails/${item.productCode}`, navigate)}> {item.productName} </p>
                     <div>
-                      <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')} </p>
-                      <p className="initialprice"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')} </p>
+                      <div className="prices">
+                          <p className="priceofitem"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.myamount).toLocaleString('en-US') : item.currencySymbol + Number(item.amount).toLocaleString('en-US')} </p>
+                          <p className="initialprice"> {Object.keys(item.myCountryConversion).length > 0 ? item.myCountryConversion.mycurrencysymbol + Number(item.myCountryConversion.mypreviousamount).toLocaleString('en-US') : item.currencySymbol + Number(item.previousAmount).toLocaleString('en-US')} </p>
+                      </div>
+                      
                       <button type="button"> <FontAwesomeIcon icon={faCartPlus} /> </button>
                     </div>
+                    <div>
+                              <span>
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                                <img src={starimage} alt="justtheIconOfAStar" />
+                              </span>
+                              <p className="reviews"> 4.56 (132 reviews) </p>
+                          </div>
                   </div>
                   </Card>
                  

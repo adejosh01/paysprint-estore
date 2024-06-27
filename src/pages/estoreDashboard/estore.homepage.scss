@@ -204,6 +204,7 @@
       grid-template-columns: repeat(4, 1fr);
       gap: 2rem;
 
+
       .eachItem {
         cursor: unset;
         height: 100%;
@@ -257,26 +258,59 @@
           flex-direction: column;
           gap: 1.5rem;
 
+          div {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            span {
+              display: grid;
+              grid-template-columns: repeat(5, 1fr);
+              column-gap: 0.2rem;
+
+              img {
+                width: 20px;
+                height: 20px;
+              }
+            }
+
+            .reviews {
+              margin-left: 1rem;
+            }
+
+            button {
+              svg {
+                width: 25px;
+                height: 25px;
+                color: #4F0B92;
+              }
+            }
+
+            .prices {
+              gap: 10px;
+            }
+          }
+
           .nameofitem {
             font-weight: 700;
-            font-size: 25px;
+            font-size: 20px;
             line-height: 25.2px;
             cursor: pointer;
           }
 
           .priceofitem {
-            font-weight: 600;
-            font-size: 20px;
+            font-weight: 500;
+            font-size: 18px;
           }
 
           .initialprice {
-            font-weight: 600;
-            font-size: 20px;
+            color: #a0a2a7;
+            font-size: 14px;
+            font-style: italic;
           }
 
+
           div.first {
-
-
             div {
               display: flex;
               justify-content: space-between;
@@ -354,198 +388,6 @@
     }
   }
 
-  section.topproducts {
-    padding: 5rem 5.6rem;
-
-    .items {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-
-      .eachItem {
-        cursor: unset;
-        height: 100%;
-
-        img {
-          width: 100%;
-          height: 25rem;
-          border-radius: 12px;
-          cursor: pointer;
-        }
-
-        .imgdescription {
-          margin: 4% auto;
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-
-          .nameofitem {
-            font-weight: 700;
-            font-size: 25px;
-            line-height: 25.2px;
-            cursor: pointer;
-          }
-
-          .priceofitem {
-            font-weight: 600;
-            font-size: 20px;
-          }
-
-          .initialprice {
-            font-weight: 600;
-            font-size: 20px;
-          }
-        }
-
-        div.banner {
-          // background-image: url("../../assets/updatedAshopree/single_product_banner.png");
-          // background-repeat: round;
-          background-color: #4F0B92;
-          position: relative;
-          margin-top: -4.8rem;
-          width: 100%;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          padding: 6px 24px;
-          left: 0;
-          border-radius: 12px;
-
-          div {
-            p {
-              &:first-child {
-                font: 200 20px "Bella Script";
-                line-height: 20px;
-                color: #fff;
-              }
-
-              &:last-child {
-                font: 800 13px "plus jakarta sans";
-                color: #fff;
-                text-transform: uppercase;
-              }
-            }
-          }
-
-          p {
-            font: 500 15px "plus jakarta sans";
-            color: #fff;
-          }
-        }
-
-        .imgdescription {
-          margin: 4% auto;
-          display: flex;
-          flex-direction: column;
-          gap: 1.5rem;
-          padding: 20px;
-
-          div.first {
-            .nameofitem {
-              font-weight: 500;
-              font-size: 23px;
-              line-height: 25.2px;
-              cursor: pointer;
-            }
-
-            .priceofitem {
-              font-weight: 600;
-              font-size: 20px;
-            }
-
-            div {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-
-              p.initialprice {
-                font-weight: 500;
-                font-size: 14.5px;
-                color: #C6C6C6;
-                text-decoration: line-through;
-                flex: 0 0 40%;
-              }
-
-              p {
-                svg {
-                  color: #FF6D01;
-                  margin-right: 3px;
-                }
-              }
-
-              button {
-                svg {
-                  width: 24px;
-                  height: 24px;
-                  color: #4F0B92;
-                }
-              }
-            }
-          }
-
-          div.second {
-            display: flex;
-            flex-direction: column;
-
-            .both {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-
-              p.items-left {
-                color: #FC9B67 !important;
-                font: 400 16px 'plus jarkata sans';
-                line-height: 23px;
-              }
-
-              p {
-                color: #2D334A;
-                font-size: 14px;
-
-                svg {
-                  color: #FF6D01;
-                }
-              }
-            }
-
-            div.ratings {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              gap: 1rem;
-
-              span {
-                display: flex;
-                gap: 0.2rem;
-
-                img {
-                  width: 2rem;
-                  height: 2rem;
-                }
-              }
-
-              p {
-                font-size: 15px;
-              }
-            }
-          }
-        }
-      }
-    }
-
-    .producttitle {
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-
-      .realtitle {
-        font-family: 'Plus Jakarta Sans';
-        font-weight: 600;
-        font-size: 40px;
-        color: #2D334A;
-      }
-    }
-  }
 
   section.registered {
     padding: 5rem 5.6rem;

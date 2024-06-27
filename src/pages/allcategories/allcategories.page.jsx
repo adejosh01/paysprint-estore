@@ -4,9 +4,8 @@ import starimage from "assets/images/star.png";
 import axios from "axios";
 import config from "../../config";
 import { SideBarCategories } from "components/sidebarCategories/sidebarCategories";
-
-
-
+import { Card } from "antd";
+import Skeleton from "react-loading-skeleton";
 
 export const AllCategories = ({ title }) => {
   const [productCategory, setProductCategory] = useState([]);
@@ -16,11 +15,9 @@ export const AllCategories = ({ title }) => {
   const urlParams = new URLSearchParams(queryString);
   const category = urlParams.get('categoryname');
 
-
   useEffect(() => {
     document.title = title;
     window.scrollTo(0, 0);
-
 
     axios.get(`${apiUrl}/ashopree/product/category/${category}`)
       .then(response => {
@@ -30,58 +27,56 @@ export const AllCategories = ({ title }) => {
         console.error('Error fetching data:', error);
         setLoading(false); // Update loading state in case of error
       });
-
-
   }, [apiUrl, title, category]);
-
 
   return (
     <div className="estore-container">
-
-
       <section className="allcats">
         <SideBarCategories />
-
-
         <div className="maincontent">
           <div className="homeandoffice">
             <div className="producttitle">
-              <p className="realtitle"> {category} </p>
+              <p className="realtitles"> {category} </p>
               <p className="secondtitle"> See all </p>
             </div>
-
-
             <div className="items">
               {/* Conditional rendering based on loading state */}
               {loading ? (
-                <Preloader /> // Display the Preloader component while loading
+                <div className="skeleton-row">
+                  {[...Array(3)].map((_, index) => (
+                    <div key={index} className="skeleton-item">
+                      <Skeleton height={300} width={250} /> {/* Adjust dimensions to match Card */}
+                    </div>
+                  ))}
+                </div>
               ) : (
                 productCategory.status === 200 ? (
                   productCategory.data.length > 0 ? (
                     <>
                       {productCategory.data.map((item, index) => (
-                        <div className="eachItem" key={index}>
-                          <img src={item.image} alt={item.productName} />
-                          <div className="imgdescription">
-                            <p className="nameofitem"> {item.productName} </p>
-                            <p className="priceofitem"> {item.currencySymbol + '' + Number(item.amount).toFixed()} </p>
-                            <div>
-                              <span>
-                                <img src={starimage} alt="justtheIconOfAStar" />
-                                <img src={starimage} alt="justtheIconOfAStar" />
-                                <img src={starimage} alt="justtheIconOfAStar" />
-                                <img src={starimage} alt="justtheIconOfAStar" />
-                                <img src={starimage} alt="justtheIconOfAStar" />
-                              </span>
-                              <p className="initialprice"> 4.56 (132 reviews) </p>
+                        <div key={index}>
+                          <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img src={item.image} alt={item.productName} />}>
+                            <div className="imgdescription">
+                              <p className="nameofitems"> {item.productName} </p>
+                              <p className="priceofitems"> {item.currencySymbol + '' + Number(item.amount).toFixed()} </p>
+                              <div>
+                                <span>
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                  <img src={starimage} alt="justtheIconOfAStar" />
+                                </span>
+                                <p className="reviews"> 4.56 (132 reviews) </p>
+                              </div>
                             </div>
-                          </div>
+                          </Card>
                         </div>
                       ))}
                     </>
                   ) : (
-                    <p style={{ width: '135%' }}>
-                      No product found for this category. Please select another category
+                    <p style={{ width: '100%' }}>
+                      No products found for this category. Please select another category.
                     </p>
                   )
                 ) : (
@@ -92,16 +87,6 @@ export const AllCategories = ({ title }) => {
           </div>
         </div>
       </section>
-
-
     </div>
   );
-
-
 };
-const Preloader = () => (
-  <div className="preloader-container">
-    <div className="loader"></div>
-  </div>
-);
-
