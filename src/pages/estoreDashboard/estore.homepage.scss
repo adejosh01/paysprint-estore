@@ -129,13 +129,14 @@
 
               select {
                 width: 100%;
-                color: #A0A2A7;
+                color: #2d334a;
+               
               }
 
               option {
-                color: var(--text-3, #a0a2a7);
+                color: var(--text-3, #2d334a);
                 text-align: left;
-                font: 500 16px PlusJakartaSans-Medium, sans-serif;
+                font: 600 16px PlusJakartaSans-Medium, sans-serif;
               }
 
               p {
