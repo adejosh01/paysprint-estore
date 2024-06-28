@@ -115,7 +115,7 @@ export const EstoreDashboard = ({ title }) => {
                       <p>Error: An error occurred</p>
                     )
                   ) : (
-                    <p>Loading Categories</p>
+                    <p>...</p>
                   )}
                 </div>
                 <input className="home" type="text" name="query" placeholder="Search for a product, service, or online store" value={value} onChange={(e) => setValue(e.target.value)} />
