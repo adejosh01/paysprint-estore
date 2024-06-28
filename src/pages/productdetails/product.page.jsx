@@ -15,6 +15,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faAngleRight, faCheck } from '@fortawesome/free-solid-svg-icons';
 import ProgressBarForProduct from 'components/loader/progressBarForProduct.component';
 import { LoaderVTwo } from 'components/loader/loader.component.version-two';
+import { ProductSkeleton, ProductSkeleton2 } from './productSkeleton';
 
  
 export const ProductDetails = ({ title }) => {
@@ -201,7 +202,7 @@ export const ProductDetails = ({ title }) => {
                     </div>
                 </section>
             ) : (
-                <LoaderVTwo />
+                <ProductSkeleton />
             )}
    
                 {similarProduct.length > 0 ? (
@@ -236,7 +237,7 @@ export const ProductDetails = ({ title }) => {
                         </div>
                     </section>
                 ) : (
-                    <div style={{ textAlign: 'center' }}> <Loader /> </div>
+                    <div> <ProductSkeleton2 /> </div>
                 )}
 
                 <section className="feedbacks">
