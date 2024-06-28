@@ -686,18 +686,18 @@
             form {
               div {
                 padding: unset;
-                flex: 0 0 35%;
-                display: none;
-
-                select {
-                  option {
-                    display: none;
-                  }
+                flex: 0 0 10%;
+                select{
+                  width: 20px;
+                  font-weight: 800;
+                  
                 }
+                
               }
 
               input {
                 font-size: 14px;
+                
               }
 
               .searchbtn {
