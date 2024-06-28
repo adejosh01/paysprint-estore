@@ -180,9 +180,9 @@
             form.justbuttons {
                 width: 100%;
                 display: flex;
-                justify-content: space-evenly;
+                gap: 20px;
                 button {
-                    padding: 23.5px 88.5px;
+                    padding: 20px 80px;
                     border-radius: 10px;
                     &:first-child {
                         color: #2D334A;
@@ -205,9 +205,9 @@
             p {
               text-align: center;
               text-transform: uppercase;
-              font: 600 24px 'Plus Jakarta Sans';
+              font: 700 30px 'Plus Jakarta Sans';
               line-height: 30.24px;
-              color: #5B5D64;
+             
             }
         }
         .items {
@@ -473,7 +473,8 @@
         section.oneproduct {
             .describingtheimages {
                 form.justbuttons {
-                    justify-content: space-evenly;
+                    display: flex;
+                    flex-direction: column;
                     button {
                         padding: 20px 60px;
                     }

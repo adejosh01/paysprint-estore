@@ -31,7 +31,7 @@ export const SideBarCategories = ({ title }) => {
 
   return (
     <div className="sidebar">
-      <h4> Categories </h4>
+      <h3> Categories </h3>
 
 
       {data.length !== 0 ? (

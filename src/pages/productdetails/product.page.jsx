@@ -148,7 +148,7 @@ export const ProductDetails = ({ title }) => {
                     <div className="describingtheimages">
                         <h2> {specificProduct.productName} </h2>
                         <div className='longpiece'>
-                            <h4> Description</h4>
+                            <h4> Descrip all my lovetion</h4>
                             <p> {typeof specificProduct.description === 'string' ? stripHtmlTags(specificProduct.description) : specificProduct.description} </p>
                             <div className='dynamic'>
                                 <div>

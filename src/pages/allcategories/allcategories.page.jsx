@@ -6,6 +6,8 @@ import config from "../../config";
 import { SideBarCategories } from "components/sidebarCategories/sidebarCategories";
 import { Card } from "antd";
 import Skeleton from "react-loading-skeleton";
+import { useNavigate } from "react-router-dom";
+import {  handleClick } from "utils/utils";
 
 export const AllCategories = ({ title }) => {
   const [productCategory, setProductCategory] = useState([]);
@@ -14,6 +16,7 @@ export const AllCategories = ({ title }) => {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
   const category = urlParams.get('categoryname');
+  const navigate = useNavigate();
 
   useEffect(() => {
     document.title = title;
@@ -55,7 +58,7 @@ export const AllCategories = ({ title }) => {
                     <>
                       {productCategory.data.map((item, index) => (
                         <div key={index}>
-                          <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img src={item.image} alt={item.productName} />}>
+                          <Card className="eachItem" hoverable style={{ width: '100%' }} cover={<img src={item.image} alt={item.productName} onClick={() => handleClick(`/productdetails/${item.productCode}`, navigate)} />}>
                             <div className="imgdescription">
                               <p className="nameofitems"> {item.productName} </p>
                               <p className="priceofitems"> {item.currencySymbol + '' + Number(item.amount).toFixed()} </p>
