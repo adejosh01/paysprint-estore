@@ -24,6 +24,7 @@ export const EstoreDashboard = ({ title }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
 
+
   const fetchData = useCallback(async () => {
     try {
       const cache = sessionStorage.getItem('dashboardData');
@@ -83,6 +84,7 @@ export const EstoreDashboard = ({ title }) => {
 
   const [isSubMenuOpen] = useState(false)
 
+
   return (
     <div className="estore-container">
       <section className="getallprods" style={{ padding: 'unset' }}>
@@ -105,12 +107,18 @@ export const EstoreDashboard = ({ title }) => {
                 <div className={getConditionalClassName(isSubMenuOpen, "submenu", "active")}>
                   {categories.length !== 0 ? (
                     Array.isArray(categories) ? (
-                      <select name="category" defaultValue={'all'} required>
+                      <>
+                      <select className="desktop" name="category" defaultValue={'all'}  >
                         <option value="">Select Categories</option>
                         {categories.map((item, index) => (
                           <option key={index} value={item.category}>{item.category}</option>
                         ))}
                       </select>
+                      
+                      
+                      </>
+                      
+                      
                     ) : (
                       <p>Error: An error occurred</p>
                     )
